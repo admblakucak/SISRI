@@ -8,40 +8,6 @@ use App\Libraries\Access_API; // Import library
 
 class Welcome extends BaseController
 {
-  public function index()
-  {
-    session()->destroy();
-    return view('Login/login');
-  }
-  public function proses_login()
-  {
-    $username = $this->request->getPost("username");
-    $pass = $this->request->getPost("password");
-    if ($username == 'mahasiswa' && $pass == 'mahasiswa') {
-      session()->set('ses_login', 'mahasiswa');
-      session()->set('ses_nama', 'Mahrus Sholeh');
-      session()->set('ses_id', '170441100001');
-      return redirect()->to('/beranda_mahasiswa');
-    } elseif ($username == 'dosen' && $pass == 'dosen') {
-      session()->set('ses_login', 'dosen');
-      session()->set('ses_nama', 'Yeni Kustiyahningsih, S.Kom., M.Kom');
-      session()->set('ses_id', '19770921 200812 2 002');
-      return redirect()->to('/Beranda');
-    } elseif ($username == 'korprodi' && $pass == 'korprodi') {
-      session()->set('ses_login', 'korprodi');
-      session()->set('ses_nama', 'Budi Dwi Satoto, S.T., M.Kom');
-      session()->set('ses_id', '19750909 200212 1 001');
-      return redirect()->to('/beranda_koorprodi');
-      return redirect()->to('/validasi_usulan');
-    } elseif ($username == 'admin' && $pass == 'admin') {
-      session()->set('ses_login', 'admin');
-      session()->set('ses_nama', 'Budi Dwi Satoto, S.T., M.Kom');
-      session()->set('ses_id', '19750909 200212 1 001');
-      return redirect()->to('/data_dosen');
-    } else {
-      return redirect()->to('/');
-    }
-  }
   public function validasi_usulan_dosen()
   {
     $data = [

@@ -35,6 +35,12 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+//Route Khusus Controller Auth-Login
+$routes->add('/', 'Auth\Login::index');
+$routes->add('/proses_login', 'Auth\Login::proses_login');
+//Route Khusus Controller Auth-Logout
+$routes->add('/logout', 'Auth\Logout::index');
 //Route Khusus Controller Admin-Mahasiswa
 $routes->add('/data_mahasiswa', 'Admin\Mahasiswa::index');
 $routes->add('/data_mahasiswa2', 'Admin\Mahasiswa::index2');
@@ -58,16 +64,11 @@ $routes->add('/update_data_periode/(:any)', 'Admin\Periode::update_data_periode/
 //Route Khusus Controller Admin-Perwalian
 $routes->add('/data_perwalian', 'Admin\Perwalian::index');
 $routes->add('/update_data_perwalian/(:any)', 'Admin\Perwalian::update_data_perwalian/$1');
-//Route Khusus Controller Auth-Login
 
-$routes->add('/login', 'Auth\Login::index');
+// ============================================================================================
 
-
-
-
-$routes->get('/', 'Welcome::index');
 $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');
-$routes->add('/proses_login', 'Welcome::proses_login');
+// $routes->add('/proses_login', 'Welcome::proses_login');
 $routes->add('/api', 'Welcome::api');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/ajukan_topik', 'Welcome::ajukan_topik');
