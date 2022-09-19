@@ -185,6 +185,10 @@ class Welcome extends BaseController
   }
   public function Bimbingan_Skripsi()
   {
+    if (session()->get('ses_id') == '' && session()->get('ses_login') == '') {
+      return redirect()->to('/');
+    }
+
     $data = [
       'title' => 'Bimbingan Skripsi'
     ];
