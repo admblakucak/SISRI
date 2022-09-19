@@ -22,6 +22,6 @@ class Login extends BaseController
         // echo $ciphertext;
         // // Outputs: This is a plain-text message!
         // echo $encrypter->decrypt($ciphertext);
-        echo "aaaaaaaaa";a
+        echo "aaaaaaaaa";
     }
 }
