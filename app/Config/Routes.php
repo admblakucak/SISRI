@@ -44,23 +44,24 @@ $routes->add('/logout', 'Auth\Logout::index');
 //Route Khusus Controller Admin-Mahasiswa
 $routes->add('/data_mahasiswa', 'Admin\Mahasiswa::index');
 $routes->add('/data_mahasiswa2', 'Admin\Mahasiswa::index2');
-$routes->add('/update_data_mhs/(:any)', 'Admin\Mahasiswa::update_data_mhs/$1');
+$routes->add('/update_data_mhs', 'Admin\Mahasiswa::update_data_mhs');
 $routes->add('/jurusan_mhs/(:any)', 'Admin\Mahasiswa::jurusan_mhs/$1');
 $routes->add('/prodi_mhs/(:any)', 'Admin\Mahasiswa::prodi_mhs/$1');
 $routes->add('/detail_data_mhs/(:any)/(:any)', 'Admin\Mahasiswa::detail_data_mhs/$1/$2');
 $routes->add('/angkatan_mhs/(:any)', 'Admin\Mahasiswa::angkatan_mhs/$1');
+$routes->add('/coba_mhs', 'Admin\Mahasiswa::coba');
 //Route Khusus Controller Admin-Dosen
 $routes->add('/data_dosen', 'Admin\Dosen::index');
-$routes->add('/update_data_dosen/(:any)', 'Admin\Dosen::update_data_dosen/$1');
+$routes->add('/update_data_dosen', 'Admin\Dosen::update_data_dosen');
 $routes->add('/jurusan_dosen/(:any)', 'Admin\Dosen::jurusan_dosen/$1');
 $routes->add('/prodi_dosen/(:any)', 'Admin\Dosen::prodi_dosen/$1');
 $routes->add('/detail_data_dosen/(:any)', 'Admin\Dosen::detail_data_dosen/$1');
 //Route Khusus Controller Admin-unit
 $routes->add('/data_unit', 'Admin\Unit::index');
-$routes->add('/update_data_unit/(:any)', 'Admin\Unit::update_data_unit/$1');
+$routes->add('/update_data_unit', 'Admin\Unit::update_data_unit');
 //Route Khusus Controller Admin-Periode
 $routes->add('/data_periode', 'Admin\Periode::index');
-$routes->add('/update_data_periode/(:any)', 'Admin\Periode::update_data_periode/$1');
+$routes->add('/update_data_periode', 'Admin\Periode::update_data_periode');
 //Route Khusus Controller Admin-Perwalian
 $routes->add('/data_perwalian', 'Admin\Perwalian::index');
 $routes->add('/update_data_perwalian/(:any)', 'Admin\Perwalian::update_data_perwalian/$1');

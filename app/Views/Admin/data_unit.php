@@ -14,47 +14,9 @@ use CodeIgniter\Images\Image;
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title mg-b-0">Data Unit</h4>
                         <?php
-                        if ($count_data <= $total_data) {
-                            $aktif = 0;
-                            if ($max_page == 0) { ?>
-                                <a class="btn btn-primary btn-sm" href="<?= base_url() ?>/update_data_unit/1">UPDATE</a>
-                                <?php
-                            } elseif ($max_page == 1) {
-                                $data_jum = $db->query("SELECT count(idunit) as jumlah from tb_unit where page=$max_page")->getResult();
-                                if ($data_jum[0]->jumlah < 1000) { ?>
-                                    <a class="btn btn-primary btn-sm" href="<?= base_url() ?>/update_data_unit/<?= $max_page ?>">UPDATE</a>
-                                <?php
-                                } else { ?>
-                                    <a class="btn btn-primary btn-sm" href="<?= base_url() ?>/update_data_unit/<?= $max_page + 1 ?>">UPDATE</a>
-                                <?php
-                                }
-                                ?>
-                                <?php
-                            } else {
-                                for ($i = 1; $i < $max_page; $i++) {
-                                    $data_jum = $db->query("SELECT count(idunit) as jumlah from tb_unit where page=$i")->getResult();
-                                    if ($data_jum[0]->jumlah < 1000) { ?>
-                                        <a class="btn btn-primary btn-sm" href="<?= base_url() ?>/update_data_unit/<?= $i ?>">UPDATE</a>
-                                        <?php $aktif = 1;
-                                        break;
-                                    }
-                                }
-                                if ($aktif == 0) {
-                                    if ($max_page == $total_page) {
-                                        $data_jum = $db->query("SELECT count(idunit) as jumlah from tb_unit where page=$max_page")->getResult();
-                                        if ($data_jum[0]->jumlah < 1000) { ?>
-                                            <a class="btn btn-primary btn-sm" href="<?= base_url() ?>/update_data_unit/<?= $max_page ?>">UPDATE</a>
-                                        <?php
-                                        }
-                                    } else {
-                                        $data_jum = $db->query("SELECT count(idunit) as jumlah from tb_unit where page=$max_page")->getResult();
-                                        if ($data_jum[0]->jumlah < 1000) { ?>
-                                            <a class="btn btn-primary btn-sm" href="<?= base_url() ?>/update_data_unit/<?= $max_page + 1 ?>">UPDATE</a>
+                        if ($count_data < $total_data) { ?>
+                            <a class="btn btn-primary btn-sm" href="<?= base_url() ?>/update_data_unit">UPDATE</a>
                         <?php
-                                        }
-                                    }
-                                }
-                            }
                         }
                         ?>
                     </div>
