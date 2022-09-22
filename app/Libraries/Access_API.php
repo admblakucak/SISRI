@@ -4,7 +4,7 @@ namespace App\Libraries;
 
 class Access_API
 {
-    function post_authorize_dosen($email)
+    function authorize($email)
     {
         $option = [
             'headers' => [
@@ -14,10 +14,11 @@ class Access_API
         $client = \Config\Services::curlrequest($option);
         $data = $client->request('POST', 'https://api.trunojoyo.ac.id:8212/siakad/v1/authorize', [
             'form_params' => [
-                'email' => $email,
-            ],
+                'email' => $email
+            ]
         ])->getBody();
-        return $data;
+        $result = json_decode($data);
+        return $result;
     }
     function get_data_api($url)
     {

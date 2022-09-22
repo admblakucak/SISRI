@@ -138,7 +138,7 @@ class Dosen extends BaseController
         for ($i = 0; $i < count($r); $i++) {
             $this->db->query("$r[$i]");
         }
-        $this->db->query("INSERT INTO tb_log (`action`,`log`,`user`) VALUES ('insert or update','Update Data dosen','')");
+        $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','insert or update','Update Data Dosen',now())");
         return redirect()->to('/data_dosen');
     }
 }

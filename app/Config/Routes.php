@@ -49,7 +49,6 @@ $routes->add('/jurusan_mhs/(:any)', 'Admin\Mahasiswa::jurusan_mhs/$1');
 $routes->add('/prodi_mhs/(:any)', 'Admin\Mahasiswa::prodi_mhs/$1');
 $routes->add('/detail_data_mhs/(:any)/(:any)', 'Admin\Mahasiswa::detail_data_mhs/$1/$2');
 $routes->add('/angkatan_mhs/(:any)', 'Admin\Mahasiswa::angkatan_mhs/$1');
-$routes->add('/coba_mhs', 'Admin\Mahasiswa::coba');
 //Route Khusus Controller Admin-Dosen
 $routes->add('/data_dosen', 'Admin\Dosen::index');
 $routes->add('/update_data_dosen', 'Admin\Dosen::update_data_dosen');
@@ -70,7 +69,7 @@ $routes->add('/update_data_perwalian/(:any)', 'Admin\Perwalian::update_data_perw
 
 $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');
 // $routes->add('/proses_login', 'Welcome::proses_login');
-$routes->add('/api', 'Welcome::api');
+$routes->add('/coba', 'Welcome::coba');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/ajukan_topik', 'Welcome::ajukan_topik');
 $routes->add('/bimbingan_proposal', 'Welcome::bimbingan_proposal');

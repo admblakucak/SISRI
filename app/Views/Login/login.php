@@ -86,6 +86,7 @@
                                                     <div class="main-signup-header">
                                                         <h2>Selamat Datang</h2>
                                                         <h6 class="fw-semibold mb-4">Login untuk melanjutkan</h6>
+                                                        <?= session()->getFlashdata('message'); ?>
                                                         <form action="<?php base_url() ?>/proses_login" method="POST" enctype="multipart/form-data">
                                                             <div class="form-group">
                                                                 <label>Username</label>

@@ -59,7 +59,7 @@ class Unit extends BaseController
         for ($i = 0; $i < count($result); $i++) {
             $this->db->query("$result[$i]");
         }
-        $this->db->query("INSERT INTO tb_log (`action`,`log`,`user`) VALUES ('insert or update','Update Data Unit','')");
+        $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','insert or update','Update Data Unit',now())");
         return redirect()->to('/data_unit');
     }
 }
