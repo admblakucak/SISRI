@@ -71,6 +71,8 @@ $routes->add('/beranda_dosen', 'Dosen\Beranda::index');
 $routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
 //Route Khusus Controller Mahasiswa-Ajukan_Topik
 $routes->add('/ajukan_topik_mahasiswa', 'Mahasiswa\Ajukan_Topik::index');
+$routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
+$routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
 // ============================================================================================
 
 $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');

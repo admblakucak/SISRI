@@ -37,4 +37,38 @@ class Ajukan_Topik extends BaseController
         ];
         return view('Mahasiswa/ajukan_topik', $data);
     }
+    public function ajukan_dospem_1()
+    {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'mahasiswa') {
+            return redirect()->to('/');
+        }
+        $nip = $this->request->getPost("nip");
+        $this->db->query("INSERT INTO tb_pengajuan_pembimbing (nim,nip,sebagai) VALUES ('" . session()->get('ses_id') . "','$nip','1')");
+        session()->setFlashdata('message_pem1', '
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>
+		<span class="alert-inner--text"><strong>Sukses!</strong> Pengajuan dosen pembimbing 1 berhasil.</span>
+		<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">×</span>
+		</button>
+	</div>');
+        return redirect()->to('/ajukan_topik_mahasiswa');
+    }
+    public function ajukan_dospem_2()
+    {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'mahasiswa') {
+            return redirect()->to('/');
+        }
+        $nip = $this->request->getPost("nip");
+        $this->db->query("INSERT INTO tb_pengajuan_pembimbing (nim,nip,sebagai) VALUES ('" . session()->get('ses_id') . "','$nip','2')");
+        session()->setFlashdata('message_pem2', '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>
+            <span class="alert-inner--text"><strong>Sukses!</strong> Pengajuan dosen pembimbing 2 berhasil.</span>
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>');
+        return redirect()->to('/ajukan_topik_mahasiswa');
+    }
 }
