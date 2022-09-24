@@ -19,12 +19,13 @@ use CodeIgniter\Images\Image;
                             <h4 class="card-title mg-b-0">Ajukan Topik</h4>
                             <i class="mdi mdi-dots-horizontal text-gray"></i>
                         </div>
-                        <p class="tx-12 tx-gray-500 mb-2">Ajukan topik skripsi.</a></p>
+                        <p class="tx-12 tx-gray-500 mb-2">Ajukan topik skripsi.</p>
                     </div>
                     <?= session()->getFlashdata('message_ajukan_topik') . "<br>"; ?>
                     <div class="">
                         <form action="<?php base_url() ?>/proses_ajukan_topik" method="POST" enctype="multipart/form-data">
                             <div class="mb-4">
+                                <label for="">Pilih Topik</label>
                                 <select class="form-control select2" name="topik">
                                     <option selected disabled>Pilih Topik
                                     </option>
@@ -40,12 +41,15 @@ use CodeIgniter\Images\Image;
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="">Judul Topik</label>
                                 <input type="teks" name="judul_topik" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda" <?php if (!empty($data_pengajuan_topik[0]->judul_topik)) {
                                                                                                                                                             echo "value='" . $data_pengajuan_topik[0]->judul_topik . "'";
                                                                                                                                                         } ?>>
                             </div>
                             <div class="row">
                                 <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <label for="">Upload Berkas Proposal Skripsi</label>
+                                    <p class="tx-12 tx-gray-500 pt-0">Minimal BAB 1 (Pendahuluan).</p>
                                     <div class="input-group file-browser">
                                         <input type="text" class="form-control border-right-0 browse-file" placeholder="Upload Proposal Minimal Bab 1" name="ket_berkas" <?php if (!empty($data_pengajuan_topik[0]->berkas)) {
                                                                                                                                                                                 echo "value='" . $data_pengajuan_topik[0]->berkas . "'";
