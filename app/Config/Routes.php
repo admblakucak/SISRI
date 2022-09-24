@@ -73,6 +73,7 @@ $routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
 $routes->add('/ajukan_topik_mahasiswa', 'Mahasiswa\Ajukan_Topik::index');
 $routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
 $routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
+$routes->add('/proses_ajukan_topik', 'Mahasiswa\Ajukan_Topik::proses_ajukan_topik');
 // ============================================================================================
 
 $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');

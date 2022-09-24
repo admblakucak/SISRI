@@ -21,35 +21,45 @@ use CodeIgniter\Images\Image;
                         </div>
                         <p class="tx-12 tx-gray-500 mb-2">Ajukan topik skripsi.</a></p>
                     </div>
+                    <?= session()->getFlashdata('message_ajukan_topik') . "<br>"; ?>
                     <div class="">
-                        <div class="mb-4">
-                            <select class="form-control select2" name="topik">
-                                <option selected disabled>Pilih Topik
-                                </option>
-                                <?php foreach ($topik as $key) { ?>
-                                    <option value="<?= $key->idtopik ?>">
-                                        <?= $key->nama ?>
+                        <form action="<?php base_url() ?>/proses_ajukan_topik" method="POST" enctype="multipart/form-data">
+                            <div class="mb-4">
+                                <select class="form-control select2" name="topik">
+                                    <option selected disabled>Pilih Topik
                                     </option>
-                                <?php
-                                } ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="teks" name="judul_topik" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda">
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-7 col-md-6 col-lg-4">
-                                <div class="input-group file-browser">
-                                    <input type="text" class="form-control border-right-0 browse-file" placeholder="Upload Proposal Minimal Bab 1" readonly>
-                                    <label class="input-group-btn">
-                                        <span class="btn btn-default">
-                                            Browse <input type="file" class="d-none" multiple>
-                                        </span>
-                                    </label>
+
+                                    <?php foreach ($topik as $key) { ?>
+                                        <option value="<?= $key->idtopik ?>" <?php if ($data_pengajuan_topik[0]->id_topik == $key->idtopik) {
+                                                                                    echo "selected";
+                                                                                } ?>>
+                                            <?= $key->nama ?>
+                                        </option>
+                                    <?php
+                                    } ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="teks" name="judul_topik" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda" <?php if (!empty($data_pengajuan_topik[0]->judul_topik)) {
+                                                                                                                                                            echo "value='" . $data_pengajuan_topik[0]->judul_topik . "'";
+                                                                                                                                                        } ?>>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <div class="input-group file-browser">
+                                        <input type="text" class="form-control border-right-0 browse-file" placeholder="Upload Proposal Minimal Bab 1" name="ket_berkas" <?php if (!empty($data_pengajuan_topik[0]->berkas)) {
+                                                                                                                                                                                echo "value='" . $data_pengajuan_topik[0]->berkas . "'";
+                                                                                                                                                                            } ?> readonly>
+                                        <label class="input-group-btn">
+                                            <span class="btn btn-default">
+                                                Browse <input type="file" name="berkas" class="d-none" multiple>
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3 mb-0">Upload</button>
+                            <button type="submit" class="btn btn-primary mt-3 mb-0">Update</button>
+                        </form>
                     </div>
                 </div>
             </div>
