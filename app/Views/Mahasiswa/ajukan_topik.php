@@ -22,37 +22,25 @@ use CodeIgniter\Images\Image;
                         <div class="col-lg-12">
                             <div class="card box-shadow-10">
                                 <div class="card-header">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nama</label>
-                                        <input type="teks" class="form-control" id="exampleInput" placeholder="Isikan Nama Anda">
-                                    </div>
                                     <div class="mb-4">
-                                        <p class="mg-b-10">Pilih Topik </p>
-                                        <select class="SlectBox form-control">
-                                            <option value="volvo">- Pilih -</option>
+                                        <select class="form-control select2" name="topik">
+                                            <option selected disabled>Pilih Topik
+                                            </option>
+                                            <?php foreach ($topik as $key) { ?>
+                                                <option value="<?= $key->idtopik ?>">
+                                                    <?= $key->nama ?>
+                                                </option>
+                                            <?php
+                                            } ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Judul</label>
-                                        <input type="teks" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda">
+                                        <input type="teks" name="judul_topik" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda">
                                     </div>
-                                    <div class="mb-4">
-                                        <p class="mg-b-10">Pilih Calon Dosen Pembimbing 1</p>
-                                        <select class="SlectBox form-control">
-                                            <option value="volvo">- Pilih -</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-4">
-                                        <p class="mg-b-10">Pilih Calon Dosen Pembimbing 2</p>
-                                        <select class="SlectBox form-control">
-                                            <option value="volvo">- Pilih -</option>
-                                        </select>
-                                    </div>
-                                    <p class="mg-b-20">Masukkan Proposal</p>
                                     <div class="row mt-3">
                                         <div class="col-sm-7 col-md-6 col-lg-4">
                                             <div class="input-group file-browser">
-                                                <input type="text" class="form-control border-right-0 browse-file" placeholder="Upload Proposal Bab 1" readonly>
+                                                <input type="text" class="form-control border-right-0 browse-file" placeholder="Upload Proposal Minimal Bab 1" readonly>
                                                 <label class="input-group-btn">
                                                     <span class="btn btn-default">
                                                         Browse <input type="file" class="d-none" multiple>
@@ -62,6 +50,128 @@ use CodeIgniter\Images\Image;
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-3 mb-0">Upload</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-lg-6">
+                            <div class="card box-shadow-10">
+                                <div class="card-header">
+                                    <div class="card-header pb-1">
+                                        <h3 class="card-title mb-2">Ajukan Pembimbing 1</h3>
+                                        <p class="tx-12 tx-gray-500 mb-2">Anda tidak dapat mengajukan dosen pembimbing 1 berulang kali kecuali pengajuan telah ditolak.</p>
+                                        <div class="row row-xs">
+                                            <div class="col-md-9">
+                                                <select class="form-control select2">
+                                                    <option label="Pilih Pembimbing 1" selected disabled>Pilih Pembimbing 1
+                                                    </option>
+                                                    <?php foreach ($dosen as $key1) { ?>
+                                                        <option value="<?= $key1->nip ?>">
+                                                            <?= $key1->namaunit . ' - ' . $key1->gelardepan . ' ' . $key1->nama . ', ' . $key1->gelarbelakang ?>
+                                                        </option>
+                                                    <?php
+                                                    } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md">
+                                                <button class="btn btn-main-primary btn-block <?php if ($ststbl1 > 0) {
+                                                                                                    echo " disabled";
+                                                                                                } ?>">Ajukan</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-0 customers mt-1">
+                                        <div class="list-group list-lg-group list-group-flush">
+                                            <?php foreach ($pengajuan_pem1 as $pem1) { ?>
+                                                <div class="list-group-item list-group-item-action" href="#">
+                                                    <div class="media mt-0">
+                                                        <div class="media-body">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="mt-0">
+                                                                    <h5 class="mb-1 tx-15"><?= $pem1->gelardepan . ' ' . $pem1->nama . ', ' . $pem1->gelarbelakang ?></h5>
+                                                                    <p class="mb-0 tx-13 text-muted"><?= $pem1->namaunit ?></p>
+                                                                </div>
+                                                                <span class="ms-auto fs-16 mt-2">
+                                                                    <?php if ($pem1->status_pengajuan == 'diterima') { ?>
+                                                                        <span class="text-success ms-2">Diterima</span>
+                                                                    <?php
+                                                                    } elseif ($pem1->status_pengajuan == 'menunggu') { ?>
+                                                                        <span class="text-warning ms-2">Menunggu</span>
+                                                                    <?php
+                                                                    } else { ?>
+                                                                        <span class="text-danger ms-2">Ditolak</span>
+                                                                    <?php
+                                                                    } ?>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card box-shadow-10">
+                                <div class="card-header">
+                                    <div class="card-header pb-1">
+                                        <h3 class="card-title mb-2">Ajukan Pembimbing 2</h3>
+                                        <p class="tx-12 tx-gray-500 mb-2">Anda tidak dapat mengajukan dosen pembimbing 2 berulang kali kecuali pengajuan telah ditolak.</p>
+                                        <div class="row row-xs">
+                                            <div class="col-md-9">
+                                                <select class="form-control select2">
+                                                    <option label="Pilih Pembimbing 1" selected disabled>Pilih Pembimbing 2
+                                                    </option>
+                                                    <?php foreach ($dosen as $key2) { ?>
+                                                        <option value="<?= $key2->nip ?>">
+                                                            <?= $key2->namaunit . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang ?>
+                                                        </option>
+                                                    <?php
+                                                    } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md">
+                                                <button class="btn btn-main-primary btn-block <?php if ($ststbl2 > 0) {
+                                                                                                    echo " disabled";
+                                                                                                } ?>">Ajukan</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-0 customers mt-1">
+                                        <div class="list-group list-lg-group list-group-flush">
+                                            <?php foreach ($pengajuan_pem2 as $pem2) { ?>
+                                                <div class="list-group-item list-group-item-action" href="#">
+                                                    <div class="media mt-0">
+                                                        <div class="media-body">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="mt-0">
+                                                                    <h5 class="mb-1 tx-15"><?= $pem2->gelardepan . ' ' . $pem2->nama . ', ' . $pem2->gelarbelakang ?></h5>
+                                                                    <p class="mb-0 tx-13 text-muted"><?= $pem2->namaunit ?></p>
+                                                                </div>
+                                                                <span class="ms-auto fs-16 mt-2">
+                                                                    <?php if ($pem2->status_pengajuan == 'diterima') { ?>
+                                                                        <span class="text-success ms-2">Diterima</span>
+                                                                    <?php
+                                                                    } elseif ($pem2->status_pengajuan == 'menunggu') { ?>
+                                                                        <span class="text-warning ms-2">Menunggu</span>
+                                                                    <?php
+                                                                    } else { ?>
+                                                                        <span class="text-danger ms-2">Ditolak</span>
+                                                                    <?php
+                                                                    } ?>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

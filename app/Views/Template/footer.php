@@ -61,8 +61,6 @@
 <script src="<?= base_url(); ?>/assets/plugins/jquery-ui/ui/widgets/datepicker.js"></script>
 <!-- Internal Select2 js-->
 <script src="<?= base_url(); ?>/assets/plugins/select2/js/select2.min.js"></script>
-<!-- Internal Select2.min js -->
-<script src="<?= base_url(); ?>/assets/plugins/select2/js/select2.min.js"></script>
 <!--Internal Ion.rangeSlider.min js -->
 <script src="<?= base_url(); ?>/assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
 <!--Internal  jquery-simple-date time picker js -->
@@ -80,8 +78,9 @@
 <script src="<?= base_url(); ?>/assets/plugins/quill/quill.min.js"></script>
 <!--Internal  Perfect-scrollbar js -->
 <script src="<?= base_url(); ?>/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
 <script src="<?= base_url(); ?>/assets/plugins/ckeditor/ckeditor.js') ?>"></script>
+<!-- Internal form-elements js -->
+<script src="<?= base_url(); ?>/assets/js/form-elements.js"></script>
 
 <script>
 	var quill = new Quill('#editor', {

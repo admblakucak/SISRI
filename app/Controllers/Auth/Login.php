@@ -38,18 +38,11 @@ class Login extends BaseController
         if (count($data) > 0) {
             if (password_verify($pass, $data[0]->password)) {
                 if ($data[0]->role == 'mahasiswa') {
-                    $email = $data[0]->email;
-                    $status_authorize = $this->api->authorize("$email");
-                    if ($status_authorize->code == 200) {
-                        session()->set('ses_login', 'mahasiswa');
-                        session()->set('ses_id', $data[0]->id);
-                        session()->set('ses_nama', name($this->db, $data[0]->id));
-                        $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Mahasiswa',now())");
-                        return redirect()->to('/beranda_mahasiswa');
-                    } else {
-                        session()->setFlashdata('message', '<p class="text-danger">' . $status_authorize->code . '</p>');
-                        return redirect()->to('/');
-                    }
+                    session()->set('ses_login', 'mahasiswa');
+                    session()->set('ses_id', $data[0]->id);
+                    session()->set('ses_nama', name($this->db, $data[0]->id));
+                    $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Mahasiswa',now())");
+                    return redirect()->to('/beranda_mahasiswa');
                 } elseif ($data[0]->role == 'dosen') {
                     $cek_kor = $this->db->query("SELECT * FROM tb_korprodi where nip='" . $data[0]->id . "'")->getResult();
                     if (count($cek_kor) > 0) {
@@ -57,20 +50,20 @@ class Login extends BaseController
                         session()->set('ses_id', $data[0]->id);
                         session()->set('ses_nama', name($this->db, $data[0]->id));
                         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Korprodi',now())");
-                        return redirect()->to('/validasi_usulan');
+                        return redirect()->to('/beranda_korprodi');
                     } else {
                         session()->set('ses_login', 'dosen');
                         session()->set('ses_id', $data[0]->id);
                         session()->set('ses_nama', name($this->db, $data[0]->id));
                         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES (" . session()->get('ses_id') . "','login,'Login Dosen',now())");
-                        return redirect()->to('/Beranda');
+                        return redirect()->to('/beranda_dosen');
                     }
                 } else {
                     session()->set('ses_login', 'admin');
                     session()->set('ses_id', 'admin');
                     session()->set('ses_nama', 'ADMIN');
                     $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Admin',now())");
-                    return redirect()->to('/data_mahasiswa');
+                    return redirect()->to('/beranda_admin');
                 }
             } else {
                 session()->setFlashdata('message', '<p class="text-danger">Username dan Password salah.</p>');
@@ -93,7 +86,7 @@ class Login extends BaseController
                             $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Pertama Mahasiswa',now())");
                             return redirect()->to('/beranda_mahasiswa');
                         } else {
-                            session()->setFlashdata('message', '<p class="text-danger">' . $status_authorize->code . '</p>');
+                            session()->setFlashdata('message', '<p class="text-danger">' . $status_authorize->message . '</p>');
                             return redirect()->to('/');
                         }
                     } else {
