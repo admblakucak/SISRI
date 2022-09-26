@@ -55,7 +55,7 @@ class Login extends BaseController
                         session()->set('ses_login', 'dosen');
                         session()->set('ses_id', $data[0]->id);
                         session()->set('ses_nama', name($this->db, $data[0]->id));
-                        $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES (" . session()->get('ses_id') . "','login,'Login Dosen',now())");
+                        $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Dosen',now())");
                         return redirect()->to('/beranda_dosen');
                     }
                 } else {
@@ -80,7 +80,7 @@ class Login extends BaseController
                         if ($status_authorize->code == 200) {
                             $ciphertext = password_hash($pass, PASSWORD_DEFAULT);
                             $this->db->query("INSERT INTO tb_users (id,email,password,role) VALUES ('" . $data_master_mhs[0]->nim . "','" . $data_master_mhs[0]->email . "','" . $ciphertext . "','mahasiswa')");
-                            $this->db->query("INSERT INTO tb_pengajuan_topik (nim) VALUES ('" . session()->get('ses_id') . "')");
+                            $this->db->query("INSERT INTO tb_pengajuan_topik (nim) VALUES ('" . $data_master_mhs[0]->nim . "')");
                             session()->set('ses_login', 'mahasiswa');
                             session()->set('ses_id', $data_master_mhs[0]->nim);
                             session()->set('ses_nama', name($this->db, $data_master_mhs[0]->nim));
