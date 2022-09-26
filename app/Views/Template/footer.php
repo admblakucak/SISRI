@@ -91,6 +91,13 @@
 	});
 </script>
 <script async src="//www.instagram.com/embed.js"></script>
+
+<script type="text/javascript">
+	$('#validasitable1').DataTable();
+	$('#validasitable2').DataTable();
+	$('#validasitable3').DataTable();
+</script>
+
 </body>
 
 </html>
