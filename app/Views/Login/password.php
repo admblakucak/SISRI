@@ -53,7 +53,7 @@
         <div class="col-4">
             <div class="card ">
                 <div class="card-header pb-0">
-                    <div class="container b-custom">
+                    <div class="container h-custom">
                         <div class="row mt-4">
                             <div class="col-xl-12 pb-4">
                                 <img src="<?php base_url() ?>/assets/img/logosisri.png" alt="">
