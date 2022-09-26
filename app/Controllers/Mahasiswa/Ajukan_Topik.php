@@ -26,6 +26,8 @@ class Ajukan_Topik extends BaseController
         $data_topik = $this->db->query("SELECT * FROM tb_topik where idunit='$idunit'")->getResult();
         $ststbl1 = $this->db->query("SELECT count(id_pengajuan_pembimbing) as jumlah FROM tb_pengajuan_pembimbing  where nim='" . session()->get('ses_id') . "' AND sebagai='1' AND (status_pengajuan='menunggu' OR status_pengajuan='diterima')")->getResult()[0]->jumlah;
         $ststbl2 = $this->db->query("SELECT count(id_pengajuan_pembimbing) as jumlah FROM tb_pengajuan_pembimbing  where nim='" . session()->get('ses_id') . "' AND sebagai='2' AND (status_pengajuan='menunggu' OR status_pengajuan='diterima')")->getResult()[0]->jumlah;
+        $stsp1 = $this->db->query("SELECT count(id_pengajuan_pembimbing) as jumlah FROM tb_pengajuan_pembimbing  where nim='" . session()->get('ses_id') . "' AND sebagai='1' AND (status_pengajuan='diterima')")->getResult()[0]->jumlah;
+        $stsp2 = $this->db->query("SELECT count(id_pengajuan_pembimbing) as jumlah FROM tb_pengajuan_pembimbing  where nim='" . session()->get('ses_id') . "' AND sebagai='2' AND (status_pengajuan='diterima')")->getResult()[0]->jumlah;
         $data_pengajuan_topik = $this->db->query("SELECT * FROM tb_pengajuan_topik where nim='" . session()->get('ses_id') . "'")->getResult();
         $data = [
             'title' => 'Ajukan Topik Skripsi',
@@ -34,6 +36,8 @@ class Ajukan_Topik extends BaseController
             'pengajuan_pem2' => $data_pengajuan_pembimbing_2,
             'ststbl1' => $ststbl1,
             'ststbl2' => $ststbl2,
+            'stsp1' => $stsp1,
+            'stsp2' => $stsp2,
             'topik' => $data_topik,
             'data_pengajuan_topik' => $data_pengajuan_topik
         ];
@@ -127,7 +131,7 @@ class Ajukan_Topik extends BaseController
 		</button>
 	</div>');
         } else {
-            $this->db->query("INSERT INTO tb_pengajuan_pembimbing (nim,nip,sebagai) VALUES ('" . session()->get('ses_id') . "','$nip','1')");
+            $this->db->query("INSERT INTO tb_pengajuan_pembimbing (nim,nip,sebagai,create_at) VALUES ('" . session()->get('ses_id') . "','$nip','1',now())");
             session()->setFlashdata('message_pem1', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>
@@ -156,7 +160,7 @@ class Ajukan_Topik extends BaseController
 		</button>
 	</div>');
         } else {
-            $this->db->query("INSERT INTO tb_pengajuan_pembimbing (nim,nip,sebagai) VALUES ('" . session()->get('ses_id') . "','$nip','2')");
+            $this->db->query("INSERT INTO tb_pengajuan_pembimbing (nim,nip,sebagai,create_at) VALUES ('" . session()->get('ses_id') . "','$nip','2',now())");
             session()->setFlashdata('message_pem2', '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>

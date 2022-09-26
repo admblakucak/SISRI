@@ -67,6 +67,11 @@ $routes->add('/update_data_periode', 'Admin\Periode::update_data_periode');
 $routes->add('/beranda_mahasiswa', 'Mahasiswa\Beranda::index');
 //Route Khusus Controller Dosen-Beranda
 $routes->add('/beranda_dosen', 'Dosen\Beranda::index');
+//Route Khusus Controller Dosen-Proposal-Validasi_Usulan
+$routes->add('/validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::index');
+$routes->add('/setujui_validasi_usulan/(:any)', 'Dosen\Proposal\Validasi_Usulan::setujui_validasi/$1');
+$routes->add('/tolak_validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::tolak_validasi');
+$routes->get('/download_proposal/(:any)', 'Dosen\Proposal\Validasi_Usulan::download/$1');
 //Route Khusus Controller Korprodi-Beranda
 $routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
 //Route Khusus Controller Mahasiswa-Ajukan_Topik
@@ -76,7 +81,7 @@ $routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
 $routes->add('/proses_ajukan_topik', 'Mahasiswa\Ajukan_Topik::proses_ajukan_topik');
 // ============================================================================================
 
-$routes->add('/validasi_usulan', 'Welcome::validasi_usulan');
+// $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');
 // $routes->add('/proses_login', 'Welcome::proses_login');
 $routes->add('/coba', 'Welcome::coba');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');

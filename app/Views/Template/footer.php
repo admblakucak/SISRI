@@ -93,9 +93,24 @@
 <script async src="//www.instagram.com/embed.js"></script>
 
 <script type="text/javascript">
-	$('#validasitable1').DataTable();
-	$('#validasitable2').DataTable();
-	$('#validasitable3').DataTable();
+	$('#validasitable1').DataTable({
+		"language": {
+			"url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",
+			"sEmptyTable": "Data Kosong"
+		}
+	});
+	$('#validasitable2').DataTable({
+		"language": {
+			"url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",
+			"sEmptyTable": "Data Kosong"
+		}
+	});
+	$('#validasitable3').DataTable({
+		"language": {
+			"url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",
+			"sEmptyTable": "Data Kosong"
+		}
+	});
 </script>
 
 </body>

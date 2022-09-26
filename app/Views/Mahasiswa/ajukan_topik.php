@@ -33,6 +33,10 @@ use CodeIgniter\Images\Image;
                                     <?php foreach ($topik as $key) { ?>
                                         <option value="<?= $key->idtopik ?>" <?php if ($data_pengajuan_topik[0]->id_topik == $key->idtopik) {
                                                                                     echo "selected";
+                                                                                } else {
+                                                                                    if ($stsp1 > 0 || $stsp2 > 0) {
+                                                                                        echo "disabled";
+                                                                                    }
                                                                                 } ?>>
                                             <?= $key->nama ?>
                                         </option>
@@ -42,9 +46,11 @@ use CodeIgniter\Images\Image;
                             </div>
                             <div class="form-group">
                                 <label for="">Judul Topik</label>
-                                <input type="teks" name="judul_topik" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda" <?php if (!empty($data_pengajuan_topik[0]->judul_topik)) {
-                                                                                                                                                            echo "value='" . $data_pengajuan_topik[0]->judul_topik . "'";
-                                                                                                                                                        } ?>>
+                                <input type="teks" <?php if ($stsp1 > 0 || $stsp2 > 0) {
+                                                        echo "readonly";
+                                                    } ?> name="judul_topik" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda" <?php if (!empty($data_pengajuan_topik[0]->judul_topik)) {
+                                                                                                                                                                echo "value='" . $data_pengajuan_topik[0]->judul_topik . "'";
+                                                                                                                                                            } ?>>
                             </div>
                             <div class="row">
                                 <div class="col-sm-7 col-md-6 col-lg-4">
@@ -109,7 +115,7 @@ use CodeIgniter\Images\Image;
                     <div class="card-body p-0 customers mt-1">
                         <div class="list-group list-lg-group list-group-flush">
                             <?php foreach ($pengajuan_pem1 as $pem1) { ?>
-                                <div class="list-group-item list-group-item-action br-t-1" href="#">
+                                <div class="list-group-item list-group-item-action br-t-1" href="#" data-bs-container="body" data-bs-toggle="popover" data-bs-popover-color="default" data-bs-placement="right" title="" data-bs-content="<?= $pem1->pesan ?>" data-bs-original-title="PESAN">
                                     <div class="media mt-0">
                                         <div class="media-body">
                                             <div class="d-flex align-items-center">
@@ -178,7 +184,7 @@ use CodeIgniter\Images\Image;
                     <div class="card-body p-0 customers mt-1">
                         <div class="list-group list-lg-group list-group-flush">
                             <?php foreach ($pengajuan_pem2 as $pem2) { ?>
-                                <div class="list-group-item list-group-item-action br-t-1" href="#">
+                                <div class="list-group-item list-group-item-action br-t-1" href="#" data-bs-container="body" data-bs-toggle="popover" data-bs-popover-color="default" data-bs-placement="right" title="" data-bs-content="<?= $pem2->pesan ?>" data-bs-original-title="PESAN">
                                     <div class="media mt-0">
                                         <div class="media-body">
                                             <div class="d-flex align-items-center">

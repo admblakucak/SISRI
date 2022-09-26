@@ -15,7 +15,7 @@ class Beranda extends BaseController
     }
     public function index()
     {
-        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'dosen') {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') == 'mahasiswa') {
             return redirect()->to('/');
         }
         $data = [
