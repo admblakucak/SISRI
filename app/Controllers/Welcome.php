@@ -8,6 +8,21 @@ use App\Libraries\Access_API; // Import library
 
 class Welcome extends BaseController
 {
+  public function __construct()
+  {
+    $this->api = new Access_API();
+    $this->db = \Config\Database::connect();
+  }
+  public function coba()
+  {
+    set_time_limit(0);
+    ini_set('max_execution_time', '0');
+    ini_set('max_input_time', '0');
+    $data = $this->api->authorize("170441100045@student.trunojoyo.ac.id");
+    echo $data->code . '<br>';
+    echo $data->message . '<br>';
+    // echo $data->data->ID . '<br>';
+  }
   public function validasi_usulan_dosen()
   {
     $data = [

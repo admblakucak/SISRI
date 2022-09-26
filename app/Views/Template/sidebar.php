@@ -31,7 +31,7 @@
 								</svg> &nbsp; &nbsp;<span class="side-menu__label">Beranda</span></a>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item" href="/ajukan_topik"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+							<a class="side-menu__item" href="/ajukan_topik_mahasiswa"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
 									<path fill="currentColor" d="M14 2H6C4.89 2 4 2.89 4 4V20C4 21.11 4.89 22 6 22H13.81C13.28 21.09 13 20.05 13 19C13 18.67 13.03 18.33 13.08 18H6V16H13.81C14.27 15.2 14.91 14.5 15.68 14H6V12H18V13.08C18.33 13.03 18.67 13 19 13S19.67 13.03 20 13.08V8L14 2M13 9V3.5L18.5 9H13M18 15V18H15V20H18V23H20V20H23V18H20V15H18Z" />
 								</svg> &nbsp; &nbsp;<span class="side-menu__label">Ajukan Topik</span></a>
 						</li>
@@ -61,7 +61,7 @@
 					<?php } elseif (session()->get('ses_login') == 'dosen' || session()->get('ses_login') == 'korprodi') {; ?>
 						<li class="side-item side-item-category">Dosen</li>
 						<li class="slide">
-							<a class="side-menu__item" href="/Beranda"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+							<a class="side-menu__item" href="/beranda_dosen"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
 									<path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
 								</svg> &nbsp; &nbsp;<span class="side-menu__label">Beranda</span></a>
 						</li>
@@ -161,7 +161,7 @@
 					} elseif (session()->get('ses_login') == 'admin') { ?>
 						<li class="side-item side-item-category">ADMIN</li>
 						<li class="slide">
-							<a class="side-menu__item" href="/beranda_koorprodi">
+							<a class="side-menu__item" href="/beranda_admin">
 								<svg style="width:24px;height:24px" viewBox="0 0 24 24">
 									<path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
 								</svg> &nbsp; &nbsp;

@@ -15,6 +15,7 @@ class Logout extends BaseController
     }
     public function index()
     {
+        $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','logout','Logout " . session()->get('ses_login') . "',now())");
         session()->destroy();
         return redirect()->to('/');
     }

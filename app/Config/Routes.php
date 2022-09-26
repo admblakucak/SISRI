@@ -41,35 +41,44 @@ $routes->add('/', 'Auth\Login::index');
 $routes->add('/proses_login', 'Auth\Login::proses_login');
 //Route Khusus Controller Auth-Logout
 $routes->add('/logout', 'Auth\Logout::index');
+//Route Khusus Controller Admin-Beranda
+$routes->add('/beranda_admin', 'Admin\Beranda::index');
 //Route Khusus Controller Admin-Mahasiswa
 $routes->add('/data_mahasiswa', 'Admin\Mahasiswa::index');
 $routes->add('/data_mahasiswa2', 'Admin\Mahasiswa::index2');
-$routes->add('/update_data_mhs/(:any)', 'Admin\Mahasiswa::update_data_mhs/$1');
+$routes->add('/update_data_mhs', 'Admin\Mahasiswa::update_data_mhs');
 $routes->add('/jurusan_mhs/(:any)', 'Admin\Mahasiswa::jurusan_mhs/$1');
 $routes->add('/prodi_mhs/(:any)', 'Admin\Mahasiswa::prodi_mhs/$1');
 $routes->add('/detail_data_mhs/(:any)/(:any)', 'Admin\Mahasiswa::detail_data_mhs/$1/$2');
 $routes->add('/angkatan_mhs/(:any)', 'Admin\Mahasiswa::angkatan_mhs/$1');
 //Route Khusus Controller Admin-Dosen
 $routes->add('/data_dosen', 'Admin\Dosen::index');
-$routes->add('/update_data_dosen/(:any)', 'Admin\Dosen::update_data_dosen/$1');
+$routes->add('/update_data_dosen', 'Admin\Dosen::update_data_dosen');
 $routes->add('/jurusan_dosen/(:any)', 'Admin\Dosen::jurusan_dosen/$1');
 $routes->add('/prodi_dosen/(:any)', 'Admin\Dosen::prodi_dosen/$1');
 $routes->add('/detail_data_dosen/(:any)', 'Admin\Dosen::detail_data_dosen/$1');
 //Route Khusus Controller Admin-unit
 $routes->add('/data_unit', 'Admin\Unit::index');
-$routes->add('/update_data_unit/(:any)', 'Admin\Unit::update_data_unit/$1');
+$routes->add('/update_data_unit', 'Admin\Unit::update_data_unit');
 //Route Khusus Controller Admin-Periode
 $routes->add('/data_periode', 'Admin\Periode::index');
-$routes->add('/update_data_periode/(:any)', 'Admin\Periode::update_data_periode/$1');
-//Route Khusus Controller Admin-Perwalian
-$routes->add('/data_perwalian', 'Admin\Perwalian::index');
-$routes->add('/update_data_perwalian/(:any)', 'Admin\Perwalian::update_data_perwalian/$1');
-
+$routes->add('/update_data_periode', 'Admin\Periode::update_data_periode');
+//Route Khusus Controller Mahasiswa-Beranda
+$routes->add('/beranda_mahasiswa', 'Mahasiswa\Beranda::index');
+//Route Khusus Controller Dosen-Beranda
+$routes->add('/beranda_dosen', 'Dosen\Beranda::index');
+//Route Khusus Controller Korprodi-Beranda
+$routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
+//Route Khusus Controller Mahasiswa-Ajukan_Topik
+$routes->add('/ajukan_topik_mahasiswa', 'Mahasiswa\Ajukan_Topik::index');
+$routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
+$routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
+$routes->add('/proses_ajukan_topik', 'Mahasiswa\Ajukan_Topik::proses_ajukan_topik');
 // ============================================================================================
 
 $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');
 // $routes->add('/proses_login', 'Welcome::proses_login');
-$routes->add('/api', 'Welcome::api');
+$routes->add('/coba', 'Welcome::coba');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/ajukan_topik', 'Welcome::ajukan_topik');
 $routes->add('/bimbingan_proposal', 'Welcome::bimbingan_proposal');
