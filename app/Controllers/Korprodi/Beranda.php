@@ -15,7 +15,6 @@ class Beranda extends BaseController
     }
     public function index()
     {
-        echo session()->get('ses_login');
         if (session()->get('ses_id') == '' || session()->get('ses_login') != 'korprodi') {
             return redirect()->to('/');
         }
