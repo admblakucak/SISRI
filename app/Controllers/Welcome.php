@@ -15,6 +15,20 @@ class Welcome extends BaseController
     ];
     return view('Admin/Koorprodi/validasi_usulan_dosen', $data);
   }
+  public function login_sisri()
+  {
+    $data = [
+      'title' => 'Login Sisri'
+    ];
+    return view('Login/login_sisri', $data);
+  }
+  public function password()
+  {
+    $data = [
+      'title' => 'Reset Password'
+    ];
+    return view('Login/password', $data);
+  }
   public function beranda_koorprodi()
   {
     $data = [

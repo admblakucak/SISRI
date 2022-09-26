@@ -90,6 +90,23 @@ License        :   Licensed under ThemeForest License
 /*white variables*/
 /*black variables*/
 /*shadow variables*/
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 2px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+} 
+}
+
 .accordion>.card {
     overflow: hidden;
 }
@@ -26192,9 +26209,9 @@ html.fullscreen-button .app-content {
     display: flex;
     align-items: center;
     position: relative;
-    height: 100px;
-    width: 110px;
-    padding-bottom: 28%;
+    height: 111px;
+    width: 200px;
+    padding-bottom: 33%;
     margin: 0 auto;
     justify-content: center;
     text-align: center;

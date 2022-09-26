@@ -99,6 +99,8 @@ $routes->add('/histori_sidang_skripsi', 'Welcome::histori_sidang_skripsi');
 $routes->add('/Beranda', 'Welcome::beranda');
 $routes->add('/beranda_mahasiswa', 'Welcome::beranda_mahasiswa');
 $routes->add('/beranda_koorprodi', 'Welcome::beranda_koorprodi');
+$routes->add('/login_sisri', 'Welcome::login_sisri');
+$routes->add('/password', 'Welcome::password');
 
 /*
  * --------------------------------------------------------------------
