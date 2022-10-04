@@ -59,10 +59,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 pb-2">
+                            <div class="col-md-auto col-lg-6 col-xl-6 col-xxl-6 pb-2">
                                 <a href=""><img src="<?php base_url() ?>/assets/img/ft.png" class="img-fluid" alt="Sample image"></a>
                             </div>
-                            <div class="col-md-10 col-lg-9 col-xl-4 offset-xl-1 pt-4">
+                            <div class="col-md-10 col-lg-5 col-xl-4 offset-xl-1 pt-4">
                                 <div class="row mb-4">
                                     <div class="col-12 pb-2">
                                         <a href="https://siakad.trunojoyo.ac.id/"><button class="btn btn-main-primary btn-block" type="button">SIAKAD UTM</button></a>
