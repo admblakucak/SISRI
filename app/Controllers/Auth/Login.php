@@ -16,7 +16,7 @@ class Login extends BaseController
     public function index()
     {
         // echo password_hash('admin', PASSWORD_DEFAULT);
-        session()->destroy();
+        // session()->destroy();
         return view('Login/login');
     }
     public function proses_login()
