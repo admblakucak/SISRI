@@ -65,7 +65,7 @@
                             <div class="col-md-10 col-lg-9 col-xl-4 offset-xl-1 pt-4">
                                 <div class="row mb-4">
                                     <div class="col-12 pb-2">
-                                        <button class="btn btn-main-primary btn-block" type="submit">SIAKAD UTM</button>
+                                        <a href="https://siakad.trunojoyo.ac.id/"><button class="btn btn-main-primary btn-block" type="button">SIAKAD UTM</button></a>
                                     </div>
                                 </div>
                                 <div class="row">
