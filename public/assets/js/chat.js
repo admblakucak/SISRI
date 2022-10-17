@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 	'use strict'
 	$('#chatActiveContacts').lightSlider({
 		autoWidth: true,
@@ -15,7 +15,7 @@ $(function() {
 		});
 		$('#ChatBody').scrollTop($('#ChatBody').prop('scrollHeight'));
 	}
-	$('.main-chat-list .media').on('click touch', function() {
+	$('.main-chat-list .media').on('click touch', function () {
 		$(this).addClass('selected').removeClass('new');
 		$(this).siblings().removeClass('selected');
 		if (window.matchMedia('(max-width: 991px)').matches) {
@@ -24,7 +24,7 @@ $(function() {
 		}
 	});
 	$('[data-toggle="tooltip"]').tooltip();
-	$('#ChatBodyHide').on('click touch', function(e) {
+	$('#ChatBodyHide').on('click touch', function (e) {
 		e.preventDefault();
 		$('body').removeClass('main-content-body-show');
 	})

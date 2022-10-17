@@ -78,7 +78,7 @@
 <script src="<?= base_url(); ?>/assets/plugins/quill/quill.min.js"></script>
 <!--Internal  Perfect-scrollbar js -->
 <script src="<?= base_url(); ?>/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/ckeditor/ckeditor.js') ?>"></script>
+<script src="<?= base_url(); ?>/assets/plugins/ckeditor/ckeditor.js"></script>
 <!-- Internal form-elements js -->
 <script src="<?= base_url(); ?>/assets/js/form-elements.js"></script>
 
@@ -112,6 +112,13 @@
 		}
 	});
 </script>
+
+
+<!--Internal  lightslider js -->
+<script src="<?= base_url(); ?>/assets/plugins/lightslider/js/lightslider.min.js"></script>
+
+<!--Internal  Chat js -->
+<script src="<?= base_url(); ?>/assets/js/chat.js"></script>
 
 </body>
 
