@@ -50,7 +50,7 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col">
-            <div class="card">
+            <div class="card pb-4">
                 <section class="vh-90">
                     <div class="container h-custom">
                         <div class="row">
@@ -59,9 +59,36 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-11 pb-2">
-                                <div class="text-right">
-                                    <button type="button" class="btn btn-primary" style="padding-left: 8.8rem; padding-right: 8.8rem;">SIAKAD UTM</button>
+                            <div class="col-md-auto col-lg-6 col-xl-6 col-xxl-6 pb-2">
+                                <a href=""><img src="<?php base_url() ?>/assets/img/ft.png" class="img-fluid" alt="Sample image"></a>
+                            </div>
+                            <div class="col-md-10 col-lg-5 col-xl-4 offset-xl-1 pt-4">
+                                <div class="row mb-4">
+                                    <div class="col-12 pb-2">
+                                        <a href="https://siakad.trunojoyo.ac.id/"><button class="btn btn-main-primary btn-block" type="button">SIAKAD UTM</button></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <?= session()->getFlashdata('message'); ?>
+                                        <form action="<?php base_url() ?>/proses_login" method="POST" enctype="multipart/form-data">
+                                            <div class="form-group mb-4">
+                                                <label>Username</label>
+                                                <input class="form-control" placeholder="NIM/NIP/EMAIL" type="text" name="username">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label>Password</label>
+                                                <input class="form-control" placeholder="Password" type="password" name="password">
+                                            </div>
+                                            <div class="main-signin-footer mt-2">
+                                                <p><a href="/password">Lupa Password?</a></p>
+                                                <!-- <p>Don't have an account? <a href="page-signup.html">Buat Akun</a></p> -->
+                                            </div>
+                                            <div class="text-left text-lg-start mt-4 pt-2 pb-3">
+                                                <button type="submit" class="btn btn-primary" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -85,9 +112,12 @@
                                         <button type="button" class="btn btn-primary" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
                                     </div>
                                 </form>
+                                <div class="col-auto">
+                                    <span>Copyright © 2022 <a href="http://teknik.trunojoyo.ac.id/">FT-UTM</a>.
+                                        All rights reserved.</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </section>
             </div>
         </div>
