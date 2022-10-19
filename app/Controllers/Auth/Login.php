@@ -107,13 +107,13 @@ class Login extends BaseController
                             session()->set('ses_id', $data_master_dosen[0]->nip);
                             session()->set('ses_nama', name($this->db, $data_master_dosen[0]->nip));
                             $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Pertama Korprodi',now())");
-                            return redirect()->to('/validasi_usulan');
+                            return redirect()->to('/beranda_korprodi');
                         } else {
                             session()->set('ses_login', 'dosen');
                             session()->set('ses_id', $data_master_dosen[0]->nip);
                             session()->set('ses_nama', name($this->db, $data_master_dosen[0]->nip));
                             $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Pertama Dosen',now())");
-                            return redirect()->to('/Beranda');
+                            return redirect()->to('/beranda_dosen');
                         }
                     } else {
                         session()->setFlashdata('message', '<p class="text-danger">Username dan Password salah.</p>');

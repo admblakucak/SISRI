@@ -184,7 +184,7 @@ use CodeIgniter\Images\Image;
                     <div class="card-body p-0 customers mt-1">
                         <div class="list-group list-lg-group list-group-flush">
                             <?php foreach ($pengajuan_pem2 as $pem2) { ?>
-                                <div class="list-group-item list-group-item-action br-t-1" href="#" data-bs-container="body" data-bs-toggle="popover" data-bs-popover-color="default" data-bs-placement="right" title="" data-bs-content="<?= $pem2->pesan ?>" data-bs-original-title="PESAN">
+                                <div class="list-group-item list-group-item-action br-t-1" href="#" data-bs-container="body" data-bs-toggle="popover" data-bs-popover-color="default" data-bs-placement="left" title="" data-bs-content="<?= $pem2->pesan ?>" data-bs-original-title="PESAN">
                                     <div class="media mt-0">
                                         <div class="media-body">
                                             <div class="d-flex align-items-center">

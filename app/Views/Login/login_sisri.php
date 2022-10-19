@@ -69,7 +69,8 @@
                             <div class="col-6 pb-2">
                                 <a href=""><img src="<?php base_url() ?>/assets/img/ft.png" class="img-fluid" alt="Sample image"></a>
                             </div>
-                            <div class="col-md-10 col-lg-9 col-xl-4 offset-xl-1 pt-4">
+                            <div class="col-md-9 col-lg-8 col-xl-4 offset-xl-1 pt-5">
+                                <?= session()->getFlashdata('message'); ?>
                                 <form action="<?php base_url() ?>/proses_login" method="POST" enctype="multipart/form-data">
                                     <div class="form-group mb-4">
                                         <input class="form-control" placeholder="NIM/NIP/EMAIL" type="text" name="username">
@@ -79,7 +80,6 @@
                                     </div>
                                     <div class="main-signin-footer mt-2">
                                         <p><a href="/password">Lupa Password?</a></p>
-                                        <!-- <p>Don't have an account? <a href="page-signup.html">Buat Akun</a></p> -->
                                     </div>
                                     <div class="text-left text-lg-start mt-4 pt-2 pb-3">
                                         <button type="button" class="btn btn-primary" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
