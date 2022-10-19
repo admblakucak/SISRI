@@ -78,18 +78,11 @@
 <script src="<?= base_url(); ?>/assets/plugins/quill/quill.min.js"></script>
 <!--Internal  Perfect-scrollbar js -->
 <script src="<?= base_url(); ?>/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/ckeditor/ckeditor.js"></script>
+<script src="<?= base_url(); ?>/assets/plugins/ckeditor2/ckeditor.js"></script>
+
 <!-- Internal form-elements js -->
 <script src="<?= base_url(); ?>/assets/js/form-elements.js"></script>
 
-<script>
-	var quill = new Quill('#editor', {
-		theme: 'snow'
-	});
-	quill.on('text-change', function(delta, oldDelta, source) {
-		document.querySelector("input[name='nama_proyek']").value = quill.root.innerHTML;
-	});
-</script>
 <script async src="//www.instagram.com/embed.js"></script>
 
 <script type="text/javascript">

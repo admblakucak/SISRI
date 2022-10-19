@@ -6,8 +6,6 @@ use CodeIgniter\Images\Image;
 
 <?= $this->section('content') ?>
 
-
-
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col-xl-12">
@@ -23,47 +21,94 @@ use CodeIgniter\Images\Image;
                         <p class="tx-12 tx-gray-500 mb-2">Bimbingan Proposal kepada Dosen Pembimbing</a></p>
                     </div>
                     <div class="row row-sm main-content-app mb-4">
-                        <div class="card col-xl-4 col-lg-5">
-                            <div class="main-content-left">
-                                Pemberitahuan
+                        <div class="card col-xl-3 col-lg-4">
+                            <div class="main-content-left mt-2">
+                                <div class="card-body p-0 customers mt-1">
+                                    <div class="list-group list-lg-group list-group-flush">
+                                        <?php
+                                        $jumlah_pemberitahuan = 0;
+                                        foreach ($pemberitahuan as $pem) { ?>
+                                            <div class="list-group-item list-group-item-action br-t-1">
+                                                <div class="media mt-0">
+                                                    <div class="media-body">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="mt-0">
+                                                                <h5 class="mb-1 tx-15">
+                                                                    <?= $pem->pokok_bimbingan ?>
+                                                                </h5>
+                                                                <p class="mb-0 tx-13 text-muted"><?php foreach ($dosen_pembimbing as $key2) {
+                                                                                                        if ($key2->nip == $pem->from) {
+                                                                                                            echo 'Pembimbing ' . $key2->sebagai . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang;
+                                                                                                        }
+                                                                                                    } ?></p>
+                                                            </div>
+                                                            <span class="text-danger ms-2">Belum Dibaca</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php $jumlah_pemberitahuan++;
+                                        }
+                                        if ($jumlah_pemberitahuan == 0) { ?>
+                                            <p class="text-center mt-2">
+                                                Tidak Ada Pemberitahuan Terbaru.
+                                            </p>
+                                        <?php }
+                                        ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-7">
+                        <div class="col-xl-9 col-lg-8">
                             <div class="main-content-body main-content-body">
                                 <div class="table-responsive pe-2 ps-2 pt-2">
                                     <a class="btn btn-primary mb-3" data-bs-target="#modaladd" data-bs-toggle="modal" href="">Kirim Bimbingan</a>
-
+                                    <?= session()->getFlashdata('message_bimbingan') . "<br>"; ?>
                                     <div class="modal" id="modaladd">
-                                        <div class="modal-dialog  modal-lg" role="document">
+                                        <div class="modal-dialog" role="document">
                                             <div class="modal-content modal-content-demo">
                                                 <div class="modal-header">
                                                     <h6 class="modal-title">Masukkan Dokumen Bimbingan Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label for="">Pokok Bimbingan</label>
-                                                        <input type="teks" name="judul_topik" class="form-control" id="exampleInput" placeholder="Contoh : Bimbingan BAB I">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Upload File</label>
-                                                        <div class="input-group file-browser">
-                                                            <input type="text" class="form-control border-right-0 browse-file" placeholder="-" name="ket_berkas" readonly>
-                                                            <label class="input-group-btn">
-                                                                <span class="btn btn-default">
-                                                                    Browse <input type="file" name="berkas" class="d-none" multiple>
-                                                                </span>
-                                                            </label>
+                                                <form action="<?php base_url() ?>/tambah_bimbingan_proposal" method="POST" enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="">Pembimbing</label>
+                                                            <select class="form-select" name="pembimbing" aria-label="Default select example">
+                                                                <option selected disabled>Pilih Pembimbing
+                                                                </option>
+                                                                <?php foreach ($dosen_pembimbing as $key) { ?>
+                                                                    <option value="<?= $key->nip ?>">Pembimbing <?= $key->sebagai . ' - ' . $key->gelardepan . ' ' . $key->nama . ', ' . $key->gelarbelakang ?></option>
+                                                                <?php
+                                                                } ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Pokok Bimbingan</label>
+                                                            <input type="teks" name="pokok_bimbingan" class="form-control" id="exampleInput" placeholder="Contoh : Bimbingan BAB I">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Upload File</label>
+                                                            <div class="input-group file-browser">
+                                                                <input type="text" class="form-control border-right-0 browse-file" placeholder="-" name="ket_berkas" readonly>
+                                                                <label class="input-group-btn">
+                                                                    <span class="btn btn-default">
+                                                                        Browse <input type="file" name="berkas" class="d-none" multiple>
+                                                                    </span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Keterangan/Pesan</label>
+                                                            <textarea name="keterangan" class="ckeditor" id="ckeditor" rows="3"></textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="">Keterangan</label>
-                                                        <textarea name="soal_cerita" class="ckeditor" id="ckeditor" rows="3"></textarea>
+                                                    <div class="modal-footer">
+                                                        <button class="btn ripple btn-primary" type="submit">Kirim</button>
+                                                        <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
                                                     </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button class="btn ripple btn-primary" type="button">Upload</button>
-                                                    <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -71,26 +116,90 @@ use CodeIgniter\Images\Image;
                                         <thead>
                                             <tr>
                                                 <th style="text-align: center; vertical-align: middle;"><span>No.</span></th>
-                                                <th style="text-align: center; vertical-align: middle;"><span>Rincian Revisi</span></th>
+                                                <th style="text-align: center; vertical-align: middle;"><span>Pokok Bimbingan</span></th>
+                                                <th style="text-align: center; vertical-align: middle;"><span>Dari</span></th>
+                                                <th style="text-align: center; vertical-align: middle;"><span>Waktu</span></th>
                                                 <th style="text-align: center; vertical-align: middle;"><span>Status</span></th>
+                                                <th style="text-align: center; vertical-align: middle;"><span>Aksi</span></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Bab 1 Pragraf Pertama</td>
-                                                <td style="text-align: center; vertical-align: middle;">Revisi</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>tabel 2.1 di rubah</td>
-                                                <td style="text-align: center; vertical-align: middle;">Revisi</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>tabel 2.1 di rubah</td>
-                                                <td style="text-align: center; vertical-align: middle;">Revisi</td>
-                                            </tr>
+                                        <tbody id='show_data'>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($progress_bimbingan as $key) {
+                                            ?>
+                                                <tr>
+                                                    <th scope="row"><?= $no; ?></th>
+                                                    <td scope="row"><?= $key->pokok_bimbingan; ?></td>
+                                                    <td scope="row"><?php foreach ($dosen_pembimbing as $key1) {
+                                                                        if ($key1->nip == $key->from) {
+                                                                            echo 'Pembimbing ' . $key1->sebagai . ' - ' . $key1->gelardepan . ' ' . $key1->nama . ', ' . $key1->gelarbelakang;
+                                                                        }
+                                                                    } ?></td>
+                                                    <td scope="row"><?= $key->create_at; ?></td>
+                                                    <td scope="row"><?php
+                                                                    if ($key->status_baca == 'dibaca') {
+                                                                        echo '<a class="text-success">Dibaca</a>';
+                                                                    } else {
+                                                                        echo '<a class="text-danger">Belum Dibaca</a>';
+                                                                    }
+                                                                    ?></td>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
+                                                        <?php if ($key->from == session()->get('ses_id')) { ?>
+                                                            <div class="btn-group">
+                                                                <a class="btn btn-primary btn-sm" data-bs-target="#modalket<?= $key->id_bimbingan ?>" id="revisi" data-bs-toggle="modal" href="#"><i class="far fa-comment"></i></a>
+                                                                <?php if ($key->status_baca != 'dibaca') { ?>
+                                                                    <a class="btn btn-danger btn-sm" data-bs-target="#modaldel<?= $key->id_bimbingan ?>" data-bs-toggle="modal" href="#"><i class="las la-trash"></i></a>
+                                                                <?php }; ?>
+                                                            </div>
+                                                        <?php } else { ?>
+                                                            <a class="btn btn-primary btn-sm item_revisi" id="<?= $key->id_bimbingan ?>" data="<?= $key->id_bimbingan ?>" href="#"><i class="far fa-comments"></i></a>
+                                                        <?php } ?>
+                                                    </td>
+                                                    <div class="modal" id="modalket<?= $key->id_bimbingan ?>">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content modal-content-demo">
+                                                                <div class="modal-header">
+                                                                    <h6 class="modal-title">Catatan / Revisi</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <form action="<?php base_url() ?>/download_berkas_bimbingan" method="POST" enctype="multipart/form-data">
+                                                                    <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
+                                                                    <div class="modal-body">
+                                                                        <p class="mt-3"><?= $key->keterangan ?></p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn ripple btn-primary" type="submit">Download Berkas</button>
+                                                                        <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal" id="modaldel<?= $key->id_bimbingan ?>">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content modal-content-demo">
+                                                                <div class="modal-header">
+                                                                    <h6 class="modal-title">Hapus Bimbingan</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <form action="<?php base_url() ?>/hapus_bimbingan" method="POST" enctype="multipart/form-data">
+                                                                    <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
+                                                                    <div class="modal-body">
+                                                                        Apakah anda yakin ingin menghapus <b><?= $key->pokok_bimbingan ?></b> ini ?
+                                                                        <p class="mt-3"><?= $key->keterangan ?></p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn ripple btn-danger" type="submit">Hapus</button>
+                                                                        <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </tr>
+                                            <?php $no++;
+                                            } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -102,5 +211,52 @@ use CodeIgniter\Images\Image;
         </div>
     </div>
 </div>
-
+<script src="<?= base_url(); ?>/assets/plugins/jquery/jquery.min.js"></script>
+<script>
+    var id2;
+    $('#show_data').on('click', '.item_revisi', function() {
+        var id = $(this).attr('data');
+        id2 = id;
+        $.ajax({
+            method: "POST",
+            url: "<?php echo base_url() . "/baca_bimbingan_proposal"; ?>",
+            data: {
+                rowid: id
+            },
+            dataType: "text",
+            // success: function(data) {
+            // alert(data);
+            // },
+            // error: function(data) {
+            //     alert("failed");
+            // }
+        });
+        $('#modalket' + id).modal("show")
+        $('#modalket' + id).on('hidden.bs.modal', function(e) {
+            location.reload();
+        });
+    });
+</script>
+<script>
+    // function Read(butId) {
+    //     $.ajax({
+    //         method: "POST",
+    //         url: "<?php echo base_url() . "/baca_bimbingan_proposal"; ?>",
+    //         data: {
+    //             rowid: butId
+    //         },
+    //         dataType: "text",
+    // success: function(data) {
+    // location.reload();
+    // alert(data);
+    // $('#modalket' + butId).modal("hide").on("hidden.bs.modal", function() {
+    //     location.reload();
+    // });
+    // },
+    // error: function(data) {
+    //     alert("failed");
+    // }
+    //     });
+    // }
+</script>
 <?= $this->endSection(); ?>
