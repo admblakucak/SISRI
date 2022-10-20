@@ -121,6 +121,13 @@ class Welcome extends BaseController
     ];
     return view('Dosen/Proposal/validasi_bimbingan', $data);
   }
+  public function bimbingan()
+  {
+    $data = [
+      'title' => 'Validasi Bimbingan'
+    ];
+    return view('Dosen/Proposal/bimbingan', $data);
+  }
   public function berita_acara_seminar()
   {
     $data = [

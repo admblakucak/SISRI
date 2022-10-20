@@ -44,7 +44,7 @@ use CodeIgniter\Images\Image;
                                         Sistem Informasi
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                                        <a href="/bimbingan" class="btn btn-primary btn-sm">Detail</a>
                                     </td>
                                 </tr>
                             </tbody>
