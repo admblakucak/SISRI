@@ -8,78 +8,57 @@ use CodeIgniter\Images\Image;
 
 <div class="container-fluid">
     <div class="row mt-3">
-        <div class="col-xl-12">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="d-flex justify-content-between">
-                                <h4 class="card-title mg-b-0">Validasi Bimbingan</h4>
-                                <i class="mdi mdi-dots-horizontal text-gray"></i>
-                            </div>
-                        </div>
-                        <p class="tx-12 tx-gray-500 mb-2">Validasi bimbingan proposal mahasiswa </a></p>
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title mg-b-0">Validasi Bimbingan</h4>
+                        <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
+                    <p class="tx-12 tx-gray-500 mb-2">Validasi Bimbingan Proposal Mahasiswa</p>
                 </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped mg-b-0 text-md-nowrap" id="example1">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align: center; vertical-align: middle;"><span>No.</span></th>
-                                            <th style="text-align: center; vertical-align: middle;"><span>Rincian Revisi</span></th>
-                                            <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-4"><span>Aksi</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>kata-kata yang typo di perbaikin</td>
-                                            <td style="text-align: center; vertical-align: middle;">
-                                                <a href="#" class="btn btn-sm btn-primary">DOWNLOAD</a>
-                                                <a class="btn btn-success btn-sm" data-bs-target="#modaladd" data-bs-toggle="modal" href="">REVISI</a>
-                                                <a href="#" class="btn btn-sm btn-dark">DISETUJUI</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="modal" id="modaladd">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content modal-content-demo">
-                                        <div class="modal-header">
-                                            <h6 class="modal-title">Validasi Bimbingan Proposal Mahasiswa</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="mb-4">
-                                                <p class="mg-b-10">No</p>
-                                                <select class="SlectBox form-control">
-                                                    <option value="volvo">- Pilih -</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Rincian Revisi</label>
-                                                <input type="teks" class="form-control" id="exampleInput" placeholder="Isikan Nama Anda">
-                                            </div>
-                                            <div class="mb-4">
-                                                <p class="mg-b-10">Status</p>
-                                                <select class="SlectBox form-control">
-                                                    <option value="volvo">- Pilih -</option>
-                                                    <option value="volvo">Revisi</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn ripple btn-primary" type="button">Kirim</button>
-                                            <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card-body">
+                    <div class="table-responsive border-top userlist-table">
+                        <table class="table card-table table-striped table-vcenter text-nowrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="wd-lg-8p"><span>Foto</span></th>
+                                    <th class="wd-lg-20p"><span>Nim</span></th>
+                                    <th class="wd-lg-20p"><span>Nama</span></th>
+                                    <th class="wd-lg-20p"><span>Prodi</span></th>
+                                    <th class="wd-lg-20p">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img alt="avatar" class="rounded-circle avatar-md me-2" src="../../assets/img/faces/1.jpg">
+                                    </td>
+                                    <td>
+                                        170441100020
+                                    </td>
+                                    <td>
+                                        Septian Dwi Hanggara
+                                    </td>
+                                    <td>
+                                        Sistem Informasi
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <ul class="pagination mt-4 mb-0 float-end flex-wrap">
+                        <li class="page-item page-prev disabled">
+                            <a class="page-link" href="#" tabindex="-1">Sebelumnya</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item page-next">
+                            <a class="page-link" href="#">Selanjutnya</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
