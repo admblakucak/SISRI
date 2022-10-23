@@ -79,15 +79,17 @@ $routes->add('/ajukan_topik_mahasiswa', 'Mahasiswa\Ajukan_Topik::index');
 $routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
 $routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
 $routes->add('/proses_ajukan_topik', 'Mahasiswa\Ajukan_Topik::proses_ajukan_topik');
-//Route Khusus Controller Mahasiswa-Bimbingan_Proposal
+//Route Khusus Controller Mahasiswa-Bimbingan
 $routes->add('/bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::index');
 $routes->add('/tambah_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::tambah');
 $routes->add('/baca_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::baca');
 $routes->add('/data_bimbingan', 'Mahasiswa\Proposal\Bimbingan::data_bimbingan');
 $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
-
+//Route Khusus Controller Dosen-Bimbingan
+$routes->add('/bimbingan_proposal_dosen', 'Dosen\Proposal\Bimbingan::index');
 // ============================================================================================
+
 
 // $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');
 // $routes->add('/proses_login', 'Welcome::proses_login');

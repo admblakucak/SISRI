@@ -15,17 +15,15 @@ class Bimbingan extends BaseController
     }
     public function index()
     {
-        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'mahasiswa') {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') == 'mahasiswa') {
             return redirect()->to('/');
         }
         $id = session()->get('ses_id');
         $data = [
-            'title' => 'Bimbingan Proposal',
-            'pemberitahuan' => $this->db->query("SELECT * FROM tb_bimbingan WHERE (`to` = '" . $id . "') AND status_baca='belum dibaca'")->getResult(),
-            'dosen_pembimbing' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima'")->getResult(),
-            'progress_bimbingan' => $this->db->query("SELECT * FROM tb_bimbingan WHERE (`from` = '" . $id . "' OR `to` = '" . $id . "')")->getResult(),
-
+            'title' => 'Bimbingan Proposal Dosen',
+            'db' => $this->db,
+            'data_mhs_bimbingan' => $this->db->query("SELECT a.*,b.`nama` AS nama_mhs, b.`jk`, c.`namaunit` FROM tb_pengajuan_pembimbing a LEFT JOIN tb_mahasiswa b ON b.`nim`=a.`nim` LEFT JOIN tb_unit c ON b.`idunit`=c.`idunit` WHERE nip='$id' AND status_pengajuan='diterima'")->getResult(),
         ];
-        return view('Mahasiswa/Proposal/bimbingan_proposal', $data);
+        return view('Dosen/Proposal/data_bimbingan', $data);
     }
 }
