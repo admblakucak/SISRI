@@ -154,7 +154,7 @@ use CodeIgniter\Images\Image;
                                                                 <?php }; ?>
                                                             </div>
                                                         <?php } else { ?>
-                                                            <a class="btn btn-primary btn-sm item_revisi" id="<?= $key->id_bimbingan ?>" data="<?= $key->id_bimbingan ?>" href="#"><i class="far fa-comments"></i></a>
+                                                            <a class="btn btn-primary btn-sm item_revisi" data="<?= $key->id_bimbingan ?>" href="#"><i class="far fa-comments"></i></a>
                                                         <?php } ?>
                                                     </td>
                                                     <div class="modal" id="modalket<?= $key->id_bimbingan ?>">
@@ -216,7 +216,6 @@ use CodeIgniter\Images\Image;
     var id2;
     $('#show_data').on('click', '.item_revisi', function() {
         var id = $(this).attr('data');
-        id2 = id;
         $.ajax({
             method: "POST",
             url: "<?php echo base_url() . "/baca_bimbingan_proposal"; ?>",
@@ -236,27 +235,5 @@ use CodeIgniter\Images\Image;
             location.reload();
         });
     });
-</script>
-<script>
-    // function Read(butId) {
-    //     $.ajax({
-    //         method: "POST",
-    //         url: "<?php echo base_url() . "/baca_bimbingan_proposal"; ?>",
-    //         data: {
-    //             rowid: butId
-    //         },
-    //         dataType: "text",
-    // success: function(data) {
-    // location.reload();
-    // alert(data);
-    // $('#modalket' + butId).modal("hide").on("hidden.bs.modal", function() {
-    //     location.reload();
-    // });
-    // },
-    // error: function(data) {
-    //     alert("failed");
-    // }
-    //     });
-    // }
 </script>
 <?= $this->endSection(); ?>
