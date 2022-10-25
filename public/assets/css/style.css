@@ -91,6 +91,33 @@ License        :   Licensed under ThemeForest License
 /*black variables*/
 /*shadow variables*/
 
+.password{
+    position: relative;
+    left: 20px;
+    margin: auto;
+}
+
+.password label{
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    top: 32px;
+    left: 12px;
+}
+
+.password .reset{
+    position: relative;
+    width: 100px;
+    height: 5px;
+}
+
+.password .reset input[type = "password"]{
+    position: relative;
+    top: 20px;
+    font-size: 16px;
+    border: 34px;
+}
+
 .upload{
     width: 130px;
     position: relative;

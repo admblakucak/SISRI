@@ -127,6 +127,7 @@ $routes->add('/password', 'Welcome::password');
 $routes->add('/bimbingan', 'Welcome::bimbingan');
 $routes->add('/profil', 'Welcome::profil');
 $routes->add('/edit_profil', 'Welcome::edit_profil');
+$routes->add('/ganti_password', 'Welcome::ganti_password');
 
 /*
  * --------------------------------------------------------------------

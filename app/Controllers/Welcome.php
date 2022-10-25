@@ -272,4 +272,11 @@ class Welcome extends BaseController
     ];
     return view('Profil/edit_profil', $data);
   }
+  public function ganti_password()
+  {
+    $data = [
+      'title' => 'Ganti Password'
+    ];
+    return view('Akun/ganti_password', $data);
+  }
 }

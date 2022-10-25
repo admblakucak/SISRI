@@ -36,7 +36,7 @@
 									</div>
 									<a class="dropdown-item" href="/profil"><i class="bx bx-user-circle"></i>Profil</a>
 									<a class="dropdown-item" href="/edit_profil"><i class="bx bx-cog"></i> Edit Profil</a>
-									<a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Pengaturan Akun</a>
+									<a class="dropdown-item" href="/ganti_password"><i class="bx bx-slider-alt"></i> Pengaturan Akun</a>
 									<a class="dropdown-item" href="/logout"><i class="bx bx-log-out"></i> Log Out</a>
 								</div>
 							</li>
