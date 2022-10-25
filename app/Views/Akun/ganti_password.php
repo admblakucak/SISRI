@@ -13,19 +13,21 @@ use CodeIgniter\Images\Image;
                 <div class="card-header">Ganti Password</div>
                 <div class="table-responsive border-top userlist-table"></div>
                 <div class="card-body">
-                    <div class="password">
-                        <div class="col-12">
-                            <label class="form-label">Password</label>
-                            <div class="reset">
-                                <input class="form-control" placeholder="" type="password" value="thisismypassword">
+                    <div class="row">
+                        <div class="password">
+                            <div class="col-12">
+                                <label class="form-label">Password</label>
+                                <div class="reset">
+                                    <input class="form-control" placeholder="" type="password" value="thisismypassword">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-10 col-lg-9 col-xl-2 offset-xl-10 pb-2">
-                        <div class="btn-list">
-                            <div class="row mb-4">
-                                <div class="col-12 pb-2">
-                                    <a aria-controls="multiCollapseExample1 multiCollapseExample2" aria-expanded="false" class="btn ripple btn-light mb-3 mb-xl-0" href=".multi-collapse" data-bs-toggle="collapse" role="button">Ganti Password</a>
+                        <div class="col-md-10 col-lg-9 col-xl-2 offset-xl-10 pb-2">
+                            <div class="btn-list">
+                                <div class="row mb-4">
+                                    <div class="col-12 pb-2">
+                                        <a aria-controls="multiCollapseExample1 multiCollapseExample2" aria-expanded="false" class="btn ripple btn-light mb-3 mb-xl-0" href=".multi-collapse" data-bs-toggle="collapse" role="button">Ganti Password</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
