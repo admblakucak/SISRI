@@ -258,4 +258,18 @@ class Welcome extends BaseController
     ];
     return view('Mahasiswa/beranda_mahasiswa', $data);
   }
+  public function profil()
+  {
+    $data = [
+      'title' => 'Profil'
+    ];
+    return view('Profil/profil', $data);
+  }
+  public function edit_profil()
+  {
+    $data = [
+      'title' => 'Edit Profil'
+    ];
+    return view('Profil/edit_profil', $data);
+  }
 }

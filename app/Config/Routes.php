@@ -125,6 +125,8 @@ $routes->add('/beranda_koorprodi', 'Welcome::beranda_koorprodi');
 $routes->add('/login_sisri', 'Welcome::login_sisri');
 $routes->add('/password', 'Welcome::password');
 $routes->add('/bimbingan', 'Welcome::bimbingan');
+$routes->add('/profil', 'Welcome::profil');
+$routes->add('/edit_profil', 'Welcome::edit_profil');
 
 /*
  * --------------------------------------------------------------------
