@@ -19,6 +19,7 @@ use CodeIgniter\Images\Image;
                 </div>
                 <div class="card-body">
                     <div class="table-responsive border-top userlist-table">
+                        <div class="row mt-3"></div>
                         <table class="table card-table table-vcenter text-nowrap mb-0" id="example1">
                             <thead>
                                 <tr>

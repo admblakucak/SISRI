@@ -44,7 +44,7 @@ use CodeIgniter\Images\Image;
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Prodi</h6>
+                            <h6 class="mb-0">Program Studi</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             Sistem Informasi
