@@ -14,11 +14,11 @@ use CodeIgniter\Images\Image;
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex justify-content-between">
-                                <h4 class="card-title mg-b-0">Bimbingan Proposal Mahasiswa</h4>
+                                <h4 class="card-title mg-b-0">Validasi Bimbingan Proposal</h4>
                                 <i class="mdi mdi-dots-horizontal text-gray"></i>
                             </div>
                         </div>
-                        <p class="tx-12 tx-gray-500 mb-2">Bimbingan Proposal kepada Dosen Pembimbing</a></p>
+                        <p class="tx-12 tx-gray-500 mb-2">Validasi Bimbingan Proposal dari Mahasiswa</a></p>
                     </div>
                     <div class="row row-sm main-content-app mb-4">
                         <div class="card col-xl-3 col-lg-4">
