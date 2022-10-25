@@ -18,67 +18,64 @@ use CodeIgniter\Images\Image;
                     <p class="tx-12 tx-gray-500 mb-2">Data Bimbingan Proposal Mahasiswa</p>
                 </div>
                 <div class="card-body">
-<<<<<<< HEAD
                     <div class="table-responsive border-top userlist-table">
                         <div class="row mt-3"></div>
-=======
-                    <div class="table-responsive userlist-table">
->>>>>>> 0e2b9defd764d76f451c3107153f6d2cd0380011
-                        <table class="table card-table table-vcenter text-nowrap mb-0" id="example1">
-                            <thead>
-                                <tr>
-                                    <th><span>&nbsp;</span></th>
-                                    <th><span>Nim</span></th>
-                                    <th><span>Nama</span></th>
-                                    <th><span>Jenis Kelamin</span></th>
-                                    <th><span>Prodi</span></th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $no = 1;
-                                foreach ($data_mhs_bimbingan as $key) { ?>
+                        <div class="table-responsive userlist-table">
+                            <table class="table card-table table-vcenter text-nowrap mb-0" id="example1">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md me-2" src="../../assets/img/faces/2.jpg">
-                                        </td>
-                                        <td>
-                                            <?= $key->nim; ?>
-                                        </td>
-                                        <td>
-                                            <?= $key->nama_mhs; ?>
-                                        </td>
-                                        <td>
-                                            <?php if ($key->jk == 'P') {
-                                                echo 'Perempuan';
-                                            } else {
-                                                echo 'Laki-Laki';
-                                            } ?>
-                                        </td>
-                                        <td>
-                                            <?= $key->namaunit; ?>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="bimbingan_proposal_dosen/<?= $key->nim ?>" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
-                                                <?php
-                                                $jumlah = $db->query("SELECT COUNT(id_bimbingan) AS jumlah FROM tb_bimbingan WHERE `from`='" . $key->nim . "' AND `to`='" . session()->get('ses_id') . "' AND status_baca='belum dibaca'")->getResult()[0]->jumlah;
-                                                if ($jumlah > 0) {
-                                                    echo "<a class='btn btn-danger btn-sm'>$jumlah</a>";
-                                                }
-                                                ?>
-                                            </div>
-                                        </td>
+                                        <th><span>&nbsp;</span></th>
+                                        <th><span>Nim</span></th>
+                                        <th><span>Nama</span></th>
+                                        <th><span>Jenis Kelamin</span></th>
+                                        <th><span>Prodi</span></th>
+                                        <th>Aksi</th>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($data_mhs_bimbingan as $key) { ?>
+                                        <tr>
+                                            <td>
+                                                <img alt="avatar" class="rounded-circle avatar-md me-2" src="../../assets/img/faces/2.jpg">
+                                            </td>
+                                            <td>
+                                                <?= $key->nim; ?>
+                                            </td>
+                                            <td>
+                                                <?= $key->nama_mhs; ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($key->jk == 'P') {
+                                                    echo 'Perempuan';
+                                                } else {
+                                                    echo 'Laki-Laki';
+                                                } ?>
+                                            </td>
+                                            <td>
+                                                <?= $key->namaunit; ?>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="bimbingan_proposal_dosen/<?= $key->nim ?>" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
+                                                    <?php
+                                                    $jumlah = $db->query("SELECT COUNT(id_bimbingan) AS jumlah FROM tb_bimbingan WHERE `from`='" . $key->nim . "' AND `to`='" . session()->get('ses_id') . "' AND status_baca='belum dibaca'")->getResult()[0]->jumlah;
+                                                    if ($jumlah > 0) {
+                                                        echo "<a class='btn btn-danger btn-sm'>$jumlah</a>";
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<?= $this->endSection(); ?>
+    <?= $this->endSection(); ?>
