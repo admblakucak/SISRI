@@ -55,19 +55,19 @@ use CodeIgniter\Images\Image;
                 <div class="card-body">
                     <form>
                         <div class="mb-3">
-                            <label class="small" for="inputUsername">Nama</label>
+                            <label for="">Nama</label>
                             <input class="form-control" id="inputUsername" type="text" placeholder="Isikan Nama Anda">
                         </div>
                         <div class="mb-3">
-                            <label class="small" for="inputFirstName">Nim</label>
+                            <label for="">Nim</label>
                             <input class="form-control" id="inputFirstName" type="text" placeholder="Isikan Nim Anda">
                         </div>
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputLastName">Prodi</label>
+                            <label for="">Prodi</label>
                             <input class="form-control" id="inputLastName" type="text" placeholder="Isikan Prodi Anda">
                         </div>
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputOrgName">Angkatan</label>
+                            <label for="">Angkatan</label>
                             <input class="form-control" id="inputOrgName" type="text" placeholder="Isikan Angkatan Anda">
                         </div>
                         <button class="btn btn-primary" type="button">Simpan</button>
