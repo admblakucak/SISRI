@@ -87,12 +87,12 @@ $routes->add('/data_bimbingan', 'Mahasiswa\Proposal\Bimbingan::data_bimbingan');
 $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
 //Route Khusus Controller Dosen-Bimbingan
-$routes->add('/bimbingan_proposal_dosen', 'Dosen\Proposal\Bimbingan::index');
+$routes->add('/data_mahasiswa_bimbingan_proposal', 'Dosen\Proposal\Bimbingan::index');
+$routes->add('/bimbingan_proposal_dosen/(:any)', 'Dosen\Proposal\Bimbingan::bimbingan_proposal_dosen/$1');
+$routes->add('/hapus_bimbingan_dosen', 'Dosen\Proposal\Bimbingan::hapus');
+$routes->add('/tambah_revisi_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
 // ============================================================================================
 
-
-// $routes->add('/validasi_usulan', 'Welcome::validasi_usulan');
-// $routes->add('/proses_login', 'Welcome::proses_login');
 $routes->add('/coba', 'Welcome::coba');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/ajukan_topik', 'Welcome::ajukan_topik');

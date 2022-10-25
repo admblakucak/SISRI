@@ -18,8 +18,12 @@ use CodeIgniter\Images\Image;
                     <p class="tx-12 tx-gray-500 mb-2">Data Bimbingan Proposal Mahasiswa</p>
                 </div>
                 <div class="card-body">
+<<<<<<< HEAD
                     <div class="table-responsive border-top userlist-table">
                         <div class="row mt-3"></div>
+=======
+                    <div class="table-responsive userlist-table">
+>>>>>>> 0e2b9defd764d76f451c3107153f6d2cd0380011
                         <table class="table card-table table-vcenter text-nowrap mb-0" id="example1">
                             <thead>
                                 <tr>
@@ -57,9 +61,9 @@ use CodeIgniter\Images\Image;
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="/bimbingan" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
+                                                <a href="bimbingan_proposal_dosen/<?= $key->nim ?>" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
                                                 <?php
-                                                $jumlah = $db->query("SELECT COUNT(id_bimbingan) AS jumlah FROM tb_bimbingan WHERE `from`='" . $key->nim . "' AND status_baca='belum dibaca'")->getResult()[0]->jumlah;
+                                                $jumlah = $db->query("SELECT COUNT(id_bimbingan) AS jumlah FROM tb_bimbingan WHERE `from`='" . $key->nim . "' AND `to`='" . session()->get('ses_id') . "' AND status_baca='belum dibaca'")->getResult()[0]->jumlah;
                                                 if ($jumlah > 0) {
                                                     echo "<a class='btn btn-danger btn-sm'>$jumlah</a>";
                                                 }
