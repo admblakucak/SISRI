@@ -19,11 +19,15 @@ class Bimbingan extends BaseController
             return redirect()->to('/');
         }
         $id = session()->get('ses_id');
+        $pem1 = $this->db->query("SELECT * FROM tb_pengajuan_pembimbing WHERE nim='$id' AND sebagai='1' AND status_pengajuan='diterima'")->getResult()[0]->nip;
+        $pem2 = $this->db->query("SELECT * FROM tb_pengajuan_pembimbing WHERE nim='$id' AND sebagai='2' AND status_pengajuan='diterima'")->getResult()[0]->nip;
         $data = [
             'title' => 'Bimbingan Proposal',
+            'db' => $this->db,
             'pemberitahuan' => $this->db->query("SELECT * FROM tb_bimbingan WHERE (`to` = '" . $id . "') AND status_baca='belum dibaca'")->getResult(),
             'dosen_pembimbing' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima'")->getResult(),
-            'progress_bimbingan' => $this->db->query("SELECT * FROM tb_bimbingan WHERE (`from` = '" . $id . "' OR `to` = '" . $id . "')")->getResult(),
+            'progress_bimbingan1' => $this->db->query("SELECT * FROM tb_bimbingan WHERE (`from` = '" . $id . "' OR `to` = '" . $id . "') AND (`from` = '" . $pem1 . "' OR `to` = '" . $pem1 . "')")->getResult(),
+            'progress_bimbingan2' => $this->db->query("SELECT * FROM tb_bimbingan WHERE (`from` = '" . $id . "' OR `to` = '" . $id . "') AND (`from` = '" . $pem2 . "' OR `to` = '" . $pem2 . "')")->getResult(),
 
         ];
         return view('Mahasiswa/Proposal/bimbingan_proposal', $data);
