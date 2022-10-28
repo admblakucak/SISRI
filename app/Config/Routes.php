@@ -35,12 +35,17 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-
+// -----------------------------------------AUTH---------------------------------------
 //Route Khusus Controller Auth-Login
 $routes->add('/', 'Auth\Login::index');
 $routes->add('/proses_login', 'Auth\Login::proses_login');
 //Route Khusus Controller Auth-Logout
 $routes->add('/logout', 'Auth\Logout::index');
+// -----------------------------------------AKUN---------------------------------------
+$routes->add('/profil', 'Akun\Profil::index');
+$routes->add('/edit_profile', 'Akun\Edit_Profil::index');
+$routes->add('/setting', 'Akun\Setting::index');
+// ---------------------------------------ADMIN-------------------------------------------
 //Route Khusus Controller Admin-Beranda
 $routes->add('/beranda_admin', 'Admin\Beranda::index');
 //Route Khusus Controller Admin-Mahasiswa
@@ -63,17 +68,9 @@ $routes->add('/update_data_unit', 'Admin\Unit::update_data_unit');
 //Route Khusus Controller Admin-Periode
 $routes->add('/data_periode', 'Admin\Periode::index');
 $routes->add('/update_data_periode', 'Admin\Periode::update_data_periode');
+// -------------------------------------MAHASISWA-----------------------------------------
 //Route Khusus Controller Mahasiswa-Beranda
 $routes->add('/beranda_mahasiswa', 'Mahasiswa\Beranda::index');
-//Route Khusus Controller Dosen-Beranda
-$routes->add('/beranda_dosen', 'Dosen\Beranda::index');
-//Route Khusus Controller Dosen-Proposal-Validasi_Usulan
-$routes->add('/validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::index');
-$routes->add('/setujui_validasi_usulan/(:any)', 'Dosen\Proposal\Validasi_Usulan::setujui_validasi/$1');
-$routes->add('/tolak_validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::tolak_validasi');
-$routes->get('/download_proposal/(:any)', 'Dosen\Proposal\Validasi_Usulan::download/$1');
-//Route Khusus Controller Korprodi-Beranda
-$routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
 //Route Khusus Controller Mahasiswa-Ajukan_Topik
 $routes->add('/ajukan_topik_mahasiswa', 'Mahasiswa\Ajukan_Topik::index');
 $routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
@@ -86,11 +83,22 @@ $routes->add('/baca_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::baca');
 $routes->add('/data_bimbingan', 'Mahasiswa\Proposal\Bimbingan::data_bimbingan');
 $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
+// --------------------------------------DOSEN-------------------------------------------
+//Route Khusus Controller Dosen-Beranda
+$routes->add('/beranda_dosen', 'Dosen\Beranda::index');
+//Route Khusus Controller Dosen-Proposal-Validasi_Usulan
+$routes->add('/validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::index');
+$routes->add('/setujui_validasi_usulan/(:any)', 'Dosen\Proposal\Validasi_Usulan::setujui_validasi/$1');
+$routes->add('/tolak_validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::tolak_validasi');
+$routes->get('/download_proposal/(:any)', 'Dosen\Proposal\Validasi_Usulan::download/$1');
 //Route Khusus Controller Dosen-Bimbingan
 $routes->add('/data_mahasiswa_bimbingan_proposal', 'Dosen\Proposal\Bimbingan::index');
 $routes->add('/bimbingan_proposal_dosen/(:any)', 'Dosen\Proposal\Bimbingan::bimbingan_proposal_dosen/$1');
 $routes->add('/hapus_bimbingan_dosen', 'Dosen\Proposal\Bimbingan::hapus');
 $routes->add('/tambah_revisi_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
+// --------------------------------------KORPRODI-------------------------------------------
+//Route Khusus Controller Korprodi-Beranda
+$routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
 // ============================================================================================
 
 $routes->add('/coba', 'Welcome::coba');
