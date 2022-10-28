@@ -15,13 +15,17 @@ class Welcome extends BaseController
   }
   public function coba()
   {
-    set_time_limit(0);
-    ini_set('max_execution_time', '0');
-    ini_set('max_input_time', '0');
-    $data = $this->api->authorize("170441100045@student.trunojoyo.ac.id");
-    echo $data->code . '<br>';
-    echo $data->message . '<br>';
+    // set_time_limit(0);
+    // ini_set('max_execution_time', '0');
+    // ini_set('max_input_time', '0');
+    // $data = $this->api->authorize("170441100045@student.trunojoyo.ac.id");
+    // echo $data->code . '<br>';
+    // echo $data->message . '<br>';
     // echo $data->data->ID . '<br>';
+    $image = \Config\Services::image();
+    $image->withFile(WRITEPATH . '../public/image/a.jpg')
+      ->fit(300, 300, 'center')
+      ->save(WRITEPATH . '../public/image/b.png');
   }
   public function validasi_usulan_dosen()
   {

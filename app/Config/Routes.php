@@ -43,7 +43,8 @@ $routes->add('/proses_login', 'Auth\Login::proses_login');
 $routes->add('/logout', 'Auth\Logout::index');
 // -----------------------------------------AKUN---------------------------------------
 $routes->add('/profil', 'Akun\Profil::index');
-$routes->add('/edit_profile', 'Akun\Edit_Profil::index');
+$routes->add('/edit_profil', 'Akun\Edit_Profil::index');
+$routes->add('/proses_edit_profil', 'Akun\Edit_Profil::proses');
 $routes->add('/setting', 'Akun\Setting::index');
 // ---------------------------------------ADMIN-------------------------------------------
 //Route Khusus Controller Admin-Beranda
@@ -133,9 +134,6 @@ $routes->add('/beranda_koorprodi', 'Welcome::beranda_koorprodi');
 $routes->add('/login_sisri', 'Welcome::login_sisri');
 $routes->add('/password', 'Welcome::password');
 $routes->add('/bimbingan', 'Welcome::bimbingan');
-$routes->add('/profil', 'Welcome::profil');
-$routes->add('/edit_profil', 'Welcome::edit_profil');
-$routes->add('/ganti_password', 'Welcome::ganti_password');
 
 /*
  * --------------------------------------------------------------------

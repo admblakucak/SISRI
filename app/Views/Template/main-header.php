@@ -24,11 +24,11 @@
 							</li>
 
 							<li class="dropdown main-profile-menu nav nav-item nav-link">
-								<a class="profile-user d-flex" href=""><img alt="" src="../../assets/img/faces/6.jpg"></a>
+								<a class="profile-user d-flex" href=""><img alt="" src="<?php base_url() ?>/image/<?= session()->get('ses_image') ?>"></a>
 								<div class="dropdown-menu">
 									<div class="main-header-profile bg-primary p-3">
 										<div class="d-flex wd-100p">
-											<div class="main-img-user"><img alt="" src="../../assets/img/faces/6.jpg" class=""></div>
+											<div class="main-img-user"><img alt="" src="<?php base_url() ?>/image/<?= session()->get('ses_image') ?>" class=""></div>
 											<div class="ms-3 my-auto">
 												<h6><?= session()->get('ses_nama'); ?></h6><span><?= strtoupper(session()->get('ses_login')); ?></span>
 											</div>
@@ -36,7 +36,7 @@
 									</div>
 									<a class="dropdown-item" href="/profil"><i class="bx bx-user-circle"></i>Profil</a>
 									<a class="dropdown-item" href="/edit_profil"><i class="bx bx-cog"></i> Edit Profil</a>
-									<a class="dropdown-item" href="/ganti_password"><i class="bx bx-slider-alt"></i> Pengaturan Akun</a>
+									<a class="dropdown-item" href="/setting"><i class="bx bx-slider-alt"></i> Pengaturan Akun</a>
 									<a class="dropdown-item" href="/logout"><i class="bx bx-log-out"></i> Log Out</a>
 								</div>
 							</li>

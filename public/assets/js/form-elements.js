@@ -1,22 +1,22 @@
 // Additional code for adding placeholder in search box of select2
-(function($) {
+(function ($) {
 	var Defaults = $.fn.select2.amd.require('select2/defaults');
 	$.extend(Defaults.defaults, {
 		searchInputPlaceholder: ''
 	});
 	var SearchDropdown = $.fn.select2.amd.require('select2/dropdown/search');
 	var _renderSearchDropdown = SearchDropdown.prototype.render;
-	SearchDropdown.prototype.render = function(decorated) {
+	SearchDropdown.prototype.render = function (decorated) {
 		// invoke parent method
 		var $rendered = _renderSearchDropdown.apply(this, Array.prototype.slice.apply(arguments));
 		this.$search.attr('placeholder', this.options.get('searchInputPlaceholder'));
 		return $rendered;
 	};
 })(window.jQuery);
-$(function() {
+$(function () {
 	'use strict'
 	// Toggle Switches
-	$('.main-toggle').on('click', function() {
+	$('.main-toggle').on('click', function () {
 		$(this).toggleClass('on');
 	})
 	// Input Masks
@@ -59,12 +59,12 @@ $(function() {
 	// jQuery Simple DateTimePicker
 	$('#datetimepicker2').appendDtpicker({
 		closeOnSelected: true,
-		onInit: function(handler) {
+		onInit: function (handler) {
 			var picker = handler.getPicker();
 			$(picker).addClass('main-datetimepicker');
 		}
 	});
-	$(document).ready(function() {
+	$(document).ready(function () {
 		$('.select2').select2({
 			placeholder: 'Choose one',
 			searchInputPlaceholder: 'Search'
@@ -74,29 +74,29 @@ $(function() {
 			placeholder: 'Choose one'
 		});
 	});
-	
+
 	// Filebrowser
-	
-	$(document).on('change', ':file', function() {
-	var input = $(this),
-		numFiles = input.get(0).files ? input.get(0).files.length : 1,
-		label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-	input.trigger('fileselect', [numFiles, label]);
+
+	$(document).on('change', ':file', function () {
+		var input = $(this),
+			numFiles = input.get(0).files ? input.get(0).files.length : 1,
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [numFiles, label]);
 	});
 
 	// We can watch for our custom `fileselect` event like this
-	$(document).ready( function() {
-	  $(':file').on('fileselect', function(event, numFiles, label) {
+	$(document).ready(function () {
+		$(':file').on('fileselect', function (event, numFiles, label) {
 
-		  var input = $(this).parents('.input-group').find(':text'),
-			  log = numFiles > 1 ? numFiles + ' files selected' : label;
+			var input = $(this).parents('.input-group').find(':text'),
+				log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-		  if( input.length ) {
-			  input.val(log);
-		  } else {
-			  if( log ) alert(log);
-		  }
+			if (input.length) {
+				//   input.val(log);
+			} else {
+				//   if( log ) alert(log);
+			}
 
-	  });
+		});
 	});
 });

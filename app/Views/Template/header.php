@@ -71,6 +71,17 @@
 	<link href="<?php base_url() ?>/assets/css/boxed.css" rel="stylesheet">
 	<link href="<?php base_url() ?>/assets/css/dark-boxed.css" rel="stylesheet">
 
+	<!---Internal Fileupload css-->
+	<link href="<?php base_url() ?>/assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css" />
+
+	<!---Internal Fancy uploader css-->
+	<link href="<?php base_url() ?>/assets/plugins/fancyuploder/fancy_fileupload.css" rel="stylesheet" />
+
+	<!--Internal Sumoselect css-->
+	<link rel="stylesheet" href="<?php base_url() ?>/assets/plugins/sumoselect/sumoselect.css">
+
+	<!--Internal  TelephoneInput css-->
+	<link rel="stylesheet" href="<?php base_url() ?>/assets/plugins/telephoneinput/telephoneinput.css">
 </head>
 
 <body class="main-body app sidebar-mini">
