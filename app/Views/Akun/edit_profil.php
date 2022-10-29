@@ -14,7 +14,7 @@ use CodeIgniter\Images\Image;
                 <div class="card-body text-center">
                     <form action="<?php base_url() ?>/proses_edit_profil" method="POST" enctype="multipart/form-data">
                         <!-- <div class="upload"> -->
-                        <input type="file" name='image' class="dropify" data-default-file="<?php base_url() ?>/image/<?= session()->get('ses_image') ?>" data-height="200" />
+                        <input type="file" name='image' accept="image/*" class="dropify" data-default-file="<?php base_url() ?>/image/<?= session()->get('ses_image') ?>" data-height="200" />
                         <!-- </div> -->
                 </div>
             </div>

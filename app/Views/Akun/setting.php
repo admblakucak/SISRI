@@ -57,7 +57,7 @@ use CodeIgniter\Images\Image;
                                                 </div>
                                             </div>
                                             <div class="col-12"><button class="btn btn-success pd-x-20 mg-t-10" type="submit">Update Password</button>
-                                                <a aria-controls="multiCollapseExample1 multiCollapseExample2" aria-expanded="false" class="btn btn-dark pd-x-20 mg-t-10" href=".multi-collapse" data-bs-toggle="collapse" role="button" class="col-md-10 col-lg-9 col-xl-2 offset-xl-10 pt-4">Keluar</a>
+                                                <a aria-controls="multiCollapseExample1 multiCollapseExample2" aria-expanded="false" class="btn ripple btn-light pd-x-20 mg-t-10" href=".multi-collapse" data-bs-toggle="collapse" role="button" class="col-md-10 col-lg-9 col-xl-2 offset-xl-10 pt-4">Keluar</a>
                                             </div>
                                         </div>
                                     </form>
