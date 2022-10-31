@@ -46,6 +46,7 @@ $routes->add('/profil', 'Akun\Profil::index');
 $routes->add('/edit_profil', 'Akun\Edit_Profil::index');
 $routes->add('/proses_edit_profil', 'Akun\Edit_Profil::proses');
 $routes->add('/setting', 'Akun\Setting::index');
+$routes->add('/update_pass', 'Akun\Setting::update_pass');
 // ---------------------------------------ADMIN-------------------------------------------
 //Route Khusus Controller Admin-Beranda
 $routes->add('/beranda_admin', 'Admin\Beranda::index');

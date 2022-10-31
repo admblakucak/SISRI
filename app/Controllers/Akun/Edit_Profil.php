@@ -44,7 +44,29 @@ class Edit_Profil extends BaseController
         if (session()->get('ses_id') == '') {
             return redirect()->to('/');
         }
-        $image = $this->request->getFile('image');
+
+        if (!$this->validate([
+            'image_file' => [
+                // 'rules' => 'uploaded[berkas]|mime_in[berkas,application/pdf]|max_size[berkas,2048]',
+                'rules' => 'mime_in[image_file,image/jpg,image/jpeg]|max_size[image_file,2048]',
+                'errors' => [
+                    // 'uploaded' => 'Harus Ada File yang diupload',
+                    'mime_in' => 'File Extention Harus Berupa JPG/JPEG',
+                    'max_size' => 'Ukuran File Maksimal 2 MB'
+                ]
+
+            ]
+        ])) {
+            session()->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+            <span class="alert-inner--icon"><i class="fe fe-slash"></i></span>
+            <span class="alert-inner--text"><strong>Gagal!</strong> ' . $this->validator->listErrors() . '</span>
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>');
+            return redirect()->back()->withInput();
+        }
+        $image = $this->request->getFile('image_file');
         $name = $image->getRandomName();
         if ($image->getName() != '') {
             if ($image->move(WRITEPATH . '../public/image/', $name)) {
