@@ -132,6 +132,13 @@ class Welcome extends BaseController
     ];
     return view('Dosen/Proposal/bimbingan', $data);
   }
+  public function persetujuan()
+  {
+    $data = [
+      'title' => 'Persetujuan Daftar Seminar Proposal'
+    ];
+    return view('Dosen/Proposal/persetujuan_daftar_seminar', $data);
+  }
   public function berita_acara_seminar()
   {
     $data = [

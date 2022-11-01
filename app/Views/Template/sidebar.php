@@ -75,6 +75,7 @@
 							<ul class="slide-menu">
 								<li><a class="slide-item" href="/validasi_usulan">Validasi Usulan</a></li>
 								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_proposal">Bimbingan</a></li>
+								<li><a class="slide-item" href="/persetujuan_daftar_seminar">Persertujuan Daftar Seminar</a></li>
 								<li><a class="slide-item" href="/berita_acara_seminar">Berita Acara Seminar</a></li>
 								<li><a class="slide-item" href="/validasi_revisi_pasca_seminar">Validasi Revisi Pasca Sminar</a></li>
 								<li><a class="slide-item" href="/histori_seminar">Histori Seminar</a></li>
