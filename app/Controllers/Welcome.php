@@ -22,10 +22,9 @@ class Welcome extends BaseController
     // echo $data->code . '<br>';
     // echo $data->message . '<br>';
     // echo $data->data->ID . '<br>';
-    $image = \Config\Services::image();
-    $image->withFile(WRITEPATH . '../public/image/a.jpg')
-      ->fit(300, 300, 'center')
-      ->save(WRITEPATH . '../public/image/b.png');
+    if ("aaa" == 'aaa') {
+      echo "true";
+    }
   }
   public function validasi_usulan_dosen()
   {

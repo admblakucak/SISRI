@@ -55,7 +55,6 @@ use CodeIgniter\Images\Image;
                             <div class="row">
                                 <div class="col-sm-7 col-md-6 col-lg-4">
                                     <label for="">Upload Berkas Proposal Skripsi</label>
-                                    <p class="tx-12 tx-gray-500 pt-0">Minimal BAB 1 (Pendahuluan).</p>
                                     <div class="input-group file-browser">
                                         <input type="text" class="form-control border-right-0 browse-file" placeholder="Upload Proposal Minimal Bab 1" name="ket_berkas" <?php if (!empty($data_pengajuan_topik[0]->berkas)) {
                                                                                                                                                                                 echo "value='" . $data_pengajuan_topik[0]->berkas . "'";

@@ -1,0 +1,439 @@
+[33mcommit f46a3b0fbe59b0f35c5c3ae93d1dc4b47f8b23ab[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Sat Oct 29 14:23:18 2022 +0700
+
+    refresh
+
+[33mcommit 7439c5e091cc453032faa93bdfd4a5aec70a3581[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Fri Oct 28 15:39:25 2022 +0700
+
+    profil dan edit profil done
+
+[33mcommit fea767503186f661f5129311bdd670b5374fc9e9[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Fri Oct 28 09:46:41 2022 +0700
+
+    refresh
+
+[33mcommit 0cf27e5dd702391d580a3285802ed39738de48e4[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 21:06:33 2022 +0700
+
+    refresh
+
+[33mcommit 9aac73b65f60f46dcf25dfc37a1954caaf6ea596[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 20:56:29 2022 +0700
+
+    membuat tampilan ganti password
+
+[33mcommit 00d088a9b4b42d1c774772812d06911c7a0de926[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 16:08:00 2022 +0700
+
+    refresh
+
+[33mcommit 16c37aac68a7f52d4c575afba8525bbf8e6d62dd[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 15:55:28 2022 +0700
+
+    refresh
+
+[33mcommit dbafc9495c76797d4c06aafa325cccea6fac78d8[m
+Merge: a6250d8 0e2b9de
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 15:53:21 2022 +0700
+
+    refresh
+
+[33mcommit a6250d8740edf322508a2a26754636ed73473d8b[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 15:51:30 2022 +0700
+
+    refresh
+
+[33mcommit 0e2b9defd764d76f451c3107153f6d2cd0380011[m
+Merge: 9a3c3ce 93c19f9
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 25 15:06:58 2022 +0700
+
+    Merge branch 'main' of https://github.com/admblakucak/SISRI
+
+[33mcommit 9a3c3ce7b7b2eb54d6fbbc611c5e17a83d8af620[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 25 15:06:50 2022 +0700
+
+    bimbigan dosen done
+
+[33mcommit 93c19f951774e1b5ab9e6d658f068340ae15f09f[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 12:56:24 2022 +0700
+
+    refresh
+
+[33mcommit b5c4650039e7b110e947c8bf55c9ca87dce99ef8[m
+Merge: ec235da e2e9e88
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 12:30:16 2022 +0700
+
+    Merge branch 'main' of https://github.com/admblakucak/SISRI
+
+[33mcommit ec235da92fcc36de2667262391872f85c9b19915[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Tue Oct 25 12:28:00 2022 +0700
+
+    Membuat tampilan profil dan edit profil
+
+[33mcommit e2e9e88cdeaf06b87b00bad6ff02e26f80d12000[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sun Oct 23 10:46:13 2022 +0700
+
+    (done) data mahasiswa bimbingan dosen
+
+[33mcommit e7a11caba78e0500676d5cf97d1c5c79375e3b59[m
+Merge: be7bf01 e5f2adf
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sun Oct 23 08:22:13 2022 +0700
+
+    Merge branch 'main' of https://github.com/admblakucak/SISRI
+
+[33mcommit be7bf019fee06ee861ff46dc3ec24582a3fce44d[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sun Oct 23 08:21:52 2022 +0700
+
+    menambahkan controller bimbingan dosen
+
+[33mcommit e5f2adfbdcc5f2b4da87184dc86f64bf35a287a0[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Thu Oct 20 14:38:08 2022 +0700
+
+    Mengedit Tampilan Validasi Bimbingan Proposal
+
+[33mcommit e44550d874d3dcdefbc48b1c0bcfe2754b113e09[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Thu Oct 20 13:46:50 2022 +0700
+
+    Refresh
+
+[33mcommit 48be70d19ef30106cba78f8d6a05e35e57775df8[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Thu Oct 20 13:35:35 2022 +0700
+
+    Mengedit tampilan Validasi Bimbingan
+
+[33mcommit 56d9726cba5aa52f447c5118663043d9d7f0c050[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Wed Oct 19 23:10:52 2022 +0700
+
+    refresh
+
+[33mcommit d16e4a2cfa36aea6476420f726e932005b184321[m
+Merge: fbedade a686ea1
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Wed Oct 19 22:53:04 2022 +0700
+
+    mengedit Login Baru
+
+[33mcommit fbedadea338eb0c2ecb997248a06fd8280c4df12[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Wed Oct 19 22:46:18 2022 +0700
+
+    Mengedit Login
+
+[33mcommit a686ea1c2cac420cf0bbff221f7269c4338b2c08[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Wed Oct 19 16:09:39 2022 +0700
+
+    refresh
+
+[33mcommit c1763fe6c2a5045e1aa74eb8ca61c3e5ee8bae73[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Wed Oct 19 15:41:24 2022 +0700
+
+    finish fitur bimbingan pada user mahasiswa
+
+[33mcommit cf85d4cf20b344f29246654cdde1e1fc89bc3629[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Oct 17 14:46:10 2022 +0700
+
+    progres fitur bimbingan pada mahasiswa
+
+[33mcommit 8b31d9437836bca1688a6a9213ff5b443bd07428[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 4 15:35:56 2022 +0700
+
+    refresh
+
+[33mcommit b321f5d0f1f5864bcb02d8106b72b68874c94c94[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 4 15:19:45 2022 +0700
+
+    refresh
+
+[33mcommit 7c4e935c34cd6a4f489861758b9bd5a04e00cc98[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 4 15:18:22 2022 +0700
+
+    mengganti tampilan login
+
+[33mcommit 6ae3a8ccc57735a4fdbc56ed374239af0d357457[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 4 15:15:55 2022 +0700
+
+    refresh
+
+[33mcommit 9e88f773d2b472bd0ed3b2693ec947cda9b9eb5c[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 4 14:06:42 2022 +0700
+
+    refresh
+
+[33mcommit d087c383f5e0950be62c52b985d7b21c4d9aa238[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Oct 4 14:02:21 2022 +0700
+
+    refresh
+
+[33mcommit 5c34ffe825702feb384ca83e8c1566da0457b5ba[m
+Merge: 09188eb 2484d4c
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Mon Sep 26 17:50:38 2022 +0700
+
+    Merge branch 'main' of https://github.com/admblakucak/SISRI
+
+[33mcommit 09188ebb083ef97803822aa398b645928d47d5f7[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Mon Sep 26 17:45:22 2022 +0700
+
+    Mengedit login
+
+[33mcommit 2484d4c3ff4e9af2962f48e71c5ba7fd9e265101[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 16:37:05 2022 +0700
+
+    refresh
+
+[33mcommit 04b411c12cdbde75490dfb7bd5468df66dc645f4[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 16:32:26 2022 +0700
+
+    refresh
+
+[33mcommit caa59e6d159a278093d8d0fa29fbac27faa392a5[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 16:31:25 2022 +0700
+
+    refresh
+
+[33mcommit 768a21f11084e67ca8ea030eefe6b6c1c5f14680[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 16:27:00 2022 +0700
+
+    refresh
+
+[33mcommit bddaca2a003951db0f213e7672b558fd7a49c08f[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 16:24:34 2022 +0700
+
+    refresh
+
+[33mcommit bde370461ef9d1a92265a7d55fe3ce0910ccfe63[m
+Merge: 9e09914 29cc703
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 16:16:21 2022 +0700
+
+    Merge branch 'main' of https://github.com/admblakucak/SISRI
+
+[33mcommit 9e09914688d83ee99834039fa5fafbe516ece454[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 16:15:28 2022 +0700
+
+    finish proses pengerjaan menu dosen-validasi pengajuan topik
+
+[33mcommit 29cc703404a9cc7dc1910db03414b4a7d2726be0[m
+Merge: 5bd23b2 d11ad0f
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Mon Sep 26 11:33:39 2022 +0700
+
+    Merge branch 'main' of https://github.com/admblakucak/SISRI
+
+[33mcommit 5bd23b211172f50c31bfea9c02afb7446e1704aa[m
+Author: MahrusSholeh <mahrus.xtkj@gmail.com>
+Date:   Mon Sep 26 11:30:49 2022 +0700
+
+    Mengedit login baru
+
+[33mcommit d11ad0fc8df3cfabd9537045a5812689fe75cf9b[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 26 11:04:25 2022 +0700
+
+    mengubah tampilan validasi pengajuan skripsi
+
+[33mcommit 76d9d73cbeecad6c260fde26a0841a04e461b947[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sat Sep 24 23:41:17 2022 +0700
+
+    refresh
+
+[33mcommit aef68579c1e4de819ed137eb7772fce1327b763b[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sat Sep 24 23:40:36 2022 +0700
+
+    refresh
+
+[33mcommit 6e57931aebc910d485cc9ebb63d3580acdb44ad6[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sat Sep 24 23:38:00 2022 +0700
+
+    refresh
+
+[33mcommit a9a03d06e57edc94841d165966bebe01c7173b71[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sat Sep 24 23:18:38 2022 +0700
+
+    finishing fitur pengajuan topik - mahasiswa
+
+[33mcommit 806c73ed1cf49e8c08587c44cb17628f2008d95b[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sat Sep 24 19:37:18 2022 +0700
+
+    refresh
+
+[33mcommit a89189389fa1c9a18a0526b2ee0f95e62404f57d[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sat Sep 24 17:29:57 2022 +0700
+
+    refresh
+
+[33mcommit 3de79d872e51aa1afa05290f69da9a3d37686c95[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Sat Sep 24 12:08:15 2022 +0700
+
+    proses merubah dan menambahkan logika tampilan ajukan topik agar lebih fungsional
+
+[33mcommit 52ec324847f56b89ed4c7657e21fe79fdff0452d[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Thu Sep 22 14:49:19 2022 +0700
+
+    memperbaiki logika login, membuat log
+
+[33mcommit 687298ca5aaceadbbff08ec81648aab6a56129b1[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Wed Sep 21 12:23:02 2022 +0700
+
+    memeprbaiki update data api
+
+[33mcommit 3f38bba873f382ddd378e971c76135112802e1af[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 01:17:40 2022 +0700
+
+    refresh
+
+[33mcommit 36907f8d613cc6639eb804d09d5a4f4a14264307[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 01:12:43 2022 +0700
+
+    refresh
+
+[33mcommit 01c04c4d4f0b675707fec175168234921d6a8c16[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 01:09:25 2022 +0700
+
+    refresh
+
+[33mcommit 642611a18a86a1145f6d32c5bdf85dcaf35ee49e[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 01:06:12 2022 +0700
+
+    refresh
+
+[33mcommit fea5fb8deebff66fc82b682fa5593002a8273a6d[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 01:01:56 2022 +0700
+
+    refresh
+
+[33mcommit 0e8441e9209a3452d3d4f544f39c6d17f09d8649[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 00:59:47 2022 +0700
+
+    refresh
+
+[33mcommit 7c7e1e3082fc95ad94bc98f5192155ac79061d0f[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 00:55:30 2022 +0700
+
+    refresh
+
+[33mcommit 21760800771583518ed78373974ec98db086d94b[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Tue Sep 20 00:53:23 2022 +0700
+
+    membuat fitur login
+
+[33mcommit 4e1f6b7df8d7a88c5a3d6fae33fe9b4be3d371e2[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 21:01:55 2022 +0700
+
+    refresh
+
+[33mcommit 719bf0fabb069bfa3515fc6c6425f72801120330[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:53:35 2022 +0700
+
+    refresh
+
+[33mcommit 149151048934e0ad372d56a2b7c3700a151255cf[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:52:55 2022 +0700
+
+    refresh
+
+[33mcommit fdbc7c9751f6fd7ab911b7fea2ea7e1cc5c4c649[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:49:49 2022 +0700
+
+    migrate code 2
+
+[33mcommit 7e1ab294f1bfcef5e3da649198311671e967e521[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:47:57 2022 +0700
+
+    migrate code
+
+[33mcommit e57eafef98290eabc09e1c653053fdbeb5049476[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:43:44 2022 +0700
+
+    add assets
+
+[33mcommit b22dd2c959db2c280749dc73b424f755d62c6b61[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:28:20 2022 +0700
+
+    refresh
+
+[33mcommit dc2507eaf53dff9aadfbebe0ee1ba2033a92433c[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:22:30 2022 +0700
+
+    refresh
+
+[33mcommit fb6023e872f6dd64fc6c06d8250e3a36b33eecf1[m
+Author: admblakucak <adm.blakucak@gmail.com>
+Date:   Mon Sep 19 19:18:24 2022 +0700
+
+    refresh
+
+[33mcommit 9f45af22df6637fb380ea526dbac6c0b06066fdc[m
+Author: admblakucak <110439316+admblakucak@users.noreply.github.com>
+Date:   Mon Sep 19 19:13:24 2022 +0700
+
+    Rename env to .env
+
+[33mcommit 1ae1afc4d2461f9a2a6711f64a05b4fb06d6ff54[m
+Author: admblakucak <110439316+admblakucak@users.noreply.github.com>
+Date:   Mon Sep 19 19:12:34 2022 +0700
+
+    Add files via upload
