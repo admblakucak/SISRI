@@ -55,6 +55,10 @@ use CodeIgniter\Images\Image;
                         <label for="">E-Mail</label>
                         <input class="form-control" id="inputOrgName" type="email" readonly value="<?= $data[0]->email ?>">
                     </div>
+                    <div class="mb-3">
+                        <label for="">No. Handphone</label>
+                        <input class="form-control" id="inputOrgName" type="no" readonly value="<?= $data[0]->email ?>">
+                    </div>
                     <button class="btn btn-primary" type="submit">Simpan</button>
                     </form>
                 </div>
