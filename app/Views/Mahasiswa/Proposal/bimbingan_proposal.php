@@ -177,6 +177,7 @@ use CodeIgniter\Images\Image;
                                             </div>
                                             <form action="<?php base_url() ?>/hapus_bimbingan" method="POST" enctype="multipart/form-data">
                                                 <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
+                                                <input type="hidden" name="nip" value="<?= $how ?>">
                                                 <div class="modal-body">
                                                     Apakah anda yakin ingin menghapus <b><?= $key->pokok_bimbingan ?></b> ini ?
                                                     <p class="mt-3"><?= $key->keterangan ?></p>

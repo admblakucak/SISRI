@@ -56,7 +56,7 @@
 										<path fill="currentColor" d="M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M15 7H20.5L15 1.5V7M8 0H16L22 6V18C22 19.11 21.11 20 20 20H8C6.89 20 6 19.1 6 18V2C6 .89 6.89 0 8 0M17 16V14H8V16H17M20 12V10H8V12H20Z" />
 									</svg> &nbsp; &nbsp;<span class="side-menu__label">Skripsi</span><i class="angle fe fe-chevron-down"></i></a>
 								<ul class="slide-menu">
-									<li><a class="slide-item" href="/Bimbingan_Skripsi/<?= $pem1[0]->nip ?>">Bimbingan Skripsi</a></li>
+									<li><a class="slide-item" href="/bimbingan_skripsi/<?= $pem1[0]->nip ?>">Bimbingan Skripsi</a></li>
 									<li><a class=" slide-item" href="/Daftar_Sidang">Daftar Sidang</a></li>
 									<li><a class="slide-item" href="/Berita_Acara_Sidang">Berita Acara Sidang</a></li>
 									<li><a class="slide-item" href="/Revisi_Pasca_Sidang/<?= $pem1[0]->nip ?>">Revisi Pasca Sidang</a></li>
