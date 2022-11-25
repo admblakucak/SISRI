@@ -2,12 +2,14 @@
 <!-- /main-content -->
 
 <!-- Footer opened -->
-<div class="main-footer ht-40">
-	<div class="container-fluid pd-t-0-f ht-100p">
-		<span>Copyright © 2022 <a href="http://teknik.trunojoyo.ac.id/">FT-UTM</a>.
-			All rights reserved.</span>
+<?php if ($title != "Bimbingan Proposal") { ?>
+	<div class="main-footer ht-40">
+		<div class="container-fluid pd-t-0-f ht-100p">
+			<span>Copyright © 2022 <a href="http://teknik.trunojoyo.ac.id/">FT-UTM</a>.
+				All rights reserved.</span>
+		</div>
 	</div>
-</div>
+<?php } ?>
 <!-- Footer closed -->
 
 </div>
@@ -83,8 +85,6 @@
 <!-- Internal form-elements js -->
 <script src="<?= base_url(); ?>/assets/js/form-elements.js"></script>
 
-<script async src="//www.instagram.com/embed.js"></script>
-
 <script type="text/javascript">
 	$('#validasitable1').DataTable({
 		"language": {
@@ -112,22 +112,7 @@
 
 <!--Internal  Chat js -->
 <script src="<?= base_url(); ?>/assets/js/chat.js"></script>
-<!--Internal Fileuploads js-->
-<script src="<?= base_url(); ?>/assets/plugins/fileuploads/js/fileupload.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/fileuploads/js/file-upload.js"></script>
 
-<!--Internal Fancy uploader js-->
-<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/fancy-uploader.js"></script>
-<!--Internal Sumoselect js-->
-<script src="<?= base_url(); ?>/assets/plugins/sumoselect/jquery.sumoselect.js"></script>
-
-<!-- Internal TelephoneInput js-->
-<script src="<?= base_url(); ?>/assets/plugins/telephoneinput/telephoneinput.js"></script>
-<script src="<?= base_url(); ?>/assets/plugins/telephoneinput/inttelephoneinput.js"></script>
 </body>
 
 </html>

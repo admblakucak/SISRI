@@ -35,31 +35,38 @@
 									<path fill="currentColor" d="M14 2H6C4.89 2 4 2.89 4 4V20C4 21.11 4.89 22 6 22H13.81C13.28 21.09 13 20.05 13 19C13 18.67 13.03 18.33 13.08 18H6V16H13.81C14.27 15.2 14.91 14.5 15.68 14H6V12H18V13.08C18.33 13.03 18.67 13 19 13S19.67 13.03 20 13.08V8L14 2M13 9V3.5L18.5 9H13M18 15V18H15V20H18V23H20V20H23V18H20V15H18Z" />
 								</svg> &nbsp; &nbsp;<span class="side-menu__label">Ajukan Topik</span></a>
 						</li>
-						<li class="slide">
-							<a class="side-menu__item" data-bs-toggle="slide" href="#"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
-									<path fill="currentColor" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z" />
-								</svg> &nbsp; &nbsp;<span class="side-menu__label">Proposal</span><i class="angle fe fe-chevron-down"></i></a>
-							<ul class="slide-menu">
-								<li><a class="slide-item" href="/bimbingan_proposal">Bimbingan Proposal</a></li>
-								<!-- file bimbingan proposal.php ada di folder Mahasiswa -->
-								<li><a class="slide-item" href="/daftar_seminar">Daftar Seminar</a></li>
-								<li><a class="slide-item" href="/Berita-Acara">Berita Acara Seminar</a></li>
-								<li><a class="slide-item" href="/revisi_pasca_seminar">Revisi Pasca Seminar</a></li>
-							</ul>
-						</li>
-						<li class="slide">
-							<a class="side-menu__item" data-bs-toggle="slide" href="#"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
-									<path fill="currentColor" d="M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M15 7H20.5L15 1.5V7M8 0H16L22 6V18C22 19.11 21.11 20 20 20H8C6.89 20 6 19.1 6 18V2C6 .89 6.89 0 8 0M17 16V14H8V16H17M20 12V10H8V12H20Z" />
-								</svg> &nbsp; &nbsp;<span class="side-menu__label">Skripsi</span><i class="angle fe fe-chevron-down"></i></a>
-							<ul class="slide-menu">
-								<li><a class="slide-item" href="/Bimbingan_Skripsi">Bimbingan Skripsi</a></li>
-								<li><a class="slide-item" href="/Daftar_Sidang">Daftar Sidang</a></li>
-								<li><a class="slide-item" href="/Berita_Acara_Sidang">Berita Acara Sidang</a></li>
-								<li><a class="slide-item" href="/Revisi_Pasca_Sidang">Revisi Pasca Sidang</a></li>
-							</ul>
-						</li>
+						<?php
+						$pem1 = $db->query("SELECT * from tb_pengajuan_pembimbing where nim='" . session()->get('ses_id') . "' AND status_pengajuan='diterima' AND sebagai='1'")->getResult();
+						$pem2 = $db->query("SELECT * from tb_pengajuan_pembimbing where nim='" . session()->get('ses_id') . "' AND status_pengajuan='diterima' AND sebagai='2'")->getResult();
+						if (count($pem1) != 0 && count($pem2) != 0) {
+						?>
+							<li class="slide">
+								<a class="side-menu__item" data-bs-toggle="slide" href="#"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+										<path fill="currentColor" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z" />
+									</svg> &nbsp; &nbsp;<span class="side-menu__label">Proposal</span><i class="angle fe fe-chevron-down"></i></a>
+								<ul class="slide-menu">
+									<li><a class="slide-item" href="/bimbingan_proposal/<?= $pem1[0]->nip ?>">Bimbingan Proposal</a></li>
+									<li><a class="slide-item" href="/daftar_seminar">Daftar Seminar</a></li>
+									<li><a class="slide-item" href="/Berita-Acara">Berita Acara Seminar</a></li>
+									<li><a class="slide-item" href="/revisi_pasca_seminar/<?= $pem1[0]->nip ?>">Revisi Pasca Seminar</a></li>
+								</ul>
+							</li>
+							<li class=" slide">
+								<a class="side-menu__item" data-bs-toggle="slide" href="#"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+										<path fill="currentColor" d="M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M15 7H20.5L15 1.5V7M8 0H16L22 6V18C22 19.11 21.11 20 20 20H8C6.89 20 6 19.1 6 18V2C6 .89 6.89 0 8 0M17 16V14H8V16H17M20 12V10H8V12H20Z" />
+									</svg> &nbsp; &nbsp;<span class="side-menu__label">Skripsi</span><i class="angle fe fe-chevron-down"></i></a>
+								<ul class="slide-menu">
+									<li><a class="slide-item" href="/Bimbingan_Skripsi/<?= $pem1[0]->nip ?>">Bimbingan Skripsi</a></li>
+									<li><a class=" slide-item" href="/Daftar_Sidang">Daftar Sidang</a></li>
+									<li><a class="slide-item" href="/Berita_Acara_Sidang">Berita Acara Sidang</a></li>
+									<li><a class="slide-item" href="/Revisi_Pasca_Sidang/<?= $pem1[0]->nip ?>">Revisi Pasca Sidang</a></li>
+								</ul>
+							</li>
+						<?php
+						}
+						?>
 					<?php } elseif (session()->get('ses_login') == 'dosen' || session()->get('ses_login') == 'korprodi') {; ?>
-						<li class="side-item side-item-category">Dosen</li>
+						<li class=" side-item side-item-category">Dosen</li>
 						<li class="slide">
 							<a class="side-menu__item" href="/beranda_dosen"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
 									<path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />

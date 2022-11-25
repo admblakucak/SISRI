@@ -39,7 +39,8 @@ class Ajukan_Topik extends BaseController
             'stsp1' => $stsp1,
             'stsp2' => $stsp2,
             'topik' => $data_topik,
-            'data_pengajuan_topik' => $data_pengajuan_topik
+            'data_pengajuan_topik' => $data_pengajuan_topik,
+            'db' => $this->db
         ];
         return view('Mahasiswa/ajukan_topik', $data);
     }

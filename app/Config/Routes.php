@@ -79,12 +79,13 @@ $routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
 $routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
 $routes->add('/proses_ajukan_topik', 'Mahasiswa\Ajukan_Topik::proses_ajukan_topik');
 //Route Khusus Controller Mahasiswa-Bimbingan
-$routes->add('/bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::index');
+$routes->add('/bimbingan_proposal/(:any)', 'Mahasiswa\Proposal\Bimbingan::index/$1');
 $routes->add('/tambah_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::tambah');
-$routes->add('/baca_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::baca');
 $routes->add('/data_bimbingan', 'Mahasiswa\Proposal\Bimbingan::data_bimbingan');
 $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
+//Route Khusus Controller Mahasiswa-Bimbingan
+$routes->add('/daftar_seminar', 'Mahasiswa\Proposal\Daftar_Seminar::index');
 // --------------------------------------DOSEN-------------------------------------------
 //Route Khusus Controller Dosen-Beranda
 $routes->add('/beranda_dosen', 'Dosen\Beranda::index');
@@ -107,7 +108,6 @@ $routes->add('/coba', 'Welcome::coba');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/ajukan_topik', 'Welcome::ajukan_topik');
 $routes->add('/revisi_pasca_seminar', 'Welcome::revisi_pasca_seminar');
-$routes->add('/daftar_seminar', 'Welcome::daftar_seminar');
 $routes->add('/Bimbingan_Skripsi', 'Welcome::Bimbingan_Skripsi');
 $routes->add('/Berita_Acara_Sidang', 'Welcome::Berita_Acara_Sidang');
 $routes->add('/Daftar_Sidang', 'Welcome::Daftar_Sidang');

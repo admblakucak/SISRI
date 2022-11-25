@@ -18,12 +18,12 @@ use CodeIgniter\Images\Image;
                     <div class="list-group list-lg-group list-group-flush">
                         <div class="list-group-item list-group-item-action" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle my-auto me-3" src="../../assets/img/faces/3.jpg" alt="Image description">
+                                <img class="avatar-lg rounded-circle my-auto me-3" src="<?php base_url() ?>/image/<?= $pem1->image ?>" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-0">
-                                            <h5 class="mb-1 tx-15">Pembimbing 1</h5>
-                                            <p class="mb-0 tx-11 text-muted">NIP: 325650974242 <span class="text-success ms-2">Setuju</span></p>
+                                            <h5 class="mb-1 tx-15">Pembimbing 1 (<?= $pem1->gelardepan . ' ' . $pem1->nama . ', ' . $pem1->gelarbelakang ?>)</h5>
+                                            <p class="mb-0 tx-11 text-muted">NIP: <?= $pem1->nip; ?> <span class="text-success ms-2">Setuju</span></p>
                                         </div>
                                         <div class="offset-1">
                                             <Button class="btn btn-primary btn-sm">Meminta Izin</Button>
@@ -34,12 +34,12 @@ use CodeIgniter\Images\Image;
                         </div>
                         <div class="list-group-item list-group-item-action br-t-1" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle my-auto me-3" src="../../assets/img/faces/11.jpg" alt="Image description">
+                                <img class="avatar-lg rounded-circle my-auto me-3" src="<?php base_url() ?>/image/<?= $pem2->image ?>" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-1">
-                                            <h5 class="mb-1 tx-15">Pembimbing 2</h5>
-                                            <p class="mb-0 tx-11 text-muted">NIP: 886655654 <span class="text-danger ms-1">Menunggu</span></p>
+                                            <h5 class="mb-1 tx-15">Pembimbing 2 (<?= $pem2->gelardepan . ' ' . $pem2->nama . ', ' . $pem2->gelarbelakang ?>)</h5>
+                                            <p class="mb-0 tx-11 text-muted">NIP: <?= $pem2->nip; ?> <span class="text-danger ms-1">Menunggu</span></p>
                                         </div>
                                         <div class="offset-1">
                                             <Button class="btn btn-primary btn-sm">Meminta Izin</Button>
