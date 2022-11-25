@@ -2,7 +2,7 @@
 <!-- /main-content -->
 
 <!-- Footer opened -->
-<?php if ($title != "Bimbingan Proposal") { ?>
+<?php if ($title != "Bimbingan Proposal" && $title != "Bimbingan Skripsi") { ?>
 	<div class="main-footer ht-40">
 		<div class="container-fluid pd-t-0-f ht-100p">
 			<span>Copyright © 2022 <a href="http://teknik.trunojoyo.ac.id/">FT-UTM</a>.
