@@ -15,7 +15,7 @@ use CodeIgniter\Images\Image;
                         <h4 class="card-title mg-b-0">Data Bimbingan</h4>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Data Bimbingan Proposal Mahasiswa</p>
+                    <p class="tx-12 tx-gray-500 mb-2">Data Bimbingan Skripsi Mahasiswa</p>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive border-top userlist-table">
@@ -58,7 +58,7 @@ use CodeIgniter\Images\Image;
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="bimbingan_proposal_dosen/<?= $key['nim'] ?>" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
+                                                    <a href="bimbingan_skripsi_dosen/<?= $key['nim'] ?>" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
                                                     <?php
                                                     $jumlah = $key['sum_pemberitahuan'];
                                                     if ($jumlah > 0) {
@@ -93,7 +93,7 @@ use CodeIgniter\Images\Image;
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="bimbingan_proposal_dosen/<?= $key['nim'] ?>" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
+                                                    <a href="bimbingan_skripsi_dosen/<?= $key['nim'] ?>" class="btn btn-primary btn-sm">Riwayat Bimbingan</a>
                                                     <?php
                                                     $jumlah = $key['sum_pemberitahuan'];
                                                     if ($jumlah > 0) {

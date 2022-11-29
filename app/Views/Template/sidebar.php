@@ -96,7 +96,7 @@
 								<span class="side-menu__label">Skripsi</span><i class="angle fe fe-chevron-down"></i>
 							</a>
 							<ul class="slide-menu">
-								<li><a class="slide-item" href="/validasi_bimbingan_skripsi">Validasi Bimbingan</a></li>
+								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_skripsi">Validasi Bimbingan</a></li>
 								<li><a class="slide-item" href="/berita_acara">Berita Acara Sidang</a></li>
 								<li><a class="slide-item" href="/validasi_revisi_pasca_sidang">Validasi Revisi Pasca Sidang</a></li>
 								<li><a class="slide-item" href="/histori_sidang">Histori Sidang</a></li>

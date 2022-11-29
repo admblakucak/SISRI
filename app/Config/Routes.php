@@ -78,14 +78,14 @@ $routes->add('/ajukan_topik_mahasiswa', 'Mahasiswa\Ajukan_Topik::index');
 $routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
 $routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
 $routes->add('/proses_ajukan_topik', 'Mahasiswa\Ajukan_Topik::proses_ajukan_topik');
-//Route Khusus Controller Mahasiswa-Bimbingan
+//Route Khusus Controller Mahasiswa-Bimbingan Proposal
 $routes->add('/bimbingan_proposal/(:any)', 'Mahasiswa\Proposal\Bimbingan::index/$1');
 $routes->add('/tambah_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::tambah');
 $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
-//Route Khusus Controller Mahasiswa-Bimbingan
+//Route Khusus Controller Mahasiswa-DaftarSeminar
 $routes->add('/daftar_seminar', 'Mahasiswa\Proposal\Daftar_Seminar::index');
-//Route Khusus Controller Mahasiswa-Bimbingan
+//Route Khusus Controller Mahasiswa-Bimbingan Skripsi
 $routes->add('/bimbingan_skripsi/(:any)', 'Mahasiswa\Skripsi\Bimbingan::index/$1');
 $routes->add('/tambah_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::tambah');
 $routes->add('/hapus_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::hapus');
@@ -98,11 +98,16 @@ $routes->add('/validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::index');
 $routes->add('/setujui_validasi_usulan/(:any)', 'Dosen\Proposal\Validasi_Usulan::setujui_validasi/$1');
 $routes->add('/tolak_validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::tolak_validasi');
 $routes->get('/download_proposal/(:any)', 'Dosen\Proposal\Validasi_Usulan::download/$1');
-//Route Khusus Controller Dosen-Bimbingan
+//Route Khusus Controller Dosen-Bimbingan Proposal
 $routes->add('/data_mahasiswa_bimbingan_proposal', 'Dosen\Proposal\Bimbingan::index');
 $routes->add('/bimbingan_proposal_dosen/(:any)', 'Dosen\Proposal\Bimbingan::bimbingan_proposal_dosen/$1');
 $routes->add('/hapus_bimbingan_dosen', 'Dosen\Proposal\Bimbingan::hapus');
-$routes->add('/tambah_revisi_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
+$routes->add('/tambah_bimbingan_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
+//Route Khusus Controller Dosen-Bimbingan Skripsi
+$routes->add('/data_mahasiswa_bimbingan_skripsi', 'Dosen\Skripsi\Bimbingan::index');
+$routes->add('/bimbingan_skripsi_dosen/(:any)', 'Dosen\Skripsi\Bimbingan::bimbingan_skripsi_dosen/$1');
+$routes->add('/hapus_bimbingan_skripsi_dosen', 'Dosen\Skripsi\Bimbingan::hapus');
+$routes->add('/tambah_bimbingan_skripsi_dosen', 'Dosen\Skripsi\Bimbingan::tambah');
 // --------------------------------------KORPRODI-------------------------------------------
 //Route Khusus Controller Korprodi-Beranda
 $routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');

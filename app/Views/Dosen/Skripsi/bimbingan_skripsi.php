@@ -20,15 +20,11 @@ use CodeIgniter\Images\Image;
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Masukkan Dokumen Bimbingan Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                    <h6 class="modal-title">Masukkan Dokumen Bimbingan Skripsi</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="<?php base_url() ?>/tambah_bimbingan_proposal" method="POST" enctype="multipart/form-data">
+                <form action="<?php base_url() ?>/tambah_bimbingan_skripsi_dosen" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
-                        <input type="hidden" name="pembimbing" value="<?= $how ?>">
-                        <div class="form-group">
-                            <label for="">Pokok Bimbingan</label>
-                            <input type="teks" name="pokok_bimbingan" class="form-control" id="exampleInput" placeholder="Contoh : Bimbingan BAB I">
-                        </div>
+                        <input type="hidden" name="nim" value="<?= $nim ?>">
                         <div class="form-group">
                             <label for="">Upload File</label>
                             <div class="input-group file-browser">
@@ -55,64 +51,29 @@ use CodeIgniter\Images\Image;
     </div>
     <!-- row -->
     <div class="row row-sm main-content-app mb-4">
-        <div class="col-xl-4 col-lg-5 col-sm-5">
+        <div class="col-xl-auto col-lg-auto col-sm-auto">
             <div class="card">
                 <div class="main-content-left main-content-left-chat">
                     <div class="main-chat-list" id="ChatList">
-                        <?php
-
-                        foreach ($dosen_pembimbing as $key2) {
-
-                            $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' GROUP BY `from`")->getResult();
-                        ?>
-                            <a href="/bimbingan_proposal/<?= $key2->nip ?>">
-                                <?php if ($notif != NULL) { ?>
-                                    <div class="media new">
-                                    <?php } else {
-                                    ?>
-                                        <div class="media <?= $key2->nip == $how ? 'selected' : '' ?>">
-                                        <?php } ?>
-                                        <div class="main-img-user">
-                                            <img alt="" src="<?= base_url() ?>/image/<?= $key2->image ?>">
-                                            <?php if ($notif != NULL) { ?>
-                                                <span><?= $notif[0]->total ?></span>
-                                            <?php } ?>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="media-contact-name">
-                                                <span><?php
-                                                        if ($key2->nip == $how) {
-                                                            $image_dosen = $key2->image;
-                                                            $pembimbing = "Pembimbing $key2->sebagai";
-                                                            $nama_dosen = "$key2->gelardepan $key2->nama, $key2->gelarbelakang";
-                                                        }
-                                                        echo 'Pembimbing ' . $key2->sebagai . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang;
-                                                        ?></span>
-                                            </div>
-                                        </div>
-                                        </div>
-                            </a>
-                        <?php }
-                        ?>
-                    </div><!-- main-chat-list -->
+                        <a class="p-3"><b>Anda Sebagai</b> : <?= $sebagai ?></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-8 col-lg-7 col-sm-7">
+        <div class="col-xl-12 col-lg-12 col-sm-12">
             <div class="card">
-                <!-- <a class="main-header-arrow" href="" id="ChatBodyHide"><i class="icon ion-md-arrow-back"></i></a> -->
                 <div class="main-content-body-show main-content-body-chat-show">
                     <div class="main-chat-header">
-                        <div class="main-img-user"><img alt="" src="<?= base_url() ?>/image/<?= $image_dosen ?>"></div>
+                        <div class="main-img-user"><img alt="" src="<?= base_url() ?>/image/<?= $data_mhs->image ?>"></div>
                         <div class="main-chat-msg-name">
-                            <h6><?= $nama_dosen ?></h6><small><?= $pembimbing ?></small>
+                            <h6><?= $data_mhs->nama ?></h6><small><?= $nim ?></small>
                         </div>
                     </div><!-- main-chat-header -->
                     <div class="main-chat-body" id="ChatBody">
                         <div class="content-inner">
                             <?php
                             if (count($progress_bimbingan) == 0) {
-                                echo '<label class="main-chat-time"><span>Anda Belum Melakukan Bimbingan.</span></label>';
+                                echo '<label class="main-chat-time"><span>Belum Terdapat Bimbingan.</span></label>';
                             }
                             foreach ($progress_bimbingan as $key) {
                                 if ($key->from == session()->get('ses_id')) {
@@ -150,21 +111,65 @@ use CodeIgniter\Images\Image;
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col"><b><?= $key->pokok_bimbingan ?></b></div>
-                                                        <!-- <div class="col-2"><a data-bs-target="#modaldel<?= $key->id_bimbingan ?>" data-bs-toggle="modal" href="#" style="color: #1E90FF;"><i class="icon ion-md-trash"> </i></a><br></div> -->
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <?= $key->keterangan ?>
                                                 <?php if ($key->berkas != NULL) { ?>
                                                     <hr>
-                                                    <form action="<?php base_url() ?>/download_berkas_bimbingan" method="POST" enctype="multipart/form-data">
-                                                        <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
-                                                        <button class="btn ripple btn-primary" type="submit">Download Berkas</button>
-                                                    </form>
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <form action="<?php base_url() ?>/download_berkas_bimbingan" method="POST" enctype="multipart/form-data">
+                                                                <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
+                                                                <button class="btn ripple btn-primary" type="submit">Download Berkas</button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <button class="btn ripple btn-success" data-bs-target="#modaladd<?= $key->id_bimbingan; ?>" data-bs-toggle="modal" href="">Revisi</button>
+                                                        </div>
+                                                    </div>
                                                 <?php } ?>
                                             </div>
                                             <div>
                                                 <span><?= $key->create_at ?></span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal" id="modaladd<?= $key->id_bimbingan; ?>">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content modal-content-demo">
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title">Masukkan Dokumen Bimbingan Skripsi</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form action="<?php base_url() ?>/tambah_bimbingan_skripsi_dosen" method="POST" enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="nim" value="<?= $nim ?>">
+                                                        <input type="hidden" name="id_bimbingan" value="<?= $key->id_bimbingan ?>">
+                                                        <div class="form-group">
+                                                            <label for="">Pokok Bimbingan</label>
+                                                            <input type="teks" name="pokok_bimbingan" class="form-control" readonly id="exampleInput" value="Revisi - <?= $key->pokok_bimbingan ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Upload File</label>
+                                                            <div class="input-group file-browser">
+                                                                <input type="text" class="form-control border-right-0 browse-file" placeholder="-" name="ket_berkas" readonly>
+                                                                <label class="input-group-btn">
+                                                                    <span class="btn btn-default">
+                                                                        Browse <input type="file" name="berkas" class="d-none" multiple>
+                                                                    </span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Keterangan/Pesan</label>
+                                                            <textarea name="keterangan" class="ckeditor" id="ckeditor" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn ripple btn-primary" type="submit">Kirim</button>
+                                                        <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -175,9 +180,9 @@ use CodeIgniter\Images\Image;
                                             <div class="modal-header">
                                                 <h6 class="modal-title">Hapus Bimbingan</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form action="<?php base_url() ?>/hapus_bimbingan" method="POST" enctype="multipart/form-data">
+                                            <form action="<?php base_url() ?>/hapus_bimbingan_skripsi_dosen" method="POST" enctype="multipart/form-data">
                                                 <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
-                                                <input type="hidden" name="nip" value="<?= $how ?>">
+                                                <input type="hidden" name="nim" value="<?= $nim ?>">
                                                 <div class="modal-body">
                                                     Apakah anda yakin ingin menghapus <b><?= $key->pokok_bimbingan ?></b> ini ?
                                                     <p class="mt-3"><?= $key->keterangan ?></p>
@@ -195,9 +200,7 @@ use CodeIgniter\Images\Image;
                     </div>
                 </div>
                 <div class="main-chat-footer">
-                    <form action="<?php base_url() ?>/tambah_bimbingan_proposal" method="POST" enctype="multipart/form-data">
-                        <a class="main-msg-send" data-bs-target="#modaladd" data-bs-toggle="modal" href=""><i class="far fa-paper-plane"></i></a>
-                    </form>
+                    <a class="main-msg-send" data-bs-target="#modaladd" data-bs-toggle="modal" href=""><i class="far fa-paper-plane"></i></a>
                 </div>
             </div>
         </div>
