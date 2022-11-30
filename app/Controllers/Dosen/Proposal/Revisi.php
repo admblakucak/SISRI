@@ -43,12 +43,36 @@ class Revisi extends BaseController
             ];
             array_push($data_mhs, $data);
         }
+        $data_mhs_bimbingan_penguji = $this->db->query("SELECT a.*,b.`nama` AS nama_mhs, b.`jk`, c.`namaunit`, d.* FROM tb_penguji a LEFT JOIN tb_mahasiswa b ON b.`nim`=a.`nim` LEFT JOIN tb_unit c ON b.`idunit`=c.`idunit` LEFT JOIN tb_profil_tambahan d ON a.`nim`=d.`id` WHERE nip='$id'")->getResult();
+        foreach ($data_mhs_bimbingan_penguji as $key) {
+            if ($key->image != NULL) {
+                $image = $key->image;
+            } else {
+                $image = 'Profile_Default.png';
+            }
+            $sum_pemberitahuan = $this->db->query("SELECT `from`,COUNT(*) AS sum_pemberitahuan FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `to`=" . session()->get('ses_id') . " AND `from`=" . $key->nim . " AND kategori_bimbingan=2 GROUP BY `from`")->getResult();
+            if ($sum_pemberitahuan != NULL) {
+                $sum_pemberitahuan = $sum_pemberitahuan[0]->sum_pemberitahuan;
+            } else {
+                $sum_pemberitahuan = 0;
+            }
+            $data = [
+                'nim' => $key->nim,
+                'nama_mhs' => $key->nama_mhs,
+                'jk' => $key->jk,
+                'namaunit' => $key->namaunit,
+                'image' => $image,
+                'sum_pemberitahuan' => $sum_pemberitahuan
+            ];
+            array_push($data_mhs, $data);
+        }
         $data_baru = array_filter($data_mhs, function ($item) {
             return $item['sum_pemberitahuan'] != '0';
         });
         $data_mhs = array_filter($data_mhs, function ($item) {
             return $item['sum_pemberitahuan'] == '0';
         });
+        // var_dump($data_mhs);
         $data = [
             'title' => 'Data Mahasiswa Bimbingan Revisi Proposal',
             'db' => $this->db,
@@ -65,11 +89,11 @@ class Revisi extends BaseController
 
         $id = $nim;
         $pembimbing = $this->db->query("SELECT * FROM tb_pengajuan_pembimbing where nip='" . session()->get('ses_id') . "' AND nim='$nim'")->getResult();
-        $penguji = $this->db->query("SELECT * FROM tb_pengajuan_pembimbing where nip='" . session()->get('ses_id') . "' AND nim='$nim'")->getResult();
+        $penguji = $this->db->query("SELECT * FROM tb_penguji where nip='" . session()->get('ses_id') . "' AND nim='$nim'")->getResult();
         if ($pembimbing != null) {
             $sebagai = 'Pembimbing ' . $pembimbing[0]->sebagai;
         } else {
-            $sebagai = 'Pembimbing ' . $penguji[0]->sebagai;
+            $sebagai = 'Penguji ' . $penguji[0]->sebagai;
         }
         $data = [
             'title' => 'Bimbingan Revisi Proposal',
