@@ -19,7 +19,8 @@ class Beranda extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Beranda Korprodi'
+            'title' => 'Beranda Korprodi',
+            'db' => $this->db,
         ];
         return view('Korprodi/beranda_korprodi', $data);
     }

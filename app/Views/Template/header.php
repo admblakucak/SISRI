@@ -70,7 +70,6 @@
 	<link href="<?php base_url() ?>/assets/css/style-dark.css" rel="stylesheet">
 	<link href="<?php base_url() ?>/assets/css/boxed.css" rel="stylesheet">
 	<link href="<?php base_url() ?>/assets/css/dark-boxed.css" rel="stylesheet">
-
 	<!---Internal Fileupload css-->
 	<link href="<?php base_url() ?>/assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css" />
 

@@ -78,13 +78,25 @@ $routes->add('/ajukan_topik_mahasiswa', 'Mahasiswa\Ajukan_Topik::index');
 $routes->add('/ajukan_dospem_1', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_1');
 $routes->add('/ajukan_dospem_2', 'Mahasiswa\Ajukan_Topik::ajukan_dospem_2');
 $routes->add('/proses_ajukan_topik', 'Mahasiswa\Ajukan_Topik::proses_ajukan_topik');
-//Route Khusus Controller Mahasiswa-Bimbingan
-$routes->add('/bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::index');
+//Route Khusus Controller Mahasiswa-Bimbingan Proposal
+$routes->add('/bimbingan_proposal/(:any)', 'Mahasiswa\Proposal\Bimbingan::index/$1');
 $routes->add('/tambah_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::tambah');
-$routes->add('/baca_bimbingan_proposal', 'Mahasiswa\Proposal\Bimbingan::baca');
-$routes->add('/data_bimbingan', 'Mahasiswa\Proposal\Bimbingan::data_bimbingan');
 $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
+//Route Khusus Controller Mahasiswa-DaftarSeminar
+$routes->add('/daftar_seminar', 'Mahasiswa\Proposal\Daftar_Seminar::index');
+//Route Khusus Controller Mahasiswa-Bimbingan Revisi Proposal
+$routes->add('/bimbingan_revisi_proposal/(:any)', 'Mahasiswa\Proposal\Revisi::index/$1');
+$routes->add('/tambah_bimbingan_revisi_proposal', 'Mahasiswa\Proposal\Revisi::tambah');
+$routes->add('/hapus_bimbingan_revisi_proposal', 'Mahasiswa\Proposal\Revisi::hapus');
+//Route Khusus Controller Mahasiswa-Bimbingan Skripsi
+$routes->add('/bimbingan_skripsi/(:any)', 'Mahasiswa\Skripsi\Bimbingan::index/$1');
+$routes->add('/tambah_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::tambah');
+$routes->add('/hapus_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::hapus');
+//Route Khusus Controller Mahasiswa-Bimbingan Revisi Proposal
+$routes->add('/bimbingan_revisi_skripsi/(:any)', 'Mahasiswa\Skripsi\Revisi::index/$1');
+$routes->add('/tambah_bimbingan_revisi_skripsi', 'Mahasiswa\Skripsi\Revisi::tambah');
+$routes->add('/hapus_bimbingan_revisi_skripsi', 'Mahasiswa\Skripsi\Revisi::hapus');
 // --------------------------------------DOSEN-------------------------------------------
 //Route Khusus Controller Dosen-Beranda
 $routes->add('/beranda_dosen', 'Dosen\Beranda::index');
@@ -93,11 +105,26 @@ $routes->add('/validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::index');
 $routes->add('/setujui_validasi_usulan/(:any)', 'Dosen\Proposal\Validasi_Usulan::setujui_validasi/$1');
 $routes->add('/tolak_validasi_usulan', 'Dosen\Proposal\Validasi_Usulan::tolak_validasi');
 $routes->get('/download_proposal/(:any)', 'Dosen\Proposal\Validasi_Usulan::download/$1');
-//Route Khusus Controller Dosen-Bimbingan
+//Route Khusus Controller Dosen-Bimbingan Proposal
 $routes->add('/data_mahasiswa_bimbingan_proposal', 'Dosen\Proposal\Bimbingan::index');
 $routes->add('/bimbingan_proposal_dosen/(:any)', 'Dosen\Proposal\Bimbingan::bimbingan_proposal_dosen/$1');
 $routes->add('/hapus_bimbingan_dosen', 'Dosen\Proposal\Bimbingan::hapus');
-$routes->add('/tambah_revisi_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
+$routes->add('/tambah_bimbingan_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
+//Route Khusus Controller Dosen-Bimbingan Revisi Proposal
+$routes->add('/data_mahasiswa_bimbingan_revisi_proposal', 'Dosen\Proposal\Revisi::index');
+$routes->add('/bimbingan_revisi_proposal_dosen/(:any)', 'Dosen\Proposal\Revisi::bimbingan_proposal_dosen/$1');
+$routes->add('/hapus_bimbingan_revisi_proposal_dosen', 'Dosen\Proposal\Revisi::hapus');
+$routes->add('/tambah_bimbingan_revisi_proposal_dosen', 'Dosen\Proposal\Revisi::tambah');
+//Route Khusus Controller Dosen-Bimbingan Skripsi
+$routes->add('/data_mahasiswa_bimbingan_skripsi', 'Dosen\Skripsi\Bimbingan::index');
+$routes->add('/bimbingan_skripsi_dosen/(:any)', 'Dosen\Skripsi\Bimbingan::bimbingan_skripsi_dosen/$1');
+$routes->add('/hapus_bimbingan_skripsi_dosen', 'Dosen\Skripsi\Bimbingan::hapus');
+$routes->add('/tambah_bimbingan_skripsi_dosen', 'Dosen\Skripsi\Bimbingan::tambah');
+//Route Khusus Controller Dosen-Bimbingan Revisi Skripsi
+$routes->add('/data_mahasiswa_bimbingan_revisi_skripsi', 'Dosen\Skripsi\Revisi::index');
+$routes->add('/bimbingan_revisi_skripsi_dosen/(:any)', 'Dosen\Skripsi\Revisi::bimbingan_skripsi_dosen/$1');
+$routes->add('/hapus_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::hapus');
+$routes->add('/tambah_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::tambah');
 // --------------------------------------KORPRODI-------------------------------------------
 //Route Khusus Controller Korprodi-Beranda
 $routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
@@ -107,7 +134,6 @@ $routes->add('/coba', 'Welcome::coba');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/ajukan_topik', 'Welcome::ajukan_topik');
 $routes->add('/revisi_pasca_seminar', 'Welcome::revisi_pasca_seminar');
-$routes->add('/daftar_seminar', 'Welcome::daftar_seminar');
 $routes->add('/Bimbingan_Skripsi', 'Welcome::Bimbingan_Skripsi');
 $routes->add('/Berita_Acara_Sidang', 'Welcome::Berita_Acara_Sidang');
 $routes->add('/Daftar_Sidang', 'Welcome::Daftar_Sidang');

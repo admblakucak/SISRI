@@ -19,7 +19,8 @@ class Beranda extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Beranda Dosen'
+            'title' => 'Beranda Dosen',
+            'db' => $this->db,
         ];
         return view('Dosen/beranda_dosen', $data);
     }

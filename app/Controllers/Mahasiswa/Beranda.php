@@ -19,7 +19,8 @@ class Beranda extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Beranda Mahasiswa'
+            'title' => 'Beranda Mahasiswa',
+            'db' => $this->db
         ];
         return view('Mahasiswa/beranda_mahasiswa', $data);
     }
