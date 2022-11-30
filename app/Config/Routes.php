@@ -93,6 +93,10 @@ $routes->add('/hapus_bimbingan_revisi_proposal', 'Mahasiswa\Proposal\Revisi::hap
 $routes->add('/bimbingan_skripsi/(:any)', 'Mahasiswa\Skripsi\Bimbingan::index/$1');
 $routes->add('/tambah_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::tambah');
 $routes->add('/hapus_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::hapus');
+//Route Khusus Controller Mahasiswa-Bimbingan Revisi Proposal
+$routes->add('/bimbingan_revisi_skripsi/(:any)', 'Mahasiswa\Skripsi\Revisi::index/$1');
+$routes->add('/tambah_bimbingan_revisi_skripsi', 'Mahasiswa\Skripsi\Revisi::tambah');
+$routes->add('/hapus_bimbingan_revisi_skripsi', 'Mahasiswa\Skripsi\Revisi::hapus');
 // --------------------------------------DOSEN-------------------------------------------
 //Route Khusus Controller Dosen-Beranda
 $routes->add('/beranda_dosen', 'Dosen\Beranda::index');

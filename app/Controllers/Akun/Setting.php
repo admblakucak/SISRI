@@ -20,7 +20,8 @@ class Setting extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Setting ' . ucfirst(session()->get('ses_login'))
+            'title' => 'Setting ' . ucfirst(session()->get('ses_login')),
+            'db' => $this->db,
         ];
         return view('Akun/setting', $data);
     }

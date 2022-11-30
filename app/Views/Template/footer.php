@@ -110,6 +110,25 @@
 <!--Internal  lightslider js -->
 <script src="<?= base_url(); ?>/assets/plugins/lightslider/js/lightslider.min.js"></script>
 
+<script src="<?= base_url(); ?>/assets/js/select2.js"></script>
+
+<!--Internal Sumoselect js-->
+<script src="<?= base_url(); ?>/assets/plugins/sumoselect/jquery.sumoselect.js"></script>
+
+<!-- Internal TelephoneInput js-->
+<script src="<?= base_url(); ?>/assets/plugins/telephoneinput/telephoneinput.js"></script>
+<script src="<?= base_url(); ?>/assets/plugins/telephoneinput/inttelephoneinput.js"></script>
+<!--Internal Fileuploads js-->
+<script src="<?= base_url(); ?>/assets/plugins/fileuploads/js/fileupload.js"></script>
+<script src="<?= base_url(); ?>/assets/plugins/fileuploads/js/file-upload.js"></script>
+
+<!--Internal Fancy uploader js-->
+<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+<script src="<?= base_url(); ?>/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+
 <!--Internal  Chat js -->
 <script src="<?= base_url(); ?>/assets/js/chat.js"></script>
 

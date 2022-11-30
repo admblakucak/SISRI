@@ -11,7 +11,7 @@ use CodeIgniter\Images\Image;
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Bimbingan</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Proposal</span>
+                <h4 class="content-title mb-0 my-auto">Bimbingan</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Revisi Proposal</span>
             </div>
         </div>
     </div>
@@ -60,9 +60,7 @@ use CodeIgniter\Images\Image;
                 <div class="main-content-left main-content-left-chat">
                     <div class="main-chat-list" id="ChatList">
                         <?php
-
                         foreach ($dosen_pembimbing as $key2) {
-
                             $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' GROUP BY `from`")->getResult();
                         ?>
                             <a href="/bimbingan_revisi_proposal/<?= $key2->nip ?>">
@@ -73,7 +71,7 @@ use CodeIgniter\Images\Image;
                                         <div class="media <?= $key2->nip == $how ? 'selected' : '' ?>">
                                         <?php } ?>
                                         <div class="main-img-user">
-                                            <img alt="" src="<?= base_url() ?>/image/<?= $key2->image ?>">
+                                            <img alt="" src="<?= base_url() ?>/image/<?= $key2->image != NULL ? $key2->image : 'Profile_Default.png' ?>">
                                             <?php if ($notif != NULL) { ?>
                                                 <span><?= $notif[0]->total ?></span>
                                             <?php } ?>
@@ -82,11 +80,44 @@ use CodeIgniter\Images\Image;
                                             <div class="media-contact-name">
                                                 <span><?php
                                                         if ($key2->nip == $how) {
-                                                            $image_dosen = $key2->image;
+                                                            $image_dosen = $key2->image != NULL ? $key2->image : 'Profile_Default.png';
                                                             $pembimbing = "Pembimbing $key2->sebagai";
                                                             $nama_dosen = "$key2->gelardepan $key2->nama, $key2->gelarbelakang";
                                                         }
                                                         echo 'Pembimbing ' . $key2->sebagai . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang;
+                                                        ?></span>
+                                            </div>
+                                        </div>
+                                        </div>
+                            </a>
+                        <?php }
+                        ?>
+                        <?php
+                        foreach ($dosen_penguji as $key2) {
+                            $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' GROUP BY `from`")->getResult();
+                        ?>
+                            <a href="/bimbingan_revisi_proposal/<?= $key2->nip ?>">
+                                <?php if ($notif != NULL) { ?>
+                                    <div class="media new">
+                                    <?php } else {
+                                    ?>
+                                        <div class="media <?= $key2->nip == $how ? 'selected' : '' ?>">
+                                        <?php } ?>
+                                        <div class="main-img-user">
+                                            <img alt="" src="<?= base_url() ?>/image/<?= $key2->image != NULL ? $key2->image : 'Profile_Default.png' ?>">
+                                            <?php if ($notif != NULL) { ?>
+                                                <span><?= $notif[0]->total ?></span>
+                                            <?php } ?>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="media-contact-name">
+                                                <span><?php
+                                                        if ($key2->nip == $how) {
+                                                            $image_dosen = $key2->image != NULL ? $key2->image : 'Profile_Default.png';
+                                                            $pembimbing = "Penguji $key2->sebagai";
+                                                            $nama_dosen = "$key2->gelardepan $key2->nama, $key2->gelarbelakang";
+                                                        }
+                                                        echo 'Penguji ' . $key2->sebagai . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang;
                                                         ?></span>
                                             </div>
                                         </div>
@@ -144,7 +175,7 @@ use CodeIgniter\Images\Image;
                                     </div>
                                 <?php } else { ?>
                                     <div class="media">
-                                        <div class="main-img-user online"><img alt="" src="<?= base_url() ?>/image/<?= $key->image ?>"></div>
+                                        <div class="main-img-user online"><img alt="" src="<?= base_url() ?>/image/<?= $image_dosen ?>"></div>
                                         <div class="media-body">
                                             <div class="main-msg-wrapper left">
                                                 <div class="container">
@@ -175,7 +206,7 @@ use CodeIgniter\Images\Image;
                                             <div class="modal-header">
                                                 <h6 class="modal-title">Hapus Bimbingan</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form action="<?php base_url() ?>/hapus_revisi_bimbingan_proposal" method="POST" enctype="multipart/form-data">
+                                            <form action="<?php base_url() ?>/hapus_bimbingan_revisi_proposal" method="POST" enctype="multipart/form-data">
                                                 <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
                                                 <input type="hidden" name="nip" value="<?= $how ?>">
                                                 <div class="modal-body">

@@ -35,6 +35,7 @@ class Edit_Profil extends BaseController
         $data = data($this->db, session()->get('ses_id'));
         $data = [
             'title' => 'Edit Profil ' . ucfirst(session()->get('ses_login')),
+            'db' => $this->db,
             'data' => $data
         ];
         return view('Akun/edit_profil', $data);

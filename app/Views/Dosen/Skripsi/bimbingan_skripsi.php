@@ -64,7 +64,7 @@ use CodeIgniter\Images\Image;
             <div class="card">
                 <div class="main-content-body-show main-content-body-chat-show">
                     <div class="main-chat-header">
-                        <div class="main-img-user"><img alt="" src="<?= base_url() ?>/image/<?= $data_mhs->image ?>"></div>
+                        <div class="main-img-user"><img alt="" src="<?= base_url() ?>/image/<?= $data_mhs->image != NULL ? $data_mhs->image : 'Profile_Default.png' ?>"></div>
                         <div class="main-chat-msg-name">
                             <h6><?= $data_mhs->nama ?></h6><small><?= $nim ?></small>
                         </div>
@@ -79,7 +79,7 @@ use CodeIgniter\Images\Image;
                                 if ($key->from == session()->get('ses_id')) {
                             ?>
                                     <div class="media flex-row-reverse">
-                                        <div class="main-img-user"><img alt="" src="<?= base_url() ?>/image/<?= $key->image ?>"></div>
+                                        <div class="main-img-user"><img alt="" src="<?= base_url() ?>/image/<?= $key->image != NULL ? $key->image : 'Profile_Default.png' ?>"></div>
                                         <div class="media-body">
                                             <div class="main-msg-wrapper right">
                                                 <div class="container">
@@ -105,7 +105,7 @@ use CodeIgniter\Images\Image;
                                     </div>
                                 <?php } else { ?>
                                     <div class="media">
-                                        <div class="main-img-user online"><img alt="" src="<?= base_url() ?>/image/<?= $key->image ?>"></div>
+                                        <div class="main-img-user online"><img alt="" src="<?= base_url() ?>/image/<?= $key->image != NULL ? $key->image : 'Profile_Default.png' ?>"></div>
                                         <div class="media-body">
                                             <div class="main-msg-wrapper left">
                                                 <div class="container">

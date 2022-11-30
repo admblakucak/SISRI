@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Mahasiswa\Proposal;
+namespace App\Controllers\Mahasiswa\Skripsi;
 
 use App\Controllers\BaseController;
 
@@ -20,16 +20,16 @@ class Revisi extends BaseController
         }
         $id = session()->get('ses_id');
         $data = [
-            'title' => 'Revisi Proposal',
+            'title' => 'Revisi Skripsi',
             'how' => $how,
             'db' => $this->db,
             'dosen_pembimbing' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima'")->getResult(),
             'dosen_penguji' => $this->db->query("SELECT * FROM tb_penguji a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "'")->getResult(),
-            'progress_bimbingan' => $this->db->query("SELECT * FROM tb_bimbingan a LEFT JOIN tb_profil_tambahan b ON a.`from`=b.`id` WHERE (a.`from` = '" . $id . "' OR a.`to` = '" . $id . "') AND (a.`from` = '" . $how . "' OR a.`to` = '" . $how . "') AND kategori_bimbingan=2 ORDER BY create_at ASC")->getResult(),
+            'progress_bimbingan' => $this->db->query("SELECT * FROM tb_bimbingan a LEFT JOIN tb_profil_tambahan b ON a.`from`=b.`id` WHERE (a.`from` = '" . $id . "' OR a.`to` = '" . $id . "') AND (a.`from` = '" . $how . "' OR a.`to` = '" . $how . "') AND kategori_bimbingan=4 ORDER BY create_at ASC")->getResult(),
         ];
-        $this->db->query("UPDATE tb_bimbingan SET status_baca='dibaca' WHERE `from`=$how AND status_baca='belum dibaca' AND kategori_bimbingan=2");
+        $this->db->query("UPDATE tb_bimbingan SET status_baca='dibaca' WHERE `from`=$how AND status_baca='belum dibaca' AND kategori_bimbingan=4");
         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','Bimbingan Dibaca','Bimbingan $how dibaca ',now())");
-        return view('Mahasiswa/Proposal/bimbingan_revisi_proposal', $data);
+        return view('Mahasiswa/Skripsi/bimbingan_revisi_skripsi', $data);
     }
     public function tambah()
     {
@@ -40,14 +40,14 @@ class Revisi extends BaseController
         $name = $berkas->getRandomName();
         if ($berkas->getName() != '') {
             if ($berkas->move(WRITEPATH . '../public/berkas/', $name)) {
-                $this->db->query("INSERT INTO tb_bimbingan (`from`,`to`,status_baca,keterangan,berkas,pokok_bimbingan,create_at,kategori_bimbingan) VALUES('" . session()->get('ses_id') . "','$pembimbing','belum dibaca','$keterangan','$name','$pokok_bimbingan',now(),2)");
+                $this->db->query("INSERT INTO tb_bimbingan (`from`,`to`,status_baca,keterangan,berkas,pokok_bimbingan,create_at,kategori_bimbingan) VALUES('" . session()->get('ses_id') . "','$pembimbing','belum dibaca','$keterangan','$name','$pokok_bimbingan',now(),4)");
                 $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','Bimbingan','Bimbingan kepada pembimbing $pembimbing',now())");
             }
         } else {
-            $this->db->query("INSERT INTO tb_bimbingan (`from`,`to`,status_baca,keterangan,pokok_bimbingan,create_at,kategori_bimbingan) VALUES('" . session()->get('ses_id') . "','$pembimbing','belum dibaca','$keterangan','$pokok_bimbingan',now(),2)");
+            $this->db->query("INSERT INTO tb_bimbingan (`from`,`to`,status_baca,keterangan,pokok_bimbingan,create_at,kategori_bimbingan) VALUES('" . session()->get('ses_id') . "','$pembimbing','belum dibaca','$keterangan','$pokok_bimbingan',now(),4)");
             $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','Bimbingan','Bimbingan kepada pembimbing $pembimbing',now())");
         }
-        return redirect()->to("/bimbingan_revisi_proposal/$pembimbing");
+        return redirect()->to("/bimbingan_revisi_skripsi/$pembimbing");
     }
     public function hapus()
     {
@@ -55,7 +55,7 @@ class Revisi extends BaseController
         $nip = $this->request->getPost('nip');
         $this->db->query("DELETE FROM tb_bimbingan WHERE id_bimbingan='$id_bimbingan'");
         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','Bimbingan Dihapus','id bimbingan $id_bimbingan dihapus ',now())");
-        return redirect()->to("/bimbingan_revisi_proposal/$nip");
+        return redirect()->to("/bimbingan_revisi_skripsi/$nip");
     }
     public function download_berkas()
     {

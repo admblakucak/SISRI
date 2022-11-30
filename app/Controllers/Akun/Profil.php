@@ -33,6 +33,7 @@ class Profil extends BaseController
         $data = data($this->db, session()->get('ses_id'));
         $data = [
             'title' => 'Profil ' . ucfirst(session()->get('ses_login')),
+            'db' => $this->db,
             'data' => $data
         ];
         return view('Akun/profil', $data);

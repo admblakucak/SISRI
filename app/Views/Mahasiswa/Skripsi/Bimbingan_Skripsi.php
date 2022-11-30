@@ -73,7 +73,7 @@ use CodeIgniter\Images\Image;
                                         <div class="media <?= $key2->nip == $how ? 'selected' : '' ?>">
                                         <?php } ?>
                                         <div class="main-img-user">
-                                            <img alt="" src="<?= base_url() ?>/image/<?= $key2->image ?>">
+                                            <img alt="" src="<?= base_url() ?>/image/<?= $key2->image != NULL ? $key2->image : 'Profile_Default.png' ?>">
                                             <?php if ($notif != NULL) { ?>
                                                 <span><?= $notif[0]->total ?></span>
                                             <?php } ?>
@@ -82,7 +82,7 @@ use CodeIgniter\Images\Image;
                                             <div class="media-contact-name">
                                                 <span><?php
                                                         if ($key2->nip == $how) {
-                                                            $image_dosen = $key2->image;
+                                                            $image_dosen = $key2->image != NULL ? $key2->image : 'Profile_Default.png';
                                                             $pembimbing = "Pembimbing $key2->sebagai";
                                                             $nama_dosen = "$key2->gelardepan $key2->nama, $key2->gelarbelakang";
                                                         }
@@ -144,7 +144,7 @@ use CodeIgniter\Images\Image;
                                     </div>
                                 <?php } else { ?>
                                     <div class="media">
-                                        <div class="main-img-user online"><img alt="" src="<?= base_url() ?>/image/<?= $key->image ?>"></div>
+                                        <div class="main-img-user online"><img alt="" src="<?= base_url() ?>/image/<?= $image_dosen ?>"></div>
                                         <div class="media-body">
                                             <div class="main-msg-wrapper left">
                                                 <div class="container">

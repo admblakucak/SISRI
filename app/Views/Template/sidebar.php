@@ -59,7 +59,7 @@
 									<li><a class="slide-item" href="/bimbingan_skripsi/<?= $pem1[0]->nip ?>">Bimbingan Skripsi</a></li>
 									<li><a class=" slide-item" href="/Daftar_Sidang">Daftar Sidang</a></li>
 									<li><a class="slide-item" href="/Berita_Acara_Sidang">Berita Acara Sidang</a></li>
-									<li><a class="slide-item" href="/Revisi_Pasca_Sidang/<?= $pem1[0]->nip ?>">Revisi Pasca Sidang</a></li>
+									<li><a class="slide-item" href="/bimbingan_revisi_skripsi/<?= $pem1[0]->nip ?>">Revisi Pasca Sidang</a></li>
 								</ul>
 							</li>
 						<?php
