@@ -85,11 +85,14 @@ $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
 //Route Khusus Controller Mahasiswa-DaftarSeminar
 $routes->add('/daftar_seminar', 'Mahasiswa\Proposal\Daftar_Seminar::index');
+//Route Khusus Controller Mahasiswa-Bimbingan Revisi Proposal
+$routes->add('/bimbingan_revisi_proposal/(:any)', 'Mahasiswa\Proposal\Revisi::index/$1');
+$routes->add('/tambah_bimbingan_revisi_proposal', 'Mahasiswa\Proposal\Revisi::tambah');
+$routes->add('/hapus_bimbingan_revisi_proposal', 'Mahasiswa\Proposal\Revisi::hapus');
 //Route Khusus Controller Mahasiswa-Bimbingan Skripsi
 $routes->add('/bimbingan_skripsi/(:any)', 'Mahasiswa\Skripsi\Bimbingan::index/$1');
 $routes->add('/tambah_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::tambah');
 $routes->add('/hapus_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::hapus');
-$routes->add('/download_berkas_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::download_berkas');
 // --------------------------------------DOSEN-------------------------------------------
 //Route Khusus Controller Dosen-Beranda
 $routes->add('/beranda_dosen', 'Dosen\Beranda::index');

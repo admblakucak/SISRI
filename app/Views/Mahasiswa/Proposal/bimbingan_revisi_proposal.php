@@ -11,7 +11,7 @@ use CodeIgniter\Images\Image;
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Bimbingan</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Revisi Proposal</span>
+                <h4 class="content-title mb-0 my-auto">Bimbingan</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Proposal</span>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@ use CodeIgniter\Images\Image;
                 <div class="modal-header">
                     <h6 class="modal-title">Masukkan Dokumen Bimbingan Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="<?php base_url() ?>/tambah_bimbingan_proposal" method="POST" enctype="multipart/form-data">
+                <form action="<?php base_url() ?>/tambah_bimbingan_revisi_proposal" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="pembimbing" value="<?= $how ?>">
                         <div class="form-group">
@@ -65,7 +65,7 @@ use CodeIgniter\Images\Image;
 
                             $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' GROUP BY `from`")->getResult();
                         ?>
-                            <a href="/bimbingan_proposal/<?= $key2->nip ?>">
+                            <a href="/bimbingan_revisi_proposal/<?= $key2->nip ?>">
                                 <?php if ($notif != NULL) { ?>
                                     <div class="media new">
                                     <?php } else {
@@ -138,7 +138,7 @@ use CodeIgniter\Images\Image;
                                                 <?php } ?>
                                             </div>
                                             <div>
-                                                <span><?= $key->create_at ?></span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                <span><?= $key->create_at ?> - (<?= $key->status_baca == 'dibaca' ? 'Dibaca' : 'Terkirim' ?>)</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -175,8 +175,9 @@ use CodeIgniter\Images\Image;
                                             <div class="modal-header">
                                                 <h6 class="modal-title">Hapus Bimbingan</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form action="<?php base_url() ?>/hapus_bimbingan" method="POST" enctype="multipart/form-data">
+                                            <form action="<?php base_url() ?>/hapus_revisi_bimbingan_proposal" method="POST" enctype="multipart/form-data">
                                                 <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
+                                                <input type="hidden" name="nip" value="<?= $how ?>">
                                                 <div class="modal-body">
                                                     Apakah anda yakin ingin menghapus <b><?= $key->pokok_bimbingan ?></b> ini ?
                                                     <p class="mt-3"><?= $key->keterangan ?></p>
@@ -194,7 +195,7 @@ use CodeIgniter\Images\Image;
                     </div>
                 </div>
                 <div class="main-chat-footer">
-                    <form action="<?php base_url() ?>/tambah_bimbingan_proposal" method="POST" enctype="multipart/form-data">
+                    <form action="<?php base_url() ?>/tambah_revisi_bimbingan_proposal" method="POST" enctype="multipart/form-data">
                         <a class="main-msg-send" data-bs-target="#modaladd" data-bs-toggle="modal" href=""><i class="far fa-paper-plane"></i></a>
                     </form>
                 </div>

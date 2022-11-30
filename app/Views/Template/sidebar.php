@@ -48,7 +48,7 @@
 									<li><a class="slide-item" href="/bimbingan_proposal/<?= $pem1[0]->nip ?>">Bimbingan Proposal</a></li>
 									<li><a class="slide-item" href="/daftar_seminar">Daftar Seminar</a></li>
 									<li><a class="slide-item" href="/Berita-Acara">Berita Acara Seminar</a></li>
-									<li><a class="slide-item" href="/revisi_pasca_seminar/<?= $pem1[0]->nip ?>">Revisi Pasca Seminar</a></li>
+									<li><a class="slide-item" href="/bimbingan_revisi_proposal/<?= $pem1[0]->nip ?>">Revisi Pasca Seminar</a></li>
 								</ul>
 							</li>
 							<li class=" slide">
