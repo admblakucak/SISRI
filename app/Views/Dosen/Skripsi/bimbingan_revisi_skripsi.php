@@ -11,7 +11,7 @@ use CodeIgniter\Images\Image;
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Bimbingan</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Proposal</span>
+                <h4 class="content-title mb-0 my-auto">Bimbingan</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Revisi Skripsi</span>
             </div>
         </div>
     </div>
@@ -20,9 +20,9 @@ use CodeIgniter\Images\Image;
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Masukkan Dokumen Bimbingan Skripsi</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                    <h6 class="modal-title">Masukkan Dokumen Bimbingan Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="<?php base_url() ?>/tambah_bimbingan_skripsi_dosen" method="POST" enctype="multipart/form-data">
+                <form action="<?php base_url() ?>/tambah_bimbingan_revisi_skripsi_dosen" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="nim" value="<?= $nim ?>">
                         <div class="form-group">
@@ -141,9 +141,9 @@ use CodeIgniter\Images\Image;
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content modal-content-demo">
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title">Masukkan Dokumen Bimbingan Skripsi</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                    <h6 class="modal-title">Masukkan Dokumen Bimbingan Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                                 </div>
-                                                <form action="<?php base_url() ?>/tambah_bimbingan_skripsi_dosen" method="POST" enctype="multipart/form-data">
+                                                <form action="<?php base_url() ?>/tambah_bimbingan_revisi_skripsi_dosen" method="POST" enctype="multipart/form-data">
                                                     <div class="modal-body">
                                                         <input type="hidden" name="nim" value="<?= $nim ?>">
                                                         <input type="hidden" name="id_bimbingan" value="<?= $key->id_bimbingan ?>">
@@ -182,7 +182,7 @@ use CodeIgniter\Images\Image;
                                             <div class="modal-header">
                                                 <h6 class="modal-title">Hapus Bimbingan</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form action="<?php base_url() ?>/hapus_bimbingan_skripsi_dosen" method="POST" enctype="multipart/form-data">
+                                            <form action="<?php base_url() ?>/hapus_bimbingan_revisi_skripsi_dosen" method="POST" enctype="multipart/form-data">
                                                 <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
                                                 <input type="hidden" name="nim" value="<?= $nim ?>">
                                                 <div class="modal-body">

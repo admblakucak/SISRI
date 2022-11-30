@@ -84,7 +84,7 @@
 								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_proposal">Bimbingan</a></li>
 								<li><a class="slide-item" href="/persetujuan_daftar_seminar">Persertujuan Daftar Seminar</a></li>
 								<li><a class="slide-item" href="/berita_acara_seminar">Berita Acara Seminar</a></li>
-								<li><a class="slide-item" href="/validasi_revisi_pasca_seminar">Validasi Revisi Pasca Sminar</a></li>
+								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_revisi_proposal">Validasi Revisi Pasca Sminar</a></li>
 								<li><a class="slide-item" href="/histori_seminar">Histori Seminar</a></li>
 							</ul>
 						</li>
@@ -98,7 +98,7 @@
 							<ul class="slide-menu">
 								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_skripsi">Validasi Bimbingan</a></li>
 								<li><a class="slide-item" href="/berita_acara">Berita Acara Sidang</a></li>
-								<li><a class="slide-item" href="/validasi_revisi_pasca_sidang">Validasi Revisi Pasca Sidang</a></li>
+								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_revisi_skripsi">Validasi Revisi Pasca Sidang</a></li>
 								<li><a class="slide-item" href="/histori_sidang">Histori Sidang</a></li>
 							</ul>
 						</li>

@@ -61,7 +61,7 @@ use CodeIgniter\Images\Image;
                     <div class="main-chat-list" id="ChatList">
                         <?php
                         foreach ($dosen_pembimbing as $key2) {
-                            $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' GROUP BY `from`")->getResult();
+                            $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' AND kategori_bimbingan=2 GROUP BY `from`")->getResult();
                         ?>
                             <a href="/bimbingan_revisi_proposal/<?= $key2->nip ?>">
                                 <?php if ($notif != NULL) { ?>

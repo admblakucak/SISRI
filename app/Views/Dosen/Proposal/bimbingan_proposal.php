@@ -115,15 +115,17 @@ use CodeIgniter\Images\Image;
                                                 </div>
                                                 <hr>
                                                 <?= $key->keterangan ?>
-                                                <?php if ($key->berkas != NULL) { ?>
+                                                <?php if ($key->pokok_bimbingan != NULL) { ?>
                                                     <hr>
                                                     <div class="row">
-                                                        <div class="col-auto">
-                                                            <form action="<?php base_url() ?>/download_berkas_bimbingan" method="POST" enctype="multipart/form-data">
-                                                                <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
-                                                                <button class="btn ripple btn-primary" type="submit">Download Berkas</button>
-                                                            </form>
-                                                        </div>
+                                                        <?php if ($key->berkas != NULL) { ?>
+                                                            <div class="col-auto">
+                                                                <form action="<?php base_url() ?>/download_berkas_bimbingan" method="POST" enctype="multipart/form-data">
+                                                                    <input type="hidden" name="id_bimbingan" value="<?php echo $key->id_bimbingan; ?>" />
+                                                                    <button class="btn ripple btn-primary" type="submit">Download Berkas</button>
+                                                                </form>
+                                                            </div>
+                                                        <?php } ?>
                                                         <div class="col-auto">
                                                             <button class="btn ripple btn-success" data-bs-target="#modaladd<?= $key->id_bimbingan; ?>" data-bs-toggle="modal" href="">Revisi</button>
                                                         </div>
