@@ -94,30 +94,11 @@ use CodeIgniter\Images\Image;
                                                     <div class="btn-group">
                                                         <a class="btn btn-primary btn-sm" data-bs-target="#modaldel2" id="revisi" data-bs-toggle="modal" href="#">Daftar Seminar Proposal</a>
                                                 </td>
-                                                <div class="modal" id="modalket2">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content modal-content-demo">
-                                                            <div class="modal-header">
-                                                                <h6 class="modal-title">Catatan / Revisi</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-                                                            </div>
-                                                            <form action="<?php base_url() ?>/download_berkas_bimbingan" method="POST" enctype="multipart/form-data">
-                                                                <input type="hidden" name="id_bimbingan" value="" />
-                                                                <div class="modal-body">
-                                                                    <p class="mt-3"></p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn ripple btn-primary" type="submit">Download Berkas</button>
-                                                                    <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="modal" id="modaldel2">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content modal-content-demo">
                                                             <div class="modal-header">
-                                                                <h6 class="modal-title">Hapus Bimbingan</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                                <h6 class="modal-title">Daftar Seminar Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                                             </div>
                                                             <form action="<?php base_url() ?>/hapus_bimbingan" method="POST" enctype="multipart/form-data">
                                                                 <input type="hidden" name="id_bimbingan" value="" />

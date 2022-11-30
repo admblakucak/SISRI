@@ -289,4 +289,11 @@ class Welcome extends BaseController
     ];
     return view('Akun/ganti_password', $data);
   }
+  public function data_koorprodi()
+  {
+    $data = [
+      'title' => 'Data Koordinator Prodi'
+    ];
+    return view('Admin/data_koorprodi', $data);
+  }
 }
