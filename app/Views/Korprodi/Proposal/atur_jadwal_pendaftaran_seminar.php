@@ -23,4 +23,5 @@ use CodeIgniter\Images\Image;
         </div>
     </div>
 </div>
+
 <?= $this->endSection(); ?>
