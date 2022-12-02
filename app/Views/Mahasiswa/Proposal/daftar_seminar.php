@@ -50,12 +50,12 @@ use CodeIgniter\Images\Image;
                         </div>
                         <div class="list-group-item list-group-item-action br-t-1" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle my-auto me-3" src="../../assets/img/faces/17.jpg" alt="Image description">
+                                <img class="avatar-lg rounded-circle my-auto me-3" src="<?php base_url() ?>/image/<?= $kor->image ?>" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-1">
-                                            <h5 class="mb-1 tx-15">Koordinator Prodi</h5>
-                                            <p class="mb-0 tx-11 text-muted">NIP: 122429898344<span class="text-success ms-2">Setuju</span></p>
+                                            <h5 class="mb-1 tx-15">Koordinator Prodi (<?= $kor->gelardepan . ' ' . $kor->nama . ', ' . $kor->gelarbelakang ?>)</h5>
+                                            <p class="mb-0 tx-11 text-muted">NIP: <?= $kor->nip; ?><span class="text-success ms-2">Setuju</span></p>
                                         </div>
                                         <div class="offset-1">
                                             <Button class="btn btn-primary btn-sm">Meminta Izin</Button>

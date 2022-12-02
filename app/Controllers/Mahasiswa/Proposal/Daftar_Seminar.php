@@ -19,12 +19,14 @@ class Daftar_Seminar extends BaseController
             return redirect()->to('/');
         }
         $id = session()->get('ses_id');
+        $idunit_mhs = $this->db->query("SELECT * FROM tb_mahasiswa WHERE nim='$id'")->getResult()[0]->idunit;
         $data = [
             'title' => 'Daftar Seminar',
             'db' => $this->db,
             'pemberitahuan' => $this->db->query("SELECT * FROM tb_bimbingan WHERE (`to` = '" . $id . "') AND status_baca='belum dibaca'")->getResult(),
             'pem1' => $this->db->query("SELECT a.*,b.`nama`,b.`gelardepan`,b.`gelarbelakang`,c.* FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip` = c.`id` WHERE a.nim='$id' AND a.sebagai='1' AND a.status_pengajuan='diterima'")->getResult()[0],
             'pem2' => $this->db->query("SELECT a.*,b.`nama`,b.`gelardepan`,b.`gelarbelakang`,c.* FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip` = c.`id` WHERE a.nim='$id' AND a.sebagai='2' AND a.status_pengajuan='diterima'")->getResult()[0],
+            'kor' => $this->db->query("SELECT a.*,b.`nama`,b.`gelardepan`,b.`gelarbelakang`,c.* FROM tb_korprodi a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip` = c.`id` WHERE a.idunit='$idunit_mhs'")->getResult()[0],
         ];
         return view('Mahasiswa/Proposal/daftar_seminar', $data);
     }
