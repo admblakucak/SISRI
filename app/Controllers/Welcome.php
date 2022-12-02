@@ -52,56 +52,63 @@ class Welcome extends BaseController
     $data = [
       'title' => 'Beranda Koorprodi'
     ];
-    return view('Admin/Koorprodi/beranda_koorprodi', $data);
+    return view('Korprodi/beranda_koorprodi', $data);
   }
   public function histori_sempro()
   {
     $data = [
       'title' => 'Histori Seminar Proposal'
     ];
-    return view('Admin/Koorprodi/Proposal/histori_sempro', $data);
+    return view('Korprodi/Proposal/histori_sempro', $data);
   }
   public function daftar_nilai()
   {
     $data = [
       'title' => 'Daftar Nilai'
     ];
-    return view('Admin/Koorprodi/daftar_nilai', $data);
+    return view('Korprodi/daftar_nilai', $data);
   }
   public function atur_jadwal()
   {
     $data = [
       'title' => 'Jadwal Pendaftaran Seminar Proposal'
     ];
-    return view('Admin/Koorprodi/Proposal/atur_jadwal_pendaftaran_seminar', $data);
+    return view('Korprodi/Proposal/atur_jadwal_pendaftaran_seminar', $data);
   }
   public function atur_jadwal_seminar()
   {
     $data = [
       'title' => 'Jadwal Seminar Proposal'
     ];
-    return view('Admin/Koorprodi/Proposal/atur_pengujidan_jadwal_seminar', $data);
+    return view('Korprodi/Proposal/atur_pengujidan_jadwal_seminar', $data);
   }
   public function jadwal_pendaftaran_sidang()
   {
     $data = [
       'title' => 'Jadwal Pendaftaran Sidang'
     ];
-    return view('Admin/Koorprodi/Skripsi/atur_jadwal_pendaftaran', $data);
+    return view('Korprodi/Skripsi/atur_jadwal_pendaftaran', $data);
+  }
+  public function penjadwalan_sidang()
+  {
+    $data = [
+      'title' => 'Penjadwalan Seminar dan Sidang Skripsi'
+    ];
+    return view('Korprodi/penjadwalan_sidang', $data);
   }
   public function atur_jadwal_sidang()
   {
     $data = [
       'title' => 'Jadwal Sidang Skripsi'
     ];
-    return view('Admin/Koorprodi/Skripsi/atur_jadwal_sidang_skripsi', $data);
+    return view('Korprodi/Skripsi/atur_jadwal_sidang_skripsi', $data);
   }
   public function histori_sidang_skripsi()
   {
     $data = [
       'title' => 'Historu Sidang Skripsi'
     ];
-    return view('Admin/Koorprodi/Skripsi/histori_sidang_skripsi', $data);
+    return view('Korprodi/Skripsi/histori_sidang_skripsi', $data);
   }
   public function validasi_usulan()
   {

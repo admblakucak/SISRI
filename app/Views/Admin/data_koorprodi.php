@@ -72,7 +72,7 @@ use CodeIgniter\Images\Image;
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="">Pilih Dosen</label>
-                                                                <select class="form-control">
+                                                                <select class="form-control select2">
                                                                     <option label="Pilih Dosen">
                                                                     </option>
                                                                     <option value="">

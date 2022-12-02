@@ -163,6 +163,7 @@ $routes->add('/password', 'Welcome::password');
 $routes->add('/bimbingan', 'Welcome::bimbingan');
 $routes->add('/persetujuan_daftar_seminar', 'Welcome::persetujuan');
 $routes->add('/data_koorprodi', 'Welcome::data_koorprodi');
+$routes->add('/penjadwalan_sidang', 'Welcome::penjadwalan_Sidang');
 
 /*
  * --------------------------------------------------------------------
