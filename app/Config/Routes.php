@@ -70,6 +70,10 @@ $routes->add('/update_data_unit', 'Admin\Unit::update_data_unit');
 //Route Khusus Controller Admin-Periode
 $routes->add('/data_periode', 'Admin\Periode::index');
 $routes->add('/update_data_periode', 'Admin\Periode::update_data_periode');
+//ROute Khusus Controller Admin-Koorprodi
+$routes->add('/data_korprodi', 'Admin\Korprodi::index');
+$routes->add('/add_korprodi', 'Admin\Korprodi::add');
+$routes->add('/delete_korprodi', 'Admin\Korprodi::delete');
 // -------------------------------------MAHASISWA-----------------------------------------
 //Route Khusus Controller Mahasiswa-Beranda
 $routes->add('/beranda_mahasiswa', 'Mahasiswa\Beranda::index');
@@ -162,8 +166,12 @@ $routes->add('/login_sisri', 'Welcome::login_sisri');
 $routes->add('/password', 'Welcome::password');
 $routes->add('/bimbingan', 'Welcome::bimbingan');
 $routes->add('/persetujuan_daftar_seminar', 'Welcome::persetujuan');
+<<<<<<< HEAD
 $routes->add('/data_koorprodi', 'Welcome::data_koorprodi');
 $routes->add('/penjadwalan_sidang', 'Welcome::penjadwalan_Sidang');
+=======
+
+>>>>>>> bba56ed6bc023052c3afc39ace674b46d6364f1d
 
 /*
  * --------------------------------------------------------------------
