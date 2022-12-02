@@ -89,6 +89,8 @@ $routes->add('/hapus_bimbingan', 'Mahasiswa\Proposal\Bimbingan::hapus');
 $routes->add('/download_berkas_bimbingan', 'Mahasiswa\Proposal\Bimbingan::download_berkas');
 //Route Khusus Controller Mahasiswa-DaftarSeminar
 $routes->add('/daftar_seminar', 'Mahasiswa\Proposal\Daftar_Seminar::index');
+$routes->add('/izin_seminar', 'Mahasiswa\Proposal\Daftar_Seminar::izin');
+$routes->add('/mendaftar_seminar', 'Mahasiswa\Proposal\Daftar_Seminar::mendaftar');
 //Route Khusus Controller Mahasiswa-Bimbingan Revisi Proposal
 $routes->add('/bimbingan_revisi_proposal/(:any)', 'Mahasiswa\Proposal\Revisi::index/$1');
 $routes->add('/tambah_bimbingan_revisi_proposal', 'Mahasiswa\Proposal\Revisi::tambah');
@@ -101,6 +103,10 @@ $routes->add('/hapus_bimbingan_skripsi', 'Mahasiswa\Skripsi\Bimbingan::hapus');
 $routes->add('/bimbingan_revisi_skripsi/(:any)', 'Mahasiswa\Skripsi\Revisi::index/$1');
 $routes->add('/tambah_bimbingan_revisi_skripsi', 'Mahasiswa\Skripsi\Revisi::tambah');
 $routes->add('/hapus_bimbingan_revisi_skripsi', 'Mahasiswa\Skripsi\Revisi::hapus');
+//Route Khusus Controller Mahasiswa-DaftarSidangSkripsi
+$routes->add('/daftar_sidang', 'Mahasiswa\Skripsi\Daftar_Sidang::index');
+$routes->add('/izin_sidang', 'Mahasiswa\Skripsi\Daftar_Sidang::izin');
+$routes->add('/mendaftar_sidang', 'Mahasiswa\Skripsi\Daftar_Sidang::mendaftar');
 // --------------------------------------DOSEN-------------------------------------------
 //Route Khusus Controller Dosen-Beranda
 $routes->add('/beranda_dosen', 'Dosen\Beranda::index');
@@ -140,7 +146,6 @@ $routes->add('/ajukan_topik', 'Welcome::ajukan_topik');
 $routes->add('/revisi_pasca_seminar', 'Welcome::revisi_pasca_seminar');
 $routes->add('/Bimbingan_Skripsi', 'Welcome::Bimbingan_Skripsi');
 $routes->add('/Berita_Acara_Sidang', 'Welcome::Berita_Acara_Sidang');
-$routes->add('/Daftar_Sidang', 'Welcome::Daftar_Sidang');
 $routes->add('/Revisi_Pasca_Sidang', 'Welcome::Revisi_Pasca_Sidang');
 $routes->add('/validasi_bimbingan', 'Welcome::validasi_bimbingan');
 $routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');

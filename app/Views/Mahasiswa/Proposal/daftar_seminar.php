@@ -21,13 +21,42 @@ use CodeIgniter\Images\Image;
                                 <img class="avatar-lg rounded-circle my-auto me-3" src="<?php base_url() ?>/image/<?= $pem1->image ?>" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
-                                        <div class="mt-0">
-                                            <h5 class="mb-1 tx-15">Pembimbing 1 (<?= $pem1->gelardepan . ' ' . $pem1->nama . ', ' . $pem1->gelarbelakang ?>)</h5>
-                                            <p class="mb-0 tx-11 text-muted">NIP: <?= $pem1->nip; ?> <span class="text-success ms-2">Setuju</span></p>
-                                        </div>
-                                        <div class="offset-1">
-                                            <Button class="btn btn-primary btn-sm">Meminta Izin</Button>
-                                        </div>
+                                        <form action="<?php base_url() ?>/izin_seminar" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="nip" value="<?= $pem1->nip ?>">
+                                            <input type="hidden" name="nim" value="<?= session()->get('ses_id') ?>">
+                                            <input type="hidden" name="idunit" value="<?= $idunit_mhs ?>">
+                                            <input type="hidden" name="sebagai" value="pembimbing 1">
+                                            <div class="mt-0">
+                                                <?php $cek = $db->query("SELECT * FROM tb_perizinan_sidang WHERE nim='" . session()->get('ses_id') . "' AND nip='" . $pem1->nip . "' AND izin_sebagai='pembimbing 1' AND jenis_sidang='seminar proposal'")->getResult(); ?>
+                                                <h5 class="mb-1 tx-15">Pembimbing 1 (<?= $pem1->gelardepan . ' ' . $pem1->nama . ', ' . $pem1->gelarbelakang ?>)</h5>
+                                                <p class="mb-0 tx-11 text-muted">NIP: <?= $pem1->nip; ?>
+                                                    <?php
+                                                    if (count($cek) == NULL) {
+                                                        echo "<span class='text-danger ms-2'>Belum Melakukan Perizinan</span>";
+                                                    } elseif ($cek[0]->status == 'ditolak') {
+                                                        echo "<span class='text-danger ms-2'>Izin ditolak</span>";
+                                                    } elseif ($cek[0]->status == 'menunggu') {
+                                                        echo "<span class='text-warning ms-2'>Menunggu</span>";
+                                                    } else {
+                                                        echo "<span class='text-success ms-2'>Izin disetujui</span>";
+                                                    }
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <?php
+                                            if (count($cek) != NULL) {
+                                                if ($cek[0]->status == 'ditolak') { ?>
+                                                    <div class="offset-1">
+                                                        <Button class="btn btn-primary btn-sm" type='submit'>Meminta Izin</Button>
+                                                    </div>
+                                                <?php }
+                                            } else { ?>
+                                                <div class="offset-1">
+                                                    <Button class="btn btn-primary btn-sm" type='submit'>Meminta Izin</Button>
+                                                </div>
+                                            <?php
+                                            } ?>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -37,13 +66,41 @@ use CodeIgniter\Images\Image;
                                 <img class="avatar-lg rounded-circle my-auto me-3" src="<?php base_url() ?>/image/<?= $pem2->image ?>" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
-                                        <div class="mt-1">
-                                            <h5 class="mb-1 tx-15">Pembimbing 2 (<?= $pem2->gelardepan . ' ' . $pem2->nama . ', ' . $pem2->gelarbelakang ?>)</h5>
-                                            <p class="mb-0 tx-11 text-muted">NIP: <?= $pem2->nip; ?> <span class="text-danger ms-1">Menunggu</span></p>
-                                        </div>
-                                        <div class="offset-1">
-                                            <Button class="btn btn-primary btn-sm">Meminta Izin</Button>
-                                        </div>
+                                        <form action="<?php base_url() ?>/izin_seminar" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="nip" value="<?= $pem2->nip ?>">
+                                            <input type="hidden" name="nim" value="<?= session()->get('ses_id') ?>">
+                                            <input type="hidden" name="idunit" value="<?= $idunit_mhs ?>">
+                                            <input type="hidden" name="sebagai" value="pembimbing 2">
+                                            <div class="mt-1">
+                                                <h5 class="mb-1 tx-15">Pembimbing 2 (<?= $pem2->gelardepan . ' ' . $pem2->nama . ', ' . $pem2->gelarbelakang ?>)</h5>
+                                                <p class="mb-0 tx-11 text-muted">NIP: <?= $pem2->nip; ?>
+                                                    <?php $cek = $db->query("SELECT * FROM tb_perizinan_sidang WHERE nim='" . session()->get('ses_id') . "' AND nip='" . $pem2->nip . "' AND izin_sebagai='pembimbing 2' AND jenis_sidang='seminar proposal'")->getResult();
+                                                    if (count($cek) == NULL) {
+                                                        echo "<span class='text-danger ms-2'>Belum Melakukan Perizinan</span>";
+                                                    } elseif ($cek[0]->status == 'ditolak') {
+                                                        echo "<span class='text-danger ms-2'>Izin ditolak</span>";
+                                                    } elseif ($cek[0]->status == 'menunggu') {
+                                                        echo "<span class='text-warning ms-2'>Menunggu</span>";
+                                                    } else {
+                                                        echo "<span class='text-success ms-2'>Izin disetujui</span>";
+                                                    }
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <?php
+                                            if (count($cek) != NULL) {
+                                                if ($cek[0]->status == 'ditolak') { ?>
+                                                    <div class="offset-1">
+                                                        <Button class="btn btn-primary btn-sm" type='submit'>Meminta Izin</Button>
+                                                    </div>
+                                                <?php }
+                                            } else { ?>
+                                                <div class="offset-1">
+                                                    <Button class="btn btn-primary btn-sm" type='submit'>Meminta Izin</Button>
+                                                </div>
+                                            <?php
+                                            } ?>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -53,13 +110,41 @@ use CodeIgniter\Images\Image;
                                 <img class="avatar-lg rounded-circle my-auto me-3" src="<?php base_url() ?>/image/<?= $kor->image ?>" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
-                                        <div class="mt-1">
-                                            <h5 class="mb-1 tx-15">Koordinator Prodi (<?= $kor->gelardepan . ' ' . $kor->nama . ', ' . $kor->gelarbelakang ?>)</h5>
-                                            <p class="mb-0 tx-11 text-muted">NIP: <?= $kor->nip; ?><span class="text-success ms-2">Setuju</span></p>
-                                        </div>
-                                        <div class="offset-1">
-                                            <Button class="btn btn-primary btn-sm">Meminta Izin</Button>
-                                        </div>
+                                        <form action="<?php base_url() ?>/izin_seminar" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="nip" value="<?= $kor->nip ?>">
+                                            <input type="hidden" name="nim" value="<?= session()->get('ses_id') ?>">
+                                            <input type="hidden" name="idunit" value="<?= $idunit_mhs ?>">
+                                            <input type="hidden" name="sebagai" value="koordinator">
+                                            <div class="mt-1">
+                                                <h5 class="mb-1 tx-15">Koordinator Prodi (<?= $kor->gelardepan . ' ' . $kor->nama . ', ' . $kor->gelarbelakang ?>)</h5>
+                                                <p class="mb-0 tx-11 text-muted">NIP: <?= $kor->nip; ?>
+                                                    <?php $cek = $db->query("SELECT * FROM tb_perizinan_sidang WHERE nim='" . session()->get('ses_id') . "' AND nip='" . $kor->nip . "' AND izin_sebagai='koordinator'  AND jenis_sidang='seminar proposal'")->getResult();
+                                                    if (count($cek) == NULL) {
+                                                        echo "<span class='text-danger ms-2'>Belum Melakukan Perizinan</span>";
+                                                    } elseif ($cek[0]->status == 'ditolak') {
+                                                        echo "<span class='text-danger ms-2'>Izin ditolak</span>";
+                                                    } elseif ($cek[0]->status == 'menunggu') {
+                                                        echo "<span class='text-warning ms-2'>Menunggu</span>";
+                                                    } else {
+                                                        echo "<span class='text-success ms-2'>Izin disetujui</span>";
+                                                    }
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <?php
+                                            if (count($cek) != NULL) {
+                                                if ($cek[0]->status == 'ditolak') { ?>
+                                                    <div class="offset-1">
+                                                        <Button class="btn btn-primary btn-sm" type='submit'>Meminta Izin</Button>
+                                                    </div>
+                                                <?php }
+                                            } else { ?>
+                                                <div class="offset-1">
+                                                    <Button class="btn btn-primary btn-sm" type='submit'>Meminta Izin</Button>
+                                                </div>
+                                            <?php
+                                            } ?>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -80,41 +165,71 @@ use CodeIgniter\Images\Image;
                                             <tr>
                                                 <th style="text-align: center; vertical-align: middle;"><span>No.</span></th>
                                                 <th style="text-align: center; vertical-align: middle;"><span>Periode Sidang</span></th>
-                                                <th style="text-align: center; vertical-align: middle;"><span>Judul</span></th>
+                                                <th style="text-align: center; vertical-align: middle;"><span>Tanggal Dibuka</span></th>
+                                                <th style="text-align: center; vertical-align: middle;"><span>Tanggal Ditutup</span></th>
                                                 <th style="text-align: center; vertical-align: middle;"><span>Aksi</span></th>
                                             </tr>
                                         </thead>
                                         <tbody id='show_data2'>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td scope="row">2022</td>
-                                                <td scope="row">kjkjhjg</td>
-                                                <td style="text-align: center; vertical-align: middle;">
-                                                    <input type="hidden" name="id_bimbingan" value="" />
-                                                    <div class="btn-group">
-                                                        <a class="btn btn-primary btn-sm" data-bs-target="#modaldel2" id="revisi" data-bs-toggle="modal" href="#">Daftar Seminar Proposal</a>
-                                                </td>
-                                                <div class="modal" id="modaldel2">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content modal-content-demo">
-                                                            <div class="modal-header">
-                                                                <h6 class="modal-title">Daftar Seminar Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                            <?php
+                                            date_default_timezone_set("Asia/Jakarta");
+                                            $no = 1;
+                                            foreach ($data_jadwal as $key) {
+                                                if (date('d F Y H:i:s') <= date('d F Y H:i:s', strtotime($key->expire))) {
+                                            ?>
+                                                    <tr>
+                                                        <th scope="row"><?= $no ?></th>
+                                                        <td scope="row"><?= $key->periode ?></td>
+                                                        <td scope="row"><?= $key->open ?></td>
+                                                        <td scope="row"><?= $key->expire ?></td>
+                                                        <td style="text-align: center; vertical-align: middle;">
+                                                            <input type="hidden" name="id_bimbingan" value="" />
+                                                            <?php
+                                                            $acc_pem1 = $db->query("SELECT * FROM tb_perizinan_sidang WHERE nim='" . session()->get('ses_id') . "' AND izin_sebagai='pembimbing 1' AND jenis_sidang='seminar proposal' AND `status`='disetujui' ")->getResult();
+                                                            $acc_pem2 = $db->query("SELECT * FROM tb_perizinan_sidang WHERE nim='" . session()->get('ses_id') . "' AND izin_sebagai='pembimbing 2' AND jenis_sidang='seminar proposal' AND `status`='disetujui' ")->getResult();
+                                                            $acc_kor = $db->query("SELECT * FROM tb_perizinan_sidang WHERE nim='" . session()->get('ses_id') . "' AND izin_sebagai='koordinator' AND jenis_sidang='seminar proposal' AND `status`='disetujui' ")->getResult();
+                                                            $cek_pendaftar_sidang = $db->query("SELECT * FROM tb_pendaftar_sidang WHERE nim='" . session()->get('ses_id') . "' AND id_jadwal='" . $key->id_jadwal . "' ")->getResult();
+                                                            if (date('d F Y H:i:s') < date('d F Y H:i:s', strtotime($key->open))) {
+                                                                echo "<a class='text-danger'>Belum Dibuka</a>";
+                                                            } elseif (date('d F Y H:i:s') >= date('d F Y H:i:s', strtotime($key->open))) {
+                                                                if (count($acc_pem1) != NULL && count($acc_pem2) != NULL && count($acc_kor) != NULL) {
+                                                                    if (count($cek_pendaftar_sidang) != NULL) {
+                                                                        echo "<a class='text-success'>Telah Mendaftar</a>";
+                                                                    } else {
+                                                            ?>
+                                                                        <div class="btn-group">
+                                                                            <a class="btn btn-primary btn-sm" data-bs-target="#modaldaftar<?= $key->id_jadwal ?>" id="revisi" data-bs-toggle="modal" href="#">Daftar Seminar</a>
+                                                                        </div>
+                                                            <?php }
+                                                                } else {
+                                                                    echo "<a class='text-danger'> Dapat mendaftar apabila telah mendapat izin dari pembimbing 1, 2 & Koorprodi. </a>";
+                                                                }
+                                                            } ?>
+                                                        </td>
+                                                        <div class="modal" id="modaldaftar<?= $key->id_jadwal ?>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content modal-content-demo">
+                                                                    <div class="modal-header">
+                                                                        <h6 class="modal-title">Daftar Seminar Proposal</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                                    </div>
+                                                                    <form action="<?php base_url() ?>/mendaftar_seminar" method="POST" enctype="multipart/form-data">
+                                                                        <input type="hidden" name="id_jadwal" value="<?= $key->id_jadwal ?>" />
+                                                                        <div class="modal-body">
+                                                                            Apakah anda yakin ingin mendaftar <b><?= $key->periode ?></b> ?
+                                                                            <p class="mt-3"></p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button class="btn ripple btn-primary" type="submit">Daftar</button>
+                                                                            <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
                                                             </div>
-                                                            <form action="<?php base_url() ?>/hapus_bimbingan" method="POST" enctype="multipart/form-data">
-                                                                <input type="hidden" name="id_bimbingan" value="" />
-                                                                <div class="modal-body">
-                                                                    Apakah anda yakin ingin mendaftar <b></b> ?
-                                                                    <p class="mt-3"></p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button class="btn ripple btn-primary" type="submit">Daftar</button>
-                                                                    <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
-                                                                </div>
-                                                            </form>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </tr>
+                                                    </tr>
+                                            <?php $no++;
+                                                }
+                                            } ?>
                                         </tbody>
                                     </table>
                                 </div>
