@@ -171,13 +171,7 @@ $routes->add('/login_sisri', 'Welcome::login_sisri');
 $routes->add('/password', 'Welcome::password');
 $routes->add('/bimbingan', 'Welcome::bimbingan');
 $routes->add('/persetujuan_daftar_seminar', 'Welcome::persetujuan');
-<<<<<<< HEAD
-$routes->add('/data_koorprodi', 'Welcome::data_koorprodi');
 $routes->add('/penjadwalan_sidang', 'Welcome::penjadwalan_Sidang');
-=======
-
->>>>>>> bba56ed6bc023052c3afc39ace674b46d6364f1d
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing
