@@ -138,6 +138,9 @@ $routes->add('/tambah_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::ta
 // --------------------------------------KORPRODI-------------------------------------------
 //Route Khusus Controller Korprodi-Beranda
 $routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
+//Route Khusus Controller Korprodi-Penjadwalan Sidang
+$routes->add('/penjadwalan_sidang', 'Korprodi\Penjadwalan_Sidang::index');
+$routes->add('/add_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::add');
 // ============================================================================================
 
 $routes->add('/coba', 'Welcome::coba');
@@ -171,7 +174,6 @@ $routes->add('/login_sisri', 'Welcome::login_sisri');
 $routes->add('/password', 'Welcome::password');
 $routes->add('/bimbingan', 'Welcome::bimbingan');
 $routes->add('/persetujuan_daftar_seminar', 'Welcome::persetujuan');
-$routes->add('/penjadwalan_sidang', 'Welcome::penjadwalan_Sidang');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

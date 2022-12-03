@@ -87,7 +87,7 @@ class Daftar_Seminar extends BaseController
             return redirect()->to('/');
         }
         $id_jadwal = $this->request->getPost('id_jadwal');
-        $this->db->query("INSERT INTO tb_pendaftar_sidang (nim,id_jadwal) VALUES ('" . session()->get('ses_id') . "','$id_jadwal')");
+        $this->db->query("INSERT INTO tb_pendaftar_sidang (nim,id_jadwal,create_at) VALUES ('" . session()->get('ses_id') . "','$id_jadwal',now())");
         return redirect()->to('/daftar_seminar');
     }
 }
