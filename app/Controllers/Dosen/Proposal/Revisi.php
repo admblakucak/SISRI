@@ -43,7 +43,7 @@ class Revisi extends BaseController
             ];
             array_push($data_mhs, $data);
         }
-        $data_mhs_bimbingan_penguji = $this->db->query("SELECT a.*,b.`nama` AS nama_mhs, b.`jk`, c.`namaunit`, d.* FROM tb_penguji a LEFT JOIN tb_mahasiswa b ON b.`nim`=a.`nim` LEFT JOIN tb_unit c ON b.`idunit`=c.`idunit` LEFT JOIN tb_profil_tambahan d ON a.`nim`=d.`id` WHERE nip='$id'")->getResult();
+        $data_mhs_bimbingan_penguji = $this->db->query("SELECT a.*,b.`nama` AS nama_mhs, b.`jk`, c.`namaunit`, d.* FROM tb_penguji a LEFT JOIN tb_mahasiswa b ON b.`nim`=a.`nim` LEFT JOIN tb_unit c ON b.`idunit`=c.`idunit` LEFT JOIN tb_profil_tambahan d ON a.`nim`=d.`id` WHERE nip='$id'  AND a.status='aktif'")->getResult();
         foreach ($data_mhs_bimbingan_penguji as $key) {
             if ($key->image != NULL) {
                 $image = $key->image;

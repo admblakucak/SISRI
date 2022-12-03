@@ -5,7 +5,6 @@ use CodeIgniter\Images\Image;
 <?= $this->extend('Template/content') ?>
 
 <?= $this->section('content') ?>
-
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col-xl-12">
@@ -131,11 +130,104 @@ use CodeIgniter\Images\Image;
                                                 <td>
                                                     <input type="hidden" name="id_bimbingan" value="" />
                                                     <div class="btn-group">
-                                                        <a class="btn btn-primary btn-sm" data-bs-target="#modaldel2" id="revisi" data-bs-toggle="modal" href="#"><i class="fa fa-search"></i></a>
-                                                        <a class="btn btn-success btn-sm" data-bs-target="#modaldel2" id="revisi" data-bs-toggle="modal" href="#"><i class="las la-check"></i></a>
-                                                        <a class="btn btn-danger btn-sm" data-bs-target="#modaldel2" id="revisi" data-bs-toggle="modal" href="#"><i class="las la-times"></i></a>
+                                                        <form action="<?php base_url() ?>/data_pendaftar" method="POST" enctype="multipart/form-data">
+                                                            <input type="hidden" name="id_jadwal" value="<?= $key->id_jadwal ?>" />
+                                                            <button class="btn btn-primary btn-sm" type='submit'><i class="fa fa-search"></i></button>
+                                                        </form>
+                                                        <a class="btn btn-warning btn-sm" data-bs-target="#modalupdate<?= $key->id_jadwal ?>" data-bs-toggle="modal" href="#"><i class="las la-pen"></i></a>
+                                                        <a class="btn btn-danger btn-sm" data-bs-target="#modaldel<?= $key->id_jadwal ?>" data-bs-toggle="modal" href="#"><i class="las la-trash"></i></a>
                                                     </div>
                                                 </td>
+                                                <div class="modal" id="modaldel<?= $key->id_jadwal ?>">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content modal-content-demo">
+                                                            <div class="modal-header">
+                                                                <h6 class="modal-title">Hapus Jadwal Sidang</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                            </div>
+                                                            <form action="<?php base_url() ?>/del_jadwal_sidang" method="POST" enctype="multipart/form-data">
+                                                                <input type="hidden" name="id_jadwal" value="<?= $key->id_jadwal ?>" />
+                                                                <div class="modal-body">
+                                                                    Apakah anda yakin ingin menghapus jadwal <b><?= $key->periode ?></b> ?
+                                                                    <p class="mt-3"></p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn ripple btn-danger" type="submit">Hapus</button>
+                                                                    <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal" id="modalupdate<?= $key->id_jadwal ?>">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content modal-content-demo">
+                                                            <div class="modal-header">
+                                                                <h6 class="modal-title">Edit Jadwal Sidang</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                                                            </div>
+                                                            <form action="<?php base_url() ?>/upd_jadwal_sidang" method="POST" enctype="multipart/form-data">
+                                                                <input type="hidden" name="id_jadwal" value="<?= $key->id_jadwal ?>" />
+                                                                <div class="modal-body">
+                                                                    <input type="hidden" name="idunit" value="<?= $idunit ?>">
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputPeriode">Periode</label>
+                                                                        <input type="teks" class="form-control" id="exampleInput" value="<?= $key->periode ?>" name="periode">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputTutup">Dibuka Pada</label>
+                                                                        <div class="row row-sm">
+                                                                            <div class="input-group col-md-12">
+                                                                                <div class="input-group-text">
+                                                                                    <div class="input-group-text">
+                                                                                        <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <input name='open' class="form-control" id="datepickeropen<?= $key->id_jadwal ?>" value="<?= $key->open ?>" type="text">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputTutup">Tutup Pada</label>
+                                                                        <div class="row row-sm">
+                                                                            <div class="input-group col-md-12">
+                                                                                <div class="input-group-text">
+                                                                                    <div class="input-group-text">
+                                                                                        <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <input name='expire' class="form-control" id="datepickerexpire<?= $key->id_jadwal ?>" type="text" value="<?= $key->expire ?>">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputJenis Sidang">Jenis Sidang</label>
+                                                                        <div class="row row-sm">
+                                                                            <select class="form-control select" name="jenis_sidang">
+                                                                                <option disabled> Pilih Sidang
+                                                                                </option>
+                                                                                <option <?= $key->jenis_sidang == 'seminar proposal' ? 'selected' : '' ?> value="seminar proposal">
+                                                                                    Seminar Proposal
+                                                                                </option>
+                                                                                <option <?= $key->jenis_sidang == 'sidang skripsi' ? 'selected' : '' ?> value="sidang skripsi">
+                                                                                    Sidang Skripsi
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <script type="text/javascript">
+                                                                    $(function() {
+                                                                        $('#datepickeropen<?= $key->id_jadwal ?>').datetimepicker();
+                                                                        $('#datepickerexpire<?= $key->id_jadwal ?>').datetimepicker();
+                                                                    });
+                                                                </script>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn ripple btn-primary" type="submit">Update</button>
+                                                                    <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </tr>
                                         <?php $no++;
                                         } ?>

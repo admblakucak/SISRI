@@ -81,6 +81,11 @@
 
 	<!--Internal  TelephoneInput css-->
 	<link rel="stylesheet" href="<?php base_url() ?>/assets/plugins/telephoneinput/telephoneinput.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+
 </head>
 
 <body class="main-body app sidebar-mini">
