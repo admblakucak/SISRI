@@ -116,7 +116,7 @@ use CodeIgniter\Images\Image;
                                                     echo $jumlah != NULL ? count($jumlah) : 0;
                                                     ?>
                                                 </td>
-                                                <td><?= $key->jenis_sidang ?></td>
+                                                <td><?= $key->jenis_sidang == 'seminar proposal' ? 'PROPOSAL' : 'SKRIPSI' ?></td>
                                                 <td>
                                                     <?php
                                                     if (date('d F Y H:i:s') < date('d F Y H:i:s', strtotime($key->open))) {
