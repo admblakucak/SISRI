@@ -65,6 +65,8 @@ class Login extends BaseController
                         return redirect()->to('/beranda_dosen');
                     }
                 } else {
+                    $image = $this->db->query("SELECT `image` FROM tb_profil_tambahan where id='" . $data[0]->id . "'")->getResult()[0]->image;
+                    session()->set('ses_image', $image);
                     session()->set('ses_login', 'admin');
                     session()->set('ses_id', 'admin');
                     session()->set('ses_nama', 'ADMIN');
