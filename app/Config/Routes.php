@@ -155,35 +155,14 @@ $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_S
 
 $routes->add('/coba', 'Welcome::coba');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
-$routes->add('/ajukan_topik', 'Welcome::ajukan_topik');
-$routes->add('/revisi_pasca_seminar', 'Welcome::revisi_pasca_seminar');
-$routes->add('/Bimbingan_Skripsi', 'Welcome::Bimbingan_Skripsi');
-$routes->add('/Berita_Acara_Sidang', 'Welcome::Berita_Acara_Sidang');
-$routes->add('/Revisi_Pasca_Sidang', 'Welcome::Revisi_Pasca_Sidang');
-$routes->add('/validasi_bimbingan', 'Welcome::validasi_bimbingan');
 $routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');
-$routes->add('/validasi_revisi_pasca_seminar', 'Welcome::validasi_revisi_pasca_seminar');
 $routes->add('/histori_seminar', 'Welcome::histori_seminar');
-$routes->add('/validasi_bimbingan_skripsi', 'Welcome::validasi_bimbingan_skripsi');
-$routes->add('/validasi_revisi_pasca_sidang', 'Welcome::validasi_revisi_pasca_sidang');
-$routes->add('/validasi_usulan_dosen', 'Welcome::validasi_usulan_dosen');
 $routes->add('/daftar_nilai', 'Welcome::daftar_nilai');
 $routes->add('/input_nilai', 'Welcome::input_nilai_skripsi');
 $routes->add('/histori_sidang', 'Welcome::histori_sidang');
 $routes->add('/berita_acara', 'Welcome::berita_acara_sidang_skripsi');
-$routes->add('/atur_jadwal_pendaftaran_seminar', 'Welcome::atur_jadwal');
-$routes->add('/atur_pengujidan_jadwal_seminar', 'Welcome::atur_jadwal_seminar');
 $routes->add('/histori_sempro', 'Welcome::histori_sempro');
-$routes->add('/atur_jadwal_pendaftaran', 'Welcome::jadwal_pendaftaran_sidang');
-$routes->add('/atur_jadwal_sidang_skripsi', 'Welcome::atur_jadwal_sidang');
 $routes->add('/histori_sidang_skripsi', 'Welcome::histori_sidang_skripsi');
-$routes->add('/Beranda', 'Welcome::beranda');
-$routes->add('/beranda_mahasiswa', 'Welcome::beranda_mahasiswa');
-$routes->add('/beranda_koorprodi', 'Welcome::beranda_koorprodi');
-$routes->add('/login_sisri', 'Welcome::login_sisri');
-$routes->add('/password', 'Welcome::password');
-$routes->add('/bimbingan', 'Welcome::bimbingan');
-$routes->add('/persetujuan_daftar_seminar', 'Welcome::persetujuan');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
