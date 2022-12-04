@@ -120,6 +120,9 @@ $routes->add('/data_mahasiswa_bimbingan_proposal', 'Dosen\Proposal\Bimbingan::in
 $routes->add('/bimbingan_proposal_dosen/(:any)', 'Dosen\Proposal\Bimbingan::bimbingan_proposal_dosen/$1');
 $routes->add('/hapus_bimbingan_dosen', 'Dosen\Proposal\Bimbingan::hapus');
 $routes->add('/tambah_bimbingan_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
+//Route Khusus Controller Dosen-Validasi Daftar Seminar
+$routes->add('/validasi_daftar_seminar', 'Dosen\Proposal\Validasi_Daftar_Seminar::index');
+$routes->add('/proses_validasi_daftar_seminar', 'Dosen\Proposal\Validasi_Daftar_Seminar::validasi');
 //Route Khusus Controller Dosen-Bimbingan Revisi Proposal
 $routes->add('/data_mahasiswa_bimbingan_revisi_proposal', 'Dosen\Proposal\Revisi::index');
 $routes->add('/bimbingan_revisi_proposal_dosen/(:any)', 'Dosen\Proposal\Revisi::bimbingan_proposal_dosen/$1');
@@ -130,20 +133,24 @@ $routes->add('/data_mahasiswa_bimbingan_skripsi', 'Dosen\Skripsi\Bimbingan::inde
 $routes->add('/bimbingan_skripsi_dosen/(:any)', 'Dosen\Skripsi\Bimbingan::bimbingan_skripsi_dosen/$1');
 $routes->add('/hapus_bimbingan_skripsi_dosen', 'Dosen\Skripsi\Bimbingan::hapus');
 $routes->add('/tambah_bimbingan_skripsi_dosen', 'Dosen\Skripsi\Bimbingan::tambah');
+//Route Khusus Controller Dosen-Validasi Daftar Sidang
+$routes->add('/validasi_daftar_sidang', 'Dosen\Skripsi\Validasi_Daftar_Sidang::index');
+$routes->add('/proses_validasi_daftar_sidang', 'Dosen\Skripsi\Validasi_Daftar_Sidang::validasi');
 //Route Khusus Controller Dosen-Bimbingan Revisi Skripsi
 $routes->add('/data_mahasiswa_bimbingan_revisi_skripsi', 'Dosen\Skripsi\Revisi::index');
 $routes->add('/bimbingan_revisi_skripsi_dosen/(:any)', 'Dosen\Skripsi\Revisi::bimbingan_skripsi_dosen/$1');
 $routes->add('/hapus_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::hapus');
 $routes->add('/tambah_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::tambah');
 // --------------------------------------KORPRODI-------------------------------------------
-//Route Khusus Controller Korprodi-Beranda
-$routes->add('/beranda_korprodi', 'Korprodi\Beranda::index');
 //Route Khusus Controller Korprodi-Penjadwalan Sidang
 $routes->add('/penjadwalan_sidang', 'Korprodi\Penjadwalan_Sidang::index');
 $routes->add('/add_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::add');
 $routes->add('/del_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::del');
 $routes->add('/upd_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::upd');
 $routes->add('/data_pendaftar', 'Korprodi\Penjadwalan_Sidang::data_pendaftar');
+//Route Khusus Controller Dosen-Validasi Daftar Seminar
+$routes->add('/validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::index');
+$routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::validasi');
 // ============================================================================================
 
 $routes->add('/coba', 'Welcome::coba');

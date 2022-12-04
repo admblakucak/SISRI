@@ -54,7 +54,7 @@ class Login extends BaseController
                         session()->set('ses_id', $data[0]->id);
                         session()->set('ses_nama', name($this->db, $data[0]->id));
                         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Korprodi',now())");
-                        return redirect()->to('/beranda_korprodi');
+                        return redirect()->to('/beranda_dosen');
                     } else {
                         $image = $this->db->query("SELECT `image` FROM tb_profil_tambahan where id='" . $data[0]->id . "'")->getResult()[0]->image;
                         session()->set('ses_image', $image);

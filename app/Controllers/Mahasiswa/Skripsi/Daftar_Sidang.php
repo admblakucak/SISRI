@@ -45,38 +45,38 @@ class Daftar_Sidang extends BaseController
         $cek_pembimbing = $this->db->query("SELECT * FROM tb_pengajuan_pembimbing WHERE nip='$nip' AND nim='$nim' AND status_pengajuan='diterima'")->getResult();
 
         if (count($status) == NULL) {
-            if ($sebagai == 'koordinator') {
-                if (count($cek_pembimbing) != NULL) {
-                    $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
-                    $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','pembimbing " . $cek_pembimbing[0]->sebagai . "','menunggu','$idunit')");
-                } else {
-                    $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
-                }
-            } else {
-                if (count($cek_koor) != NULL) {
-                    $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','koordinator','menunggu','$idunit')");
-                    $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
-                } else {
-                    $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
-                }
-            }
+            // if ($sebagai == 'koordinator') {
+            //     if (count($cek_pembimbing) != NULL) {
+            //         $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
+            //         $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','pembimbing " . $cek_pembimbing[0]->sebagai . "','menunggu','$idunit')");
+            //     } else {
+            //         $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
+            //     }
+            // } else {
+            // if (count($cek_koor) != NULL) {
+            //     $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','koordinator','menunggu','$idunit')");
+            //     $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
+            // } else {
+            $this->db->query("INSERT INTO tb_perizinan_sidang (nim,nip,jenis_sidang,izin_sebagai,`status`,idunit) VALUES ('$nim','$nip','skripsi','$sebagai','menunggu','$idunit')");
+            // }
+            // }
         } else {
             if ($status[0]->status == 'ditolak') {
-                if ($sebagai == 'koordinator') {
-                    if (count($cek_pembimbing) != NULL) {
-                        $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
-                        $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE nip='$nip' AND nim='$nim' AND izin_sebagai='pembimbing " . $cek_pembimbing[0]->sebagai . "' AND jenis_sidang='skripsi'");
-                    } else {
-                        $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
-                    }
-                } else {
-                    if (count($cek_koor) != NULL) {
-                        $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE nip='$nip' AND nim='$nim' AND izin_sebagai='koordinator' AND jenis_sidang='skripsi'");
-                        $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
-                    } else {
-                        $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
-                    }
-                }
+                // if ($sebagai == 'koordinator') {
+                //     if (count($cek_pembimbing) != NULL) {
+                //         $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
+                //         $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE nip='$nip' AND nim='$nim' AND izin_sebagai='pembimbing " . $cek_pembimbing[0]->sebagai . "' AND jenis_sidang='skripsi'");
+                //     } else {
+                //         $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
+                //     }
+                // } else {
+                // if (count($cek_koor) != NULL) {
+                //     $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE nip='$nip' AND nim='$nim' AND izin_sebagai='koordinator' AND jenis_sidang='skripsi'");
+                //     $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
+                // } else {
+                $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE id_perizinan_sidang='" . $status[0]->id_perizinan_sidang . "'");
+                // }
+                // }
             }
         }
         return redirect()->to('/daftar_sidang');

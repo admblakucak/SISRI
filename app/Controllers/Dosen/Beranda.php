@@ -18,8 +18,13 @@ class Beranda extends BaseController
         if (session()->get('ses_id') == '' || session()->get('ses_login') == 'mahasiswa') {
             return redirect()->to('/');
         }
+        if (session()->get('ses_login') == 'dosen') {
+            $title = 'Beranda Dosen';
+        } else {
+            $title = 'Beranda Koorprodi';
+        }
         $data = [
-            'title' => 'Beranda Dosen',
+            'title' => $title,
             'db' => $this->db,
         ];
         return view('Dosen/beranda_dosen', $data);

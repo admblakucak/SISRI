@@ -105,7 +105,7 @@ use CodeIgniter\Images\Image;
                                 </div>
                             </div>
                         </div>
-                        <div class="list-group-item list-group-item-action br-t-1" href="#">
+                        <!-- <div class="list-group-item list-group-item-action br-t-1" href="#">
                             <div class="media mt-0">
                                 <img class="avatar-lg rounded-circle my-auto me-3" src="<?php base_url() ?>/image/<?= $kor->image ?>" alt="Image description">
                                 <div class="media-body">
@@ -120,13 +120,13 @@ use CodeIgniter\Images\Image;
                                                 <p class="mb-0 tx-11 text-muted">NIP: <?= $kor->nip; ?>
                                                     <?php $cek = $db->query("SELECT * FROM tb_perizinan_sidang WHERE nim='" . session()->get('ses_id') . "' AND nip='" . $kor->nip . "' AND izin_sebagai='koordinator'  AND jenis_sidang='skripsi'")->getResult();
                                                     if (count($cek) == NULL) {
-                                                        echo "<span class='text-danger ms-2'>Belum Melakukan Perizinan</span>";
+                                                        // echo "<span class='text-danger ms-2'>Belum Melakukan Perizinan</span>";
                                                     } elseif ($cek[0]->status == 'ditolak') {
-                                                        echo "<span class='text-danger ms-2'>Izin ditolak</span>";
+                                                        // echo "<span class='text-danger ms-2'>Izin ditolak</span>";
                                                     } elseif ($cek[0]->status == 'menunggu') {
-                                                        echo "<span class='text-warning ms-2'>Menunggu</span>";
+                                                        // echo "<span class='text-warning ms-2'>Menunggu</span>";
                                                     } else {
-                                                        echo "<span class='text-success ms-2'>Izin disetujui</span>";
+                                                        // echo "<span class='text-success ms-2'>Izin disetujui</span>";
                                                     }
                                                     ?>
                                                 </p>
@@ -148,7 +148,7 @@ use CodeIgniter\Images\Image;
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@ use CodeIgniter\Images\Image;
                                                             if (date('d F Y H:i:s') < date('d F Y H:i:s', strtotime($key->open))) {
                                                                 echo "<a class='text-danger'>Belum Dibuka</a>";
                                                             } elseif (date('d F Y H:i:s') >= date('d F Y H:i:s', strtotime($key->open))) {
-                                                                if (count($acc_pem1) != NULL && count($acc_pem2) != NULL && count($acc_kor) != NULL) {
+                                                                if (count($acc_pem1) != NULL && count($acc_pem2) != NULL) {
                                                                     if (count($cek_pendaftar_sidang) != NULL) {
                                                                         echo "<a class='text-success'>Telah Mendaftar</a>";
                                                                     } else {
@@ -202,7 +202,7 @@ use CodeIgniter\Images\Image;
                                                                         </div>
                                                             <?php }
                                                                 } else {
-                                                                    echo "<a class='text-danger'> Dapat mendaftar apabila telah mendapat izin dari pembimbing 1, 2 & Koorprodi. </a>";
+                                                                    echo "<a class='text-danger'> Dapat mendaftar apabila telah mendapat izin dari pembimbing 1 & pembimbing 2. </a>";
                                                                 }
                                                             } ?>
                                                         </td>
