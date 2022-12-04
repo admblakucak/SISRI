@@ -19,10 +19,12 @@ class Penjadwalan_sidang extends BaseController
             return redirect()->to('/');
         }
         $idunit = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . session()->get('ses_id') . "'")->getResult()[0]->idunit;
+        $idjurusan = $this->db->query("SELECT c.`idunit` AS idjurusan FROM tb_dosen a LEFT JOIN tb_unit b ON a.`idunit`=b.idunit LEFT JOIN tb_unit c ON b.`parentunit`=c.`idunit` WHERE a.nip='" . session()->get('ses_id') . "'")->getResult()[0]->idjurusan;
         $data = [
             'title' => 'Penjadwalan Sidang',
             'db' => $this->db,
             'idunit' => $idunit,
+            'idjurusan' => $idjurusan,
             'data_jadwal' => $this->db->query("SELECT * FROM tb_jadwal_sidang WHERE idunit='$idunit'")->getResult(),
         ];
         return view('Korprodi/penjadwalan_sidang', $data);
@@ -84,7 +86,15 @@ class Penjadwalan_sidang extends BaseController
     }
     public function del()
     {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'korprodi') {
+            return redirect()->to('/');
+        }
         $id_jadwal = $this->request->getPost('id_jadwal');
+        $data = $this->db->query("SELECT * FROM tb_pendaftar_sidang WHERE id_jadwal='$id_jadwal'")->getResult();
+        foreach ($data as $key) {
+            $this->db->query("DELETE FROM tb_penguji WHERE id_pendaftar='$key->id_pendaftar'");
+        }
+        $this->db->query("DELETE FROM tb_pendaftar_sidang WHERE id_jadwal='$id_jadwal'");
         $this->db->query("DELETE FROM tb_jadwal_sidang WHERE id_jadwal='$id_jadwal'");
 
         session()->setFlashdata("message", '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -99,6 +109,9 @@ class Penjadwalan_sidang extends BaseController
     }
     public function upd()
     {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'korprodi') {
+            return redirect()->to('/');
+        }
         $id_jadwal = $this->request->getPost('id_jadwal');
         $periode = $this->request->getPost('periode');
         $open = $this->request->getPost('open');
@@ -118,28 +131,66 @@ class Penjadwalan_sidang extends BaseController
     }
     public function data_pendaftar()
     {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'korprodi') {
+            return redirect()->to('/');
+        }
         $id_jadwal = $this->request->getPost('id_jadwal');
         if ($id_jadwal == NULL) {
             $id_jadwal = session()->get('ses_id_jadwal');
         }
-        $idunit = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . session()->get('ses_id') . "'")->getResult()[0]->idunit;
-        $data = [
-            'title' => 'Data Pendaftar Sidang',
-            'db' => $this->db,
-            'idunit' => $idunit,
-            'id_jadwal' => $id_jadwal,
-            'data_pendaftar' => $this->db->query("SELECT * FROM tb_pendaftar_sidang WHERE id_jadwal='$id_jadwal'")->getResult(),
-        ];
-        return view('Korprodi/data_pendaftar_sidang', $data);
-    }
-    public function setting_jadwal_sidang()
-    {
-        $id_jadwal = $this->request->getPost('id_jadwal');
-        $id_pendaftar = $this->request->getPost('id_pendaftar');
-        $waktu_sidang = $this->request->getPost('waktu_sidang');
-        $ruang_sidang = $this->request->getPost('ruang_sidang');
-        $this->db->query("UPDATE tb_pendaftar_sidang SET waktu_sidang='$waktu_sidang',ruang_sidang='$ruang_sidang' WHERE id_pendaftar='$id_pendaftar'");
-        session()->set('ses_id_jadwal', $id_jadwal);
-        return redirect()->to('/data_pendaftar');
+        $update = $this->request->getPost('update');
+        if (isset($update)) {
+            $nim = $this->request->getPost('nim');
+            $id_pendaftar = $this->request->getPost('id_pendaftar');
+            $waktu_sidang = $this->request->getPost('waktu_sidang');
+            $ruang_sidang = $this->request->getPost('ruang_sidang');
+            $nip_p1 = $this->request->getPost('nip_p1');
+            $nip_p2 = $this->request->getPost('nip_p2');
+            $nip_p3 = $this->request->getPost('nip_p3');
+            $jenis_sidang = $this->request->getPost('jenis_sidang');
+            $cek_p1 = $this->db->query("SELECT * FROM tb_penguji WHERE id_pendaftar='$id_pendaftar' AND sebagai='1'")->getResult();
+            $cek_p2 = $this->db->query("SELECT * FROM tb_penguji WHERE id_pendaftar='$id_pendaftar' AND sebagai='2'")->getResult();
+            $cek_p3 = $this->db->query("SELECT * FROM tb_penguji WHERE id_pendaftar='$id_pendaftar' AND sebagai='3'")->getResult();
+            $this->db->query("UPDATE tb_pendaftar_sidang SET waktu_sidang='$waktu_sidang',ruang_sidang='$ruang_sidang' WHERE id_pendaftar='$id_pendaftar'");
+            if ($jenis_sidang == 'proposal_skripsi') {
+                $cek = $this->db->query("SELECT * FROM tb_penguji WHERE nim ='$nim'")->getResult();
+                if ($cek != NULL) {
+                    $this->db->query("UPDATE tb_penguji SET `status`='nonaktif' WHERE nim='$nim'");
+                }
+                if ($cek_p1 != NULL) {
+                    $this->db->query("UPDATE tb_penguji SET nip='$nip_p1',`status`='aktif' WHERE nim='$nim' AND id_pendaftar='$id_pendaftar' AND sebagai='1'");
+                } else {
+                    $this->db->query("INSERT INTO tb_penguji (nim,nip,sebagai,id_pendaftar,`status`) VALUES('$nim','$nip_p1','1','$id_pendaftar','aktif')");
+                }
+                if ($cek_p2 != NULL) {
+                    $this->db->query("UPDATE tb_penguji SET nip='$nip_p2',`status`='aktif' WHERE nim='$nim' AND id_pendaftar='$id_pendaftar' AND sebagai='2'");
+                } else {
+                    $this->db->query("INSERT INTO tb_penguji (nim,nip,sebagai,id_pendaftar,`status`) VALUES('$nim','$nip_p2','2','$id_pendaftar','aktif')");
+                }
+                if ($cek_p3 != NULL) {
+                    $this->db->query("UPDATE tb_penguji SET nip='$nip_p3',`status`='aktif' WHERE nim='$nim' AND id_pendaftar='$id_pendaftar' AND sebagai='3'");
+                } else {
+                    $this->db->query("INSERT INTO tb_penguji (nim,nip,sebagai,id_pendaftar,`status`) VALUES('$nim','$nip_p3','3','$id_pendaftar','aktif')");
+                }
+                echo "INSERT INTO tb_penguji (nim,nip,sebagai,id_pendaftar,`status`) VALUES('$nim','$nip_p3','3','$id_pendaftar','aktif')";
+            }
+            session()->set('ses_id_jadwal', $id_jadwal);
+            return redirect()->to('/data_pendaftar');
+        } else {
+            $idunit = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . session()->get('ses_id') . "'")->getResult()[0]->idunit;
+            $idjurusan = $this->db->query("SELECT c.`idunit` AS idjurusan FROM tb_dosen a LEFT JOIN tb_unit b ON a.`idunit`=b.idunit LEFT JOIN tb_unit c ON b.`parentunit`=c.`idunit` WHERE a.nip='" . session()->get('ses_id') . "'")->getResult()[0]->idjurusan;
+            $data = [
+                'title' => 'Data Pendaftar Sidang',
+                'db' => $this->db,
+                'idunit' => $idunit,
+                'id_jadwal' => $id_jadwal,
+                'idjurusan' => $idjurusan,
+                'data_dosen_f' => $this->db->query("SELECT * FROM tb_dosen a LEFT JOIN tb_unit b ON a.`idunit`=b.`idunit` LEFT JOIN tb_unit c ON b.`parentunit`=c.`idunit` WHERE c.`idunit`='$idjurusan'")->getResult(),
+                'data_pendaftar' => $this->db->query("SELECT * FROM tb_pendaftar_sidang WHERE id_jadwal='$id_jadwal'")->getResult(),
+                'data_jadwal' => $this->db->query("SELECT * FROM tb_jadwal_sidang WHERE id_jadwal='$id_jadwal'")->getResult(),
+            ];
+            session()->set('ses_id_jadwal', $id_jadwal);
+            return view('Korprodi/data_pendaftar_sidang', $data);
+        }
     }
 }

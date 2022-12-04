@@ -144,7 +144,6 @@ $routes->add('/add_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::add');
 $routes->add('/del_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::del');
 $routes->add('/upd_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::upd');
 $routes->add('/data_pendaftar', 'Korprodi\Penjadwalan_Sidang::data_pendaftar');
-$routes->add('/setting_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::setting_jadwal_sidang');
 // ============================================================================================
 
 $routes->add('/coba', 'Welcome::coba');

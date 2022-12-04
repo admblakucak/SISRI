@@ -49,6 +49,23 @@ use CodeIgniter\Images\Image;
                                             $penguji1 = $db->query("SELECT * FROM tb_penguji a left join tb_dosen b on a.nip=b.nip WHERE a.nim='$key->nim' AND a.sebagai='1' AND a.id_pendaftar='$key->id_pendaftar'")->getResult();
                                             $penguji2 = $db->query("SELECT * FROM tb_penguji a left join tb_dosen b on a.nip=b.nip WHERE a.nim='$key->nim' AND a.sebagai='2' AND a.id_pendaftar='$key->id_pendaftar'")->getResult();
                                             $penguji3 = $db->query("SELECT * FROM tb_penguji a left join tb_dosen b on a.nip=b.nip WHERE a.nim='$key->nim' AND a.sebagai='3' AND a.id_pendaftar='$key->id_pendaftar'")->getResult();
+                                            $penguji_1 = '';
+                                            $penguji_2 = '';
+                                            $penguji_3 = '';
+                                            if ($data_jadwal[0]->jenis_sidang == 'sidang skripsi') {
+                                                $penguji1 = $db->query("SELECT * FROM tb_penguji a left join tb_dosen b on a.nip=b.nip WHERE a.nim='$key->nim' AND a.sebagai='1' AND a.`status`='aktif'")->getResult();
+                                                $penguji2 = $db->query("SELECT * FROM tb_penguji a left join tb_dosen b on a.nip=b.nip WHERE a.nim='$key->nim' AND a.sebagai='2' AND a.`status`='aktif'")->getResult();
+                                                $penguji3 = $db->query("SELECT * FROM tb_penguji a left join tb_dosen b on a.nip=b.nip WHERE a.nim='$key->nim' AND a.sebagai='3' AND a.`status`='aktif'")->getResult();
+                                            }
+                                            if ($penguji1 != NULL) {
+                                                $penguji_1 = $penguji1[0]->nip;
+                                            }
+                                            if ($penguji2 != NULL) {
+                                                $penguji_2 = $penguji2[0]->nip;
+                                            }
+                                            if ($penguji3 != NULL) {
+                                                $penguji_3 = $penguji3[0]->nip;
+                                            }
                                         ?>
                                             <tr>
                                                 <th scope="row"><?= $no ?></th>
@@ -57,9 +74,9 @@ use CodeIgniter\Images\Image;
                                                 <td><?= $pem1[0]->gelardepan . ' ' . $pem1[0]->nama . ', ' . $pem1[0]->gelarbelakang ?></td>
                                                 <td><?= $pem2[0]->gelardepan . ' ' . $pem2[0]->nama . ', ' . $pem2[0]->gelarbelakang ?></td>
                                                 <td><?= $key->create_at ?></td>
-                                                <td><?= $penguji1[0]->gelardepan . ' ' . $penguji1[0]->nama . ', ' . $penguji1[0]->gelarbelakang ?></td>
-                                                <td><?= $penguji2[0]->gelardepan . ' ' . $penguji2[0]->nama . ', ' . $penguji2[0]->gelarbelakang ?></td>
-                                                <td><?= $penguji3[0]->gelardepan . ' ' . $penguji3[0]->nama . ', ' . $penguji3[0]->gelarbelakang ?></td>
+                                                <td><?= $penguji1 != NULL ? $penguji1[0]->gelardepan . ' ' . $penguji1[0]->nama . ', ' . $penguji1[0]->gelarbelakang : '' ?></td>
+                                                <td><?= $penguji2 != NULL ? $penguji2[0]->gelardepan . ' ' . $penguji2[0]->nama . ', ' . $penguji2[0]->gelarbelakang : '' ?></td>
+                                                <td><?= $penguji3 != NULL ? $penguji3[0]->gelardepan . ' ' . $penguji3[0]->nama . ', ' . $penguji3[0]->gelarbelakang : '' ?></td>
                                                 <td><?= $key->waktu_sidang ?></td>
                                                 <td><?= $key->ruang_sidang ?></td>
                                                 <td>
@@ -71,9 +88,11 @@ use CodeIgniter\Images\Image;
                                                             <div class="modal-header">
                                                                 <h6 class="modal-title">Edit Jadwal Sidang</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                                             </div>
-                                                            <form action="<?php base_url() ?>/setting_jadwal_sidang" method="POST" enctype="multipart/form-data">
+                                                            <form action="<?php base_url() ?>/data_pendaftar" method="POST" enctype="multipart/form-data">
                                                                 <input type="hidden" name="id_pendaftar" value="<?= $key->id_pendaftar ?>" />
                                                                 <input type="hidden" name="id_jadwal" value="<?= $id_jadwal ?>" />
+                                                                <input type="hidden" name="nim" value="<?= $key->nim ?>" />
+                                                                <input type="hidden" name="jenis_sidang" value="<?= $data_jadwal[0]->jenis_sidang ?>" />
                                                                 <div class="modal-body">
                                                                     <input type="hidden" name="idunit" value="<?= $idunit ?>">
                                                                     <div class="form-group">
@@ -93,51 +112,71 @@ use CodeIgniter\Images\Image;
                                                                         <label for="exampleInputPeriode">Ruang Sidang</label>
                                                                         <input type="teks" class="form-control" id="exampleInput" value="<?= $key->ruang_sidang ?>" name="ruang_sidang">
                                                                     </div>
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputJenis Sidang">Penguji 1</label>
-                                                                        <div class="row row-sm">
-                                                                            <select class="form-control select" name="nip_p1">
-                                                                                <option disabled> Pilih Penguji 1
-                                                                                </option>
-                                                                                <option value="seminar proposal">
-                                                                                    Seminar Proposal
-                                                                                </option>
-                                                                                <option value="sidang skripsi">
-                                                                                    Sidang Skripsi
-                                                                                </option>
-                                                                            </select>
+                                                                    <?php if ($data_jadwal[0]->jenis_sidang == 'seminar proposal') { ?>
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputJenis Sidang">Penguji 1</label>
+                                                                            <div class="row row-sm">
+                                                                                <select class="form-control select" name="nip_p1">
+                                                                                    <?php
+                                                                                    $cek = $db->query("SELECT * FROM tb_penguji where sebagai='1' and id_pendaftar='$key->id_pendaftar'")->getResult();
+                                                                                    ?>
+                                                                                    <option <?= $cek == NULL ? 'selected' : '' ?> disabled> Pilih Penguji 1
+                                                                                    </option>
+                                                                                    <?php
+                                                                                    foreach ($data_dosen_f as $key1) {
+                                                                                        if ($key1->nip != $pem1[0]->nip && $key1->nip != $pem2[0]->nip) {
+                                                                                    ?>
+                                                                                            <option <?= $key1->nip == $penguji_1 ? 'selected' : '' ?> value="<?= $key1->nip ?>">
+                                                                                                <?= $key1->nip . ' - ' . $key1->gelardepan . ' ' . $key1->nama . ', ' . $key1->gelarbelakang ?>
+                                                                                            </option>
+                                                                                    <?php }
+                                                                                    } ?>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputJenis Sidang">Penguji 2</label>
-                                                                        <div class="row row-sm">
-                                                                            <select class="form-control select" name="nip_p2">
-                                                                                <option disabled> Pilih Penguji 2
-                                                                                </option>
-                                                                                <option value="seminar proposal">
-                                                                                    Seminar Proposal
-                                                                                </option>
-                                                                                <option value="sidang skripsi">
-                                                                                    Sidang Skripsi
-                                                                                </option>
-                                                                            </select>
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputJenis Sidang">Penguji 2</label>
+                                                                            <div class="row row-sm">
+                                                                                <select class="form-control select" name="nip_p2">
+                                                                                    <?php
+                                                                                    $cek = $db->query("SELECT * FROM tb_penguji where sebagai='2' and id_pendaftar='$key->id_pendaftar'")->getResult();
+                                                                                    ?>
+                                                                                    <option <?= $cek == NULL ? 'selected' : '' ?> disabled> Pilih Penguji 2
+                                                                                    </option>
+                                                                                    <?php
+                                                                                    foreach ($data_dosen_f as $key1) {
+                                                                                        if ($key1->nip != $pem1[0]->nip && $key1->nip != $pem2[0]->nip) {
+                                                                                    ?>
+                                                                                            <option <?= $key1->nip == $penguji_2 ? 'selected' : '' ?> value="<?= $key1->nip ?>">
+                                                                                                <?= $key1->nip . ' - ' . $key1->gelardepan . ' ' . $key1->nama . ', ' . $key1->gelarbelakang ?>
+                                                                                            </option>
+                                                                                    <?php }
+                                                                                    } ?>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputJenis Sidang">Penguji 3</label>
-                                                                        <div class="row row-sm">
-                                                                            <select class="form-control select" name="nip_3">
-                                                                                <option disabled> Pilih Penguji 3
-                                                                                </option>
-                                                                                <option value="seminar proposal">
-                                                                                    Seminar Proposal
-                                                                                </option>
-                                                                                <option value="sidang skripsi">
-                                                                                    Sidang Skripsi
-                                                                                </option>
-                                                                            </select>
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputJenis Sidang">Penguji 3</label>
+                                                                            <div class="row row-sm">
+                                                                                <select class="form-control select" name="nip_p3">
+                                                                                    <?php
+                                                                                    $cek = $db->query("SELECT * FROM tb_penguji where sebagai='3' and id_pendaftar='$key->id_pendaftar'")->getResult();
+                                                                                    ?>
+                                                                                    <option <?= $cek == NULL ? 'selected' : '' ?> disabled> Pilih Penguji 3
+                                                                                    </option>
+                                                                                    <?php
+                                                                                    foreach ($data_dosen_f as $key1) {
+                                                                                        if ($key1->nip != $pem1[0]->nip && $key1->nip != $pem2[0]->nip) {
+                                                                                    ?>
+                                                                                            <option <?= $key1->nip == $penguji_3 ? 'selected' : '' ?> value="<?= $key1->nip ?>">
+                                                                                                <?= $key1->nip . ' - ' . $key1->gelardepan . ' ' . $key1->nama . ', ' . $key1->gelarbelakang ?>
+                                                                                            </option>
+                                                                                    <?php }
+                                                                                    } ?>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                    <?php } ?>
                                                                 </div>
                                                                 <script type="text/javascript">
                                                                     $(function() {
@@ -146,6 +185,7 @@ use CodeIgniter\Images\Image;
                                                                     });
                                                                 </script>
                                                                 <div class="modal-footer">
+                                                                    <input type="hidden" name='update' value="update">
                                                                     <button class="btn ripple btn-primary" type="submit">Update</button>
                                                                     <button class="btn ripple btn-secondary" data-bs-dismiss="modal" type="button">Keluar</button>
                                                                 </div>
@@ -166,5 +206,9 @@ use CodeIgniter\Images\Image;
         </div>
     </div>
 </div>
-
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
 <?= $this->endSection(); ?>
