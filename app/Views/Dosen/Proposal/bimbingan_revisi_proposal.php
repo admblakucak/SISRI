@@ -55,7 +55,24 @@ use CodeIgniter\Images\Image;
             <div class="card">
                 <div class="main-content-left main-content-left-chat">
                     <div class="main-chat-list" id="ChatList">
-                        <a class="p-3"><b>Anda Sebagai</b> : <?= $sebagai ?></a>
+                        <div class="row p-3">
+                            <div class="col-auto">
+                                <a><b>Anda Sebagai</b> : <?= $sebagai ?></a>
+                            </div>
+                            <?php if ($sebagai == 'Penguji 1' || $sebagai == 'Penguji 2' || $sebagai == 'Penguji 3') { ?>
+                                <div class="col-auto">
+                                    <?php if ($status_acc_revisi == NULL) { ?>
+                                        <form action="<?php base_url() ?>/acc_revisi_proposal_dosen" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" value="<?= $nim ?>" name="nim">
+                                            <input type="hidden" value="<?= $sebagai ?>" name="sebagai">
+                                            <button class="btn btn-sm btn-warning" type="submit">ACC REVISI</button>
+                                        </form>
+                                    <?php } else { ?>
+                                        <span class='text-success ms-3'>Revisi Telah di ACC</span>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>

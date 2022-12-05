@@ -62,14 +62,14 @@ use CodeIgniter\Images\Image;
                                                                 <?php
                                                                 if ($sts_pem1 != NULL) {
                                                                     if ($sts_pem1[0]->status == 'disetujui') {
-                                                                        echo "<span class='text-success ms-3'>Disetujui</span></td>";
+                                                                        echo "<span class='text-success ms-3'>Disetujui</span>";
                                                                     } elseif ($sts_pem1[0]->status == 'ditolak') {
-                                                                        echo "<span class='text-danger ms-3'>Ditolak</span></td>";
+                                                                        echo "<span class='text-danger ms-3'>Ditolak</span>";
                                                                     } else {
-                                                                        echo "<span class='text-warning ms-3'>Menunggu Disetuji</span></td>";
+                                                                        echo "<span class='text-warning ms-3'>Menunggu Disetuji</span>";
                                                                     }
                                                                 } else {
-                                                                    echo "<span class='text-danger ms-3'>Belum Melakukan Perizinan</span></td>";
+                                                                    echo "<span class='text-danger ms-3'>Belum Melakukan Perizinan</span>";
                                                                 }
                                                                 ?>
                                                             </td>
@@ -78,28 +78,29 @@ use CodeIgniter\Images\Image;
                                                                 <?php
                                                                 if ($sts_pem2 != NULL) {
                                                                     if ($sts_pem2[0]->status == 'disetujui') {
-                                                                        echo "<span class='text-success ms-3'>Disetujui</span></td>";
+                                                                        echo "<span class='text-success ms-3'>Disetujui</span>";
                                                                     } elseif ($sts_pem2[0]->status == 'ditolak') {
-                                                                        echo "<span class='text-danger ms-3'>Ditolak</span></td>";
+                                                                        echo "<span class='text-danger ms-3'>Ditolak</span>";
                                                                     } else {
-                                                                        echo "<span class='text-warning ms-3'>Menunggu Disetuji</span></td>";
+                                                                        echo "<span class='text-warning ms-3'>Menunggu Disetuji</span>";
                                                                     }
                                                                 } else {
-                                                                    echo "<span class='text-danger ms-3'>Belum Melakukan Perizinan</span></td>";
+                                                                    echo "<span class='text-danger ms-3'>Belum Melakukan Perizinan</span>";
                                                                 }
                                                                 ?>
+                                                            </td>
                                                             <td scope="row">
                                                                 <?php
                                                                 if ($sts_koor != NULL) {
                                                                     if ($sts_koor[0]->status == 'disetujui') {
-                                                                        echo "<span class='text-success ms-3'>Disetujui</span></td>";
+                                                                        echo "<span class='text-success ms-3'>Disetujui</span>";
                                                                     } elseif ($sts_koor[0]->status == 'ditolak') {
-                                                                        echo "<span class='text-danger ms-3'>Ditolak</span></td>";
+                                                                        echo "<span class='text-danger ms-3'>Ditolak</span>";
                                                                     } else {
-                                                                        echo "<span class='text-warning ms-3'>Menunggu Disetuji</span></td>";
+                                                                        echo "<span class='text-warning ms-3'>Menunggu Disetuji</span>";
                                                                     }
                                                                 } else {
-                                                                    echo "<span class='text-danger ms-3'>Belum Melakukan Perizinan</span></td>";
+                                                                    echo "<span class='text-danger ms-3'>Belum Melakukan Perizinan</span>";
                                                                 }
                                                                 ?>
                                                             </td>

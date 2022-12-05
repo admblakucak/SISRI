@@ -101,10 +101,21 @@ class Revisi extends BaseController
             'sebagai' => $sebagai,
             'data_mhs' => $this->db->query("SELECT * FROM tb_mahasiswa a LEFT JOIN tb_profil_tambahan b ON b.`id` = a.`nim` WHERE a.`nim` = $id")->getResult()[0],
             'progress_bimbingan' => $this->db->query("SELECT * FROM tb_bimbingan a LEFT JOIN tb_profil_tambahan b ON a.`from`=b.`id` WHERE (a.`from` = '" . $id . "' OR a.`to` = '" . $id . "') AND (a.`from` = '" . session()->get('ses_id') . "' OR a.`to` = '" . session()->get('ses_id') . "') AND kategori_bimbingan=4 ORDER BY create_at ASC")->getResult(),
+            'status_acc_revisi' => $this->db->query("SELECT * FROM tb_acc_revisi WHERE nim='$id' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='skripsi'")->getResult()
         ];
         $this->db->query("UPDATE tb_bimbingan SET status_baca='dibaca' WHERE `from`=$nim AND status_baca='belum dibaca' AND kategori_bimbingan=4");
         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','Bimbingan Dibaca','Bimbingan $nim dibaca ',now())");
         return view('Dosen/Skripsi/bimbingan_revisi_skripsi', $data);
+    }
+    public function acc()
+    {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') == 'mahasiswa') {
+            return redirect()->to('/');
+        }
+        $nim = $this->request->getPost('nim');
+        $sebagai = $this->request->getPost('sebagai');
+        $this->db->query("INSERT INTO tb_acc_revisi (nip,nim,jenis_sidang,sebagai) VALUES ('" . session()->get('ses_id') . "','$nim','skripsi','$sebagai')");
+        return redirect()->to("/bimbingan_revisi_skripsi_dosen/$nim");
     }
     public function tambah()
     {

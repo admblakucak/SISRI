@@ -128,6 +128,7 @@ $routes->add('/data_mahasiswa_bimbingan_revisi_proposal', 'Dosen\Proposal\Revisi
 $routes->add('/bimbingan_revisi_proposal_dosen/(:any)', 'Dosen\Proposal\Revisi::bimbingan_proposal_dosen/$1');
 $routes->add('/hapus_bimbingan_revisi_proposal_dosen', 'Dosen\Proposal\Revisi::hapus');
 $routes->add('/tambah_bimbingan_revisi_proposal_dosen', 'Dosen\Proposal\Revisi::tambah');
+$routes->add('/acc_revisi_proposal_dosen', 'Dosen\Proposal\Revisi::acc');
 //Route Khusus Controller Dosen-Bimbingan Skripsi
 $routes->add('/data_mahasiswa_bimbingan_skripsi', 'Dosen\Skripsi\Bimbingan::index');
 $routes->add('/bimbingan_skripsi_dosen/(:any)', 'Dosen\Skripsi\Bimbingan::bimbingan_skripsi_dosen/$1');
@@ -141,6 +142,7 @@ $routes->add('/data_mahasiswa_bimbingan_revisi_skripsi', 'Dosen\Skripsi\Revisi::
 $routes->add('/bimbingan_revisi_skripsi_dosen/(:any)', 'Dosen\Skripsi\Revisi::bimbingan_skripsi_dosen/$1');
 $routes->add('/hapus_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::hapus');
 $routes->add('/tambah_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::tambah');
+$routes->add('/acc_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::acc');
 // --------------------------------------KORPRODI-------------------------------------------
 //Route Khusus Controller Korprodi-Penjadwalan Sidang
 $routes->add('/penjadwalan_sidang', 'Korprodi\Penjadwalan_Sidang::index');
