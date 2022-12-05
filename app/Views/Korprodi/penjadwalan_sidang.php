@@ -80,7 +80,7 @@ use CodeIgniter\Images\Image;
                         <h4 class="card-title mg-b-0">Data Jadwal Sidang</h4>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Daja jadwal seminar proposal dan sidang skripsi</a></p>
+                    <p class="tx-12 tx-gray-500 mb-2">Data jadwal seminar proposal dan sidang skripsi</a></p>
                 </div>
                 <div class="row mt-3">
                     <div class="col">

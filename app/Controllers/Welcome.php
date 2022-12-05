@@ -103,6 +103,13 @@ class Welcome extends BaseController
     ];
     return view('Korprodi/Skripsi/atur_jadwal_sidang_skripsi', $data);
   }
+  public function manajemen_topik()
+  {
+    $data = [
+      'title' => 'Manajemen Topik'
+    ];
+    return view('Korprodi/manajemen_topik', $data);
+  }
   public function histori_sidang_skripsi()
   {
     $data = [
