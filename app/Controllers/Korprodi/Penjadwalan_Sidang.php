@@ -152,7 +152,7 @@ class Penjadwalan_sidang extends BaseController
             $cek_p2 = $this->db->query("SELECT * FROM tb_penguji WHERE id_pendaftar='$id_pendaftar' AND sebagai='2'")->getResult();
             $cek_p3 = $this->db->query("SELECT * FROM tb_penguji WHERE id_pendaftar='$id_pendaftar' AND sebagai='3'")->getResult();
             $this->db->query("UPDATE tb_pendaftar_sidang SET waktu_sidang='$waktu_sidang',ruang_sidang='$ruang_sidang' WHERE id_pendaftar='$id_pendaftar'");
-            if ($jenis_sidang == 'proposal_skripsi') {
+            if ($jenis_sidang == 'seminar proposal') {
                 $cek = $this->db->query("SELECT * FROM tb_penguji WHERE nim ='$nim'")->getResult();
                 if ($cek != NULL) {
                     $this->db->query("UPDATE tb_penguji SET `status`='nonaktif' WHERE nim='$nim'");

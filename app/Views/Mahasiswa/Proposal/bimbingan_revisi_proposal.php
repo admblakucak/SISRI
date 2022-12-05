@@ -59,10 +59,10 @@ use CodeIgniter\Images\Image;
             <div class="card">
                 <div class="main-content-left main-content-left-chat">
                     <div class="main-chat-list" id="ChatList">
-                        <?php
-                        foreach ($dosen_pembimbing as $key2) {
-                            $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' AND kategori_bimbingan=2 GROUP BY `from`")->getResult();
-                        ?>
+                        <!-- <?php
+                                foreach ($dosen_pembimbing as $key2) {
+                                    $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' AND kategori_bimbingan=2 GROUP BY `from`")->getResult();
+                                ?>
                             <a href="/bimbingan_revisi_proposal/<?= $key2->nip ?>">
                                 <?php if ($notif != NULL) { ?>
                                     <div class="media new">
@@ -84,14 +84,14 @@ use CodeIgniter\Images\Image;
                                                             $pembimbing = "Pembimbing $key2->sebagai";
                                                             $nama_dosen = "$key2->gelardepan $key2->nama, $key2->gelarbelakang";
                                                         }
-                                                        echo 'Pembimbing ' . $key2->sebagai . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang;
+                                                        // echo 'Pembimbing ' . $key2->sebagai . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang;
                                                         ?></span>
                                             </div>
                                         </div>
                                         </div>
                             </a>
                         <?php }
-                        ?>
+                        ?> -->
                         <?php
                         foreach ($dosen_penguji as $key2) {
                             $notif = $db->query("SELECT *, COUNT( * ) AS total FROM tb_bimbingan WHERE status_baca='belum dibaca' AND `from`='$key2->nip' AND `to`='" . session()->get('ses_id') . "' GROUP BY `from`")->getResult();
@@ -120,6 +120,14 @@ use CodeIgniter\Images\Image;
                                                         echo 'Penguji ' . $key2->sebagai . ' - ' . $key2->gelardepan . ' ' . $key2->nama . ', ' . $key2->gelarbelakang;
                                                         ?></span>
                                             </div>
+                                            <?php
+                                            $status_acc_revisi = $db->query("SELECT * FROM tb_acc_revisi WHERE nim='" . session()->get('ses_id') . "' AND nip='" . $key2->nip . "' AND jenis_sidang='seminar proposal'")->getResult();
+                                            if ($status_acc_revisi == NULL) {
+                                                echo "<p class='text-danger'>Revisi Belum di ACC</p>";
+                                            } else {
+                                                echo "<p class='text-success'>Revisi Telah di ACC</p>";
+                                            }
+                                            ?>
                                         </div>
                                         </div>
                             </a>

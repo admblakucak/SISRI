@@ -38,6 +38,9 @@
 						<?php
 						$pem1 = $db->query("SELECT * from tb_pengajuan_pembimbing where nim='" . session()->get('ses_id') . "' AND status_pengajuan='diterima' AND sebagai='1'")->getResult();
 						$pem2 = $db->query("SELECT * from tb_pengajuan_pembimbing where nim='" . session()->get('ses_id') . "' AND status_pengajuan='diterima' AND sebagai='2'")->getResult();
+						$penguji1 = $db->query("SELECT * from tb_penguji where nim='" . session()->get('ses_id') . "' AND `status`='aktif' AND sebagai='1'")->getResult();
+						$penguji2 = $db->query("SELECT * from tb_penguji where nim='" . session()->get('ses_id') . "' AND `status`='aktif' AND sebagai='2'")->getResult();
+						$penguji3 = $db->query("SELECT * from tb_penguji where nim='" . session()->get('ses_id') . "' AND `status`='aktif' AND sebagai='3'")->getResult();
 						if (count($pem1) != 0 && count($pem2) != 0) {
 						?>
 							<li class="slide">
@@ -48,7 +51,19 @@
 									<li><a class="slide-item" href="/bimbingan_proposal/<?= $pem1[0]->nip ?>">Bimbingan Proposal</a></li>
 									<li><a class="slide-item" href="/daftar_seminar">Daftar Seminar</a></li>
 									<li><a class="slide-item" href="/Berita-Acara">Berita Acara Seminar</a></li>
-									<li><a class="slide-item" href="/bimbingan_revisi_proposal/<?= $pem1[0]->nip ?>">Revisi Pasca Seminar</a></li>
+									<?php
+									if ($penguji1 != NULL) {
+									?>
+										<li><a class="slide-item" href="/bimbingan_revisi_proposal/<?= $penguji1[0]->nip ?>">Revisi Proposal</a></li>
+									<?php
+									} elseif ($penguji2 != NULL) {
+									?>
+										<li><a class="slide-item" href="/bimbingan_revisi_proposal/<?= $penguji2[0]->nip ?>">Revisi Proposal</a></li>
+									<?php
+									} elseif ($penguji3 != NULL) {
+									?>
+										<li><a class="slide-item" href="/bimbingan_revisi_proposal/<?= $penguji3[0]->nip ?>">Revisi Proposal</a></li>
+									<?php } ?>
 								</ul>
 							</li>
 							<li class=" slide">
@@ -59,7 +74,19 @@
 									<li><a class="slide-item" href="/bimbingan_skripsi/<?= $pem1[0]->nip ?>">Bimbingan Skripsi</a></li>
 									<li><a class=" slide-item" href="/daftar_sidang">Daftar Sidang</a></li>
 									<li><a class="slide-item" href="/Berita_Acara_Sidang">Berita Acara Sidang</a></li>
-									<li><a class="slide-item" href="/bimbingan_revisi_skripsi/<?= $pem1[0]->nip ?>">Revisi Pasca Sidang</a></li>
+									<?php
+									if ($penguji1 != NULL) {
+									?>
+										<li><a class="slide-item" href="/bimbingan_revisi_skripsi/<?= $penguji1[0]->nip ?>">Revisi Skripsi</a></li>
+									<?php
+									} elseif ($penguji2 != NULL) {
+									?>
+										<li><a class="slide-item" href="/bimbingan_revisi_skripsi/<?= $penguji2[0]->nip ?>">Revisi Skripsi</a></li>
+									<?php
+									} elseif ($penguji3 != NULL) {
+									?>
+										<li><a class="slide-item" href="/bimbingan_revisi_skripsi/<?= $penguji3[0]->nip ?>">Revisi Skripsi</a></li>
+									<?php } ?>
 								</ul>
 							</li>
 						<?php
@@ -85,7 +112,6 @@
 								<li><a class="slide-item" href="/validasi_daftar_seminar">Validasi Daftar Seminar</a></li>
 								<li><a class="slide-item" href="/berita_acara_seminar">Berita Acara Seminar</a></li>
 								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_revisi_proposal">Validasi Revisi Pasca Seminar</a></li>
-								<li><a class="slide-item" href="/histori_seminar">Histori Seminar</a></li>
 							</ul>
 						</li>
 						<li class="slide">
@@ -100,7 +126,6 @@
 								<li><a class="slide-item" href="/validasi_daftar_sidang">Validasi Daftar Sidang</a></li>
 								<li><a class="slide-item" href="/berita_acara">Berita Acara Sidang</a></li>
 								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_revisi_skripsi">Validasi Revisi Pasca Sidang</a></li>
-								<li><a class="slide-item" href="/histori_sidang">Histori Sidang</a></li>
 							</ul>
 						</li>
 						<li class="slide">

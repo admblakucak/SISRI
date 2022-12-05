@@ -88,7 +88,7 @@
 
 </head>
 
-<body class="main-body app sidebar-mini">
+<body class="main-body app sidebar-mini" oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
 
 	<!-- Loader -->
 	<div id="global-loader">
