@@ -1,40 +1,56 @@
-<?php
+<html>
 
-use CodeIgniter\Images\Image;
-?>
-<?= $this->extend('Template/content') ?>
+<head>
+    <title> KOP SURAT </title>
+    <style type="text/css">
+        body {
+            font-family: arial;
+            background-color: #ccc
+        }
 
-<?= $this->section('content') ?>
+        .rangkasurat {
+            /* width: 980px; */
+            margin: 0 auto;
+            background-color: #fff;
+            /* height: 500px; */
+            padding: 20px;
+        }
 
-<div class="container-fluid">
-    <div class="row mt-3">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="d-flex justify-content-between">
-                        <div class="card-title mg-b-0">Berita Acara Seminar Proposal</div>
-                        <i class="mdi mdi-dots-horizontal text-gray"></i>
-                    </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Berita acara seminar proposal mahasiswa</p>
-                    <div class="row mt-5">
-                        <div class="col-sm-7 col-md-6 col-lg-4">
-                            <div class="input-group file-browser">
-                                <input type="text" class="form-control border-right-0 browse-file" placeholder="Pilih Dokumen" readonly>
-                                <label class="input-group-btn">
-                                    <span class="btn btn-default">
-                                        Browse <input type="file" class="d-none" multiple>
-                                    </span>
-                                </label>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary" type="button">Upload</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3"></div>
-            </div>
-        </div>
+        table {
+            border-bottom: 5px solid #000;
+            padding: 2px;
+        }
+
+        .tengah {
+            text-align: center;
+            line-height: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rangkasurat">
+        <table width="100%">
+            <tr>
+                <td><img src="<?= base_url() ?>/assets/img/brand/logosisri.png" class="main-logo" alt="logo"><img src="<?= base_url() ?>/image/Profile_Default.png" width="140px"> </td>
+                <td class="tengah">
+                    <h2>PEMERINTAH DAERAH PROVINSI JAWA BARAT</h2>
+                    <h2>DINAS PENDIDIKAN</h2>
+                    <h2>CABANG DINAS PENDIDIKAN WILAYAH VIII</h2>
+                    <h1>SEKOLAH MENENGAH ATAS NEGERI JATINUNGGAL</h1>
+                    <h1>SUMEDANG</h1>
+                    <b>Jalan Tarikolot Jatinunggal Telp . ( 0262 ) 428590 Sumedang 45376</b>
+                </td>
+            </tr>
+        </table>
     </div>
-</div>
 
-<?= $this->endSection(); ?>
+    <?= base_url() ?>/assets/img/brand/logosisri.png
+    kanslfkmas;<ul class="list-group">
+        <li class="list-group-item active">Active item</li>
+        <li class="list-group-item">Item</li>
+        <li class="list-group-item disabled">Disabled item</li>
+    </ul>
+</body>
+
+</html>

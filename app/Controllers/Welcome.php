@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Libraries\Access_API; // Import library
+use Dompdf\Dompdf;
 
 class Welcome extends BaseController
 {
@@ -211,9 +212,33 @@ class Welcome extends BaseController
   public function Berita_Acara()
   {
     $data = [
-      'title' => 'Berita Acara Seminar Proposal'
+      'title' => 'Berita Acara Seminar Proposal',
+      'db' => $this->db
     ];
     return view('Mahasiswa/Proposal/Berita-Acara', $data);
+  }
+  public function generate_berita_acara()
+  {
+    $data = [
+      'title' => 'Berita Acara Seminar Proposal',
+      'db' => $this->db
+    ];
+    $filename = date('y-m-d-H-i-s') . '-qadr-labs-report';
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+
+    // load HTML content
+    $dompdf->loadHtml(view('Mahasiswa/Proposal/Berita-Acara', $data));
+
+    // (optional) setup the paper size and orientation
+    $dompdf->setPaper('A4', 'potrait');
+
+    // render html as PDF
+    $dompdf->render();
+
+    // output the generated pdf
+    $dompdf->stream($filename, array('Attachment' => false));
   }
   public function ajukan_topik()
   {
