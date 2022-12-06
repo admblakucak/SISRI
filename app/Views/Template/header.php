@@ -88,11 +88,12 @@
 
 </head>
 
-<body class="main-body app sidebar-mini">
-	<!-- <body class="main-body app sidebar-mini" oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;"> -->
+<!-- <body class="main-body app sidebar-mini"> -->
+
+<body class="main-body app sidebar-mini" oncontextmenu="return false">
 
 	<!-- Loader -->
-	<div id="global-loader">
+	<!-- <div id="global-loader">
 		<img src="<?php base_url() ?>/assets/img/loader.svg" class="loader-img" alt="Loader">
-	</div>
+	</div> -->
 	<!-- /Loader -->

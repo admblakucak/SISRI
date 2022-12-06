@@ -145,6 +145,11 @@ $routes->add('/tambah_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::ta
 $routes->add('/acc_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::acc');
 // --------------------------------------KORPRODI-------------------------------------------
 //Route Khusus Controller Korprodi-Penjadwalan Sidang
+$routes->add('/bidang_minat', 'Korprodi\Bidang_Minat::index');
+$routes->add('/add_bidang_minat', 'Korprodi\Bidang_Minat::add');
+$routes->add('/del_bidang_minat', 'Korprodi\Bidang_Minat::del');
+$routes->add('/upd_bidang_minat', 'Korprodi\Bidang_Minat::upd');
+//Route Khusus Controller Korprodi-Penjadwalan Sidang
 $routes->add('/penjadwalan_sidang', 'Korprodi\Penjadwalan_Sidang::index');
 $routes->add('/add_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::add');
 $routes->add('/del_jadwal_sidang', 'Korprodi\Penjadwalan_Sidang::del');
@@ -161,9 +166,6 @@ $routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');
 $routes->add('/daftar_nilai', 'Welcome::daftar_nilai');
 $routes->add('/input_nilai', 'Welcome::input_nilai_skripsi');
 $routes->add('/berita_acara', 'Welcome::berita_acara_sidang_skripsi');
-
-
-$routes->add('/manajemen_topik', 'Welcome::manajemen_topik');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
