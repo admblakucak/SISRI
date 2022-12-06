@@ -47,7 +47,7 @@ use CodeIgniter\Images\Image;
                             <div class="form-group">
                                 <label for="">Judul Topik</label>
                                 <input type="teks" <?php if ($stsp1 > 0 || $stsp2 > 0) {
-                                                        echo "readonly";
+                                                        // echo "readonly";
                                                     } ?> name="judul_topik" class="form-control" id="exampleInput" placeholder="Isikan Judul Skripsi Anda" <?php if (!empty($data_pengajuan_topik[0]->judul_topik)) {
                                                                                                                                                                 echo "value='" . $data_pengajuan_topik[0]->judul_topik . "'";
                                                                                                                                                             } ?>>
