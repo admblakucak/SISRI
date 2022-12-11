@@ -42,6 +42,7 @@ class Login extends BaseController
                     session()->set('ses_image', $image);
                     session()->set('ses_login', 'mahasiswa');
                     session()->set('ses_id', $data[0]->id);
+                    session()->set('ses_idunit', $data[0]->idunit);
                     session()->set('ses_nama', name($this->db, $data[0]->id));
                     $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Mahasiswa',now())");
                     return redirect()->to('/beranda_mahasiswa');
@@ -52,6 +53,7 @@ class Login extends BaseController
                         session()->set('ses_image', $image);
                         session()->set('ses_login', 'korprodi');
                         session()->set('ses_id', $data[0]->id);
+                        session()->set('ses_idunit', $data[0]->idunit);
                         session()->set('ses_nama', name($this->db, $data[0]->id));
                         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Korprodi',now())");
                         return redirect()->to('/beranda_dosen');
@@ -60,6 +62,7 @@ class Login extends BaseController
                         session()->set('ses_image', $image);
                         session()->set('ses_login', 'dosen');
                         session()->set('ses_id', $data[0]->id);
+                        session()->set('ses_idunit', $data[0]->idunit);
                         session()->set('ses_nama', name($this->db, $data[0]->id));
                         $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Dosen',now())");
                         return redirect()->to('/beranda_dosen');
@@ -70,6 +73,7 @@ class Login extends BaseController
                     session()->set('ses_login', 'admin');
                     session()->set('ses_id', 'admin');
                     session()->set('ses_nama', 'ADMIN');
+                    session()->set('ses_idunit', $data[0]->idunit);
                     $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Admin',now())");
                     return redirect()->to('/beranda_admin');
                 }
@@ -87,13 +91,14 @@ class Login extends BaseController
                         $status_authorize = $this->api->authorize("$email");
                         if ($status_authorize->code == 200) {
                             $ciphertext = password_hash($pass, PASSWORD_DEFAULT);
-                            $this->db->query("INSERT INTO tb_users (id,email,password,role) VALUES ('" . $data_master_mhs[0]->nim . "','" . $data_master_mhs[0]->email . "','" . $ciphertext . "','mahasiswa')");
+                            $this->db->query("INSERT INTO tb_users (id,email,password,role,idunit) VALUES ('" . $data_master_mhs[0]->nim . "','" . $data_master_mhs[0]->email . "','" . $ciphertext . "','mahasiswa','" . $data_master_mhs[0]->idunit . "')");
                             $this->db->query("INSERT INTO tb_pengajuan_topik (nim) VALUES ('" . $data_master_mhs[0]->nim . "')");
                             $this->db->query("INSERT INTO tb_profil_tambahan (id,`image`) VALUES ('" . $data_master_mhs[0]->nim . "','Profile_Default.png')");
                             session()->set('ses_login', 'mahasiswa');
                             session()->set('ses_image', 'Profile_Default.png');
                             session()->set('ses_id', $data_master_mhs[0]->nim);
                             session()->set('ses_nama', name($this->db, $data_master_mhs[0]->nim));
+                            session()->set('ses_idunit', $data_master_mhs[0]->idunit);
                             $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Pertama Mahasiswa',now())");
                             return redirect()->to('/beranda_mahasiswa');
                         } else {
@@ -109,7 +114,7 @@ class Login extends BaseController
                 if ($username == $data_master_dosen[0]->nip || $username == $data_master_dosen[0]->email) {
                     if ($pass == $data_master_dosen[0]->nip) {
                         $ciphertext = password_hash($pass, PASSWORD_DEFAULT);
-                        $this->db->query("INSERT INTO tb_users (id,email,password,role) VALUES ('" . $data_master_dosen[0]->nip . "','" . $data_master_dosen[0]->email . "','" . $ciphertext . "','dosen')");
+                        $this->db->query("INSERT INTO tb_users (id,email,password,role,idunit) VALUES ('" . $data_master_dosen[0]->nip . "','" . $data_master_dosen[0]->email . "','" . $ciphertext . "','dosen','" . $data_master_dosen[0]->idunit . "')");
                         $this->db->query("INSERT INTO tb_profil_tambahan (id,`image`) VALUES ('" . $data_master_dosen[0]->nip . "','Profile_Default.png')");
                         $cek_kor = $this->db->query("SELECT * FROM tb_korprodi where nip='" . $data_master_dosen[0]->nip . "'")->getResult();
                         if (count($cek_kor) > 0) {
@@ -117,13 +122,15 @@ class Login extends BaseController
                             session()->set('ses_image', 'Profile_Default.png');
                             session()->set('ses_id', $data_master_dosen[0]->nip);
                             session()->set('ses_nama', name($this->db, $data_master_dosen[0]->nip));
+                            session()->set('ses_idunit', $data_master_dosen[0]->idunit);
                             $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Pertama Korprodi',now())");
-                            return redirect()->to('/beranda_korprodi');
+                            return redirect()->to('/beranda_dosen');
                         } else {
                             session()->set('ses_login', 'dosen');
                             session()->set('ses_image', 'Profile_Default.png');
                             session()->set('ses_id', $data_master_dosen[0]->nip);
                             session()->set('ses_nama', name($this->db, $data_master_dosen[0]->nip));
+                            session()->set('ses_idunit', $data_master_dosen[0]->idunit);
                             $this->db->query("INSERT INTO tb_log (user,`action`,`log`,date_time) VALUES ('" . session()->get('ses_id') . "','login','Login Pertama Dosen',now())");
                             return redirect()->to('/beranda_dosen');
                         }
