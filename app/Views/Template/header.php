@@ -86,6 +86,23 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
 
+	<style>
+		p.cs {
+			color: #dfb006;
+			font-weight: bold;
+		}
+
+		p.csDI {
+			color: green;
+			font-weight: bold;
+		}
+
+		td {
+			padding: 5px;
+		}
+	</style>
+
+
 </head>
 
 <body class="main-body app sidebar-mini">

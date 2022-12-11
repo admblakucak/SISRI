@@ -14275,8 +14275,8 @@ a.tag-addon:hover {
     background: #ecf0fa;
     border-radius: 0px;
     box-shadow: none;
-    width: 35%;
-    margin-left: 15%;
+    width: 45%;
+    margin-left: 5%;
 }
 
 .vtimeline .timeline-wrapper .timeline-panel:before {
@@ -14342,7 +14342,7 @@ a.tag-addon:hover {
     color: #fff;
     text-align: center;
     font-size: 25px;
-    line-height: 43px;
+    line-height: 42px;
     margin: 0 auto;
     justify-content: center;
     left: 0;
@@ -14357,7 +14357,7 @@ a.tag-addon:hover {
 
 .vtimeline .timeline-wrapper.timeline-inverted .timeline-panel {
     margin-left: auto;
-    margin-right: 15%;
+    margin-right: 5%;
 }
 
 .vtimeline .timeline-wrapper.timeline-inverted .timeline-panel:after {
