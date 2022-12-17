@@ -73,7 +73,78 @@ use CodeIgniter\Images\Image;
                                     <h6 class="timeline-title">Notif Bimbingan Proposal</h6>
                                 </div>
                                 <div class="timeline-body">
-                                    <p>You have a meeting at Laborator Office Today.</p>
+                                    <div class="row row-sm main-content-app mb-4">
+                                        <div class="col-xl-4 col-lg-8 col-sm-8">
+                                            <div class="card">
+                                                <div class="main-content-left main-content-left-chat">
+                                                    <div class="main-chat-list" id="ChatList">
+                                                        <div class="media new">
+                                                            <div class="main-img-user online">
+                                                                <img alt="" src="../../assets/img/faces/5.jpg">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <div class="media-contact-name">
+                                                                    <span>Dr. Budi dwi Satoto, S.Kom., MT.</span>
+                                                                </div>
+                                                                <p>Pembimbing 1</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media new">
+                                                            <div class="main-img-user online">
+                                                                <img alt="" src="../../assets/img/faces/5.jpg">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <div class="media-contact-name">
+                                                                    <span>Ach Dafid, ST., MT.</span>
+                                                                </div>
+                                                                <p>Pembimbing 2</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8 col-lg-7">
+                                            <div class="card">
+                                                <a class="main-header-arrow" href="" id="ChatBodyHide"><i class="icon ion-md-arrow-back"></i></a>
+                                                <div class="main-content-body main-content-body-chat">
+                                                    <div class="main-chat-header">
+                                                        <div class="main-img-user"><img alt="" src="../../assets/img/faces/9.jpg"></div>
+                                                        <div class="main-chat-msg-name">
+                                                            <h6>Dr. Budi Dwi Satoto, S.Kom., MT.</h6><small>Pembimbing 1</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main-chat-body" id="ChatBody">
+                                                        <div class="content-inner">
+                                                            <label class="main-chat-time"></label>
+                                                            <div class="media flex-row-reverse">
+                                                                <div class="main-img-user online"><img alt="" src="../../assets/img/faces/9.jpg"></div>
+                                                                <div class="media-body">
+                                                                    <div class="main-msg-wrapper right">
+                                                                        Mohon maaf bapak untuk jadwal bimbingan minggu depan hari apa bapak?
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>9:48 am</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="media">
+                                                                <div class="main-img-user online"><img alt="" src="../../assets/img/faces/6.jpg"></div>
+                                                                <div class="media-body">
+                                                                    <div class="main-msg-wrapper left">
+                                                                        Hari Selasa ya jam 8
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>9:32 am</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="timeline-footer d-flex align-items-center flex-wrap">
                                     <i class="fe fe-heart  text-muted me-1"></i>
