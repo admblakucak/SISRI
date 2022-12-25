@@ -33,7 +33,7 @@ class Setting extends BaseController
         $encrypt_pass = $this->db->query("SELECT * FROM tb_users WHERE id='" . session()->get('ses_id') . "'")->getResult()[0]->password;
         if (!$this->validate([
             'old_pass' => [
-                'rules' => 'required|min_length[8]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Password Lama Harus Diisi.',
                     'min_length' => 'Password Lama Minimal 8 Karakter'
@@ -86,5 +86,47 @@ class Setting extends BaseController
         </div>');
             return redirect()->back()->withInput();
         }
+    }
+    public function update_universal_pass()
+    {
+        if (session()->get('ses_id') == '') {
+            return redirect()->to('/');
+        }
+        if (!$this->validate([
+            'new_pass' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Silahkan Masukkan Password Baru.',
+                    'min_length' => 'Password Baru Minimal 8 Karakter'
+                ]
+            ],
+            're_new_pass' => [
+                'rules' => 'required|matches[new_pass]',
+                'errors' => [
+                    'required' => 'Silahkan Masukkan Kembali Password Baru.',
+                    'matches' => 'Password Harus Sama.'
+                ]
+            ],
+        ])) {
+            session()->setFlashdata('message2', '<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+            <span class="alert-inner--icon"><i class="fe fe-slash"></i></span>
+            <span class="alert-inner--text"><strong>Gagal!</strong> ' . $this->validator->listErrors() . '</span>
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>');
+            return redirect()->back()->withInput();
+        }
+        $new_pass = $this->request->getPost("new_pass");
+        $ciphertext = password_hash($new_pass, PASSWORD_DEFAULT);
+        $this->db->query("UPDATE tb_dekan SET universal_password='$ciphertext' WHERE id=1 AND nip='" . session()->get('ses_id') . "'");
+        session()->setFlashdata('message2', '<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+            <span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>
+            <span class="alert-inner--text"><strong>Berhasil!</strong> Mengganti Password.</span>
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>');
+        return redirect()->back()->withInput();
     }
 }

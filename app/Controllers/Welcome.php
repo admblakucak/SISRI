@@ -14,7 +14,7 @@ class Welcome extends BaseController
     $this->api = new Access_API();
     $this->db = \Config\Database::connect();
   }
-  public function coba()
+  public function generate_password()
   {
     // set_time_limit(0);
     // ini_set('max_execution_time', '0');
@@ -23,9 +23,8 @@ class Welcome extends BaseController
     // echo $data->code . '<br>';
     // echo $data->message . '<br>';
     // echo $data->data->ID . '<br>';
-    if ("aaa" == 'aaa') {
-      echo "true";
-    }
+    $pass = 'password';
+    echo password_hash($pass, PASSWORD_DEFAULT);
   }
   public function validasi_usulan_dosen()
   {

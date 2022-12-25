@@ -47,6 +47,7 @@ $routes->add('/edit_profil', 'Akun\Edit_Profil::index');
 $routes->add('/proses_edit_profil', 'Akun\Edit_Profil::proses');
 $routes->add('/setting', 'Akun\Setting::index');
 $routes->add('/update_pass', 'Akun\Setting::update_pass');
+$routes->add('/update_universal_pass', 'Akun\Setting::update_universal_pass');
 // ---------------------------------------ADMIN-------------------------------------------
 //Route Khusus Controller Admin-Beranda
 $routes->add('/beranda_admin', 'Admin\Beranda::index');
@@ -161,6 +162,7 @@ $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_S
 // ============================================================================================
 
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
+$routes->add('/generate_password', 'Welcome::generate_password');
 $routes->add('/generate_berita_acara', 'Welcome::generate_berita_acara');
 $routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');
 $routes->add('/daftar_nilai', 'Welcome::daftar_nilai');
