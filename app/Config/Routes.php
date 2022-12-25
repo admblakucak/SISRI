@@ -163,6 +163,8 @@ $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_S
 
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/generate_password', 'Welcome::generate_password');
+
+$routes->add('/template', 'Welcome::template');
 $routes->add('/generate_berita_acara', 'Welcome::generate_berita_acara');
 $routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');
 $routes->add('/daftar_nilai', 'Welcome::daftar_nilai');

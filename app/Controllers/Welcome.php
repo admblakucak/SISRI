@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
+use TCPDF;
 use App\Controllers\BaseController;
 
 use App\Libraries\Access_API; // Import library
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Welcome extends BaseController
 {
@@ -216,19 +218,18 @@ class Welcome extends BaseController
     ];
     return view('Mahasiswa/Proposal/Berita-Acara', $data);
   }
-  public function generate_berita_acara()
+  public function template()
   {
-    $data = [
-      'title' => 'Berita Acara Seminar Proposal',
-      'db' => $this->db
-    ];
-    $filename = date('y-m-d-H-i-s') . '-qadr-labs-report';
-
-    // instantiate and use the dompdf class
+    // return view('template');
+    // $option = new Options();
+    // $option->set('is');
     $dompdf = new Dompdf();
-
+    $filename = date('y-m-d-H-i-s');
     // load HTML content
-    $dompdf->loadHtml(view('Mahasiswa/Proposal/Berita-Acara', $data));
+    $data = [
+      'baseurl' => base_url()
+    ];
+    $dompdf->loadHtml(view('template', $data));
 
     // (optional) setup the paper size and orientation
     $dompdf->setPaper('A4', 'potrait');
@@ -238,6 +239,27 @@ class Welcome extends BaseController
 
     // output the generated pdf
     $dompdf->stream($filename, array('Attachment' => false));
+  }
+  public function template2($file)
+  {
+    header("Content-Type: application/octet-stream");
+
+    $file = $file  . ".pdf";
+
+    header("Content-Disposition: attachment; filename=" . urlencode($file));
+    header("Content-Type: application/download");
+    header("Content-Description: File Transfer");
+    header("Content-Length: " . filesize($file));
+
+    flush(); // This doesn't really matter.
+
+    $fp = fopen($file, "r");
+    while (!feof($fp)) {
+      echo fread($fp, 65536);
+      flush(); // This is essential for large downloads
+    }
+
+    fclose($fp);
   }
   public function ajukan_topik()
   {
