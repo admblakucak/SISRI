@@ -220,7 +220,7 @@ class Welcome extends BaseController
   }
   public function template()
   {
-    return view('template');
+    // return view('template');
     // $option = new Options();
     // $option->set('is');
     $dompdf = new Dompdf();
