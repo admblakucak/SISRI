@@ -239,6 +239,7 @@ class Welcome extends BaseController
 
     // output the generated pdf
     $dompdf->stream($filename, array('Attachment' => false));
+    exit();
   }
   public function template2($file)
   {
