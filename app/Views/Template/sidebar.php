@@ -50,7 +50,7 @@
 								<ul class="slide-menu">
 									<li><a class="slide-item" href="/bimbingan_proposal/<?= $pem1[0]->nip ?>">Bimbingan Proposal</a></li>
 									<li><a class="slide-item" href="/daftar_seminar">Daftar Seminar</a></li>
-									<li><a class="slide-item" href="/Berita-Acara">Berkas</a></li>
+									<li><a class="slide-item" href="/berkas">Berkas</a></li>
 									<?php
 									if ($penguji1 != NULL) {
 									?>

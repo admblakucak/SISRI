@@ -221,7 +221,8 @@ class Welcome extends BaseController
   public function berkas()
   {
     $data = [
-      'title' => 'Berkas'
+      'title' => 'Berkas',
+      'db' => $this->db
     ];
     return view('Mahasiswa/Proposal/berkas', $data);
   }
