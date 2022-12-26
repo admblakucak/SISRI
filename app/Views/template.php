@@ -32,12 +32,17 @@
 </head>
 
 <body style="font-size: 12px">
-    <table width="100%">
+    <table width="100%" border="1">
         <tr>
-            <td width="50%">
+            <td width="50%" rowspan="2">
                 <img src="<?= base_url('image/Logo_UTM.png') ?>" style="width: 100px;">
             </td>
-            <td align="right" valign="top"> <span style="font-size: 12px">NOMOR/BERITA/ACARA</span></td>
+            <td>FORM</td>
+            <td colspan="2">No. Dokumen : F.S.JMF.05</td>
+        </tr>
+        <tr>
+            <td colspan="2">MONITORING KEGIATAN PEMBIMBINGAN</td>
+            <td>Tanggal : -</td>
         </tr>
     </table>
 
