@@ -35,7 +35,7 @@
     <table width="100%">
         <tr>
             <td width="50%">
-                <img src="<?= base_url('image/Profile_Default.png') ?>" style="width: 50px;">
+                <img src="<?= base_url('image/Logo_UTM.png') ?>" style="width: 100px;">
             </td>
             <td align="right" valign="top"> <span style="font-size: 12px">NOMOR/BERITA/ACARA</span></td>
         </tr>
