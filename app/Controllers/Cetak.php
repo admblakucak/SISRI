@@ -39,6 +39,7 @@ class Cetak extends BaseController
         $nama_pembimbing = $this->db->query("SELECT * FROM tb_dosen WHERE nip='$id_pembimbing'")->getResult()[0];
         $disetujui_pada = $this->db->query("SELECT * FROM tb_perizinan_sidang WHERE nip='$id_pembimbing' AND nim='$id' AND jenis_sidang='seminar proposal'")->getResult();
         // ------------------------------------------------------------------
+        $data = ['qr' => ''];
         if (!empty($disetujui_pada)) {
             if ($disetujui_pada[0]->status == 'disetujui') {
                 $writer = new PngWriter();
@@ -93,6 +94,7 @@ class Cetak extends BaseController
         $nama_pembimbing = $this->db->query("SELECT * FROM tb_dosen WHERE nip='$id_pembimbing'")->getResult()[0];
         $disetujui_pada = $this->db->query("SELECT * FROM tb_perizinan_sidang WHERE nip='$id_pembimbing' AND nim='$id' AND jenis_sidang='skripsi'")->getResult();
         // ------------------------------------------------------------------
+        $data = ['qr' => ''];
         if (!empty($disetujui_pada)) {
             if ($disetujui_pada[0]->status == 'disetujui') {
                 $writer = new PngWriter();
