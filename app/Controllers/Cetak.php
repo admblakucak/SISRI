@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Libraries\Access_API; // Import library
+use CodeIgniter\Database\Query;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -15,17 +16,22 @@ class Cetak extends BaseController
         $this->api = new Access_API();
         $this->db = \Config\Database::connect();
     }
-    public function template()
+    public function form_bimbingan_proposal($id = NULL)
     {
-        return view('template');
+        if (session()->get('ses_id') == '') {
+            return redirect()->to('/');
+        }
+
+        $data = [
+            'baseurl' => base_url(),
+            'judul_skripsi' => $this->db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='$id'")->getResult()[0]->judul_topik
+        ];
+        return view('template', $data);
         // $option = new Options();
         // $option->set('is');
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         // load HTML content
-        $data = [
-            'baseurl' => base_url()
-        ];
         $dompdf->loadHtml(view('template', $data));
 
         // (optional) setup the paper size and orientation

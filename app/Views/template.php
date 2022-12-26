@@ -50,11 +50,11 @@
     <table>
         <tr>
             <th align="left"> Nama </th>
-            <td> : Unit Test</td>
+            <td> : <?= session()->get('ses_nama') == '' ?></td>
         </tr>
         <tr>
             <th align="left"> NIM / NRP </th>
-            <td> : Departemen Test</td>
+            <td> : <?= session()->get('ses_id') == '' ?></td>
         </tr>
         <tr>
             <th align="left"> Judul Skripsi </th>
@@ -103,12 +103,9 @@
     </table>
     </p>
 
-
-
     <p class="footer">
-        <small>Tim Asset</small>
+        <small>Fakultas Teknik - Universitas Trunojoyo Madura</small>
     </p>
-
 
 </body>
 
