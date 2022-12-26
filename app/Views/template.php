@@ -46,94 +46,43 @@
         </tr>
     </table>
 
-    <p align="center">
-        <span style="font-size: 18px"><b>BERITA ACARA <br> Kalibrasi Alat</b></span> <br>
-    </p>
-
-    <hr>
-
     <p>
     <table>
         <tr>
-            <th align="left"> Unit </th>
+            <th align="left"> Nama </th>
             <td> : Unit Test</td>
         </tr>
         <tr>
-            <th align="left"> Departemen </th>
+            <th align="left"> NIM / NRP </th>
             <td> : Departemen Test</td>
         </tr>
         <tr>
-            <th align="left"> Nomor BA </th>
+            <th align="left"> Judul Skripsi </th>
             <td> : NOMOR/BERITA/ACARA</td>
         </tr>
     </table>
     </p>
 
-
-
     <p>
-        Daftar asset yang dikalibrasi :
-    </p>
-
-    <p>
-    <table style="border: 1px solid black;border-collapse: collapse;font-size: 11px" width="100%">
+    <table style="border: 1px solid black;border-collapse: collapse;font-size: 11px" rules="cols" width="100%">
         <tr style="margin: 5px">
-            <th rowspan="2" style="border: 1px solid black;">No</th>
-            <th colspan="3" style="border: 1px solid black;">Alat</th>
-            <th rowspan="2" style="border: 1px solid black;">No Seri</th>
-            <th rowspan="2" style="border: 1px solid black;">No Asset</th>
-            <th colspan="2" style="border: 1px solid black;">Tanggal</th>
-            <th rowspan="2" style="border: 1px solid black;">Lokasi</th>
-            <th rowspan="2" style="border: 1px solid black;">Keterangan</th>
+            <th style="border: 1px solid black;">No</th>
+            <th style="border: 1px solid black;">Tanggal</th>
+            <th style="border: 1px solid black;">Topik Bimbingan</th>
+            <th style="border: 1px solid black;">Status</th>
         </tr>
         <tr style="margin: 5px">
-            <th style="border: 1px solid black;">Jenis</th>
-            <th style="border: 1px solid black;">Merek</th>
-            <th style="border: 1px solid black;">Tipe</th>
-            <th style="border: 1px solid black;">Kalibrasi</th>
-            <th style="border: 1px solid black;">Selanjutnya</th>
+            <td>1</td>
+            <td>Alat 1</td>
+            <td>Merek 1</td>
+            <td>asdasd</td>
         </tr>
-
         <tr style="margin: 5px">
-            <td style="border: 1px solid black;">1</td>
-            <td style="border: 1px solid black;">Alat 1</td>
-            <td style="border: 1px solid black;">Merek 1</td>
-            <td style="border: 1px solid black;">asdasd</td>
-            <td style="border: 1px solid black;">No Seri 1</td>
-            <td style="border: 1px solid black;">No Asset 1</td>
-            <td style="border: 1px solid black;">05 April 2022</td>
-            <td style="border: 1px solid black;">05 April 2023</td>
-            <td style="border: 1px solid black;">Lokasi 1</td>
-            <td style="border: 1px solid black;">Keterangan 1</td>
+            <td>1</td>
+            <td>Alat 1</td>
+            <td>Merek 1</td>
+            <td>asdasd</td>
         </tr>
-
-        <tr style="margin: 5px">
-            <td style="border: 1px solid black;">2</td>
-            <td style="border: 1px solid black;">Alat 2</td>
-            <td style="border: 1px solid black;">Merek 2</td>
-            <td style="border: 1px solid black;">Tipe 2</td>
-            <td style="border: 1px solid black;">No Seri 2</td>
-            <td style="border: 1px solid black;">No Asset 2</td>
-            <td style="border: 1px solid black;">05 April 2022</td>
-            <td style="border: 1px solid black;">05 April 2023</td>
-            <td style="border: 1px solid black;">Lokasi 2</td>
-            <td style="border: 1px solid black;">Keterangan 2</td>
-        </tr>
-
-        <tr style="margin: 5px">
-            <td style="border: 1px solid black;">3</td>
-            <td style="border: 1px solid black;">Alat 3</td>
-            <td style="border: 1px solid black;">Merek 3</td>
-            <td style="border: 1px solid black;">Tipe 3</td>
-            <td style="border: 1px solid black;">No Seri 3</td>
-            <td style="border: 1px solid black;">No Asset 3</td>
-            <td style="border: 1px solid black;">05 April 2022</td>
-            <td style="border: 1px solid black;">05 April 2023</td>
-            <td style="border: 1px solid black;">Lokasi 3</td>
-            <td style="border: 1px solid black;">Keterangan 3</td>
-        </tr>
-
-
     </table>
 
 
@@ -148,8 +97,7 @@
     <p>
     <table width="100%">
         <tr>
-            <td align="center">Dilaksanakan oleh<br><br><br><br><br><u>Nama Pelaksana</u><br>Tim Pelaksana</td>
-            <td align="center">Diperiksa oleh<br><br><br><br><br><u>Nama Pemeriksa</u><br>Tim Pemeriksa</td>
+            <td align="center" width="50%"></td>
             <td align="center">Diketahui oleh<br><br><br><br><br><u>Nama Diketahui</u><br>Manajer</td>
         </tr>
     </table>
