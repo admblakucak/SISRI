@@ -34,7 +34,7 @@
 <body style="font-size: 12px">
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
         <tr>
-            <td style="border: 1px solid black;" rowspan="2">
+            <td style="border: 1px solid black;text-align:center;" rowspan="2">
                 <img src="<?= base_url('image/Logo_UTM.png') ?>" style="width: 100px;">
             </td>
             <td style="text-align:center;font-size: 18px;border: 1px solid black;"><b>FORM</b></td>
