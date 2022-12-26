@@ -90,7 +90,7 @@
     <br>
     <p align='center'>
         <b>
-            Menyetujui untuk dilanjutkan ke Seminar Proposal Skripsi,
+            Menyetujui untuk dilanjutkan ke Ujian Skripsi,
             <br />(JANGAN DITANDATANGANI APABILA SKRIPSI MAHASISWA BELUM LAYAK UNTUK SEMINAR)
         </b>
     </p>
@@ -107,9 +107,8 @@
         <b>
             Catatan :
             <ol style="font-size: 10px">
-                <li>Minimal kegiatan monitoring pada Pembimbing I sebanyak 3 kali dan Pembimbing II sebanyak 3 kali (akumulasi 6 kali kegiatan monitoring)</li>
-                <li>Form ini harus DITUNJUKKAN ke Koordinator Skripsi pada saat MENDAFTAR SEMINAR USULAN SKRIPSI</li>
-                <li>Sudah memprogram Skripsi di KRS, menunjukkan KRS pada saat mendaftar</li>
+                <li>Minimal kegiatan monitoring pada Pembimbing I sebanyak 4 kali dan Pembimbing II sebanyak 4 kali (akumulasi 8 kali kegiatan monitoring)</li>
+                <li>Form ini harus DITUNJUKKAN ke Koordinator program studi pada saat MENDAFTAR UJIAN SKRIPSI</li>
             </ol>
         </b>
     </p>

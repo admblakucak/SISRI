@@ -24,6 +24,22 @@ class Cetak extends BaseController
         $this->api = new Access_API();
         $this->db = \Config\Database::connect();
     }
+    public function berkas_mhs_proposal()
+    {
+        $data = [
+            'title' => 'Berkas Proposal',
+            'db' => $this->db
+        ];
+        return view('Mahasiswa/Proposal/berkas', $data);
+    }
+    public function berkas_mhs_skripsi()
+    {
+        $data = [
+            'title' => 'Berkas Skripsi',
+            'db' => $this->db
+        ];
+        return view('Mahasiswa/Proposal/berkas', $data);
+    }
     public function form_bimbingan_proposal()
     {
         if (session()->get('ses_id') == '') {
@@ -59,7 +75,7 @@ class Cetak extends BaseController
                 $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
             }
         } else {
-            $qr = '';
+            $qr = '<br>(BELUM DITANDA TANGANI)<br>';
         }
         // ------------------------------------------------------------------
         $data = [
@@ -116,7 +132,7 @@ class Cetak extends BaseController
                 $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
             }
         } else {
-            $qr = '';
+            $qr = '<br>(BELUM DITANDA TANGANI)<br>';
         }
         // ------------------------------------------------------------------
         $data = [
