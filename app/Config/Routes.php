@@ -159,9 +159,12 @@ $routes->add('/data_pendaftar', 'Korprodi\Penjadwalan_Sidang::data_pendaftar');
 //Route Khusus Controller Dosen-Validasi Daftar Seminar
 $routes->add('/validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::index');
 $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::validasi');
+// --------------------------------------CETAK-------------------------------------------
+$routes->add('/berkas_mhs_proposal', 'Cetak::berkas_mhs_proposal');
+$routes->add('/form_bimbingan_proposal', 'Cetak::form_bimbingan_proposal');
+$routes->add('/form_bimbingan_skripsi', 'Cetak::form_bimbingan_skripsi');
 // ============================================================================================
 
-$routes->add('/template', 'Cetak::template');
 
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/generate_password', 'Welcome::generate_password');

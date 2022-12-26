@@ -234,50 +234,6 @@ class Welcome extends BaseController
     ];
     return view('Mahasiswa/Skripsi/berkas_sidang', $data);
   }
-  public function template()
-  {
-    // return view('template');
-    // $option = new Options();
-    // $option->set('is');
-    $dompdf = new Dompdf();
-    $filename = date('y-m-d-H-i-s');
-    // load HTML content
-    $data = [
-      'baseurl' => base_url()
-    ];
-    $dompdf->loadHtml(view('template', $data));
-
-    // (optional) setup the paper size and orientation
-    $dompdf->setPaper('A4', 'potrait');
-
-    // render html as PDF
-    $dompdf->render();
-
-    // output the generated pdf
-    $dompdf->stream($filename, array('Attachment' => false));
-    exit();
-  }
-  public function template2($file)
-  {
-    header("Content-Type: application/octet-stream");
-
-    $file = $file  . ".pdf";
-
-    header("Content-Disposition: attachment; filename=" . urlencode($file));
-    header("Content-Type: application/download");
-    header("Content-Description: File Transfer");
-    header("Content-Length: " . filesize($file));
-
-    flush(); // This doesn't really matter.
-
-    $fp = fopen($file, "r");
-    while (!feof($fp)) {
-      echo fread($fp, 65536);
-      flush(); // This is essential for large downloads
-    }
-
-    fclose($fp);
-  }
   public function ajukan_topik()
   {
     $data = [
