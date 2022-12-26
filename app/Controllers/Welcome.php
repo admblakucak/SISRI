@@ -218,6 +218,13 @@ class Welcome extends BaseController
     ];
     return view('Mahasiswa/Proposal/Berita-Acara', $data);
   }
+  public function berkas()
+  {
+    $data = [
+      'title' => 'Berkas'
+    ];
+    return view('Mahasiswa/Proposal/berkas', $data);
+  }
   public function template()
   {
     // return view('template');

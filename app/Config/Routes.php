@@ -170,6 +170,7 @@ $routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');
 $routes->add('/daftar_nilai', 'Welcome::daftar_nilai');
 $routes->add('/input_nilai', 'Welcome::input_nilai_skripsi');
 $routes->add('/berita_acara', 'Welcome::berita_acara_sidang_skripsi');
+$routes->add('/berkas', 'Welcome::berkas');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
