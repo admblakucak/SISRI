@@ -32,17 +32,17 @@
 </head>
 
 <body style="font-size: 12px">
-    <table width="100%" border="1">
+    <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
         <tr>
-            <td width="50%" rowspan="2">
+            <td style="border: 1px solid black;text-align:center;" rowspan="2">
                 <img src="<?= base_url('image/Logo_UTM.png') ?>" style="width: 100px;">
             </td>
-            <td>FORM</td>
-            <td colspan="2">No. Dokumen : F.S.JMF.05</td>
+            <td style="text-align:center;font-size: 18px;border: 1px solid black;"><b>FORM</b></td>
+            <td style="border: 1px solid black;" colspan="2" style="text-align:center;">No. Dokumen : <b>F.S.JMF.05</b></td>
         </tr>
         <tr>
-            <td colspan="2">MONITORING KEGIATAN PEMBIMBINGAN</td>
-            <td>Tanggal : -</td>
+            <td colspan="2" style="text-align:center;font-size: 18px;border: 1px solid black;"><b>MONITORING KEGIATAN PEMBIMBINGAN</b></td>
+            <td style="border: 1px solid black;">Tanggal : -</td>
         </tr>
     </table>
 
