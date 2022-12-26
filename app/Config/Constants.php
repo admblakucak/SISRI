@@ -95,7 +95,7 @@ define('EVENT_PRIORITY_HIGH', 10);
 
 
 //Add script below to setup dynamic base url on Codeigniter 4
-$base = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST'];
-// $server_name = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost:8080';
-// $base = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $server_name . '/';
+// $base = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST'];
+$server_name = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost:8080';
+$base = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $server_name . '/';
 defined('BASE') || define('BASE', $base);
