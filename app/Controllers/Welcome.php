@@ -218,13 +218,21 @@ class Welcome extends BaseController
     ];
     return view('Mahasiswa/Proposal/Berita-Acara', $data);
   }
-  public function berkas()
+  public function berkas_proposal()
   {
     $data = [
-      'title' => 'Berkas',
+      'title' => 'Berkas Seminar Proposal',
       'db' => $this->db
     ];
-    return view('Mahasiswa/Proposal/berkas', $data);
+    return view('Mahasiswa/Proposal/berkas_proposal', $data);
+  }
+  public function berkas_sidang()
+  {
+    $data = [
+      'title' => 'Berkas Sidang Skripsi',
+      'db' => $this->db
+    ];
+    return view('Mahasiswa/Skripsi/berkas_sidang', $data);
   }
   public function template()
   {
