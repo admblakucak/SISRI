@@ -161,7 +161,7 @@ $routes->add('/validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar:
 $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::validasi');
 // ============================================================================================
 
-$routes->add('/template', 'Cetak::template');
+$routes->add('/form_bimbingan_proposal', 'Cetak::form_bimbingan_proposal');
 
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/generate_password', 'Welcome::generate_password');
@@ -170,7 +170,7 @@ $routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');
 $routes->add('/daftar_nilai', 'Welcome::daftar_nilai');
 $routes->add('/input_nilai', 'Welcome::input_nilai_skripsi');
 $routes->add('/berita_acara', 'Welcome::berita_acara_sidang_skripsi');
-$routes->add('/berkas', 'Welcome::berkas');
+$routes->add('/berkas_proposal', 'Welcome::berkas_proposal');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

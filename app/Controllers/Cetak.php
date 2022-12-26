@@ -8,6 +8,14 @@ use App\Libraries\Access_API; // Import library
 use CodeIgniter\Database\Query;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
+use Endroid\QrCode\Writer\PngWriter;
 
 class Cetak extends BaseController
 {
@@ -16,31 +24,54 @@ class Cetak extends BaseController
         $this->api = new Access_API();
         $this->db = \Config\Database::connect();
     }
-    public function form_bimbingan_proposal($id = NULL)
+    public function form_bimbingan_proposal()
     {
         if (session()->get('ses_id') == '') {
             return redirect()->to('/');
         }
-
+        $id_pembimbing = $this->request->getPost('nip');
+        $id_pembimbing = '0012129302';
+        $id = $this->request->getPost('nim');
+        if ($id == '') {
+            $id = session()->get('ses_id');
+        }
+        $nama_pembimbing = $this->db->query("SELECT * FROM tb_dosen WHERE nip='$id_pembimbing'")->getResult()[0];
+        $disetujui_pada = $this->db->query("SELECT * FROM tb_perizinan_sidang WHERE nip='$id_pembimbing' AND nim='$id' AND jenis_sidang='seminar proposal'")->getResult()[0];
+        // ------------------------------------------------------------------
+        if ($disetujui_pada->status == 'disetujui') {
+            $writer = new PngWriter();
+            $isi = "Disetujui Pada : " . $disetujui_pada->acc_at . " Oleh " . $disetujui_pada->izin_sebagai . " (" . $nama_pembimbing->gelardepan . ' ' . $nama_pembimbing->nama . ', ' . $nama_pembimbing->gelarbelakang . ")";
+            $qrCode = QrCode::create($isi)
+                ->setEncoding(new Encoding('UTF-8'))
+                ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+                ->setSize(300)
+                ->setMargin(10)
+                ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
+                ->setForegroundColor(new Color(0, 0, 0))
+                ->setBackgroundColor(new Color(255, 255, 255));
+            $logo = Logo::create(FCPATH . 'image\Logo_UTM.png')
+                ->setResizeToWidth(50);
+            $result = $writer->write($qrCode, $logo);
+            $dataUri = $result->getDataUri();
+        }
+        // ------------------------------------------------------------------
         $data = [
             'baseurl' => base_url(),
-            'judul_skripsi' => $this->db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='$id'")->getResult()[0]->judul_topik
+            'judul_skripsi' => $this->db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='$id'")->getResult()[0]->judul_topik,
+            'nim' => $id,
+            'nama' => $this->db->query("SELECT * FROM tb_mahasiswa WHERE nim='$id'")->getResult()[0]->nama,
+            'pembimbing' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing WHERE nip='$id_pembimbing' AND nim='$id' AND status_pengajuan='diterima'")->getResult()[0]->sebagai,
+            'nama_pembimbing' => $nama_pembimbing,
+            'nip' => $id_pembimbing,
+            'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''")->getResult(),
+            'qr' => '<img src="' . $dataUri . '" style="width: 60px;">'
         ];
-        return view('template', $data);
-        // $option = new Options();
-        // $option->set('is');
+        // return view('template', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
-        // load HTML content
         $dompdf->loadHtml(view('template', $data));
-
-        // (optional) setup the paper size and orientation
         $dompdf->setPaper('A4', 'potrait');
-
-        // render html as PDF
         $dompdf->render();
-
-        // output the generated pdf
         $dompdf->stream($filename, array('Attachment' => false));
         exit();
     }

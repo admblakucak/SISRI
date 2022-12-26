@@ -51,11 +51,11 @@ class Validasi_Daftar_Seminar extends BaseController
         $nim = $this->request->getPost('nim');
         $status = $this->request->getPost('status');
         if ($status == 'disetujui') {
-            $this->db->query("UPDATE tb_perizinan_sidang SET `status`='disetujui' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='seminar proposal'");
+            $this->db->query("UPDATE tb_perizinan_sidang SET `status`='disetujui',acc_at=now() WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='seminar proposal'");
         } elseif ($status == 'ditolak') {
-            $this->db->query("UPDATE tb_perizinan_sidang SET `status`='ditolak' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='seminar proposal'");
+            $this->db->query("UPDATE tb_perizinan_sidang SET `status`='ditolak',acc_at=NULL WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='seminar proposal'");
         } else {
-            $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='seminar proposal'");
+            $this->db->query("UPDATE tb_perizinan_sidang SET `status`='menunggu',acc_at=NULL WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='seminar proposal'");
         }
         // echo "UPDATE tb_perizinan_sidang SET `status`='ditolak' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND jenis_sidang='seminar_proposal'";
         return redirect()->to('/validasi_daftar_seminar');
