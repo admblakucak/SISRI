@@ -56,8 +56,10 @@ class Cetak extends BaseController
                     ->setResizeToWidth(50);
                 $result = $writer->write($qrCode, $logo);
                 $dataUri = $result->getDataUri();
-                $data = ['qr' => '<img src="' . $dataUri . '" style="width: 60px;">'];
+                $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
             }
+        } else {
+            $qr = '';
         }
         // ------------------------------------------------------------------
         $data = [
@@ -69,6 +71,7 @@ class Cetak extends BaseController
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
+            'qr' => $qr
         ];
         // return view('template', $data);
         $dompdf = new Dompdf();
@@ -94,7 +97,6 @@ class Cetak extends BaseController
         $nama_pembimbing = $this->db->query("SELECT * FROM tb_dosen WHERE nip='$id_pembimbing'")->getResult()[0];
         $disetujui_pada = $this->db->query("SELECT * FROM tb_perizinan_sidang WHERE nip='$id_pembimbing' AND nim='$id' AND jenis_sidang='skripsi'")->getResult();
         // ------------------------------------------------------------------
-        $data = ['qr' => ''];
         if (!empty($disetujui_pada)) {
             if ($disetujui_pada[0]->status == 'disetujui') {
                 $writer = new PngWriter();
@@ -111,8 +113,10 @@ class Cetak extends BaseController
                     ->setResizeToWidth(50);
                 $result = $writer->write($qrCode, $logo);
                 $dataUri = $result->getDataUri();
-                $data = ['qr' => '<img src="' . $dataUri . '" style="width: 60px;">'];
+                $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
             }
+        } else {
+            $qr = '';
         }
         // ------------------------------------------------------------------
         $data = [
@@ -124,6 +128,7 @@ class Cetak extends BaseController
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!='' AND kategori_bimbingan='3'")->getResult(),
+            'qr' => $qr
         ];
         // return view('template', $data);
         $dompdf = new Dompdf();
