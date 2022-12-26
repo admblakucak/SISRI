@@ -25,7 +25,7 @@ use CodeIgniter\Images\Image;
                 <div class="row mt-3">
                     <div class="vtimeline">
                         <div class="timeline-wrapper timeline-wrapper-primary">
-                            <div class="timeline-badge success"><img class="timeline-image" alt="img" src="../../assets/img/faces/3.jpg"> </div>
+                            <div class="timeline-badge success"><i class="las la-folder-open"></i> </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h6 class="timeline-title">Ajukan Topik dan Dosen Pembimbing</h6>
@@ -67,10 +67,10 @@ use CodeIgniter\Images\Image;
                             </div>
                         </div>
                         <div class="timeline-wrapper timeline-inverted timeline-wrapper-secondary">
-                            <div class="timeline-badge"><i class="las la-business-time"></i></div>
+                            <div class="timeline-badge"><i class="las la-file"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h6 class="timeline-title">Notif Bimbingan Proposal</h6>
+                                    <h6 class="timeline-title">Bimbingan Proposal</h6>
                                 </div>
                                 <div class="timeline-body">
                                     <div class="row row-sm main-content-app mb-4">
@@ -155,10 +155,10 @@ use CodeIgniter\Images\Image;
                             </div>
                         </div>
                         <div class="timeline-wrapper timeline-wrapper-info">
-                            <div class="timeline-badge"><i class="las la-user-circle"></i></div>
+                            <div class="timeline-badge"><i class="las la-user-check"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h6 class="timeline-title">Status perizinan mengikuti sidang</h6>
+                                    <h6 class="timeline-title">Status Perizinan Mengikuti Sidang</h6>
                                 </div>
                                 <div class="timeline-body">
                                     <table>
@@ -197,10 +197,10 @@ use CodeIgniter\Images\Image;
                             </div>
                         </div>
                         <div class="timeline-wrapper timeline-inverted timeline-wrapper-danger">
-                            <div class="timeline-badge success"><img class="timeline-image" alt="img" src="../../assets/img/faces/12.jpg"> </div>
+                            <div class="timeline-badge success"><i class="las la-calendar-alt"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h6 class="timeline-title">Jadwal pelaksanaan Seminar Proposal</h6>
+                                    <h6 class="timeline-title">Jadwal Pelaksanaan Seminar Proposal</h6>
                                 </div>
                                 <div class="timeline-body">
                                     <table class="table">
@@ -231,17 +231,85 @@ use CodeIgniter\Images\Image;
                             </div>
                         </div>
                         <div class="timeline-wrapper timeline-wrapper-success">
-                            <div class="timeline-badge"><i class="las la-envelope-open-text"></i></div>
+                            <div class="timeline-badge"><i class="las la-clipboard"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h6 class="timeline-title">Notif Revisi dan status Revisi</h6>
+                                    <h6 class="timeline-title">Revisi dan Status Revisi</h6>
                                 </div>
                                 <div class="timeline-body">
-                                    <p>Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah
-                                        plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle quora
-                                        plaxo ideeli hulu weebly balihoo....</p>
-                                    <a class="btn ripple btn-primary text-white mb-3">Read more</a>
+                                    <div class="row row-sm main-content-app mb-4">
+                                        <div class="col-xl-4 col-lg-8 col-sm-8">
+                                            <div class="card">
+                                                <div class="main-content-left main-content-left-chat">
+                                                    <div class="main-chat-list" id="ChatList">
+                                                        <div class="media new">
+                                                            <div class="main-img-user online">
+                                                                <img alt="" src="../../assets/img/faces/5.jpg">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <div class="media-contact-name">
+                                                                    <span>Dr. Budi dwi Satoto, S.Kom., MT.</span>
+                                                                </div>
+                                                                <p>Pembimbing 1</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media new">
+                                                            <div class="main-img-user online">
+                                                                <img alt="" src="../../assets/img/faces/5.jpg">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <div class="media-contact-name">
+                                                                    <span>Ach Dafid, ST., MT.</span>
+                                                                </div>
+                                                                <p>Pembimbing 2</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8 col-lg-7">
+                                            <div class="card">
+                                                <a class="main-header-arrow" href="" id="ChatBodyHide"><i class="icon ion-md-arrow-back"></i></a>
+                                                <div class="main-content-body main-content-body-chat">
+                                                    <div class="main-chat-header">
+                                                        <div class="main-img-user"><img alt="" src="../../assets/img/faces/9.jpg"></div>
+                                                        <div class="main-chat-msg-name">
+                                                            <h6>Dr. Budi Dwi Satoto, S.Kom., MT.</h6><small>Pembimbing 1</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main-chat-body" id="ChatBody">
+                                                        <div class="content-inner">
+                                                            <label class="main-chat-time"></label>
+                                                            <div class="media flex-row-reverse">
+                                                                <div class="main-img-user online"><img alt="" src="../../assets/img/faces/9.jpg"></div>
+                                                                <div class="media-body">
+                                                                    <div class="main-msg-wrapper right">
+                                                                        Mohon maaf bapak untuk jadwal bimbingan minggu depan hari apa bapak?
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>9:48 am</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="media">
+                                                                <div class="main-img-user online"><img alt="" src="../../assets/img/faces/6.jpg"></div>
+                                                                <div class="media-body">
+                                                                    <div class="main-msg-wrapper left">
+                                                                        Hari Selasa ya jam 8
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>9:32 am</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="timeline-footer d-flex align-items-center flex-wrap">
                                     <i class="fe fe-heart  text-muted me-1"></i>
