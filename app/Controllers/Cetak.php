@@ -72,7 +72,7 @@ class Cetak extends BaseController
         // return view('template', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
-        $dompdf->loadHtml(view('form_bimbingan_proposal', $data));
+        $dompdf->loadHtml(view('Cetak/form_bimbingan_proposal', $data));
         $dompdf->setPaper('A4', 'potrait');
         $dompdf->render();
         $dompdf->stream($filename, array('Attachment' => false));
@@ -126,7 +126,7 @@ class Cetak extends BaseController
         // return view('template', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
-        $dompdf->loadHtml(view('form_bimbingan_skripsi', $data));
+        $dompdf->loadHtml(view('Cetak/form_bimbingan_skripsi', $data));
         $dompdf->setPaper('A4', 'potrait');
         $dompdf->render();
         $dompdf->stream($filename, array('Attachment' => false));
