@@ -49,7 +49,7 @@ class Cetak extends BaseController
                 ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
                 ->setForegroundColor(new Color(0, 0, 0))
                 ->setBackgroundColor(new Color(255, 255, 255));
-            $logo = Logo::create(FCPATH . 'image\Logo_UTM.png')
+            $logo = Logo::create(FCPATH . 'image/Logo_UTM.png')
                 ->setResizeToWidth(50);
             $result = $writer->write($qrCode, $logo);
             $dataUri = $result->getDataUri();
