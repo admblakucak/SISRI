@@ -50,7 +50,7 @@
 								<ul class="slide-menu">
 									<li><a class="slide-item" href="/bimbingan_proposal/<?= $pem1[0]->nip ?>">Bimbingan Proposal</a></li>
 									<li><a class="slide-item" href="/daftar_seminar">Daftar Seminar</a></li>
-									<li><a class="slide-item" href="/Berita-Acara">Berita Acara Seminar</a></li>
+									<li><a class="slide-item" href="/Berita-Acara">Berkas</a></li>
 									<?php
 									if ($penguji1 != NULL) {
 									?>
@@ -73,7 +73,7 @@
 								<ul class="slide-menu">
 									<li><a class="slide-item" href="/bimbingan_skripsi/<?= $pem1[0]->nip ?>">Bimbingan Skripsi</a></li>
 									<li><a class=" slide-item" href="/daftar_sidang">Daftar Sidang</a></li>
-									<li><a class="slide-item" href="/Berita_Acara_Sidang">Berita Acara Sidang</a></li>
+									<li><a class="slide-item" href="/Berita-Acara">Berkas</a></li>
 									<?php
 									if ($penguji1 != NULL) {
 									?>
