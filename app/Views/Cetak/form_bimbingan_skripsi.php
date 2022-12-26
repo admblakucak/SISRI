@@ -39,7 +39,7 @@
                 <img src="<?= base_url('image/Logo_UTM.png') ?>" style="width: 100px;">
             </td>
             <td style="text-align:center;font-size: 18px;border: 1px solid black;"><b>FORM</b></td>
-            <td style="border: 1px solid black;text-align:center;padding: 5px;" colspan="2">No. Dokumen : <b>F.S.JMF.05</b></td>
+            <td style="border: 1px solid black;text-align:center;padding: 5px;" colspan="2">No. Dokumen : <b>F.S.JMF.08</b></td>
         </tr>
         <tr>
             <td colspan="2" style="text-align:center;font-size: 18px;border: 1px solid black;"><b>MONITORING KEGIATAN PEMBIMBINGAN</b></td>
