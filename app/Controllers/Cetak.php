@@ -55,6 +55,7 @@ class Cetak extends BaseController
                     ->setResizeToWidth(50);
                 $result = $writer->write($qrCode, $logo);
                 $dataUri = $result->getDataUri();
+                $data = ['qr' => '<img src="' . $dataUri . '" style="width: 60px;">'];
             }
         }
         // ------------------------------------------------------------------
@@ -67,7 +68,6 @@ class Cetak extends BaseController
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
-            'qr' => '<img src="' . $dataUri . '" style="width: 60px;">'
         ];
         // return view('template', $data);
         $dompdf = new Dompdf();
@@ -109,6 +109,7 @@ class Cetak extends BaseController
                     ->setResizeToWidth(50);
                 $result = $writer->write($qrCode, $logo);
                 $dataUri = $result->getDataUri();
+                $data = ['qr' => '<img src="' . $dataUri . '" style="width: 60px;">'];
             }
         }
         // ------------------------------------------------------------------
@@ -121,7 +122,6 @@ class Cetak extends BaseController
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!='' AND kategori_bimbingan='3'")->getResult(),
-            'qr' => '<img src="' . $dataUri . '" style="width: 60px;">'
         ];
         // return view('template', $data);
         $dompdf = new Dompdf();
