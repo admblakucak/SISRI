@@ -162,6 +162,7 @@ $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_S
 // ============================================================================================
 
 $routes->add('/form_bimbingan_proposal', 'Cetak::form_bimbingan_proposal');
+$routes->add('/form_bimbingan_skripsi', 'Cetak::form_bimbingan_skripsi');
 
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/generate_password', 'Welcome::generate_password');
