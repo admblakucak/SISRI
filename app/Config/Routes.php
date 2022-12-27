@@ -160,6 +160,7 @@ $routes->add('/data_pendaftar', 'Korprodi\Penjadwalan_Sidang::data_pendaftar');
 $routes->add('/validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::index');
 $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::validasi');
 // --------------------------------------CETAK-------------------------------------------
+$routes->add('/cobaqr', 'Cetak::cobaqr');
 $routes->add('/berkas_mhs_proposal', 'Cetak::berkas_mhs_proposal');
 $routes->add('/berkas_mhs_skripsi', 'Cetak::berkas_mhs_skripsi');
 $routes->get('/form_bimbingan_proposal/(:any)/(:any)', 'Cetak::form_bimbingan_proposal/$1/$2');

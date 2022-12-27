@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Libraries\Access_API; // Import library
+use App\Libraries\QRcodelib; // Import library
 use CodeIgniter\Database\Query;
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -22,6 +23,7 @@ class Cetak extends BaseController
     public function __construct()
     {
         $this->api = new Access_API();
+        $this->qr = new QRcodelib();
         $this->db = \Config\Database::connect();
     }
     public function berkas_mhs_proposal()
@@ -66,21 +68,8 @@ class Cetak extends BaseController
         $data = ['qr' => ''];
         if (!empty($disetujui_pada)) {
             if ($disetujui_pada[0]->status == 'disetujui') {
-                $writer = new PngWriter();
                 $isi = "Disetujui Pada : " . $disetujui_pada[0]->acc_at . " Oleh " . $disetujui_pada[0]->izin_sebagai . " (" . $nama_pembimbing->gelardepan . ' ' . $nama_pembimbing->nama . ', ' . $nama_pembimbing->gelarbelakang . ")";
-                $qrCode = QrCode::create($isi)
-                    ->setEncoding(new Encoding('UTF-8'))
-                    ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
-                    ->setSize(300)
-                    ->setMargin(10)
-                    ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
-                    ->setForegroundColor(new Color(0, 0, 0))
-                    ->setBackgroundColor(new Color(255, 255, 255));
-                $logo = Logo::create(FCPATH . 'image/Logo_UTM.png')
-                    ->setResizeToWidth(50);
-                $result = $writer->write($qrCode, $logo);
-                $dataUri = $result->getDataUri();
-                $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
+                $qr = $this->qr->cetakqr($isi);
             } else {
                 $qr = '<br>(BELUM DITANDA TANGANI)<br>';
             }
@@ -122,21 +111,8 @@ class Cetak extends BaseController
         // ------------------------------------------------------------------
         if (!empty($disetujui_pada)) {
             if ($disetujui_pada[0]->status == 'disetujui') {
-                $writer = new PngWriter();
                 $isi = "Disetujui Pada : " . $disetujui_pada[0]->acc_at . " Oleh " . $disetujui_pada[0]->izin_sebagai . " (" . $nama_pembimbing->gelardepan . ' ' . $nama_pembimbing->nama . ', ' . $nama_pembimbing->gelarbelakang . ")";
-                $qrCode = QrCode::create($isi)
-                    ->setEncoding(new Encoding('UTF-8'))
-                    ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
-                    ->setSize(300)
-                    ->setMargin(10)
-                    ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
-                    ->setForegroundColor(new Color(0, 0, 0))
-                    ->setBackgroundColor(new Color(255, 255, 255));
-                $logo = Logo::create(FCPATH . 'image/Logo_UTM.png')
-                    ->setResizeToWidth(50);
-                $result = $writer->write($qrCode, $logo);
-                $dataUri = $result->getDataUri();
-                $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
+                $qr = $this->qr->cetakqr($isi);
             } else {
                 $qr = '<br>(BELUM DITANDA TANGANI)<br>';
             }
@@ -164,5 +140,10 @@ class Cetak extends BaseController
         $dompdf->render();
         $dompdf->stream($filename, array('Attachment' => false));
         exit();
+    }
+    public function cobaqr()
+    {
+        $isi = "SUKSES";
+        return $this->qr->cetakqr($isi);
     }
 }
