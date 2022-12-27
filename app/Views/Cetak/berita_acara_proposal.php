@@ -49,6 +49,63 @@
         </tr>
     </table>
     <?php
+    function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+    function getHari($date)
+    {
+        $datetime = DateTime::createFromFormat('Y-m-d', $date);
+        $day = $datetime->format('l');
+        switch ($day) {
+            case 'Sunday':
+                $hari = 'Minggu';
+                break;
+            case 'Monday':
+                $hari = 'Senin';
+                break;
+            case 'Tuesday':
+                $hari = 'Selasa';
+                break;
+            case 'Wednesday':
+                $hari = 'Rabu';
+                break;
+            case 'Thursday':
+                $hari = 'Kamis';
+                break;
+            case 'Friday':
+                $hari = 'Jum\'at';
+                break;
+            case 'Saturday':
+                $hari = 'Sabtu';
+                break;
+            default:
+                $hari = 'Tidak ada';
+                break;
+        }
+        return $hari;
+    }
+
     $id_pendaftar = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='seminar proposal' AND nim='$nim' ORDER BY create_at DESC LIMIT 1")->getResult()[0]->id_pendaftar;
     $jadwal_sidang = $db->query("SELECT * FROM tb_pendaftar_sidang WHERE id_pendaftar='$id_pendaftar'")->getResult();
     ?>
@@ -58,11 +115,11 @@
     <table>
         <tr>
             <th align="left"> Hari / Tanggal </th>
-            <td> : <?= $id_pendaftar != NULL ? date('l, d-m-Y', strtotime($jadwal_sidang[0]->waktu_sidang)) : '' ?></td>
+            <td> : <?= $id_pendaftar != NULL ? getHari(date('Y-m-d', strtotime($jadwal_sidang[0]->waktu_sidang))) . ', ' . tgl_indo(date('Y-m-d', strtotime($jadwal_sidang[0]->waktu_sidang))) : '' ?></td>
         </tr>
         <tr>
             <th align="left"> Pukul </th>
-            <td> : <?= $id_pendaftar != NULL ? date('h:i:s A', strtotime($jadwal_sidang[0]->waktu_sidang)) : '' ?></td>
+            <td> : <?= $id_pendaftar != NULL ? date('H:i:s', strtotime($jadwal_sidang[0]->waktu_sidang)) . ' WIB' : '' ?></td>
         </tr>
         <tr>
             <th align="left"> Tempat </th>
