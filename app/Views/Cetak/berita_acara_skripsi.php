@@ -52,6 +52,7 @@
     $id_pendaftar = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='sidang skripsi' AND nim='$nim' ORDER BY create_at DESC LIMIT 1")->getResult()[0]->id_pendaftar;
     $jadwal_sidang = $db->query("SELECT * FROM tb_pendaftar_sidang WHERE id_pendaftar='$id_pendaftar'")->getResult();
     ?>
+    <br>
     <p><b>Pada,</b></p>
     <p>
     <table>
@@ -69,6 +70,7 @@
         </tr>
     </table>
     </p>
+    <br>
     <p><b>Telah dilaksanakan Sidang Skripsi oleh,</b></p>
     <p>
     <p>
@@ -92,6 +94,7 @@
     <input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 1 ? 'checked' : '' : '' ?>> Disetuji tanpa perbaikan
     <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 2 ? 'checked' : '' : '' ?>> Disetuji dengan perbaikan
     <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 3 ? 'checked' : '' : '' ?>> Tidak disetujui/mengulang
+    <br>
     <br>
     <p>
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
