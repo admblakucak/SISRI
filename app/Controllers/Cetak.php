@@ -87,7 +87,7 @@ class Cetak extends BaseController
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
             'qr' => $qr
         ];
-        return view('Cetak/form_bimbingan_proposal', $data);
+        // return view('Cetak/form_bimbingan_proposal', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/form_bimbingan_proposal', $data));

@@ -119,13 +119,13 @@
     <table width='100%'>
         <tr>
             <td align="left">
-                Dibuat rangkap 2, untuk:
+                <a style="font-size: 10px">Dibuat rangkap 2, untuk:</a>
                 <ol style="font-size: 10px">
                     <li>Koordinator Program Studi (Lembar dengan Tanda Tangan Asli)</li>
                     <li>Mahasiswa yang bersangkutan (Foto Copy)</li>
                 </ol>
             </td>
-            <td align="right">
+            <td text-align="right" valign='top'>
                 <small>Fakultas Teknik - Universitas Trunojoyo Madura</small>
             </td>
         </tr>

@@ -115,7 +115,20 @@
         </b>
     </p>
     <p class="footer">
-        <small>Fakultas Teknik - Universitas Trunojoyo Madura</small>
+    <table width='100%'>
+        <tr>
+            <td align="left">
+                <a style="font-size: 10px">Dibuat rangkap 2, untuk:</a>
+                <ol style="font-size: 10px">
+                    <li>Koordinator Program Studi (Lembar dengan Tanda Tangan Asli)</li>
+                    <li>Mahasiswa yang bersangkutan (Foto Copy)</li>
+                </ol>
+            </td>
+            <td text-align="right" valign='top'>
+                <small>Fakultas Teknik - Universitas Trunojoyo Madura</small>
+            </td>
+        </tr>
+    </table>
     </p>
 </body>
 
