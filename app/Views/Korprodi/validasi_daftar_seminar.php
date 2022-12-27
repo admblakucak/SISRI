@@ -110,17 +110,17 @@ use CodeIgniter\Images\Image;
                                                                 if ($cek != NULL) {
                                                                 ?>
                                                                     <div class="btn-group">
-                                                                        <form action="<?php base_url() ?>/proses_validasi_daftar_seminar" method="POST" enctype="multipart/form-data">
+                                                                        <form action="<?php base_url() ?>/proses_validasi_daftar_seminar_koor" method="POST" enctype="multipart/form-data">
                                                                             <input type="hidden" name="nim" value="<?= $key['nim'] ?>">
                                                                             <input type="hidden" name="status" value="disetujui">
                                                                             <button class="btn btn-success btn-sm" type="submit"><i class="las la-check"></i></button>
                                                                         </form>
-                                                                        <form action="<?php base_url() ?>/proses_validasi_daftar_seminar" method="POST" enctype="multipart/form-data">
+                                                                        <form action="<?php base_url() ?>/proses_validasi_daftar_seminar_koor" method="POST" enctype="multipart/form-data">
                                                                             <input type="hidden" name="nim" value="<?= $key['nim'] ?>">
                                                                             <input type="hidden" name="status" value="menunggu">
                                                                             <button class="btn btn-warning btn-sm" type="submit"><i class="las la-hourglass-half"></i></i></button>
                                                                         </form>
-                                                                        <form action="<?php base_url() ?>/proses_validasi_daftar_seminar" method="POST" enctype="multipart/form-data">
+                                                                        <form action="<?php base_url() ?>/proses_validasi_daftar_seminar_koor" method="POST" enctype="multipart/form-data">
                                                                             <input type="hidden" name="nim" value="<?= $key['nim'] ?>">
                                                                             <input type="hidden" name="status" value="ditolak">
                                                                             <button class="btn btn-danger btn-sm" type="submit"><i class="las la-times"></i></button>
