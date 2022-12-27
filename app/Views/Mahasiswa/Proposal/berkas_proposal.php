@@ -15,7 +15,7 @@ use CodeIgniter\Images\Image;
                         <h6 class="card-title mb-0">Berkas Seminar Proposal</h6>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Berkas Bimbingan Seminar Proposal dan Berita Acara</p>
+                    <p class="tx-12 tx-gray-500 mb-2">Silahkan unduh berkas sesuai dengan kebutuhan anda.</p>
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
@@ -42,18 +42,26 @@ use CodeIgniter\Images\Image;
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="border-0">Dr. Budi Dwi Satoto, ST., M.Kom.</td>
-                                                <td class="border-0">Ach. Dafid, ST., MT.</td>
+                                                <td class="border-0"><?= $dosen_pembimbing_1[0]->gelardepan . " " . $dosen_pembimbing_1[0]->nama . ", " . $dosen_pembimbing_1[0]->gelarbelakang ?></td>
+                                                <td class="border-0"><?= $dosen_pembimbing_2[0]->gelardepan . " " . $dosen_pembimbing_2[0]->nama . ", " . $dosen_pembimbing_2[0]->gelarbelakang ?></td>
                                             </tr>
                                             <tr>
                                                 <td class="border-0">
                                                     <div class="btn-group">
-                                                        <button class="btn btn-primary btn-sm" type="button">Download</button>
+                                                        <form action="<?php base_url() ?>/form_bimbingan_proposal" method="POST" enctype="multipart/form-data">
+                                                            <input type="hidden" name="nim" value="<?= session()->get('ses_id') ?>" />
+                                                            <input type="hidden" name="nip" value="<?= $dosen_pembimbing_1[0]->nip ?>" />
+                                                            <button class="btn btn-primary btn-sm" type="submit">Unduh</button>
+                                                        </form>
                                                     </div>
                                                 </td>
                                                 <td class="border-0">
                                                     <div class="btn-group">
-                                                        <button class="btn btn-primary btn-sm" type="button">Download</button>
+                                                        <form action="<?php base_url() ?>/form_bimbingan_proposal" method="POST" enctype="multipart/form-data">
+                                                            <input type="hidden" name="nim" value="<?= session()->get('ses_id') ?>" />
+                                                            <input type="hidden" name="nip" value="<?= $dosen_pembimbing_2[0]->nip ?>" />
+                                                            <button class="btn btn-primary btn-sm" type="submit">Unduh</button>
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -63,6 +71,7 @@ use CodeIgniter\Images\Image;
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <div class="row mt-4">
                         <div class="col-md-8 col-lg-8 col-xl-8">
                             <label class="form-label">Berkas Berita Acara Seminar Proposal</label>

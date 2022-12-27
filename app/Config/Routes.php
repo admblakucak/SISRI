@@ -161,6 +161,7 @@ $routes->add('/validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar:
 $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::validasi');
 // --------------------------------------CETAK-------------------------------------------
 $routes->add('/berkas_mhs_proposal', 'Cetak::berkas_mhs_proposal');
+$routes->add('/berkas_mhs_skripsi', 'Cetak::berkas_mhs_skripsi');
 $routes->add('/form_bimbingan_proposal', 'Cetak::form_bimbingan_proposal');
 $routes->add('/form_bimbingan_skripsi', 'Cetak::form_bimbingan_skripsi');
 // ============================================================================================

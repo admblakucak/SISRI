@@ -26,11 +26,17 @@ class Cetak extends BaseController
     }
     public function berkas_mhs_proposal()
     {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'mahasiswa') {
+            return redirect()->to('/');
+        }
+        $id = session()->get('ses_id');
         $data = [
             'title' => 'Berkas Proposal',
-            'db' => $this->db
+            'db' => $this->db,
+            'dosen_pembimbing_1' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='1'")->getResult(),
+            'dosen_pembimbing_2' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='2'")->getResult(),
         ];
-        return view('Mahasiswa/Proposal/berkas', $data);
+        return view('Mahasiswa/Proposal/berkas_proposal', $data);
     }
     public function berkas_mhs_skripsi()
     {
@@ -38,7 +44,7 @@ class Cetak extends BaseController
             'title' => 'Berkas Skripsi',
             'db' => $this->db
         ];
-        return view('Mahasiswa/Proposal/berkas', $data);
+        return view('Mahasiswa/Skripsi/berkas_sidang', $data);
     }
     public function form_bimbingan_proposal()
     {
@@ -47,8 +53,8 @@ class Cetak extends BaseController
         }
         $id_pembimbing = $this->request->getPost('nip');
         $id = $this->request->getPost('nim');
-        $id_pembimbing = '0012129302';
-        $id = '170441100055';
+        // $id_pembimbing = '0012129302';
+        // $id = '170441100055';
         if ($id == '') {
             $id = session()->get('ses_id');
         }

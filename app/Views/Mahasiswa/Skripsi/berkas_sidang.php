@@ -15,7 +15,7 @@ use CodeIgniter\Images\Image;
                         <h6 class="card-title mb-0">Berkas Sidang Skripsi</h6>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Berkas Bimbingan Sidang Skripsi dan Berita Acara</p>
+                    <p class="tx-12 tx-gray-500 mb-2">Silahkan unduh berkas sesuai dengan kebutuhan anda.</p>
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
@@ -63,6 +63,7 @@ use CodeIgniter\Images\Image;
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <div class="row mt-4">
                         <div class="col-md-8 col-lg-8 col-xl-8">
                             <label class="form-label">Berkas Berita Acara Sidang Skripsi</label>
