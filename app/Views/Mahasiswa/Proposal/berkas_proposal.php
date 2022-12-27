@@ -49,8 +49,8 @@ use CodeIgniter\Images\Image;
                                                 <td class="border-0">
                                                     <div class="btn-group">
                                                         <form action="<?php base_url() ?>/form_bimbingan_proposal" method="POST" enctype="multipart/form-data">
-                                                            <!-- <input type="hidden" name="nim" value="<?= session()->get('ses_id') ?>" />
-                                                            <input type="hidden" name="nip" value="<?= $dosen_pembimbing_1[0]->nip ?>" /> -->
+                                                            <input type="hidden" name="nim" value="<?= session()->get('ses_id') ?>" />
+                                                            <input type="hidden" name="nip" value="<?= $dosen_pembimbing_1[0]->nip ?>" />
                                                             <button class="btn btn-primary btn-sm" type="submit">Unduh</button>
                                                         </form>
                                                     </div>
