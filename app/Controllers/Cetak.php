@@ -79,6 +79,8 @@ class Cetak extends BaseController
                 $result = $writer->write($qrCode, $logo);
                 $dataUri = $result->getDataUri();
                 $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
+            } else {
+                $qr = '<br>(BELUM DITANDA TANGANI)<br>';
             }
         } else {
             $qr = '<br>(BELUM DITANDA TANGANI)<br>';
@@ -136,6 +138,8 @@ class Cetak extends BaseController
                 $result = $writer->write($qrCode, $logo);
                 $dataUri = $result->getDataUri();
                 $qr = '<img src="' . $dataUri . '" style="width: 60px;">';
+            } else {
+                $qr = '<br>(BELUM DITANDA TANGANI)<br>';
             }
         } else {
             $qr = '<br>(BELUM DITANDA TANGANI)<br>';
