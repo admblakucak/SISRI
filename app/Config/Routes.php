@@ -164,7 +164,9 @@ $routes->add('/cobaqr', 'Cetak::cobaqr');
 $routes->add('/berkas_mhs_proposal', 'Cetak::berkas_mhs_proposal');
 $routes->add('/berkas_mhs_skripsi', 'Cetak::berkas_mhs_skripsi');
 $routes->get('/form_bimbingan_proposal/(:any)/(:any)', 'Cetak::form_bimbingan_proposal/$1/$2');
+$routes->get('/berita_acara_proposal/(:any)', 'Cetak::berita_acara_proposal/$1');
 $routes->get('/form_bimbingan_skripsi/(:any)/(:any)', 'Cetak::form_bimbingan_skripsi/$1/$2');
+$routes->get('/berita_acara_skripsi/(:any)', 'Cetak::berita_acara_skripsi/$1');
 // ============================================================================================
 
 

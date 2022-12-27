@@ -87,7 +87,7 @@ class Cetak extends BaseController
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
             'qr' => $qr
         ];
-        // return view('Cetak/form_bimbingan_proposal', $data);
+        return view('Cetak/form_bimbingan_proposal', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/form_bimbingan_proposal', $data));
@@ -134,6 +134,218 @@ class Cetak extends BaseController
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/form_bimbingan_skripsi', $data));
+        $dompdf->setPaper('A4', 'potrait');
+        $dompdf->render();
+        $dompdf->stream($filename, array('Attachment' => false));
+        exit();
+    }
+    public function berita_acara_proposal($id)
+    {
+        if (session()->get('ses_id') == '') {
+            return redirect()->to('/');
+        }
+        if ($id == '') {
+            $id = session()->get('ses_id');
+        }
+        // --------------------------------------------------------------------
+        $bc_pembimbing_1 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='proposal' and nim='$id' and sebagai='pembimbing 1'")->getResult();
+        if (!empty($bc_pembimbing_1)) {
+            $bc_pembimbing_1nip = $bc_pembimbing_1[0]->nip;
+            $data_pembimbing_1 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_pembimbing_1nip . "'")->getResult()[0];
+            if ($bc_pembimbing_1[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_pembimbing_1[0]->create_at . " Oleh " . $bc_pembimbing_1[0]->sebagai . " (" . $data_pembimbing_1->gelardepan . ' ' . $data_pembimbing_1->nama . ', ' . $data_pembimbing_1->gelarbelakang . ")";
+                $qr_pembimbing_1 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_pembimbing_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_pembimbing_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_pembimbing_2 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='proposal' and nim='$id' and sebagai='pembimbing 2'")->getResult();
+        if (!empty($bc_pembimbing_2)) {
+            $bc_pembimbing_2nip = $bc_pembimbing_2[0]->nip;
+            $data_pembimbing_2 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_pembimbing_2nip . "'")->getResult()[0];
+            if ($bc_pembimbing_2[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_pembimbing_2[0]->create_at . " Oleh " . $bc_pembimbing_2[0]->sebagai . " (" . $data_pembimbing_2->gelardepan . ' ' . $data_pembimbing_2->nama . ', ' . $data_pembimbing_2->gelarbelakang . ")";
+                $qr_pembimbing_2 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_pembimbing_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_pembimbing_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_penguji_1 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='proposal' and nim='$id' and sebagai='penguji 1'")->getResult();
+        if (!empty($bc_penguji_1)) {
+            $bc_penguji_1nip = $bc_penguji_1[0]->nip;
+            $data_penguji_1 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_penguji_1nip . "'")->getResult()[0];
+            if ($bc_penguji_1[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_penguji_1[0]->create_at . " Oleh " . $bc_penguji_1[0]->sebagai . " (" . $data_penguji_1->gelardepan . ' ' . $data_penguji_1->nama . ', ' . $data_penguji_1->gelarbelakang . ")";
+                $qr_penguji_1 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_penguji_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_penguji_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_penguji_2 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='proposal' and nim='$id' and sebagai='penguji 2'")->getResult();
+        if (!empty($bc_penguji_2)) {
+            $bc_penguji_2nip = $bc_penguji_2[0]->nip;
+            $data_penguji_2 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_penguji_2nip . "'")->getResult()[0];
+            if ($bc_penguji_2[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_penguji_2[0]->create_at . " Oleh " . $bc_penguji_2[0]->sebagai . " (" . $data_penguji_2->gelardepan . ' ' . $data_penguji_2->nama . ', ' . $data_penguji_2->gelarbelakang . ")";
+                $qr_penguji_2 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_penguji_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_penguji_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_penguji_3 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='proposal' and nim='$id' and sebagai='penguji 3'")->getResult();
+        if (!empty($bc_penguji_3)) {
+            $bc_penguji_3nip = $bc_penguji_3[0]->nip;
+            $data_penguji_3 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_penguji_3nip . "'")->getResult()[0];
+            if ($bc_penguji_3[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_penguji_3[0]->create_at . " Oleh " . $bc_penguji_3[0]->sebagai . " (" . $data_penguji_3->gelardepan . ' ' . $data_penguji_3->nama . ', ' . $data_penguji_3->gelarbelakang . ")";
+                $qr_penguji_3 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_penguji_3 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_penguji_3 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+        // ------------------------------------------------------------------
+
+        $data = [
+            'title' => 'Berita Acara Seminar Proposal',
+            'baseurl' => base_url(),
+            'judul_skripsi' => $this->db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='$id'")->getResult()[0]->judul_topik,
+            'nim' => $id,
+            'nama' => $this->db->query("SELECT * FROM tb_mahasiswa WHERE nim='$id'")->getResult()[0]->nama,
+            'dosen_pembimbing_1' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='1'")->getResult(),
+            'dosen_pembimbing_2' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='2'")->getResult(),
+            'penguji_1' => $this->db->query("SELECT * from tb_penguji a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` where a.nim='" . session()->get('ses_id') . "' AND a.`status`='aktif' AND a.sebagai='1'")->getResult(),
+            'penguji_2' => $this->db->query("SELECT * from tb_penguji a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` where a.nim='" . session()->get('ses_id') . "' AND a.`status`='aktif' AND a.sebagai='2'")->getResult(),
+            'penguji_3' => $this->db->query("SELECT * from tb_penguji a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` where a.nim='" . session()->get('ses_id') . "' AND a.`status`='aktif' AND a.sebagai='3'")->getResult(),
+            'qr_pembimbing_1' => $qr_pembimbing_1,
+            'qr_pembimbing_2' => $qr_pembimbing_2,
+            'qr_penguji_1' => $qr_penguji_1,
+            'qr_penguji_2' => $qr_penguji_2,
+            'qr_penguji_3' => $qr_penguji_3
+        ];
+        // return view('Cetak/berita_acara_proposal', $data);
+        $dompdf = new Dompdf();
+        $filename = date('y-m-d-H-i-s');
+        $dompdf->loadHtml(view('Cetak/berita_acara_proposal', $data));
+        $dompdf->setPaper('A4', 'potrait');
+        $dompdf->render();
+        $dompdf->stream($filename, array('Attachment' => false));
+        exit();
+    }
+    public function berita_acara_skripsi($id)
+    {
+        if (session()->get('ses_id') == '') {
+            return redirect()->to('/');
+        }
+        if ($id == '') {
+            $id = session()->get('ses_id');
+        }
+        // --------------------------------------------------------------------
+        $bc_pembimbing_1 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='skripsi' and nim='$id' and sebagai='pembimbing 1'")->getResult();
+        if (!empty($bc_pembimbing_1)) {
+            $bc_pembimbing_1nip = $bc_pembimbing_1[0]->nip;
+            $data_pembimbing_1 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_pembimbing_1nip . "'")->getResult()[0];
+            if ($bc_pembimbing_1[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_pembimbing_1[0]->create_at . " Oleh " . $bc_pembimbing_1[0]->sebagai . " (" . $data_pembimbing_1->gelardepan . ' ' . $data_pembimbing_1->nama . ', ' . $data_pembimbing_1->gelarbelakang . ")";
+                $qr_pembimbing_1 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_pembimbing_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_pembimbing_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_pembimbing_2 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='skripsi' and nim='$id' and sebagai='pembimbing 2'")->getResult();
+        if (!empty($bc_pembimbing_2)) {
+            $bc_pembimbing_2nip = $bc_pembimbing_2[0]->nip;
+            $data_pembimbing_2 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_pembimbing_2nip . "'")->getResult()[0];
+            if ($bc_pembimbing_2[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_pembimbing_2[0]->create_at . " Oleh " . $bc_pembimbing_2[0]->sebagai . " (" . $data_pembimbing_2->gelardepan . ' ' . $data_pembimbing_2->nama . ', ' . $data_pembimbing_2->gelarbelakang . ")";
+                $qr_pembimbing_2 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_pembimbing_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_pembimbing_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_penguji_1 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='skripsi' and nim='$id' and sebagai='penguji 1'")->getResult();
+        if (!empty($bc_penguji_1)) {
+            $bc_penguji_1nip = $bc_penguji_1[0]->nip;
+            $data_penguji_1 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_penguji_1nip . "'")->getResult()[0];
+            if ($bc_penguji_1[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_penguji_1[0]->create_at . " Oleh " . $bc_penguji_1[0]->sebagai . " (" . $data_penguji_1->gelardepan . ' ' . $data_penguji_1->nama . ', ' . $data_penguji_1->gelarbelakang . ")";
+                $qr_penguji_1 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_penguji_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_penguji_1 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_penguji_2 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='skripsi' and nim='$id' and sebagai='penguji 2'")->getResult();
+        if (!empty($bc_penguji_2)) {
+            $bc_penguji_2nip = $bc_penguji_2[0]->nip;
+            $data_penguji_2 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_penguji_2nip . "'")->getResult()[0];
+            if ($bc_penguji_2[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_penguji_2[0]->create_at . " Oleh " . $bc_penguji_2[0]->sebagai . " (" . $data_penguji_2->gelardepan . ' ' . $data_penguji_2->nama . ', ' . $data_penguji_2->gelarbelakang . ")";
+                $qr_penguji_2 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_penguji_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_penguji_2 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+
+        $bc_penguji_3 = $this->db->query("SELECT * FROM tb_berita_acara WHERE jenis_sidang='skripsi' and nim='$id' and sebagai='penguji 3'")->getResult();
+        if (!empty($bc_penguji_3)) {
+            $bc_penguji_3nip = $bc_penguji_3[0]->nip;
+            $data_penguji_3 = $this->db->query("SELECT * FROM tb_dosen WHERE nip='" . $bc_penguji_3nip . "'")->getResult()[0];
+            if ($bc_penguji_3[0]->status == 'ditandatangani') {
+                $isi = "Disetujui Pada : " . $bc_penguji_3[0]->create_at . " Oleh " . $bc_penguji_3[0]->sebagai . " (" . $data_penguji_3->gelardepan . ' ' . $data_penguji_3->nama . ', ' . $data_penguji_3->gelarbelakang . ")";
+                $qr_penguji_3 = $this->qr->cetakqr($isi);
+            } else {
+                $qr_penguji_3 = '<br>(BELUM DITANDA TANGANI)<br>';
+            }
+        } else {
+            $qr_penguji_3 = '<br>(BELUM DITANDA TANGANI)<br>';
+        }
+        // ------------------------------------------------------------------
+
+        $data = [
+            'title' => 'Berita Acara Sidang Skripsi',
+            'baseurl' => base_url(),
+            'judul_skripsi' => $this->db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='$id'")->getResult()[0]->judul_topik,
+            'nim' => $id,
+            'nama' => $this->db->query("SELECT * FROM tb_mahasiswa WHERE nim='$id'")->getResult()[0]->nama,
+            'dosen_pembimbing_1' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='1'")->getResult(),
+            'dosen_pembimbing_2' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='2'")->getResult(),
+            'penguji_1' => $this->db->query("SELECT * from tb_penguji a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` where a.nim='" . session()->get('ses_id') . "' AND a.`status`='aktif' AND a.sebagai='1'")->getResult(),
+            'penguji_2' => $this->db->query("SELECT * from tb_penguji a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` where a.nim='" . session()->get('ses_id') . "' AND a.`status`='aktif' AND a.sebagai='2'")->getResult(),
+            'penguji_3' => $this->db->query("SELECT * from tb_penguji a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` where a.nim='" . session()->get('ses_id') . "' AND a.`status`='aktif' AND a.sebagai='3'")->getResult(),
+            'qr_pembimbing_1' => $qr_pembimbing_1,
+            'qr_pembimbing_2' => $qr_pembimbing_2,
+            'qr_penguji_1' => $qr_penguji_1,
+            'qr_penguji_2' => $qr_penguji_2,
+            'qr_penguji_3' => $qr_penguji_3
+        ];
+        // return view('Cetak/berita_acara_skripsi', $data);
+        $dompdf = new Dompdf();
+        $filename = date('y-m-d-H-i-s');
+        $dompdf->loadHtml(view('Cetak/berita_acara_skripsi', $data));
         $dompdf->setPaper('A4', 'potrait');
         $dompdf->render();
         $dompdf->stream($filename, array('Attachment' => false));
