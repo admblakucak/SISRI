@@ -88,12 +88,11 @@
     </table>
     </p>
     <br>
-    <p align='center'>
-        <b>
-            Menyetujui untuk dilanjutkan ke Seminar Proposal Skripsi,
-            <br />(JANGAN DITANDATANGANI APABILA SKRIPSI MAHASISWA BELUM LAYAK UNTUK SEMINAR)
-        </b>
-    </p>
+    <p><b>Status Seminar :</b></p>
+    <input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 1 ? 'checked' : '' : '' ?>> Disetuji tanpa perbaikan
+    <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 2 ? 'checked' : '' : '' ?>> Disetuji dengan perbaikan
+    <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 3 ? 'checked' : '' : '' ?>> Tidak disetujui/mengulang
+    <br>
     <p>
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
         <tr>
