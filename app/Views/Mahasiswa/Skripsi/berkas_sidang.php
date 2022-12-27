@@ -171,6 +171,9 @@ use CodeIgniter\Images\Image;
                                                 </table>
                                             </div>
                                         </div>
+                                        <p>
+                                            <a href="<?= base_url() ?>/berita_acara_skripsi/<?= session()->get('ses_id') ?> ?>"><button class="btn btn-primary" type="button">Unduh</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
