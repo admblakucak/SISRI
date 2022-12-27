@@ -48,20 +48,24 @@
             <td style="border: 1px solid black;padding: 5px;text-align:center;">Tanggal : <b><?= date('d-m-Y') ?></b></td>
         </tr>
     </table>
+    <?php
+    $id_pendaftar = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='sidang skripsi' AND nim='$nim' ORDER BY create_at DESC LIMIT 1")->getResult()[0]->id_pendaftar;
+    $jadwal_sidang = $db->query("SELECT * FROM tb_pendaftar_sidang WHERE id_pendaftar='$id_pendaftar'")->getResult();
+    ?>
     <p><b>Pada,</b></p>
     <p>
     <table>
         <tr>
             <th align="left"> Hari / Tanggal </th>
-            <td> : <?= $nama ?></td>
+            <td> : <?= $id_pendaftar != NULL ? date('l, d-m-Y', strtotime($jadwal_sidang[0]->waktu_sidang)) : '' ?></td>
         </tr>
         <tr>
             <th align="left"> Pukul </th>
-            <td> : <?= $nim ?></td>
+            <td> : <?= $id_pendaftar != NULL ? date('h:i:s A', strtotime($jadwal_sidang[0]->waktu_sidang)) : '' ?></td>
         </tr>
         <tr>
             <th align="left"> Tempat </th>
-            <td> : <?= $judul_skripsi ?></td>
+            <td> : <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->ruang_sidang : '' ?></td>
         </tr>
     </table>
     </p>

@@ -26,7 +26,7 @@
 
         #footer {
             clear: both;
-            /* position: relative; */
+            position: relative;
             height: 40px;
             margin-top: -40px;
         }
