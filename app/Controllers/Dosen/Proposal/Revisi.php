@@ -89,7 +89,7 @@ class Revisi extends BaseController
 
         $id = $nim;
         $pembimbing = $this->db->query("SELECT * FROM tb_pengajuan_pembimbing where nip='" . session()->get('ses_id') . "' AND nim='$nim'")->getResult();
-        $penguji = $this->db->query("SELECT * FROM tb_penguji where nip='" . session()->get('ses_id') . "' AND nim='$nim'")->getResult();
+        $penguji = $this->db->query("SELECT * FROM tb_penguji where nip='" . session()->get('ses_id') . "' AND nim='$nim' AND status='aktif'")->getResult();
         if ($pembimbing != null) {
             $sebagai = 'Pembimbing ' . $pembimbing[0]->sebagai;
         } else {
