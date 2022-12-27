@@ -87,6 +87,11 @@
     </table>
     </p>
     <br>
+    <p><b>Status Seminar (Berikan Tanda &#9745; sesuai pilihan) :</b></p>
+    <input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 1 ? 'checked' : '' : '' ?>> Disetuji tanpa perbaikan
+    <input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 2 ? 'checked' : '' : '' ?>> Disetuji dengan perbaikan
+    <input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 3 ? 'checked' : '' : '' ?>> Tidak disetujui/mengulang
+    <br>
     <p>
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
         <tr>
