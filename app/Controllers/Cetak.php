@@ -89,6 +89,7 @@ class Cetak extends BaseController
         }
         // ------------------------------------------------------------------
         $data = [
+            'title' => 'Form Bimbingan Proposal',
             'baseurl' => base_url(),
             'judul_skripsi' => $this->db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='$id'")->getResult()[0]->judul_topik,
             'nim' => $id,
@@ -144,6 +145,7 @@ class Cetak extends BaseController
         }
         // ------------------------------------------------------------------
         $data = [
+            'title' => 'Form Bimbingan Skripsi',
             'baseurl' => base_url(),
             'judul_skripsi' => $this->db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='$id'")->getResult()[0]->judul_topik,
             'nim' => $id,
@@ -152,7 +154,7 @@ class Cetak extends BaseController
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!='' AND kategori_bimbingan='3'")->getResult(),
-            'qr' => $qr
+            'qr' => $qr,
         ];
         // return view('Cetak/form_bimbingan_skripsi', $data);
         $dompdf = new Dompdf();
