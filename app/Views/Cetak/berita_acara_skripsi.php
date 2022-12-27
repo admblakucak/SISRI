@@ -48,7 +48,25 @@
             <td style="border: 1px solid black;padding: 5px;text-align:center;">Tanggal : <b><?= date('d-m-Y') ?></b></td>
         </tr>
     </table>
-
+    <p><b>Pada,</b></p>
+    <p>
+    <table>
+        <tr>
+            <th align="left"> Hari / Tanggal </th>
+            <td> : <?= $nama ?></td>
+        </tr>
+        <tr>
+            <th align="left"> Pukul </th>
+            <td> : <?= $nim ?></td>
+        </tr>
+        <tr>
+            <th align="left"> Tempat </th>
+            <td> : <?= $judul_skripsi ?></td>
+        </tr>
+    </table>
+    </p>
+    <p><b>Telah dilaksanakan Sidang Skripsi oleh,</b></p>
+    <p>
     <p>
     <table>
         <tr>
