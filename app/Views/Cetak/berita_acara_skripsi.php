@@ -90,7 +90,7 @@
     </table>
     </p>
     <br>
-    <p><b>Status Seminar :</b></p>
+    <p><b>Status Ujian :</b></p>
     <input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 1 ? 'checked' : '' : '' ?>> Disetuji tanpa perbaikan
     <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 2 ? 'checked' : '' : '' ?>> Disetuji dengan perbaikan
     <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 3 ? 'checked' : '' : '' ?>> Tidak disetujui/mengulang
