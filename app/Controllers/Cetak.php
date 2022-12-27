@@ -53,8 +53,8 @@ class Cetak extends BaseController
         }
         $id_pembimbing = $this->request->getPost('nip');
         $id = $this->request->getPost('nim');
-        // $id_pembimbing = '0012129302';
-        // $id = '170441100055';
+        $id_pembimbing = '0012129302';
+        $id = '170441100055';
         if ($id == '') {
             $id = session()->get('ses_id');
         }
