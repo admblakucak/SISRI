@@ -40,9 +40,15 @@ class Cetak extends BaseController
     }
     public function berkas_mhs_skripsi()
     {
+        if (session()->get('ses_id') == '' || session()->get('ses_login') != 'mahasiswa') {
+            return redirect()->to('/');
+        }
+        $id = session()->get('ses_id');
         $data = [
-            'title' => 'Berkas Skripsi',
-            'db' => $this->db
+            'title' => 'Berkas Skripsil',
+            'db' => $this->db,
+            'dosen_pembimbing_1' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='1'")->getResult(),
+            'dosen_pembimbing_2' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing a LEFT JOIN tb_dosen b ON a.`nip`=b.`nip` LEFT JOIN tb_profil_tambahan c ON a.`nip`=c.`id` WHERE a.nim='" . $id . "' AND a.status_pengajuan='diterima' AND sebagai='2'")->getResult(),
         ];
         return view('Mahasiswa/Skripsi/berkas_sidang', $data);
     }
@@ -51,10 +57,6 @@ class Cetak extends BaseController
         if (session()->get('ses_id') == '') {
             return redirect()->to('/');
         }
-        // $id_pembimbing = $this->request->getPost('nip');
-        // $id = $this->request->getPost('nim');
-        // $id_pembimbing = '0012129302';
-        // $id = '170441100055';
         if ($id == '') {
             $id = session()->get('ses_id');
         }
@@ -106,15 +108,11 @@ class Cetak extends BaseController
         $dompdf->stream($filename, array('Attachment' => false));
         exit();
     }
-    public function form_bimbingan_skripsi()
+    public function form_bimbingan_skripsi($id, $id_pembimbing)
     {
         if (session()->get('ses_id') == '') {
             return redirect()->to('/');
         }
-        $id_pembimbing = $this->request->getPost('nip');
-        $id = $this->request->getPost('nim');
-        $id_pembimbing = '0012129302';
-        $id = '170441100055';
         if ($id == '') {
             $id = session()->get('ses_id');
         }

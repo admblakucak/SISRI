@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <!-- Title -->
+    <title> SISRI - <?= $title; ?></title>
     <style type="text/css">
         p {
             margin: 5px 0 0 0;

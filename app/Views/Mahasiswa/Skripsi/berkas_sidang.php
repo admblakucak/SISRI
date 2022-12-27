@@ -42,19 +42,15 @@ use CodeIgniter\Images\Image;
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="border-0">Dr. Budi Dwi Satoto, ST., M.Kom.</td>
-                                                <td class="border-0">Ach. Dafid, ST., MT.</td>
+                                                <td class="border-0"><?= $dosen_pembimbing_1[0]->gelardepan . " " . $dosen_pembimbing_1[0]->nama . ", " . $dosen_pembimbing_1[0]->gelarbelakang ?></td>
+                                                <td class="border-0"><?= $dosen_pembimbing_2[0]->gelardepan . " " . $dosen_pembimbing_2[0]->nama . ", " . $dosen_pembimbing_2[0]->gelarbelakang ?></td>
                                             </tr>
                                             <tr>
                                                 <td class="border-0">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-primary btn-sm" type="button">Download</button>
-                                                    </div>
+                                                    <a href="<?= base_url() ?>/form_bimbingan_skripsi/<?= session()->get('ses_id') ?>/<?= $dosen_pembimbing_1[0]->nip ?>"><button class="btn btn-primary btn-sm" type="button">Unduh</button></a>
                                                 </td>
                                                 <td class="border-0">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-primary btn-sm" type="button">Download</button>
-                                                    </div>
+                                                    <a href="<?= base_url() ?>/form_bimbingan_skripsi/<?= session()->get('ses_id') ?>/<?= $dosen_pembimbing_2[0]->nip ?>"><button class="btn btn-primary btn-sm" type="button">Unduh</button></a>
                                                 </td>
                                             </tr>
                                         </tbody>
