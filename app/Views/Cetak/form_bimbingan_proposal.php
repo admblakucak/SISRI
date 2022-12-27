@@ -125,7 +125,7 @@
                     <li>Mahasiswa yang bersangkutan (Foto Copy)</li>
                 </ol>
             </td>
-            <td text-align="right" valign='top'>
+            <td align="right" valign='top'>
                 <small>Fakultas Teknik - Universitas Trunojoyo Madura</small>
             </td>
         </tr>
