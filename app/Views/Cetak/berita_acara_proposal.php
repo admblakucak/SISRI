@@ -123,9 +123,7 @@
         <b>
             Catatan :
             <ol style="font-size: 10px">
-                <li>Minimal kegiatan monitoring pada Pembimbing I sebanyak 3 kali dan Pembimbing II sebanyak 3 kali (akumulasi 6 kali kegiatan monitoring)</li>
-                <li>Form ini harus DITUNJUKKAN ke Koordinator Skripsi pada saat MENDAFTAR SEMINAR USULAN SKRIPSI</li>
-                <li>Sudah memprogram Skripsi di KRS, menunjukkan KRS pada saat mendaftar</li>
+                <li>KARTU INI DIBERIKAN KE KOORDINATOR PROGRAM STUDI SETELAH SEMUA PEMBIMBING & PENGUJI MELAKUKAN TANDA TANGAN</li>
             </ol>
         </b>
     </p>
