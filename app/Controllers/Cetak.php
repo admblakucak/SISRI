@@ -46,13 +46,13 @@ class Cetak extends BaseController
         ];
         return view('Mahasiswa/Skripsi/berkas_sidang', $data);
     }
-    public function form_bimbingan_proposal()
+    public function form_bimbingan_proposal($id, $id_pembimbing)
     {
         if (session()->get('ses_id') == '') {
             return redirect()->to('/');
         }
-        $id_pembimbing = $this->request->getPost('nip');
-        $id = $this->request->getPost('nim');
+        // $id_pembimbing = $this->request->getPost('nip');
+        // $id = $this->request->getPost('nim');
         // $id_pembimbing = '0012129302';
         // $id = '170441100055';
         if ($id == '') {
@@ -97,7 +97,7 @@ class Cetak extends BaseController
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
             'qr' => $qr
         ];
-        // return view('template', $data);
+        // return view('Cetak/form_bimbingan_proposal', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/form_bimbingan_proposal', $data));
@@ -156,7 +156,7 @@ class Cetak extends BaseController
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!='' AND kategori_bimbingan='3'")->getResult(),
             'qr' => $qr
         ];
-        // return view('template', $data);
+        // return view('Cetak/form_bimbingan_skripsi', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/form_bimbingan_skripsi', $data));
