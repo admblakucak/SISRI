@@ -71,7 +71,7 @@
     </table>
     </p>
     <br>
-    <p><b>Telah dilaksanakan Sidang Skripsi oleh,</b></p>
+    <p><b>Telah dilaksanakan Seminar Skripsi oleh,</b></p>
     <p>
     <table>
         <tr>
