@@ -128,7 +128,19 @@ use CodeIgniter\Images\Image;
                                                                         <input type="teks" class="form-control" id="exampleInput" value="<?= $key->detail_topik ?>" name="detail_topik">
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label class="checkbox"> <input type="checkbox" name="status" value="aktif" <?= $key->status == 'aktif' ? 'checked' : '' ?>><span> Aktif ?</span></label>
+                                                                        <div class="row row-sm mg-b-20">
+                                                                            <div class="col-lg-4">
+                                                                                <label for="exampleInputPeriode">Status</label>
+                                                                                <select name="status" class="form-control select">
+                                                                                    <option value="aktif" <?= $key->status == 'aktif' ? 'selected' : '' ?>>
+                                                                                        Aktif
+                                                                                    </option>
+                                                                                    <option value="nonaktif" <?= $key->status != 'aktif' ? 'selected' : '' ?>>
+                                                                                        Tidak Aktif
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button class="btn ripple btn-primary" type="submit">Update</button>
@@ -139,7 +151,9 @@ use CodeIgniter\Images\Image;
                                                     </div>
                                                 </div>
                                             </tr>
-                                        <?php } ?>
+                                        <?php $no++;
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

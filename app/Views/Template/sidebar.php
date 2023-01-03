@@ -17,8 +17,11 @@
 							<img alt="user-img" class="avatar avatar-xl brround" src="<?php base_url() ?>/image/<?= session()->get('ses_image') ?>"><span class="avatar-status profile-status bg-green"></span>
 						</div>
 						<div class="user-info">
+							<?php
+							$namaunit = $db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_idunit') . "'")->getResult()[0]->namaunit; ?>
 							<h4 class="fw-semibold mt-3 mb-0"><?= session()->get('ses_nama'); ?></h4>
-							<span class="mb-0 text-muted"><?= session()->get('ses_id'); ?></span>
+							<span class="mb-0 text-muted"><?= session()->get('ses_id'); ?></span><br>
+							<span class="mb-0 text-muted"><?= $namaunit ?></span>
 						</div>
 					</div>
 				</div>

@@ -29,7 +29,11 @@
 									<div class="main-header-profile bg-primary p-3">
 										<div class="d-flex wd-100p">
 											<div class="main-img-user"><img alt="" src="<?php base_url() ?>/image/<?= session()->get('ses_image') ?>" class=""></div>
-											<div class="ms-3 my-auto"></div>
+											<div class="ms-3 my-auto">
+												<?php $namaunit = $db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_idunit') . "'")->getResult()[0]->namaunit; ?>
+												<h7><?= session()->get('ses_nama'); ?></h7><span><?= session()->get('ses_id'); ?></span>
+												<span><?php echo $namaunit ?></span>
+											</div>
 										</div>
 									</div>
 									<?php
