@@ -21,11 +21,11 @@ use CodeIgniter\Images\Image;
                     <form action="<?php base_url() ?>/add_bidang_minat" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputPeriode">Bidang Minat</label>
-                            <input type="teks" class="form-control" id="exampleInput" placeholder="Topik" name="nama">
+                            <input type="teks" class="form-control" id="exampleInput" placeholder=" Tulis Bidang Minat" name="nama">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPeriode">Deskripsi Bidang Minat</label>
-                            <input type="teks" class="form-control" id="exampleInput" placeholder="Detail Topik" name="detail_topik">
+                            <input type="teks" class="form-control" id="exampleInput" placeholder=" Tulis Deskripsi Bidang Minat" name="detail_topik">
                         </div>
                         <div class="form-group">
                             <div class="row row-sm mg-b-20">
