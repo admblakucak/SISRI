@@ -85,9 +85,10 @@ class Cetak extends BaseController
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
-            'qr' => $qr
+            'qr' => $qr,
+            'db' => $this->db,
         ];
-        return view('Cetak/form_bimbingan_proposal', $data);
+        // return view('Cetak/form_bimbingan_proposal', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/form_bimbingan_proposal', $data));
@@ -129,6 +130,7 @@ class Cetak extends BaseController
             'nip' => $id_pembimbing,
             'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!='' AND kategori_bimbingan='3'")->getResult(),
             'qr' => $qr,
+            'db' => $this->db,
         ];
         // return view('Cetak/form_bimbingan_skripsi', $data);
         $dompdf = new Dompdf();
@@ -234,7 +236,8 @@ class Cetak extends BaseController
             'qr_pembimbing_2' => $qr_pembimbing_2,
             'qr_penguji_1' => $qr_penguji_1,
             'qr_penguji_2' => $qr_penguji_2,
-            'qr_penguji_3' => $qr_penguji_3
+            'qr_penguji_3' => $qr_penguji_3,
+            'db' => $this->db,
         ];
         // return view('Cetak/berita_acara_proposal', $data);
         $dompdf = new Dompdf();
@@ -340,7 +343,8 @@ class Cetak extends BaseController
             'qr_pembimbing_2' => $qr_pembimbing_2,
             'qr_penguji_1' => $qr_penguji_1,
             'qr_penguji_2' => $qr_penguji_2,
-            'qr_penguji_3' => $qr_penguji_3
+            'qr_penguji_3' => $qr_penguji_3,
+            'db' => $this->db,
         ];
         // return view('Cetak/berita_acara_skripsi', $data);
         $dompdf = new Dompdf();

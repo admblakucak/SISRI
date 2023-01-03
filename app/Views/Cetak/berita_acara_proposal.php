@@ -48,24 +48,87 @@
             <td style="border: 1px solid black;padding: 5px;text-align:center;">Tanggal : <b><?= date('d-m-Y') ?></b></td>
         </tr>
     </table>
+    <?php
+    function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+    function getHari($date)
+    {
+        $datetime = DateTime::createFromFormat('Y-m-d', $date);
+        $day = $datetime->format('l');
+        switch ($day) {
+            case 'Sunday':
+                $hari = 'Minggu';
+                break;
+            case 'Monday':
+                $hari = 'Senin';
+                break;
+            case 'Tuesday':
+                $hari = 'Selasa';
+                break;
+            case 'Wednesday':
+                $hari = 'Rabu';
+                break;
+            case 'Thursday':
+                $hari = 'Kamis';
+                break;
+            case 'Friday':
+                $hari = 'Jum\'at';
+                break;
+            case 'Saturday':
+                $hari = 'Sabtu';
+                break;
+            default:
+                $hari = 'Tidak ada';
+                break;
+        }
+        return $hari;
+    }
+
+    $id_pendaftar = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='seminar proposal' AND nim='$nim' ORDER BY create_at DESC LIMIT 1")->getResult()[0]->id_pendaftar;
+    $jadwal_sidang = $db->query("SELECT * FROM tb_pendaftar_sidang WHERE id_pendaftar='$id_pendaftar'")->getResult();
+    ?>
+    <br>
     <p><b>Pada,</b></p>
     <p>
     <table>
         <tr>
             <th align="left"> Hari / Tanggal </th>
-            <td> : <?= $nama ?></td>
+            <td> : <?= $id_pendaftar != NULL ? getHari(date('Y-m-d', strtotime($jadwal_sidang[0]->waktu_sidang))) . ', ' . tgl_indo(date('Y-m-d', strtotime($jadwal_sidang[0]->waktu_sidang))) : '' ?></td>
         </tr>
         <tr>
             <th align="left"> Pukul </th>
-            <td> : <?= $nim ?></td>
+            <td> : <?= $id_pendaftar != NULL ? date('H:i:s', strtotime($jadwal_sidang[0]->waktu_sidang)) . ' WIB' : '' ?></td>
         </tr>
         <tr>
             <th align="left"> Tempat </th>
-            <td> : <?= $judul_skripsi ?></td>
+            <td> : <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->ruang_sidang : '' ?></td>
         </tr>
     </table>
     </p>
-    <p><b>Telah dilaksanakan Sidang Skripsi oleh,</b></p>
+    <br>
+    <p><b>Telah dilaksanakan Seminar Skripsi oleh,</b></p>
     <p>
     <table>
         <tr>
@@ -82,6 +145,12 @@
         </tr>
     </table>
     </p>
+    <br>
+    <p><b>Status Seminar :</b></p>
+    <input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 1 ? 'checked' : '' : '' ?>> Disetuji tanpa perbaikan
+    <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 2 ? 'checked' : '' : '' ?>> Disetuji dengan perbaikan
+    <br><input type="checkbox" onclick="return false;" <?= $id_pendaftar != NULL ? $jadwal_sidang[0]->hasil_sidang == 3 ? 'checked' : '' : '' ?>> Tidak disetujui/mengulang
+    <br>
     <br>
     <p>
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
@@ -111,14 +180,25 @@
         <b>
             Catatan :
             <ol style="font-size: 10px">
-                <li>Minimal kegiatan monitoring pada Pembimbing I sebanyak 3 kali dan Pembimbing II sebanyak 3 kali (akumulasi 6 kali kegiatan monitoring)</li>
-                <li>Form ini harus DITUNJUKKAN ke Koordinator Skripsi pada saat MENDAFTAR SEMINAR USULAN SKRIPSI</li>
-                <li>Sudah memprogram Skripsi di KRS, menunjukkan KRS pada saat mendaftar</li>
+                <li>KARTU INI DIBERIKAN KE KOORDINATOR PROGRAM STUDI SETELAH SEMUA PEMBIMBING & PENGUJI MELAKUKAN TANDA TANGAN</li>
             </ol>
         </b>
     </p>
     <p class="footer">
-        <small>Fakultas Teknik - Universitas Trunojoyo Madura</small>
+    <table width='100%'>
+        <tr>
+            <td align="left">
+                <a style="font-size: 10px">Dibuat rangkap 2, untuk:</a>
+                <ol style="font-size: 10px">
+                    <li>Koordinator Program Studi (Lembar dengan Tanda Tangan Asli)</li>
+                    <li>Mahasiswa yang bersangkutan (Foto Copy)</li>
+                </ol>
+            </td>
+            <td align="right" valign='top'>
+                <small>Fakultas Teknik - Universitas Trunojoyo Madura</small>
+            </td>
+        </tr>
+    </table>
     </p>
 </body>
 
