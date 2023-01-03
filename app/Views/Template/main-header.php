@@ -28,13 +28,8 @@
 								<div class="dropdown-menu">
 									<div class="main-header-profile bg-primary p-3">
 										<div class="d-flex wd-100p">
-											<?php
-											$prodi = $db->query("SELECT * FROM tb_users a LEFT JOIN tb_unit b ON a.idunit=b.idunit WHERE id='" . session()->get('ses_id') . "'")->getResult();
-											?>
 											<div class="main-img-user"><img alt="" src="<?php base_url() ?>/image/<?= session()->get('ses_image') ?>" class=""></div>
-											<div class="ms-3 my-auto">
-												<h6><?= session()->get('ses_nama'); ?></h6><span><?= strtoupper($prodi[0]->namaunit); ?></span>
-											</div>
+											<div class="ms-3 my-auto"></div>
 										</div>
 									</div>
 									<a class="dropdown-item" href="/profil"><i class="bx bx-user-circle"></i>Profil</a>

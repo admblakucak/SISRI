@@ -20,15 +20,27 @@ use CodeIgniter\Images\Image;
                     <?= session()->getFlashdata('message') . "<br>"; ?>
                     <form action="<?php base_url() ?>/add_bidang_minat" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="exampleInputPeriode">Topik</label>
+                            <label for="exampleInputPeriode">Bidang Minat</label>
                             <input type="teks" class="form-control" id="exampleInput" placeholder="Topik" name="nama">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPeriode">Detail Topik</label>
+                            <label for="exampleInputPeriode">Deskripsi Bidang Minat</label>
                             <input type="teks" class="form-control" id="exampleInput" placeholder="Detail Topik" name="detail_topik">
                         </div>
                         <div class="form-group">
-                            <label class="checkbox"> <input type="checkbox" name="status" value="aktif"><span> Aktif ?</span></label>
+                            <div class="row row-sm mg-b-20">
+                                <div class="col-lg-4">
+                                    <label for="exampleInputPeriode">Status</label>
+                                    <select name="status" class="form-control select2">
+                                        <option value="aktif">
+                                            Aktif
+                                        </option>
+                                        <option value="nonaktif">
+                                            Tidak Aktif
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-3 mb-0">Tambah</button>
                     </form>
@@ -55,8 +67,8 @@ use CodeIgniter\Images\Image;
                                     <thead>
                                         <tr>
                                             <th style="text-align: center; vertical-align: middle;"><span>No.</span></th>
-                                            <th style="text-align: center; vertical-align: middle;"><span>Topik</span></th>
-                                            <th style="text-align: center; vertical-align: middle;"><span>Detail Topik</span></th>
+                                            <th style="text-align: center; vertical-align: middle;"><span>Bidang Minat</span></th>
+                                            <th style="text-align: center; vertical-align: middle;"><span>Deskripsi Bidang Minat</span></th>
                                             <th style="text-align: center; vertical-align: middle;"><span>Status</span></th>
                                             <th style="text-align: center; vertical-align: middle;"><span>Aksi</span></th>
                                         </tr>
