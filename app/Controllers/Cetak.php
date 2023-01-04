@@ -221,7 +221,7 @@ class Cetak extends BaseController
         }
         // ------------------------------------------------------------------
 
-        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResult();
+        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_idunit') . "'")->getResult();
         $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResult();
         $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResult();
         $data = [
@@ -333,7 +333,7 @@ class Cetak extends BaseController
             $qr_penguji_3 = '<br>(BELUM DITANDA TANGANI)<br>';
         }
         // ------------------------------------------------------------------
-        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResult();
+        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_idunit') . "'")->getResult();
         $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResult();
         $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResult();
         $data = [
