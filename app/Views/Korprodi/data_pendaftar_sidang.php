@@ -34,6 +34,11 @@ use CodeIgniter\Images\Image;
                                             <th style="text-align: center; vertical-align: middle;"><span>Penguji 3</span></th>
                                             <th style="text-align: center; vertical-align: middle;"><span>Waktu Sidang</span></th>
                                             <th style="text-align: center; vertical-align: middle;"><span>Ruang Sidang</span></th>
+                                            <?php
+                                            if ($data_jadwal[0]->jenis_sidang == 'sidang skripsi') {
+                                            ?>
+                                                <th style="text-align: center; vertical-align: middle;"><span>Selisih Sidang Seminar ke Sidang Skripsi</span></th>
+                                            <?php } ?>
                                             <th style="text-align: center; vertical-align: middle;"><span>Aksi</span></th>
                                         </tr>
                                     </thead>
@@ -79,6 +84,15 @@ use CodeIgniter\Images\Image;
                                                 <td><?= $penguji3 != NULL ? $penguji3[0]->gelardepan . ' ' . $penguji3[0]->nama . ', ' . $penguji3[0]->gelarbelakang : '' ?></td>
                                                 <td><?= $key->waktu_sidang ?></td>
                                                 <td><?= $key->ruang_sidang ?></td>
+                                                <?php
+                                                if ($data_jadwal[0]->jenis_sidang == 'sidang skripsi') {
+                                                    $d_s = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE a.`nim`='" . $key->nim . "' AND b.`jenis_sidang`='seminar proposal' ORDER BY a.`create_at` DESC")->getResult();
+                                                    $d_s = date_create(date('Y-m-d', strtotime($d_s[0]->waktu_sidang)));
+                                                    $d_now = date_create(date('Y-m-d'));
+                                                    $selisih = date_diff($d_s, $d_now);
+                                                ?>
+                                                    <td><?= $selisih->y . " tahun, " . $selisih->m . " bulan, " . $selisih->d . " hari" ?></td>
+                                                <?php } ?>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm" data-bs-target="#modalupdate<?= $key->id_pendaftar ?>" data-bs-toggle="modal" href="#"><i class="las la-pen">Setting</i></a>
                                                 </td>
