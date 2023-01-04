@@ -59,7 +59,7 @@ use CodeIgniter\Images\Image;
                             </form>
                             <hr />
                             <div class="table-responsive">
-                                <table class="table text-md-nowrap" id="example1">
+                                <table class="table text-md-nowrap" id="validasitable1">
                                     <thead>
                                         <tr>
                                             <th style="text-align: center; vertical-align: middle;"><span>No.</span></th>
