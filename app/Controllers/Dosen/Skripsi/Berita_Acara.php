@@ -26,7 +26,7 @@ class Berita_Acara extends BaseController
             'data_mhs_bimbingan' => $data_mhs_bimbingan,
             'data_mhs_uji' => $data_mhs_uji
         ];
-        return view('Dosen/skripsi/berita_acara', $data);
+        return view('Dosen/skripsi/berita_acara_skripsi', $data);
     }
     public function ttd()
     {
