@@ -14,7 +14,7 @@ use CodeIgniter\Images\Image;
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="d-flex justify-content-between">
-                                <h4 class="card-title mg-b-0">Berita Acara Sidang Skripsi</h4>
+                                <h4 class="card-title mg-b-0">Berita Acara Seminar Proposal</h4>
                                 <i class="mdi mdi-dots-horizontal text-gray"></i>
                             </div>
                         </div>
@@ -59,8 +59,8 @@ use CodeIgniter\Images\Image;
                                                                         $no = 1;
                                                                         foreach ($data_mhs_bimbingan as $key1) {
                                                                             $judul = $db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='" . $key1->nim . "'")->getResult();
-                                                                            $sidang = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='sidang skripsi' AND a.`nim`='" . $key1->nim . "' ORDER BY create_at DESC LIMIT 1")->getResult();
-                                                                            $berita_acara = $db->query("SELECT * FROM tb_berita_acara WHERE nim='" . $key1->nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='pembimbing $key1->sebagai' AND status='ditandatangani' AND jenis_sidang='skripsi'")->getResult();
+                                                                            $sidang = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='seminar proposal' AND a.`nim`='" . $key1->nim . "' ORDER BY create_at DESC LIMIT 1")->getResult();
+                                                                            $berita_acara = $db->query("SELECT * FROM tb_berita_acara WHERE nim='" . $key1->nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='pembimbing $key1->sebagai' AND status='ditandatangani' AND jenis_sidang='proposal'")->getResult();
                                                                         ?>
                                                                             <tr>
                                                                                 <td><?= $no ?></td>
@@ -97,7 +97,7 @@ use CodeIgniter\Images\Image;
                                                                                             }
                                                                                         }
                                                                                     } else {
-                                                                                        echo "<span class='text-danger ms-2'>Belum Mendaftar Sidang Skripsi</span>";
+                                                                                        echo "<span class='text-danger ms-2'>Belum Mendaftar Seminar Proposal</span>";
                                                                                     } ?>
                                                                                 </td>
                                                                             </tr>
@@ -107,7 +107,7 @@ use CodeIgniter\Images\Image;
                                                                                         <div class="modal-header">
                                                                                             <h6 class="modal-title">Menginputkan Nilai</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                                                                         </div>
-                                                                                        <form action="<?php base_url() ?>/tandatangani_skripsi" method="POST" enctype="multipart/form-data">
+                                                                                        <form action="<?php base_url() ?>/tandatangani_proposal" method="POST" enctype="multipart/form-data">
                                                                                             <div class="modal-body">
                                                                                                 <input type="hidden" name="nim" value="<?= $key1->nim ?>">
                                                                                                 <input type="hidden" name="sebagai" value="pembimbing <?= $key1->sebagai ?>">
@@ -175,8 +175,8 @@ use CodeIgniter\Images\Image;
                                                                         $no = 1;
                                                                         foreach ($data_mhs_uji as $key2) {
                                                                             $judul = $db->query("SELECT * FROM tb_pengajuan_topik WHERE nim='" . $key2->nim . "'")->getResult();
-                                                                            $sidang = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='sidang skripsi' AND a.`nim`='" . $key2->nim . "' ORDER BY create_at DESC LIMIT 1")->getResult();
-                                                                            $berita_acara = $db->query("SELECT * FROM tb_berita_acara WHERE nim='" . $key2->nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='penguji $key2->sebagai' AND status='ditandatangani' AND jenis_sidang='skripsi'")->getResult();
+                                                                            $sidang = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE b.`jenis_sidang`='seminar proposal' AND a.`nim`='" . $key2->nim . "' ORDER BY create_at DESC LIMIT 1")->getResult();
+                                                                            $berita_acara = $db->query("SELECT * FROM tb_berita_acara WHERE nim='" . $key2->nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='penguji $key2->sebagai' AND status='ditandatangani' AND jenis_sidang='proposal'")->getResult();
                                                                         ?>
                                                                             <tr>
                                                                                 <td><?= $no ?></td>
@@ -209,7 +209,7 @@ use CodeIgniter\Images\Image;
                                                                                             echo "<span class='text-success ms-2'>Telah Ditandatangani</span>";
                                                                                         }
                                                                                     } else {
-                                                                                        echo "<span class='text-danger ms-2'>Belum Mendaftar Sidang Skripsi</span>";
+                                                                                        echo "<span class='text-danger ms-2'>Belum Mendaftar Seminar Proposal</span>";
                                                                                     } ?>
                                                                                 </td>
                                                                             </tr>
@@ -219,7 +219,7 @@ use CodeIgniter\Images\Image;
                                                                                         <div class="modal-header">
                                                                                             <h6 class="modal-title">Tanda Tangan Berita Acara</h6><button aria-label="Close" class="close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                                                                         </div>
-                                                                                        <form action="<?php base_url() ?>/tandatangani_skripsi" method="POST" enctype="multipart/form-data">
+                                                                                        <form action="<?php base_url() ?>/tandatangani_proposal" method="POST" enctype="multipart/form-data">
                                                                                             <div class="modal-body">
                                                                                                 <input type="hidden" name="nim" value="<?= $key2->nim ?>">
                                                                                                 <input type="hidden" name="sebagai" value="penguji <?= $key2->sebagai ?>">

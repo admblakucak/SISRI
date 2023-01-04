@@ -127,7 +127,7 @@
 							<ul class="slide-menu">
 								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_skripsi">Bimbingan Skripsi</a></li>
 								<li><a class="slide-item" href="/validasi_daftar_sidang">Validasi Daftar Sidang</a></li>
-								<li><a class="slide-item" href="/berita_acara">Berita Acara Sidang</a></li>
+								<li><a class="slide-item" href="/berita_acara_skripsi">Berita Acara Sidang</a></li>
 								<li><a class="slide-item" href="/data_mahasiswa_bimbingan_revisi_skripsi">Validasi Revisi Pasca Sidang</a></li>
 							</ul>
 						</li>

@@ -121,6 +121,11 @@ $routes->add('/data_mahasiswa_bimbingan_proposal', 'Dosen\Proposal\Bimbingan::in
 $routes->add('/bimbingan_proposal_dosen/(:any)', 'Dosen\Proposal\Bimbingan::bimbingan_proposal_dosen/$1');
 $routes->add('/hapus_bimbingan_dosen', 'Dosen\Proposal\Bimbingan::hapus');
 $routes->add('/tambah_bimbingan_proposal_dosen', 'Dosen\Proposal\Bimbingan::tambah');
+//Route Khusus Controller Dosen-Berita Acara
+$routes->add('/berita_acara_seminar', 'Dosen\Proposal\Berita_Acara::index');
+$routes->add('/tandatangani_proposal', 'Dosen\Proposal\Berita_Acara::ttd');
+$routes->add('/berita_acara_skripsi', 'Dosen\Skripsi\Berita_Acara::index');
+$routes->add('/tandatangani_skripsi', 'Dosen\Skripsi\Berita_Acara::ttd');
 //Route Khusus Controller Dosen-Validasi Daftar Seminar
 $routes->add('/validasi_daftar_seminar', 'Dosen\Proposal\Validasi_Daftar_Seminar::index');
 $routes->add('/proses_validasi_daftar_seminar', 'Dosen\Proposal\Validasi_Daftar_Seminar::validasi');
@@ -178,12 +183,7 @@ $routes->get('/berita_acara_skripsi/(:any)', 'Cetak::berita_acara_skripsi/$1');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/generate_password', 'Welcome::generate_password');
 $routes->add('/generate_berita_acara', 'Welcome::generate_berita_acara');
-$routes->add('/berita_acara_seminar', 'Welcome::berita_acara_seminar');
 $routes->add('/daftar_nilai', 'Welcome::daftar_nilai');
-$routes->add('/input_nilai', 'Welcome::input_nilai_skripsi');
-$routes->add('/berita_acara', 'Welcome::berita_acara_sidang_skripsi');
-$routes->add('/berkas_proposal', 'Welcome::berkas_proposal');
-$routes->add('/berkas_sidang', 'Welcome::berkas_sidang');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
