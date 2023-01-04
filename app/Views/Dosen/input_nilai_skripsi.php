@@ -12,10 +12,10 @@ use CodeIgniter\Images\Image;
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <div class="card-title mg-b-0">Input Nilai Ujian Skripsi</div>
+                        <div class="card-title mg-b-0">Input Nilai Khusus Penguji</div>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Menginputkan nilai ujian skripsi mahasiswa</p>
+                    <p class="tx-12 tx-gray-500 mb-2">Silahkan input nilai ujian skripsi.</p>
                 </div>
                 <div class="row mt-3">
                     <div class="col">
