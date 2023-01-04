@@ -144,6 +144,11 @@ $routes->add('/bimbingan_revisi_skripsi_dosen/(:any)', 'Dosen\Skripsi\Revisi::bi
 $routes->add('/hapus_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::hapus');
 $routes->add('/tambah_bimbingan_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::tambah');
 $routes->add('/acc_revisi_skripsi_dosen', 'Dosen\Skripsi\Revisi::acc');
+//Route Khusus Controller Dosen-Nilai
+$routes->add('/input_nilai_bimbingan', 'Dosen\Nilai::index');
+$routes->add('/save_nilai_bimbingan', 'Dosen\Nilai::save_nilai_bimbingan');
+$routes->add('/input_nilai_skripsi', 'Dosen\Nilai::nilai_skripsi');
+$routes->add('/save_nilai_skripsi', 'Dosen\Nilai::save_nilai_skripsi');
 // --------------------------------------KORPRODI-------------------------------------------
 //Route Khusus Controller Korprodi-Penjadwalan Sidang
 $routes->add('/bidang_minat', 'Korprodi\Bidang_Minat::index');

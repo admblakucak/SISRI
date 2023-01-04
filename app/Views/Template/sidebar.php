@@ -137,7 +137,8 @@
 
 								</svg> &nbsp; &nbsp;<span class="side-menu__label">Nilai</span><i class="angle fe fe-chevron-down"></i></a>
 							<ul class="slide-menu">
-								<li><a class="slide-item" href="/input_nilai">Input Nilai</a></li>
+								<li><a class="slide-item" href="/input_nilai_bimbingan">Input Nilai Bimbingan (Pembimbing)</a></li>
+								<li><a class="slide-item" href="/input_nilai_skripsi">Input Nilai Skripsi (Penguji)</a></li>
 							</ul>
 						</li>
 						<?php if (session()->get('ses_login') == 'korprodi') {; ?>
