@@ -100,7 +100,7 @@
     <table width="100%">
         <tr>
             <td align="center" width="50%"></td>
-            <td align="center">Diketahui oleh<br>Pembimbing <?= $pembimbing ?><br><?= $qr ?><br><u><?= $nama_pembimbing->gelardepan . ' ' . $nama_pembimbing->nama . ', ' . $nama_pembimbing->gelarbelakang ?></u><br>NIP. <?= $nip ?></td>
+            <td align="center">Diketahui oleh<br>Pembimbing <?= $pembimbing ?><br><?= $qr ?><br><u><?= $nama_pembimbing->gelardepan . ' ' . ucwords(strtolower($nama_pembimbing->nama)) . ', ' . $nama_pembimbing->gelarbelakang ?></u><br>NIP. <?= $nip ?></td>
         </tr>
     </table>
     </p>

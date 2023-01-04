@@ -135,7 +135,7 @@
     <table>
         <tr>
             <th align="left"> Nama </th>
-            <td> : <?= $nama ?></td>
+            <td> : <?= ucwords(strtolower($nama)) ?></td>
         </tr>
         <tr>
             <th align="left"> NIM / NRP </th>
@@ -143,19 +143,19 @@
         </tr>
         <tr>
             <th align="left"> Program Studi </th>
-            <td> : <?= $nm_prodi ?></td>
+            <td> : <?= ucwords(strtolower($nm_prodi)) ?></td>
         </tr>
         <tr>
             <th align="left"> Jurusan </th>
-            <td> : <?= $nm_jurusan ?></td>
+            <td> : <?= ucwords(strtolower($nm_jurusan)) ?></td>
         </tr>
         <tr>
             <th align="left"> Fakultas </th>
-            <td> : <?= $nm_fakultas ?></td>
+            <td> : <?= ucwords(strtolower($nm_fakultas)) ?></td>
         </tr>
         <tr>
             <th align="left"> Judul Skripsi </th>
-            <td> : <?= $judul_skripsi ?></td>
+            <td> : <?= ucwords(strtolower($judul_skripsi)) ?></td>
         </tr>
     </table>
     </p>
@@ -170,10 +170,10 @@
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
         <tr>
             <td align="center" width="50%" style="border: 1px solid black;text-align:center;">
-                Diketahui oleh<br>Pembimbing <?= $dosen_pembimbing_1[0]->sebagai ?><br><?= $qr_pembimbing_1 ?><br><u><?= $dosen_pembimbing_1[0]->gelardepan . ' ' . $dosen_pembimbing_1[0]->nama . ', ' . $dosen_pembimbing_1[0]->gelarbelakang ?></u><br>NIP. <?= $dosen_pembimbing_1[0]->nip ?>
+                Diketahui oleh<br>Pembimbing <?= $dosen_pembimbing_1[0]->sebagai ?><br><?= $qr_pembimbing_1 ?><br><u><?= $dosen_pembimbing_1[0]->gelardepan . ' ' . ucwords(strtolower($dosen_pembimbing_1[0]->nama)) . ', ' . $dosen_pembimbing_1[0]->gelarbelakang ?></u><br>NIP. <?= $dosen_pembimbing_1[0]->nip ?>
             </td>
             <td align="center" width="50%" style="border: 1px solid black;text-align:center;">
-                Diketahui oleh<br>Pembimbing <?= $dosen_pembimbing_2[0]->sebagai ?><br><?= $qr_pembimbing_1 ?><br><u><?= $dosen_pembimbing_2[0]->gelardepan . ' ' . $dosen_pembimbing_2[0]->nama . ', ' . $dosen_pembimbing_2[0]->gelarbelakang ?></u><br>NIP. <?= $dosen_pembimbing_2[0]->nip ?>
+                Diketahui oleh<br>Pembimbing <?= $dosen_pembimbing_2[0]->sebagai ?><br><?= $qr_pembimbing_1 ?><br><u><?= $dosen_pembimbing_2[0]->gelardepan . ' ' . ucwords(strtolower($dosen_pembimbing_2[0]->nama)) . ', ' . $dosen_pembimbing_2[0]->gelarbelakang ?></u><br>NIP. <?= $dosen_pembimbing_2[0]->nip ?>
             </td>
         </tr>
     </table>
@@ -181,15 +181,15 @@
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
         <tr>
             <td align="center" width="33%" style="border: 1px solid black;text-align:center;">
-                Diketahui oleh<br>Penguji <?= $penguji_1[0]->sebagai ?><br><?= $qr_penguji_1 ?><br><u><?= $penguji_1[0]->gelardepan . ' ' . $penguji_1[0]->nama . ', ' . $penguji_1[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_1[0]->nip ?>
+                Diketahui oleh<br>Penguji <?= $penguji_1[0]->sebagai ?><br><?= $qr_penguji_1 ?><br><u><?= $penguji_1[0]->gelardepan . ' ' . ucwords(strtolower($penguji_1[0]->nama)) . ', ' . $penguji_1[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_1[0]->nip ?>
 
             </td>
             <td align="center" width="34%" style="border: 1px solid black;text-align:center;">
-                Diketahui oleh<br>Penguji <?= $penguji_2[0]->sebagai ?><br><?= $qr_penguji_2 ?><br><u><?= $penguji_2[0]->gelardepan . ' ' . $penguji_2[0]->nama . ', ' . $penguji_2[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_2[0]->nip ?>
+                Diketahui oleh<br>Penguji <?= $penguji_2[0]->sebagai ?><br><?= $qr_penguji_2 ?><br><u><?= $penguji_2[0]->gelardepan . ' ' . ucwords(strtolower($penguji_2[0]->nama)) . ', ' . $penguji_2[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_2[0]->nip ?>
 
             </td>
             <td align="center" width="33%" style="border: 1px solid black;text-align:center;">
-                Diketahui oleh<br>Penguji <?= $penguji_3[0]->sebagai ?><br><?= $qr_penguji_3 ?><br><u><?= $penguji_3[0]->gelardepan . ' ' . $penguji_3[0]->nama . ', ' . $penguji_3[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_3[0]->nip ?>
+                Diketahui oleh<br>Penguji <?= $penguji_3[0]->sebagai ?><br><?= $qr_penguji_3 ?><br><u><?= $penguji_3[0]->gelardepan . ' ' . ucwords(strtolower($penguji_3[0]->nama)) . ', ' . $penguji_3[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_3[0]->nip ?>
             </td>
         </tr>
     </table>

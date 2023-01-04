@@ -245,7 +245,7 @@ class Cetak extends BaseController
             'nm_jurusan' => $jurusan[0]->namaunit,
             'nm_fakultas' => $fakultas[0]->namaunit,
         ];
-        return view('Cetak/berita_acara_proposal', $data);
+        // return view('Cetak/berita_acara_proposal', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/berita_acara_proposal', $data));
