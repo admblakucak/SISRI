@@ -221,9 +221,9 @@ class Cetak extends BaseController
         }
         // ------------------------------------------------------------------
 
-        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResut();
-        $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResut();
-        $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResut();
+        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResult();
+        $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResult();
+        $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResult();
         $data = [
             'title' => 'Berita Acara Seminar Proposal',
             'baseurl' => base_url(),
@@ -245,7 +245,7 @@ class Cetak extends BaseController
             'nm_jurusan' => $jurusan[0]->namaunit,
             'nm_fakultas' => $fakultas[0]->namaunit,
         ];
-        // return view('Cetak/berita_acara_proposal', $data);
+        return view('Cetak/berita_acara_proposal', $data);
         $dompdf = new Dompdf();
         $filename = date('y-m-d-H-i-s');
         $dompdf->loadHtml(view('Cetak/berita_acara_proposal', $data));
@@ -333,9 +333,9 @@ class Cetak extends BaseController
             $qr_penguji_3 = '<br>(BELUM DITANDA TANGANI)<br>';
         }
         // ------------------------------------------------------------------
-        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResut();
-        $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResut();
-        $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResut();
+        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResult();
+        $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResult();
+        $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResult();
         $data = [
             'title' => 'Berita Acara Sidang Skripsi',
             'baseurl' => base_url(),
