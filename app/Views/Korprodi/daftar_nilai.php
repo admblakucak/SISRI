@@ -78,22 +78,27 @@ use CodeIgniter\Images\Image;
                                             $nb = (($nb_pembimbing1 + $nb_pembimbing2) / 2) * (60 / 100);
                                             $ns = (($ns_pembimbing1 + $ns_pembimbing2 + $ns_penguji1 + $ns_penguji2 + $ns_penguji3) / 5) * (40 / 100);
                                             $total = $nb + $ns;
-                                            if ($total >= 80) {
-                                                $grade = "A";
-                                            } elseif ($total >= 75 && $total <= 79) {
-                                                $grade = "B+";
-                                            } elseif ($total >= 70 && $total <= 74) {
-                                                $grade = "B";
-                                            } elseif ($total >= 65 && $total <= 69) {
-                                                $grade = "C+";
-                                            } elseif ($total >= 60 && $total <= 64) {
-                                                $grade = "C";
-                                            } elseif ($total >= 55 && $total <= 59) {
-                                                $grade = "D+";
-                                            } elseif ($total >= 50 && $total <= 54) {
-                                                $grade = "D";
+                                            $sidang = $db->query("SELECT * FROM tb_pendaftar_sidang a LEFT JOIN tb_jadwal_sidang b ON a.`id_jadwal`=b.`id_jadwal` WHERE a.`nim`='" . $key->id . "' AND b.`jenis_sidang`='sidang skripsi' ORDER BY create_at DESC LIMIT 1")->getResult();
+                                            if (!empty($sidang)) {
+                                                if ($total >= 80) {
+                                                    $grade = "A";
+                                                } elseif ($total >= 75 && $total <= 79) {
+                                                    $grade = "B+";
+                                                } elseif ($total >= 70 && $total <= 74) {
+                                                    $grade = "B";
+                                                } elseif ($total >= 65 && $total <= 69) {
+                                                    $grade = "C+";
+                                                } elseif ($total >= 60 && $total <= 64) {
+                                                    $grade = "C";
+                                                } elseif ($total >= 55 && $total <= 59) {
+                                                    $grade = "D+";
+                                                } elseif ($total >= 50 && $total <= 54) {
+                                                    $grade = "D";
+                                                } else {
+                                                    $grade = "E";
+                                                }
                                             } else {
-                                                $grade = "E";
+                                                $grade = "<span class='text-danger ms-2'>Belum Mendaftar Sidang Skripsi</span>";
                                             }
                                         ?>
                                             <tr>
