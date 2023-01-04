@@ -81,24 +81,14 @@ class Nilai extends BaseController
             return redirect()->to('/');
         }
         $nim = $this->request->getPost('nim');
-        $nilai = $this->request->getPost('nilai');
+        $nilai = $this->request->getPost('nilai_bimbingan');
+        $nilai_ujian = $this->request->getPost('nilai_ujian');
         $sebagai = $this->request->getPost('sebagai');
         $d_nilai = $this->db->query("SELECT * FROM tb_nilai WHERE nim='" . $nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='" . $sebagai . "'")->getResult();
-        if ($sebagai == 'pembimbing 1') {
-            // $status = $this->request->getPost('status');
-            // $id_pendaftar = $this->request->getPost('id_pendaftar');
-            // $this->db->query("UPDATE tb_pendaftar_sidang SET hasil_sidang='$status' WHERE id_pendaftar='$id_pendaftar'");
-            if (empty($d_nilai)) {
-                $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai')");
-            } else {
-                $this->db->query("UPDATE tb_nilai SET nilai = '$nilai' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND sebagai='$sebagai'");
-            }
+        if (empty($d_nilai)) {
+            $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai_bimbingan,nilai_ujian) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai','$nilai_ujian')");
         } else {
-            if (empty($d_nilai)) {
-                $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai')");
-            } else {
-                $this->db->query("UPDATE tb_nilai SET nilai = '$nilai' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND sebagai='$sebagai'");
-            }
+            $this->db->query("UPDATE tb_nilai SET nilai_bimbingan = '$nilai',nilai_ujian = '$nilai_ujian' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND sebagai='$sebagai'");
         }
         return redirect()->to('/input_nilai_bimbingan');
     }
@@ -108,24 +98,13 @@ class Nilai extends BaseController
             return redirect()->to('/');
         }
         $nim = $this->request->getPost('nim');
-        $nilai = $this->request->getPost('nilai');
+        $nilai = $this->request->getPost('nilai_ujian');
         $sebagai = $this->request->getPost('sebagai');
         $d_nilai = $this->db->query("SELECT * FROM tb_nilai WHERE nim='" . $nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='" . $sebagai . "'")->getResult();
-        if ($sebagai == 'pembimbing 1') {
-            // $status = $this->request->getPost('status');
-            // $id_pendaftar = $this->request->getPost('id_pendaftar');
-            // $this->db->query("UPDATE tb_pendaftar_sidang SET hasil_sidang='$status' WHERE id_pendaftar='$id_pendaftar'");
-            if (empty($d_nilai)) {
-                $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai')");
-            } else {
-                $this->db->query("UPDATE tb_nilai SET nilai = '$nilai' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND sebagai='$sebagai'");
-            }
+        if (empty($d_nilai)) {
+            $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai_ujian) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai')");
         } else {
-            if (empty($d_nilai)) {
-                $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai')");
-            } else {
-                $this->db->query("UPDATE tb_nilai SET nilai = '$nilai' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND sebagai='$sebagai'");
-            }
+            $this->db->query("UPDATE tb_nilai SET nilai_ujian = '$nilai' WHERE nim='$nim' AND nip='" . session()->get('ses_id') . "' AND sebagai='$sebagai'");
         }
         return redirect()->to('/input_nilai_skripsi');
     }

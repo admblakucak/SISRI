@@ -45,7 +45,7 @@ use CodeIgniter\Images\Image;
                                                 <th scope="row"><?= $no ?></th>
                                                 <td><?= $key['nim'] . ' - ' . $key['nama_mhs']; ?></td>
                                                 <td><?= $judul[0]->judul_topik ?></td>
-                                                <td><?= empty($nilai) ? '<span class="text-danger ms-2">Belum Dinilai</span>' : $nilai[0]->nilai ?></td>
+                                                <td><?= empty($nilai) ? '<span class="text-danger ms-2">Belum Dinilai</span>' : $nilai[0]->nilai_ujian ?></td>
                                                 <td>
                                                     <?php
                                                     if (!empty($sidang)) {
@@ -90,8 +90,8 @@ use CodeIgniter\Images\Image;
                                                                     <label for="exampleInputEmail1">Anda Sebagai : <b>Penguji <?= $key['sebagai'] ?></b></label>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Nilai</label>
-                                                                    <input type="teks" class="form-control" id="exampleInput" name='nilai' value='<?= empty($nilai) ? '' : $nilai[0]->nilai ?>' placeholder="0 - 100">
+                                                                    <label for="exampleInputEmail1">Nilai Ujian Skripsi</label>
+                                                                    <input type="teks" class="form-control" id="exampleInput" name='nilai_ujian' value='<?= empty($nilai) ? '' : $nilai[0]->nilai_ujian ?>' placeholder="0 - 100">
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">

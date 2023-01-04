@@ -12,10 +12,10 @@ use CodeIgniter\Images\Image;
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <div class="card-title mg-b-0">Input Nilai Skripsi</div>
+                        <div class="card-title mg-b-0">Daftar Nilai Ujian Skripsi</div>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
-                    <p class="tx-12 tx-gray-500 mb-2">Menginputkan nilai skripsi mahasiswa</p>
+                    <p class="tx-12 tx-gray-500 mb-2">Daftar Nilai</p>
                 </div>
                 <div class="row mt-3">
                     <div class="col">
@@ -38,19 +38,29 @@ use CodeIgniter\Images\Image;
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>170441100023</td>
-                                            <td>Mahrus Sholeh</td>
-                                            <td>Sistem Peramalan Hasil Panen Bawang Merah</td>
-                                            <td>80</td>
-                                            <td>75</td>
-                                            <td>85</td>
-                                            <td>90</td>
-                                            <td>95</td>
-                                            <td>100</td>
-                                            <td>A</td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($data_mhs as $key) {
+                                            $mhs = $db->query("SELECT * FROM tb_mahasiswa WHERE nim = '" . $key->id . "'")->getResult();
+                                            $judul = $db->query("SELECT * FROM tb_pengajuan_topik WHERE nim = '" . $key->id . "'")->getResult();
+                                            $nilai = $db->query("SELECT * FROM tb_mahasiswa WHERE nim = '" . $key->id . "'")->getResult();
+
+                                        ?>
+                                            <tr>
+                                                <th scope="row"><?= $no ?></th>
+                                                <td><?= $key->id ?></td>
+                                                <td><?= $mhs[0]->nama ?></td>
+                                                <td><?= $judul[0]->judul_topik ?></td>
+                                                <td>80</td>
+                                                <td>75</td>
+                                                <td>85</td>
+                                                <td>90</td>
+                                                <td>95</td>
+                                                <td>100</td>
+                                                <td>A</td>
+                                            </tr>
+                                        <?php $no++;
+                                        } ?>
                                     </tbody>
                                 </table>
                             </div>

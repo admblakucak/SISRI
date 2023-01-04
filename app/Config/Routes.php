@@ -169,6 +169,8 @@ $routes->add('/data_pendaftar', 'Korprodi\Penjadwalan_Sidang::data_pendaftar');
 //Route Khusus Controller Dosen-Validasi Daftar Seminar
 $routes->add('/validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::index');
 $routes->add('/proses_validasi_daftar_seminar_koor', 'Korprodi\Validasi_Daftar_Seminar::validasi');
+//Route Khusus Controller Koorprodi
+$routes->add('/daftar_nilai', 'Korprodi\Nilai::index');
 // --------------------------------------CETAK-------------------------------------------
 $routes->add('/cobaqr', 'Cetak::cobaqr');
 $routes->add('/berkas_mhs_proposal', 'Cetak::berkas_mhs_proposal');
@@ -183,7 +185,6 @@ $routes->get('/berita_acara_skripsi/(:any)', 'Cetak::berita_acara_skripsi/$1');
 $routes->add('/Berita-Acara', 'Welcome::Berita_Acara');
 $routes->add('/generate_password', 'Welcome::generate_password');
 $routes->add('/generate_berita_acara', 'Welcome::generate_berita_acara');
-$routes->add('/daftar_nilai', 'Welcome::daftar_nilai');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

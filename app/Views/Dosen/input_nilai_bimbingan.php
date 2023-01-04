@@ -27,7 +27,8 @@ use CodeIgniter\Images\Image;
                                             <th style="text-align: center; vertical-align: middle;"><span>No.</span></th>
                                             <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-2"><span>Nama</span></th>
                                             <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-4"><span>Judul Skripsi</span></th>
-                                            <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-3"><span>Nilai</span></th>
+                                            <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-3"><span>Nilai Bimbingan</span></th>
+                                            <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-3"><span>Nilai Ujian Skripsi</span></th>
                                             <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-3"><span>Status Bimbingan Skripsi</span></th>
                                             <th style="text-align: center; vertical-align: middle;" class="col-sm-7 col-md-6 col-lg-4"><span>Aksi</span></th>
                                         </tr>
@@ -45,7 +46,8 @@ use CodeIgniter\Images\Image;
                                                 <th scope="row"><?= $no ?></th>
                                                 <td><?= $key['nim'] . ' - ' . $key['nama_mhs']; ?></td>
                                                 <td><?= $judul[0]->judul_topik ?></td>
-                                                <td><?= empty($nilai) ? '<span class="text-danger ms-2">Belum Dinilai</span>' : $nilai[0]->nilai ?></td>
+                                                <td><?= empty($nilai) ? '<span class="text-danger ms-2">Belum Dinilai</span>' : $nilai[0]->nilai_bimbingan ?></td>
+                                                <td><?= empty($nilai) ? '<span class="text-danger ms-2">Belum Dinilai</span>' : $nilai[0]->nilai_ujian ?></td>
                                                 <td>
                                                     <?php
                                                     if (!empty($sidang)) {
@@ -90,8 +92,12 @@ use CodeIgniter\Images\Image;
                                                                     <label for="exampleInputEmail1">Anda Sebagai : <b>Pembimbing <?= $key['sebagai'] ?></b></label>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Nilai</label>
-                                                                    <input type="teks" class="form-control" id="exampleInput" name='nilai' value='<?= empty($nilai) ? '' : $nilai[0]->nilai ?>' placeholder="0 - 100">
+                                                                    <label for="exampleInputEmail1">Nilai Bimbingan</label>
+                                                                    <input type="teks" class="form-control" id="exampleInput" name='nilai_bimbingan' value='<?= empty($nilai) ? '' : $nilai[0]->nilai_bimbingan ?>' placeholder="0 - 100">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Nilai Ujian Skripsi</label>
+                                                                    <input type="teks" class="form-control" id="exampleInput" name='nilai_ujian' value='<?= empty($nilai) ? '' : $nilai[0]->nilai_ujian ?>' placeholder="0 - 100">
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
