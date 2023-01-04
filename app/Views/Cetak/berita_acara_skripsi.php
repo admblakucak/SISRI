@@ -31,6 +31,7 @@
             margin-top: -40px;
         }
     </style>
+    <link href="<?php base_url() ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body style="font-size: 12px">
@@ -141,6 +142,18 @@
             <td> : <?= $nim ?></td>
         </tr>
         <tr>
+            <th align="left"> Program Studi </th>
+            <td> : <?= $nm_prodi ?></td>
+        </tr>
+        <tr>
+            <th align="left"> Jurusan </th>
+            <td> : <?= $nm_jurusan ?></td>
+        </tr>
+        <tr>
+            <th align="left"> Fakultas </th>
+            <td> : <?= $nm_fakultas ?></td>
+        </tr>
+        <tr>
             <th align="left"> Judul Skripsi </th>
             <td> : <?= $judul_skripsi ?></td>
         </tr>
@@ -156,21 +169,26 @@
     <p>
     <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
         <tr>
-            <td align="center" width="20%" style="border: 1px solid black;text-align:center;">
+            <td align="center" width="50%" style="border: 1px solid black;text-align:center;">
                 Diketahui oleh<br>Pembimbing <?= $dosen_pembimbing_1[0]->sebagai ?><br><?= $qr_pembimbing_1 ?><br><u><?= $dosen_pembimbing_1[0]->gelardepan . ' ' . $dosen_pembimbing_1[0]->nama . ', ' . $dosen_pembimbing_1[0]->gelarbelakang ?></u><br>NIP. <?= $dosen_pembimbing_1[0]->nip ?>
             </td>
-            <td align="center" width="20%" style="border: 1px solid black;text-align:center;">
+            <td align="center" width="50%" style="border: 1px solid black;text-align:center;">
                 Diketahui oleh<br>Pembimbing <?= $dosen_pembimbing_2[0]->sebagai ?><br><?= $qr_pembimbing_1 ?><br><u><?= $dosen_pembimbing_2[0]->gelardepan . ' ' . $dosen_pembimbing_2[0]->nama . ', ' . $dosen_pembimbing_2[0]->gelarbelakang ?></u><br>NIP. <?= $dosen_pembimbing_2[0]->nip ?>
             </td>
-            <td align="center" width="20%" style="border: 1px solid black;text-align:center;">
+        </tr>
+    </table>
+    <br />
+    <table width="100%" style="border: 1px solid black;border-collapse: collapse;">
+        <tr>
+            <td align="center" width="33%" style="border: 1px solid black;text-align:center;">
                 Diketahui oleh<br>Penguji <?= $penguji_1[0]->sebagai ?><br><?= $qr_penguji_1 ?><br><u><?= $penguji_1[0]->gelardepan . ' ' . $penguji_1[0]->nama . ', ' . $penguji_1[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_1[0]->nip ?>
 
             </td>
-            <td align="center" width="20%" style="border: 1px solid black;text-align:center;">
+            <td align="center" width="34%" style="border: 1px solid black;text-align:center;">
                 Diketahui oleh<br>Penguji <?= $penguji_2[0]->sebagai ?><br><?= $qr_penguji_2 ?><br><u><?= $penguji_2[0]->gelardepan . ' ' . $penguji_2[0]->nama . ', ' . $penguji_2[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_2[0]->nip ?>
 
             </td>
-            <td align="center" width="20%" style="border: 1px solid black;text-align:center;">
+            <td align="center" width="33%" style="border: 1px solid black;text-align:center;">
                 Diketahui oleh<br>Penguji <?= $penguji_3[0]->sebagai ?><br><?= $qr_penguji_3 ?><br><u><?= $penguji_3[0]->gelardepan . ' ' . $penguji_3[0]->nama . ', ' . $penguji_3[0]->gelarbelakang ?></u><br>NIP. <?= $penguji_3[0]->nip ?>
             </td>
         </tr>

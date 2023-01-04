@@ -84,7 +84,7 @@ class Cetak extends BaseController
             'pembimbing' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing WHERE nip='$id_pembimbing' AND nim='$id' AND status_pengajuan='diterima'")->getResult()[0]->sebagai,
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
-            'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
+            'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `to`='$id' AND `from`='$id_pembimbing' AND pokok_bimbingan!=''  AND kategori_bimbingan='1'")->getResult(),
             'qr' => $qr,
             'db' => $this->db,
         ];
@@ -128,7 +128,7 @@ class Cetak extends BaseController
             'pembimbing' => $this->db->query("SELECT * FROM tb_pengajuan_pembimbing WHERE nip='$id_pembimbing' AND nim='$id' AND status_pengajuan='diterima'")->getResult()[0]->sebagai,
             'nama_pembimbing' => $nama_pembimbing,
             'nip' => $id_pembimbing,
-            'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `from`='$id' AND `to`='$id_pembimbing' AND pokok_bimbingan!='' AND kategori_bimbingan='3'")->getResult(),
+            'data' => $this->db->query("SELECT * FROM tb_bimbingan WHERE `to`='$id' AND `from`='$id_pembimbing' AND pokok_bimbingan!='' AND kategori_bimbingan='3'")->getResult(),
             'qr' => $qr,
             'db' => $this->db,
         ];
@@ -221,6 +221,9 @@ class Cetak extends BaseController
         }
         // ------------------------------------------------------------------
 
+        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResut();
+        $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResut();
+        $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResut();
         $data = [
             'title' => 'Berita Acara Seminar Proposal',
             'baseurl' => base_url(),
@@ -238,6 +241,9 @@ class Cetak extends BaseController
             'qr_penguji_2' => $qr_penguji_2,
             'qr_penguji_3' => $qr_penguji_3,
             'db' => $this->db,
+            'nm_prodi' => $prodi[0]->namaunit,
+            'nm_jurusan' => $jurusan[0]->namaunit,
+            'nm_fakultas' => $fakultas[0]->namaunit,
         ];
         // return view('Cetak/berita_acara_proposal', $data);
         $dompdf = new Dompdf();
@@ -327,7 +333,9 @@ class Cetak extends BaseController
             $qr_penguji_3 = '<br>(BELUM DITANDA TANGANI)<br>';
         }
         // ------------------------------------------------------------------
-
+        $prodi = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . session()->get('ses_id') . "'")->getResut();
+        $jurusan = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $prodi[0]->parentunit . "'")->getResut();
+        $fakultas = $this->db->query("SELECT * FROM tb_unit WHERE idunit='" . $jurusan[0]->parentunit . "'")->getResut();
         $data = [
             'title' => 'Berita Acara Sidang Skripsi',
             'baseurl' => base_url(),
@@ -345,6 +353,9 @@ class Cetak extends BaseController
             'qr_penguji_2' => $qr_penguji_2,
             'qr_penguji_3' => $qr_penguji_3,
             'db' => $this->db,
+            'nm_prodi' => $prodi[0]->namaunit,
+            'nm_jurusan' => $jurusan[0]->namaunit,
+            'nm_fakultas' => $fakultas[0]->namaunit,
         ];
         // return view('Cetak/berita_acara_skripsi', $data);
         $dompdf = new Dompdf();
