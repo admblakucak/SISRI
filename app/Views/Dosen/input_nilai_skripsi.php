@@ -90,18 +90,6 @@ use CodeIgniter\Images\Image;
                                                                     <label for="exampleInputEmail1">Anda Sebagai : <b>Penguji <?= $key['sebagai'] ?></b></label>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Status Ujian Skripsi</label>
-                                                                    <label class="rdiobox mb-1">
-                                                                        <input <?= !empty($sidang) ? ($sidang[0]->hasil_sidang == '1' ? "checked" : '') : '' ?> disabled type="radio" name="status" value="1"><span>Disetuji tanpa perbaikan</span>
-                                                                    </label>
-                                                                    <label class="rdiobox mb-1">
-                                                                        <input <?= !empty($sidang) ? ($sidang[0]->hasil_sidang == '2' ? "checked" : '') : '' ?> disabled type="radio" name="status" value="2"><span>Disetujui dengan perbaikan</span>
-                                                                    </label>
-                                                                    <label class="rdiobox">
-                                                                        <input <?= !empty($sidang) ? ($sidang[0]->hasil_sidang == '3' ? "checked" : '') : '' ?> disabled type="radio" name="status" value="3"><span>Tidak disetujui/mengulang</span>
-                                                                    </label>
-                                                                </div>
-                                                                <div class="form-group">
                                                                     <label for="exampleInputEmail1">Nilai</label>
                                                                     <input type="teks" class="form-control" id="exampleInput" name='nilai' value='<?= empty($nilai) ? '' : $nilai[0]->nilai ?>' placeholder="0 - 100">
                                                                 </div>

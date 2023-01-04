@@ -85,9 +85,9 @@ class Nilai extends BaseController
         $sebagai = $this->request->getPost('sebagai');
         $d_nilai = $this->db->query("SELECT * FROM tb_nilai WHERE nim='" . $nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='" . $sebagai . "'")->getResult();
         if ($sebagai == 'pembimbing 1') {
-            $status = $this->request->getPost('status');
-            $id_pendaftar = $this->request->getPost('id_pendaftar');
-            $this->db->query("UPDATE tb_pendaftar_sidang SET hasil_sidang='$status' WHERE id_pendaftar='$id_pendaftar'");
+            // $status = $this->request->getPost('status');
+            // $id_pendaftar = $this->request->getPost('id_pendaftar');
+            // $this->db->query("UPDATE tb_pendaftar_sidang SET hasil_sidang='$status' WHERE id_pendaftar='$id_pendaftar'");
             if (empty($d_nilai)) {
                 $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai')");
             } else {
@@ -112,9 +112,9 @@ class Nilai extends BaseController
         $sebagai = $this->request->getPost('sebagai');
         $d_nilai = $this->db->query("SELECT * FROM tb_nilai WHERE nim='" . $nim . "' AND nip='" . session()->get('ses_id') . "' AND sebagai='" . $sebagai . "'")->getResult();
         if ($sebagai == 'pembimbing 1') {
-            $status = $this->request->getPost('status');
-            $id_pendaftar = $this->request->getPost('id_pendaftar');
-            $this->db->query("UPDATE tb_pendaftar_sidang SET hasil_sidang='$status' WHERE id_pendaftar='$id_pendaftar'");
+            // $status = $this->request->getPost('status');
+            // $id_pendaftar = $this->request->getPost('id_pendaftar');
+            // $this->db->query("UPDATE tb_pendaftar_sidang SET hasil_sidang='$status' WHERE id_pendaftar='$id_pendaftar'");
             if (empty($d_nilai)) {
                 $this->db->query("INSERT INTO tb_nilai (nim,nip,sebagai,nilai) VALUES ('$nim','" . session()->get('ses_id') . "','$sebagai','$nilai')");
             } else {
